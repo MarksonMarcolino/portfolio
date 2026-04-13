@@ -139,24 +139,40 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
       </div>
     </div>
 
+  </nav>
+
+  <!-- Mobile fullscreen overlay (outside nav for proper z-index) -->
+  <Teleport to="body">
     <div
       v-if="mobileOpen"
-      class="fixed inset-0 z-50 md:hidden flex flex-col items-center justify-center"
-      style="background: #0a0a0a; transition: transform 0.3s ease;"
+      class="fixed inset-0 md:hidden flex flex-col items-center justify-center"
+      style="background: #0a0a0a; z-index: 9999;"
     >
-      <button @click="mobileOpen = false" class="absolute top-4 right-4 cursor-pointer" style="color: #888;">
+      <button @click="mobileOpen = false" class="absolute top-5 right-5 cursor-pointer" style="color: #888;">
         <X :size="28" />
       </button>
+      <!-- Language switcher in overlay -->
+      <div class="absolute top-5 left-5 flex gap-2">
+        <button
+          v-for="l in locales"
+          :key="l.code"
+          @click="switchLocale(l.code)"
+          class="font-mono text-xs cursor-pointer transition-colors"
+          :style="locale === l.code ? 'color: #00d2ff;' : 'color: #666;'"
+        >
+          {{ l.label }}
+        </button>
+      </div>
       <a
         v-for="key in navKeys"
         :key="key"
         :href="anchors[key]"
         @click.prevent="scrollTo(anchors[key])"
         class="block py-3"
-        :style="'font-family: Bebas Neue, sans-serif; font-size: 2rem; letter-spacing: 0.02em; ' + (activeSection === anchors[key] ? 'color: #00d2ff;' : 'color: #f0f0f0; transition: color 0.2s ease;')"
+        :style="'font-family: Bebas Neue, sans-serif; font-size: 2rem; letter-spacing: 0.02em; text-decoration: none; ' + (activeSection === anchors[key] ? 'color: #00d2ff;' : 'color: #f0f0f0;')"
       >
         {{ t(`nav.${key}`) }}
       </a>
     </div>
-  </nav>
+  </Teleport>
 </template>

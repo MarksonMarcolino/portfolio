@@ -2,15 +2,36 @@ export default {
   nav: {
     home: 'Início',
     stack: 'Tecnologias',
+    projects: 'Projetos',
     timeline: 'Trajetória',
     publications: 'Publicações',
     about: 'Sobre',
     contact: 'Contato',
   },
+  projects: {
+    title: 'Projetos',
+    subtitle: 'Coisas que construí',
+    featured: 'PROJETO DESTAQUE',
+    showMore: 'Ver mais',
+    showLess: 'Ver menos',
+    entries: {
+      serena: { description: 'Plataforma digital para coordenação de cuidados paliativos e hospice no Brasil, construída com sua irmã para a tese de residência em geriatria. Gerencia avaliações clínicas, rastreamento de medicações, coordenação de equipe e decisões clínicas assistidas por IA. Conformidade LGPD e ANVISA.' },
+      nanoncore: { description: 'Plataforma de gestão de telecom e ISP. Gerenciamento de fibra GPON, provisionamento de equipamentos, monitoramento de rede em tempo real via SNMP/SSH e dashboards de métricas.' },
+      voz: { description: 'IA conversacional de voz auto-hospedada para português brasileiro e espanhol rioplatense. Pipeline de LLM + TTS com streaming para que o usuário ouça o áudio antes do modelo terminar de pensar. Roda inteiramente em hardware local.' },
+      clustering_utils: { description: 'Toolkit reutilizável de benchmark e visualização de clustering para Python.' },
+      db_toolkit: { description: 'Toolkit Python leve para PostgreSQL via SSH com execução SQL paralela e pool de conexões.' },
+    },
+  },
   hero: {
     tagline: `Engenheiro que constrói coisas.\nInfra de telecom, SaaS de saúde, IA de voz.\nFormação em engenharia de dados, presente full-stack.`,
     location: 'Madrid, Espanha',
     viewWork: 'Ver Trabalhos',
+    stats: {
+      experience: 'Anos de Experiência',
+      papers: 'Artigos Publicados',
+      products: 'Produtos Ativos',
+      languages: 'Idiomas',
+    },
     roles: {
       dataEngineer: 'Engenheiro de Dados',
       mlResearcher: 'Pesquisador de ML',

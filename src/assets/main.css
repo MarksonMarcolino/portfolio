@@ -34,6 +34,8 @@
     background-clip: text;
   }
 
+  /* === CARDS === */
+
   .card {
     position: relative;
     background: #0f1520;
@@ -76,7 +78,7 @@
     box-shadow:
       0 0 30px rgba(0, 210, 255, 0.08),
       0 8px 32px rgba(0, 0, 0, 0.4);
-    transform: translateY(-2px);
+    transform: translateY(-4px);
   }
 
   .card-static {
@@ -107,6 +109,8 @@
     pointer-events: none;
   }
 
+  /* === PILLS === */
+
   .pill-stack {
     background: rgba(0, 210, 255, 0.08);
     border: 1px solid rgba(0, 210, 255, 0.25);
@@ -121,7 +125,7 @@
 
   .pill-stack:hover {
     box-shadow: 0 0 10px rgba(0, 210, 255, 0.3);
-    transform: scale(1.02);
+    transform: translateY(-1px) scale(1.02);
   }
 
   .pill-stack.active {
@@ -142,7 +146,7 @@
 
   .pill-tag:hover {
     box-shadow: 0 0 10px rgba(245, 158, 11, 0.3);
-    transform: scale(1.02);
+    transform: translateY(-1px) scale(1.02);
   }
 
   .pill-tag.active {
@@ -157,17 +161,12 @@
     border-radius: 6px;
     font-size: 0.75rem;
     padding: 3px 10px;
-    cursor: pointer;
-    transition: all 0.2s ease;
+    cursor: default;
+    transition: all 0.15s ease;
   }
 
   .pill-production:hover {
-    box-shadow: 0 0 10px rgba(0, 210, 255, 0.3);
-  }
-
-  .pill-production.active {
-    box-shadow: 0 0 10px rgba(0, 210, 255, 0.5);
-    background: rgba(0, 210, 255, 0.15);
+    transform: translateY(-1px);
   }
 
   .pill-knowledge {
@@ -188,51 +187,7 @@
     color: #7b8ba4;
   }
 
-  .cursor-blink::after {
-    content: '|';
-    animation: blink 1s step-end infinite;
-    color: #00d2ff;
-    font-weight: 100;
-  }
-
-  @keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
-  }
-
-  @keyframes bounce-down {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(8px); }
-  }
-
-  .bounce-down {
-    animation: bounce-down 2s ease-in-out infinite;
-  }
-
-  .filter-enter-active {
-    transition: all 0.3s ease;
-  }
-
-  .filter-leave-active {
-    transition: all 0.2s ease;
-  }
-
-  .filter-enter-from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-
-  .filter-leave-to {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-
-  .dimmed {
-    opacity: 0.15;
-    transform: scale(0.98);
-    filter: blur(0.5px);
-    transition: all 0.2s ease;
-  }
+  /* === SECTION HEADERS === */
 
   .section-header {
     display: flex;
@@ -256,5 +211,103 @@
     background: linear-gradient(135deg, #00d2ff, #7b2ff7);
     border-radius: 2px;
     margin-top: 8px;
+  }
+
+  /* === ANIMATIONS === */
+
+  .cursor-blink::after {
+    content: '|';
+    animation: blink 1s step-end infinite;
+    color: #00d2ff;
+    font-weight: 100;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  @keyframes bounce-down {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(8px); }
+  }
+
+  .bounce-down {
+    animation: bounce-down 2s ease-in-out infinite;
+  }
+
+  /* === FILTER STATES === */
+
+  .dimmed {
+    opacity: 0.15;
+    transform: scale(0.98);
+    filter: blur(0.5px);
+    transition: all 0.3s ease;
+  }
+
+  /* === CURSOR GLOW === */
+
+  .cursor-glow {
+    position: fixed;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(
+      circle,
+      rgba(0, 210, 255, 0.04) 0%,
+      transparent 70%
+    );
+    pointer-events: none;
+    z-index: 0;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.3s ease;
+    will-change: transform;
+  }
+
+  /* === HORIZONTAL TIMELINE === */
+
+  .timeline-track {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    user-select: none;
+  }
+
+  .timeline-track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .timeline-edge-fade {
+    position: relative;
+  }
+
+  .timeline-edge-fade::before,
+  .timeline-edge-fade::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 60px;
+    z-index: 10;
+    pointer-events: none;
+  }
+
+  .timeline-edge-fade::before {
+    left: 0;
+    background: linear-gradient(to right, #080b12, transparent);
+  }
+
+  .timeline-edge-fade::after {
+    right: 0;
+    background: linear-gradient(to left, #080b12, transparent);
+  }
+
+  /* === CONTACT ARROWS === */
+
+  .contact-arrow {
+    transition: transform 0.2s ease;
+  }
+
+  .group:hover .contact-arrow {
+    transform: translate(2px, -2px);
   }
 }

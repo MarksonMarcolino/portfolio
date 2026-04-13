@@ -1,12 +1,16 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { useLenis } from '../composables/useLenis.js'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Menu, X, Globe } from 'lucide-vue-next'
 
 const { t, locale } = useI18n()
+const lenis = useLenis()
 
-const navKeys = ['home', 'stack', 'timeline', 'publications', 'about', 'contact']
-const anchors = { home: '#hero', stack: '#stack', timeline: '#timeline', publications: '#publications', about: '#about', contact: '#contact' }
+const navKeys = ['home', 'stack', 'projects', 'timeline', 'publications', 'about', 'contact']
+const anchors = { home: '#hero', stack: '#stack', projects: '#projects', timeline: '#timeline', publications: '#publications', about: '#about', contact: '#contact' }
 const locales = [
   { code: 'en', label: 'EN' },
   { code: 'pt', label: 'PT' },
@@ -16,6 +20,7 @@ const locales = [
 const mobileOpen = ref(false)
 const langOpen = ref(false)
 const activeSection = ref('#hero')
+const navRef = ref(null)
 
 function switchLocale(code) {
   locale.value = code
@@ -25,12 +30,7 @@ function switchLocale(code) {
 
 function scrollTo(href) {
   mobileOpen.value = false
-  if (window.__lenis) {
-    window.__lenis.scrollTo(href)
-  } else {
-    const el = document.querySelector(href)
-    if (el) el.scrollIntoView({ behavior: 'smooth' })
-  }
+  lenis.scrollTo(href)
 }
 
 function onScroll() {
@@ -44,13 +44,35 @@ function onScroll() {
   }
 }
 
-onMounted(() => window.addEventListener('scroll', onScroll, { passive: true }))
+onMounted(() => {
+  window.addEventListener('scroll', onScroll, { passive: true })
+
+  gsap.from(navRef.value, {
+    y: -60,
+    autoAlpha: 0,
+    duration: 0.6,
+    ease: 'power2.out',
+    delay: 0.1,
+  })
+
+  ScrollTrigger.create({
+    start: 'top -80',
+    onUpdate: (self) => {
+      gsap.to(navRef.value, {
+        height: self.direction === 1 ? 48 : 56,
+        duration: 0.3,
+        ease: 'power2.out',
+      })
+    },
+  })
+})
+
 onUnmounted(() => window.removeEventListener('scroll', onScroll))
 </script>
 
 <template>
-  <nav class="fixed top-0 left-0 right-0 z-50" style="background: rgba(8, 11, 18, 0.8); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255,255,255,0.05);">
-    <div class="max-w-6xl mx-auto px-4 h-14 flex items-center justify-between">
+  <nav ref="navRef" class="fixed top-0 left-0 right-0 z-50 flex items-center" style="background: rgba(8, 11, 18, 0.8); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255,255,255,0.05); height: 56px;">
+    <div class="max-w-6xl mx-auto px-4 w-full flex items-center justify-between">
       <a href="#hero" @click.prevent="scrollTo('#hero')" class="font-mono font-bold text-lg gradient-text">M.</a>
 
       <div class="hidden md:flex items-center gap-6">
@@ -66,7 +88,6 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
           <span v-if="activeSection === anchors[key]" class="absolute bottom-0 left-0 right-0 h-0.5 rounded" style="background: linear-gradient(135deg, #00d2ff, #7b2ff7);" />
         </a>
 
-        <!-- Language switcher -->
         <div class="relative ml-2">
           <button @click="langOpen = !langOpen" class="flex items-center gap-1 text-sm text-text-secondary hover:text-accent transition-colors cursor-pointer">
             <Globe :size="14" />
@@ -87,7 +108,6 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
       </div>
 
       <div class="flex items-center gap-3 md:hidden">
-        <!-- Mobile lang switcher -->
         <div class="relative">
           <button @click="langOpen = !langOpen" class="flex items-center gap-1 text-text-secondary hover:text-accent transition-colors cursor-pointer">
             <Globe :size="14" />
@@ -112,7 +132,7 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
       </div>
     </div>
 
-    <div v-if="mobileOpen" class="md:hidden" style="background: rgba(8, 11, 18, 0.95); backdrop-filter: blur(16px); border-top: 1px solid rgba(255,255,255,0.05);">
+    <div v-if="mobileOpen" class="absolute top-full left-0 right-0 md:hidden" style="background: rgba(8, 11, 18, 0.95); backdrop-filter: blur(16px); border-top: 1px solid rgba(255,255,255,0.05);">
       <a
         v-for="key in navKeys"
         :key="key"

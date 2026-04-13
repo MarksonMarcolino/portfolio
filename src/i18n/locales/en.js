@@ -2,15 +2,36 @@ export default {
   nav: {
     home: 'Home',
     stack: 'Stack',
+    projects: 'Projects',
     timeline: 'Timeline',
     publications: 'Publications',
     about: 'About',
     contact: 'Contact',
   },
+  projects: {
+    title: 'Projects',
+    subtitle: "Things I've built",
+    featured: 'FEATURED PROJECT',
+    showMore: 'Show more',
+    showLess: 'Show less',
+    entries: {
+      serena: { description: 'Digital platform for hospice and palliative care coordination in Brazil, built with his sister for her geriatrics residency thesis. Handles clinical assessments, medication tracking, team coordination, and AI-assisted clinical decisions. LGPD and ANVISA compliant.' },
+      nanoncore: { description: 'Telecom and ISP management platform. GPON fiber management, equipment provisioning, real-time network monitoring via SNMP/SSH, and metrics dashboards.' },
+      voz: { description: 'Self-hosted voice conversational AI for Brazilian Portuguese and Rioplatense Spanish. Pipelined LLM + TTS streaming so the user hears audio before the model finishes thinking. Runs entirely on local hardware.' },
+      clustering_utils: { description: 'Reusable clustering benchmark and visualization toolkit for Python.' },
+      db_toolkit: { description: 'Lightweight Python toolkit for PostgreSQL via SSH with parallel SQL execution and connection pooling.' },
+    },
+  },
   hero: {
     tagline: `Engineer who builds things.\nTelecom infra, healthcare SaaS, voice AI.\nData engineering background, full-stack present.`,
     location: 'Madrid, Spain',
     viewWork: 'View Work',
+    stats: {
+      experience: 'Years Experience',
+      papers: 'Papers Published',
+      products: 'Live Products',
+      languages: 'Languages',
+    },
     roles: {
       dataEngineer: 'Data Engineer',
       mlResearcher: 'ML Researcher',

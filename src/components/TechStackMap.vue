@@ -1,23 +1,29 @@
 <script setup>
+import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { useScrollReveal } from '../composables/useScrollReveal.js'
 import { stackCategories } from '../data/stack.js'
 import {
   Cloud, Database, Terminal, Brain, BarChart3,
   Server, Layout, Container, Cpu, BookOpen
 } from 'lucide-vue-next'
+import WordReveal from './WordReveal.vue'
 
 const { t } = useI18n()
 const icons = { Cloud, Database, Terminal, Brain, BarChart3, Server, Layout, Container, Cpu }
+const sectionRef = ref(null)
+
+useScrollReveal(sectionRef, '.card', { y: 25, stagger: 0.05 })
 </script>
 
 <template>
-  <section id="stack" class="relative z-10 py-20 px-4">
+  <section id="stack" ref="sectionRef" class="relative z-10 py-20 px-4">
     <div class="max-w-6xl mx-auto">
       <div class="flex items-end justify-between mb-2">
         <div>
           <div class="section-header">
             <Cpu :size="22" class="text-accent" />
-            <span class="title">{{ t('stack.title') }}</span>
+            <WordReveal :text="t('stack.title')" />
           </div>
           <div class="section-underline ml-8" />
         </div>
@@ -36,7 +42,7 @@ const icons = { Cloud, Database, Terminal, Brain, BarChart3, Server, Layout, Con
       <p class="text-text-secondary text-sm mb-10 ml-8">{{ t('stack.subtitle') }}</p>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-        <div v-for="cat in stackCategories" :key="cat.category" class="card">
+        <div v-for="cat in stackCategories" :key="cat.category" class="card" style="visibility: hidden;">
           <div class="flex items-center gap-2 mb-3">
             <component :is="icons[cat.icon] || Cpu" :size="18" class="text-accent" />
             <h3 class="font-mono text-[0.85rem] font-semibold uppercase tracking-wider gradient-text">
@@ -45,7 +51,7 @@ const icons = { Cloud, Database, Terminal, Brain, BarChart3, Server, Layout, Con
           </div>
           <div class="flex flex-wrap gap-1.5">
             <template v-for="item in cat.items" :key="item.name">
-              <span v-if="item.tier === 'production'" class="pill-production !cursor-default">
+              <span v-if="item.tier === 'production'" class="pill-production">
                 {{ item.name }}
               </span>
               <span v-else class="pill-knowledge">

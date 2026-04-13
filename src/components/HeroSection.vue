@@ -1,9 +1,13 @@
 <script setup>
 import { ref, onMounted, onUnmounted, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { MapPin, ChevronDown, Github } from 'lucide-vue-next'
+import { useLenis } from '../composables/useLenis.js'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { MapPin, ChevronDown, Github, Calendar, BookOpen, Rocket, Languages } from 'lucide-vue-next'
 
 const { t, locale } = useI18n()
+const lenis = useLenis()
 
 const roleKeys = ['dataEngineer', 'mlResearcher', 'fullStackBuilder', 'openSourceAuthor']
 const displayText = ref('')
@@ -47,6 +51,15 @@ watch(locale, () => {
   displayText.value = ''
   tick()
 })
+
+const stats = [
+  { key: 'experience', value: 15, suffix: '+', icon: Calendar },
+  { key: 'papers', value: 4, suffix: '', icon: BookOpen },
+  { key: 'products', value: 3, suffix: '', icon: Rocket },
+  { key: 'languages', value: 3, suffix: '', icon: Languages },
+]
+
+const statRefs = ref({})
 
 const canvas = ref(null)
 let animFrame = null
@@ -102,12 +115,69 @@ function initCanvas() {
   })
 }
 
-onMounted(() => { tick(); initCanvas() })
+onMounted(() => {
+  tick()
+  initCanvas()
+
+  // Hero entrance sequence
+  const tl = gsap.timeline({ delay: 0.3 })
+
+  tl.fromTo('.hero-name',
+    { autoAlpha: 0, y: 40, skewY: 2 },
+    { autoAlpha: 1, y: 0, skewY: 0, duration: 0.8, ease: 'power4.out' })
+
+    .fromTo('.hero-typewriter',
+      { autoAlpha: 0, y: 20 },
+      { autoAlpha: 1, y: 0, duration: 0.5, ease: 'power2.out' },
+      '-=0.3')
+
+    .fromTo('.hero-tagline',
+      { autoAlpha: 0, y: 20 },
+      { autoAlpha: 1, y: 0, duration: 0.6, ease: 'power2.out' },
+      '-=0.3')
+
+    .fromTo('.hero-location',
+      { autoAlpha: 0, y: 15 },
+      { autoAlpha: 1, y: 0, duration: 0.4, ease: 'power2.out' },
+      '-=0.2')
+
+    .fromTo('.hero-btn',
+      { autoAlpha: 0, y: 15 },
+      { autoAlpha: 1, y: 0, duration: 0.5, ease: 'power2.out', stagger: 0.1 },
+      '-=0.2')
+
+    .fromTo('.hero-stat',
+      { autoAlpha: 0, y: 20 },
+      { autoAlpha: 1, y: 0, duration: 0.4, ease: 'power2.out', stagger: 0.08 },
+      '-=0.2')
+
+  // Stats counter animation
+  stats.forEach((stat) => {
+    const el = statRefs.value[stat.key]
+    if (!el) return
+    ScrollTrigger.create({
+      trigger: el,
+      start: 'top 90%',
+      once: true,
+      onEnter: () => {
+        const obj = { val: 0 }
+        gsap.to(obj, {
+          val: stat.value,
+          duration: 1.5,
+          ease: 'power2.out',
+          onUpdate: () => {
+            el.textContent = Math.round(obj.val) + stat.suffix
+          },
+        })
+      },
+    })
+  })
+})
+
 onUnmounted(() => { clearTimeout(timer); cancelAnimationFrame(animFrame) })
 
 function scrollToWork() {
-  if (window.__lenis) window.__lenis.scrollTo('#stack')
-  else document.querySelector('#stack')?.scrollIntoView({ behavior: 'smooth' })
+  lenis.scrollTo('#stack')
 }
 </script>
 
@@ -116,25 +186,25 @@ function scrollToWork() {
     <canvas ref="canvas" class="absolute inset-0 z-0 pointer-events-none" />
 
     <div class="relative z-10 max-w-2xl mx-auto px-4 text-center">
-      <h1 class="font-mono font-bold gradient-text mb-4" style="font-size: clamp(2rem, 5vw, 4rem);">
+      <h1 class="hero-name font-mono font-bold gradient-text mb-4 invisible" style="font-size: clamp(2rem, 5vw, 4rem);">
         Markson Rebelo Marcolino
       </h1>
 
-      <div class="font-mono text-xl md:text-2xl text-accent mb-6 h-8">
+      <div class="hero-typewriter font-mono text-xl md:text-2xl text-accent mb-6 h-8 invisible">
         <span class="cursor-blink">{{ displayText }}</span>
       </div>
 
-      <p class="text-text-secondary text-base leading-relaxed max-w-[480px] mx-auto mb-8 whitespace-pre-line">{{ t('hero.tagline') }}</p>
+      <p class="hero-tagline text-text-secondary text-base leading-relaxed max-w-[480px] mx-auto mb-6 whitespace-pre-line invisible">{{ t('hero.tagline') }}</p>
 
-      <div class="inline-flex items-center gap-2 text-sm mb-8 px-4 py-1.5 rounded-full" style="border: 1px solid rgba(0,210,255,0.3);">
+      <div class="hero-location inline-flex items-center gap-2 text-sm mb-8 px-4 py-1.5 rounded-full invisible" style="border: 1px solid rgba(0,210,255,0.3);">
         <MapPin :size="14" class="text-accent" />
         <span class="text-text-secondary">{{ t('hero.location') }}</span>
       </div>
 
-      <div class="flex flex-wrap justify-center gap-3">
+      <div class="flex flex-wrap justify-center gap-3 mb-10">
         <button
           @click="scrollToWork"
-          class="px-7 py-3 rounded-lg text-sm font-medium text-white transition-all hover:opacity-85 hover:scale-[1.02] cursor-pointer"
+          class="hero-btn px-7 py-3 rounded-lg text-sm font-medium text-white transition-all hover:opacity-85 hover:scale-[1.02] cursor-pointer invisible"
           style="background: linear-gradient(135deg, #00d2ff, #7b2ff7);"
         >
           {{ t('hero.viewWork') }}
@@ -143,7 +213,7 @@ function scrollToWork() {
           href="https://github.com/MarksonMarcolino"
           target="_blank"
           rel="noopener"
-          class="relative inline-flex rounded-lg p-[2px] transition-all hover:scale-[1.02] cursor-pointer"
+          class="hero-btn relative inline-flex rounded-lg p-[2px] transition-all hover:scale-[1.02] cursor-pointer invisible"
           style="background: linear-gradient(135deg, #00d2ff, #7b2ff7);"
         >
           <span class="flex items-center gap-2 bg-bg px-7 py-3 rounded-[6px] text-sm text-text-primary">
@@ -151,6 +221,22 @@ function scrollToWork() {
             GitHub
           </span>
         </a>
+      </div>
+
+      <!-- Stats row -->
+      <div class="flex flex-wrap justify-center gap-8">
+        <div v-for="stat in stats" :key="stat.key" class="hero-stat text-center invisible">
+          <div class="flex items-center justify-center gap-1.5 mb-1">
+            <component :is="stat.icon" :size="16" class="text-accent" />
+            <span
+              :ref="el => { if (el) statRefs[stat.key] = el }"
+              class="font-mono text-2xl font-bold gradient-text"
+            >
+              0{{ stat.suffix }}
+            </span>
+          </div>
+          <div class="text-xs text-text-muted">{{ t(`hero.stats.${stat.key}`) }}</div>
+        </div>
       </div>
     </div>
 

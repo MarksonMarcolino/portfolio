@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import { useLenis } from '../composables/useLenis.js'
 import HomeView from '../views/HomeView.vue'
 
 const router = createRouter({
@@ -8,11 +9,8 @@ const router = createRouter({
   ],
   scrollBehavior(to) {
     if (to.hash) {
-      if (window.__lenis) {
-        window.__lenis.scrollTo(to.hash)
-        return false
-      }
-      return { el: to.hash, behavior: 'smooth' }
+      useLenis().scrollTo(to.hash)
+      return false
     }
     return { top: 0 }
   },

@@ -1,8 +1,14 @@
 <script setup>
+import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { useScrollReveal } from '../composables/useScrollReveal.js'
 import { Globe, ExternalLink, User } from 'lucide-vue-next'
+import WordReveal from './WordReveal.vue'
 
 const { t } = useI18n()
+const sectionRef = ref(null)
+
+useScrollReveal(sectionRef, '[data-reveal]', { y: 30, stagger: 0.12 })
 
 const languages = [
   { flag: '\u{1F1E7}\u{1F1F7}', key: 'portuguese', levelKey: 'native' },
@@ -21,23 +27,23 @@ const linkIcons = { Globe, ExternalLink }
 </script>
 
 <template>
-  <section id="about" class="relative z-10 py-20 px-4">
+  <section id="about" ref="sectionRef" class="relative z-10 py-20 px-4">
     <div class="max-w-5xl mx-auto">
       <div class="mb-2">
         <div class="section-header">
           <User :size="22" class="text-accent" />
-          <span class="title">{{ t('about.title') }}</span>
+          <WordReveal :text="t('about.title')" />
         </div>
         <div class="section-underline ml-8" />
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 mt-10">
-        <div>
+        <div data-reveal style="visibility: hidden;">
           <p class="text-text-secondary leading-relaxed">{{ t('about.bio') }}</p>
         </div>
 
         <div class="space-y-8">
-          <div>
+          <div data-reveal style="visibility: hidden;">
             <h3 class="font-mono text-xs text-text-muted uppercase tracking-wider mb-3">{{ t('about.languages') }}</h3>
             <div class="grid grid-cols-2 gap-2">
               <div v-for="lang in languages" :key="lang.key" class="card-static !p-3 flex items-center gap-2">
@@ -50,7 +56,7 @@ const linkIcons = { Globe, ExternalLink }
             </div>
           </div>
 
-          <div>
+          <div data-reveal style="visibility: hidden;">
             <h3 class="font-mono text-xs text-text-muted uppercase tracking-wider mb-3">{{ t('about.currentlyBuilding') }}</h3>
             <div class="space-y-2">
               <a

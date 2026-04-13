@@ -78,7 +78,7 @@ function formatDate(start, end) {
         v-for="s in entry.stack"
         :key="s"
         @click.stop="setFilter(s, 'stack')"
-        class="pill-stack !text-[0.6rem] !px-1.5 !py-0.5"
+        class="pill-stack-sm"
         :class="{ active: activeFilter === s && activeFilterType === 'stack' }"
       >
         {{ s }}
@@ -91,7 +91,7 @@ function formatDate(start, end) {
         v-for="tg in entry.tags"
         :key="tg"
         @click.stop="setFilter(tg, 'tag')"
-        class="pill-tag !text-[0.6rem] !px-1.5 !py-0.5"
+        class="pill-tag-sm"
         :class="{ active: activeFilter === tg && activeFilterType === 'tag' }"
       >
         {{ tg }}

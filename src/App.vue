@@ -3,6 +3,7 @@ import { ref, onMounted, onUnmounted } from 'vue'
 import { useMediaQuery } from '@vueuse/core'
 import gsap from 'gsap'
 import NavBar from './components/NavBar.vue'
+import CvTemplate from './components/CvTemplate.vue'
 
 const cursorGlow = ref(null)
 const hasHover = useMediaQuery('(hover: hover)')
@@ -32,4 +33,5 @@ onUnmounted(() => {
   <div class="cursor-glow" v-if="hasHover" ref="cursorGlow" />
   <NavBar />
   <router-view />
+  <CvTemplate />
 </template>

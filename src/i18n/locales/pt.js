@@ -27,6 +27,7 @@ export default {
     available: 'Disponível para oportunidades',
     location: 'Madrid, Espanha',
     viewWork: 'Ver Trabalhos',
+    download_cv: 'Baixar CV',
     stats: {
       experience: 'Anos de Experiência',
       papers: 'Artigos Publicados',
@@ -203,5 +204,20 @@ export default {
     viewCertificate: 'Ver Certificado',
     present: 'Presente',
     openSource: 'Open Source',
+  },
+  cv: {
+    filename: 'Markson_Rebelo_Marcolino_CV_PT.pdf',
+    title: 'Engenheiro de Dados',
+    summary_label: 'Resumo',
+    summary: 'Engenheiro de Dados com mais de 15 anos de experiencia construindo plataformas de dados escalaveis, pipelines e produtos full-stack em telecomunicacoes, saude e educacao. Expert em Python, GCP, BigQuery, FastAPI e infraestrutura de dados em nuvem.',
+    experience: 'Experiencia',
+    education: 'Educacao',
+    publications: 'Publicacoes',
+    skills: 'Habilidades Tecnicas',
+    present: 'Presente',
+    lead_author: 'Autor Principal',
+    co_author: 'Co-autor',
+    in_press: 'No Prelo',
+    location: 'Madri, Espanha',
   },
 }

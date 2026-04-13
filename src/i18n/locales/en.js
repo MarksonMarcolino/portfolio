@@ -27,6 +27,7 @@ export default {
     available: 'Available for opportunities',
     location: 'Madrid, Spain',
     viewWork: 'View Work',
+    download_cv: 'Download CV',
     stats: {
       experience: 'Years Experience',
       papers: 'Papers Published',
@@ -203,5 +204,20 @@ export default {
     viewCertificate: 'View Certificate',
     present: 'Present',
     openSource: 'Open Source',
+  },
+  cv: {
+    filename: 'Markson_Rebelo_Marcolino_CV_EN.pdf',
+    title: 'Data Engineer',
+    summary_label: 'Summary',
+    summary: 'Data Engineer with 15+ years of experience building scalable data platforms, pipelines, and full-stack products across telecom, healthcare, and education. Expert in Python, GCP, BigQuery, FastAPI, and cloud-native data infrastructure.',
+    experience: 'Experience',
+    education: 'Education',
+    publications: 'Publications',
+    skills: 'Technical Skills',
+    present: 'Present',
+    lead_author: 'Lead Author',
+    co_author: 'Co-author',
+    in_press: 'In Press',
+    location: 'Madrid, Spain',
   },
 }

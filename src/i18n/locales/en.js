@@ -25,6 +25,9 @@ export default {
   hero: {
     tagline: `Building scalable data platforms, voice AI, and full-stack products. 15 years shipping systems that work in production.`,
     available: 'Available for opportunities',
+    greeting: "Hey, I'm Markson,",
+    line1: 'A DATA',
+    line2: 'ENGINEER',
     location: 'Madrid, Spain',
     viewWork: 'View Work',
     download_cv: 'Download CV',

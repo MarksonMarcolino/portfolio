@@ -101,13 +101,13 @@ function scrollToWork() {
       <!-- Heading -->
       <div class="hero-heading">
         <div class="hero-heading-line" style="font-family: 'Bebas Neue', sans-serif; font-size: clamp(1rem, 2vw, 1.4rem); color: #666; font-weight: 400; letter-spacing: 0.02em; opacity: 0;">
-          Hey, I'm Markson,
+          {{ t('hero.greeting') }}
         </div>
         <div class="hero-heading-line" style="font-family: 'Bebas Neue', sans-serif; font-size: clamp(4rem, 10vw, 9rem); color: #f0f0f0; line-height: 0.92; letter-spacing: -0.01em; opacity: 0;">
-          A DATA
+          {{ t('hero.line1') }}
         </div>
         <div class="hero-heading-line" style="font-family: 'Bebas Neue', sans-serif; font-size: clamp(4rem, 10vw, 9rem); color: #00d2ff; line-height: 0.92; letter-spacing: -0.01em; opacity: 0;">
-          ENGINEER
+          {{ t('hero.line2') }}
         </div>
       </div>
 

@@ -25,6 +25,9 @@ export default {
   hero: {
     tagline: `Construindo plataformas de dados escaláveis, IA de voz e produtos full-stack. 15 anos entregando sistemas que funcionam em produção.`,
     available: 'Disponível para oportunidades',
+    greeting: 'Oi, eu sou o Markson,',
+    line1: 'ENGENHEIRO',
+    line2: 'DE DADOS',
     location: 'Madrid, Espanha',
     viewWork: 'Ver Trabalhos',
     download_cv: 'Baixar CV',

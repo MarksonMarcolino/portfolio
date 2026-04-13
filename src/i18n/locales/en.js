@@ -23,7 +23,8 @@ export default {
     },
   },
   hero: {
-    tagline: `Engineer who builds things.\nTelecom infra, healthcare SaaS, voice AI.\nData engineering background, full-stack present.`,
+    tagline: `Building scalable data platforms, voice AI, and full-stack products. 15 years shipping systems that work in production.`,
+    available: 'Available for opportunities',
     location: 'Madrid, Spain',
     viewWork: 'View Work',
     stats: {
@@ -57,7 +58,7 @@ export default {
   },
   timeline: {
     title: 'Career Timeline',
-    subtitle: 'Work, projects, education, and certifications',
+    subtitle: 'Work, education, and certifications',
     filtering: 'Filtering',
     types: {
       work: 'Work',
@@ -153,17 +154,23 @@ export default {
         description: 'Book chapter expanding on ML approaches for educational data analysis.',
       },
       'dgo-2025-1': {
-        title: 'Conference Paper — DGO 2025',
+        title: "Ensuring Data Quality in National Educational Databases: Insights from Brazil's Centralized Database of High School Students' Data",
         description: 'Data quality and ML applied to national educational databases for government policy insights.',
       },
       'dgo-2025-2': {
-        title: 'Conference Paper — DGO 2025',
+        title: 'Leveraging String Similarity Algorithms for Educational Data Validation: A Scalable Approach for Digital Governance',
         description: 'Machine learning applied to national educational databases, focused on early identification of at-risk students.',
       },
     },
   },
   about: {
     title: 'About',
+    subtitle: 'A bit about me',
+    education: 'Education',
+    degrees: {
+      masters: "Master's in Information and Communication Technologies",
+      bachelors: "Bachelor's in Information and Communication Technologies",
+    },
     bio: 'Brazilian engineer based in Madrid. Building across telecom, healthcare, and voice AI. 15 years shipping data platforms, now shipping full-stack products. Started in data engineering — pipelines, platforms, and teams across education, analytics, and Web3. Everything is a data problem if you zoom out far enough.',
     languages: 'Languages',
     currentlyBuilding: 'Currently building',
@@ -185,8 +192,9 @@ export default {
     },
   },
   contact: {
-    title: 'Contact',
-    subtitle: "Let's build something together",
+    line1: "LET'S WORK",
+    line2: 'TOGETHER',
+    subtitle: 'Open to full-time roles, consulting, and interesting problems.',
     footer: 'Built with Vue 3 + Tailwind CSS',
   },
   common: {

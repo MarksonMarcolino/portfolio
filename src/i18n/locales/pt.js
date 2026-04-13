@@ -23,7 +23,8 @@ export default {
     },
   },
   hero: {
-    tagline: `Engenheiro que constrói coisas.\nInfra de telecom, SaaS de saúde, IA de voz.\nFormação em engenharia de dados, presente full-stack.`,
+    tagline: `Construindo plataformas de dados escaláveis, IA de voz e produtos full-stack. 15 anos entregando sistemas que funcionam em produção.`,
+    available: 'Disponível para oportunidades',
     location: 'Madrid, Espanha',
     viewWork: 'Ver Trabalhos',
     stats: {
@@ -57,7 +58,7 @@ export default {
   },
   timeline: {
     title: 'Trajetória',
-    subtitle: 'Trabalho, projetos, formação e certificações',
+    subtitle: 'Trabalho, formação e certificações',
     filtering: 'Filtrando',
     types: {
       work: 'Trabalho',
@@ -153,17 +154,23 @@ export default {
         description: 'Capítulo de livro expandindo abordagens de ML para análise de dados educacionais.',
       },
       'dgo-2025-1': {
-        title: 'Artigo de Conferência — DGO 2025',
+        title: "Garantindo a Qualidade de Dados em Bases Educacionais Nacionais: Insights da Base Centralizada de Dados de Estudantes do Ensino Médio do Brasil",
         description: 'Qualidade de dados e ML aplicados a bases de dados educacionais nacionais para insights de políticas governamentais.',
       },
       'dgo-2025-2': {
-        title: 'Artigo de Conferência — DGO 2025',
+        title: 'Aproveitando Algoritmos de Similaridade de Strings para Validação de Dados Educacionais: Uma Abordagem Escalável para Governança Digital',
         description: 'Machine learning aplicado a bases de dados educacionais nacionais, focado na identificação precoce de alunos em risco.',
       },
     },
   },
   about: {
     title: 'Sobre',
+    subtitle: 'Um pouco sobre mim',
+    education: 'Formação',
+    degrees: {
+      masters: 'Mestrado em Tecnologias da Informação e Comunicação',
+      bachelors: 'Bacharelado em Tecnologias da Informação e Comunicação',
+    },
     bio: 'Engenheiro brasileiro em Madrid. Construindo em telecom, saúde e IA de voz. 15 anos entregando plataformas de dados, agora entregando produtos full-stack. Comecei em engenharia de dados — pipelines, plataformas e equipes em educação, analytics e Web3. Tudo é um problema de dados se você der zoom out o suficiente.',
     languages: 'Idiomas',
     currentlyBuilding: 'Construindo atualmente',
@@ -185,8 +192,9 @@ export default {
     },
   },
   contact: {
-    title: 'Contato',
-    subtitle: 'Vamos construir algo juntos',
+    line1: 'VAMOS',
+    line2: 'TRABALHAR JUNTOS',
+    subtitle: 'Aberto a vagas full-time, consultoria e problemas interessantes.',
     footer: 'Feito com Vue 3 + Tailwind CSS',
   },
   common: {

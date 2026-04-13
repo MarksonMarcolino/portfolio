@@ -38,7 +38,8 @@ export function useFilters() {
       if (d.length === 4) return `${d}-01`
       return d
     }
-    return parseDate(b.dateStart).localeCompare(parseDate(a.dateStart))
+    const sortDate = (entry) => entry.dateEnd ? parseDate(entry.dateEnd) : parseDate(entry.dateStart)
+    return sortDate(b).localeCompare(sortDate(a))
   })
 
   const filteredTimeline = computed(() => sortedTimeline)

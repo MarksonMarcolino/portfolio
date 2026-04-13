@@ -1,57 +1,75 @@
 <script setup>
-import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { useScrollReveal } from '../composables/useScrollReveal.js'
-import { Mail, Github, Linkedin, ExternalLink, Send } from 'lucide-vue-next'
-import WordReveal from './WordReveal.vue'
+import { Mail, Github, Linkedin, ArrowRight } from 'lucide-vue-next'
 
 const { t } = useI18n()
-const sectionRef = ref(null)
-
-useScrollReveal(sectionRef, '.card', { y: 20, stagger: 0.08 })
 
 const contacts = [
-  { label: 'Email', href: 'mailto:markson.marcolino@gmail.com', display: 'markson.marcolino@gmail.com', icon: Mail },
-  { label: 'GitHub', href: 'https://github.com/MarksonMarcolino', display: 'github.com/MarksonMarcolino', icon: Github },
-  { label: 'LinkedIn', href: 'https://linkedin.com/in/marksonmarcolino', display: 'linkedin.com/in/marksonmarcolino', icon: Linkedin },
+  { label: 'EMAIL', href: 'mailto:markson.marcolino@gmail.com', display: 'markson.marcolino@gmail.com', icon: Mail },
+  { label: 'GITHUB', href: 'https://github.com/MarksonMarcolino', display: 'github.com/MarksonMarcolino', icon: Github },
+  { label: 'LINKEDIN', href: 'https://linkedin.com/in/marksonmarcolino', display: 'linkedin.com/in/marksonmarcolino', icon: Linkedin },
 ]
 </script>
 
 <template>
-  <section id="contact" ref="sectionRef" class="relative z-10 py-20 px-4">
-    <div class="max-w-3xl mx-auto text-center">
-      <div class="flex justify-center mb-2">
-        <div>
-          <div class="section-header">
-            <Send :size="22" class="text-accent" />
-            <WordReveal :text="t('contact.title')" />
-          </div>
-          <div class="section-underline mx-auto" />
+  <section id="contact" class="relative z-10 px-4" style="padding-top: clamp(80px, 10vw, 120px); padding-bottom: 0;">
+    <div class="max-w-4xl mx-auto">
+      <!-- Title -->
+      <div class="text-center" style="margin-bottom: 48px;">
+        <div style="font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 8vw, 7rem); line-height: 0.92; font-weight: 400;">
+          <div style="color: #f0f0f0;">{{ t('contact.line1') }}</div>
+          <div style="color: #00d2ff;">{{ t('contact.line2') }}</div>
         </div>
+        <p style="font-family: Inter, sans-serif; font-size: 0.9rem; color: #888; margin-top: 16px;">
+          {{ t('contact.subtitle') }}
+        </p>
       </div>
 
-      <p class="text-text-secondary text-sm mb-10 mt-4">{{ t('contact.subtitle') }}</p>
-
-      <div class="flex flex-col sm:flex-row justify-center gap-4">
+      <!-- Contact rows -->
+      <div style="padding-right: clamp(16px, 3vw, 40px);">
         <a
-          v-for="c in contacts"
+          v-for="(c, i) in contacts"
           :key="c.label"
           :href="c.href"
           target="_blank"
           rel="noopener"
-          class="card flex items-center gap-3 cursor-pointer group !p-4"
-          style="visibility: hidden;"
+          class="contact-row flex items-center justify-between cursor-pointer transition-all duration-200 group"
+          :style="{ padding: '20px 0', borderBottom: '1px solid rgba(255,255,255,0.06)', borderTop: i === 0 ? '1px solid rgba(255,255,255,0.06)' : 'none', textDecoration: 'none' }"
         >
-          <component :is="c.icon" :size="20" class="text-accent shrink-0" />
-          <div class="text-left">
-            <div class="text-xs text-text-muted font-mono">{{ c.label }}</div>
-            <div class="text-sm text-text-secondary group-hover:text-text-primary transition-colors">{{ c.display }}</div>
+          <div class="flex items-center" style="gap: 16px;">
+            <component :is="c.icon" :size="20" class="shrink-0 transition-colors duration-200" style="color: #888;" />
+            <span class="transition-colors duration-200" style="font-family: Inter, sans-serif; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: #888;">{{ c.label }}</span>
+            <span class="transition-colors duration-200" style="font-family: Inter, sans-serif; font-size: 1rem; color: #f0f0f0;">{{ c.display }}</span>
           </div>
-          <ExternalLink :size="14" class="text-text-muted ml-auto shrink-0 contact-arrow" />
+          <ArrowRight :size="16" class="contact-arrow shrink-0 transition-all duration-200" style="color: #444;" />
         </a>
       </div>
 
-      <p class="mt-16 text-xs text-text-muted font-mono">{{ t('contact.footer') }}</p>
+      <!-- Footer -->
+      <p class="text-center" style="padding: 32px 0;">
+        <a
+          href="https://github.com/MarksonMarcolino"
+          target="_blank"
+          rel="noopener"
+          class="footer-link"
+          style="font-family: Inter, sans-serif; font-size: 0.72rem; color: #3d3d3d; text-decoration: none; transition: color 0.2s ease;"
+        >
+          {{ t('contact.footer') }}
+        </a>
+      </p>
     </div>
   </section>
 </template>
+
+<style scoped>
+.contact-row:hover span {
+  color: #f0f0f0;
+}
+.contact-row:hover .contact-arrow {
+  color: #00d2ff;
+  transform: translateX(4px);
+}
+.footer-link:hover {
+  color: #888 !important;
+}
+</style>

@@ -3,10 +3,7 @@ import { ref, onMounted, onUnmounted } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useScrollReveal } from '../composables/useScrollReveal.js'
 import gsap from 'gsap'
-import {
-  Briefcase, BookOpen, X,
-  Briefcase as BriefcaseIcon, Code2, GraduationCap, Award
-} from 'lucide-vue-next'
+import { X } from 'lucide-vue-next'
 import HeroSection from '../components/HeroSection.vue'
 import TechStackMap from '../components/TechStackMap.vue'
 import ProjectsSection from '../components/ProjectsSection.vue'
@@ -23,9 +20,6 @@ const { activeFilter, activeFilterType, clearFilter, matchesFilter, isFiltering,
 
 const pubSectionRef = ref(null)
 useScrollReveal(pubSectionRef, '[data-reveal-pub]', { y: 20, stagger: 0.06 })
-
-// Timeline type icons for dots
-const typeIcons = { work: BriefcaseIcon, project: Code2, education: GraduationCap, certification: Award }
 
 // --- Horizontal timeline drag ---
 const timelineTrack = ref(null)
@@ -78,34 +72,32 @@ function onPointerUp() {
     <ProjectsSection />
 
     <!-- Timeline (horizontal) -->
-    <section id="timeline" class="relative z-10 py-20">
-      <div class="max-w-6xl mx-auto px-4 mb-2">
+    <section id="timeline" class="relative z-10" style="padding-top: clamp(80px, 10vw, 120px); padding-bottom: 80px;">
+      <div class="max-w-6xl mx-auto px-4">
         <div class="flex items-center justify-between">
           <div>
-            <div class="section-header">
-              <Briefcase :size="22" class="text-accent" />
-              <WordReveal :text="t('timeline.title')" />
-            </div>
-            <div class="section-underline ml-8" />
+            <h2 style="font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 6vw, 5rem); color: #f0f0f0; line-height: 1; font-weight: 400;">
+              {{ t('timeline.title') }}
+            </h2>
+            <p style="font-family: Inter, sans-serif; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; color: #888; margin-top: 4px;">
+              {{ t('timeline.subtitle') }}
+            </p>
           </div>
 
           <button
             v-if="isFiltering"
             @click="clearFilter"
-            class="flex items-center gap-1.5 text-xs text-white px-3 py-1 rounded-full cursor-pointer transition-all hover:scale-[1.02]"
-            :style="activeFilterType === 'stack'
-              ? 'background: linear-gradient(135deg, #00d2ff, #7b2ff7);'
-              : 'background: linear-gradient(135deg, #f59e0b, #ef4444);'"
+            class="flex items-center gap-1.5 cursor-pointer transition-all hover:scale-[1.02]"
+            style="font-size: 0.75rem; color: #f0f0f0; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); border-radius: 4px; padding: 4px 12px;"
           >
             {{ t('timeline.filtering') }}: {{ activeFilter }}
             <X :size="12" />
           </button>
         </div>
-        <p class="text-text-secondary text-sm mt-4 ml-8">{{ t('timeline.subtitle') }}</p>
       </div>
 
       <!-- Horizontal track with edge fades -->
-      <div class="timeline-edge-fade mt-10">
+      <div class="timeline-edge-fade" style="margin-top: 32px;">
         <div
           ref="timelineTrack"
           class="timeline-track overflow-x-auto px-8 pb-6 cursor-grab"
@@ -116,24 +108,21 @@ function onPointerUp() {
           @pointerleave="onPointerUp"
           style="scroll-snap-type: x proximity;"
         >
-          <!-- Inner wrapper: holds line + cards, width stretches to content -->
-          <div class="relative inline-flex gap-5 pt-10">
-            <!-- Horizontal gradient line spanning full content width -->
-            <div class="absolute left-0 right-0 top-0 h-0.5 rounded-full pointer-events-none" style="background: linear-gradient(to right, #00d2ff, #7b2ff7);" />
+          <!-- Inner wrapper -->
+          <div class="relative inline-flex gap-5 pt-8">
+            <!-- Horizontal connector line -->
+            <div class="absolute left-0 right-0 top-0 pointer-events-none" style="height: 1px; background: rgba(255,255,255,0.08);" />
 
             <div
               v-for="entry in filteredTimeline"
               :key="entry.id"
-              class="flex-shrink-0 w-[280px] md:w-[340px] relative transition-all duration-300 self-stretch"
+              class="flex-shrink-0 relative transition-all duration-300"
               :class="{ dimmed: isFiltering && !matchesFilter(entry) }"
-              style="scroll-snap-align: start;"
+              style="width: 280px; min-width: 280px; scroll-snap-align: start;"
             >
               <!-- Dot on horizontal line -->
-              <div class="absolute left-6 -top-[24px] z-10">
-                <div class="relative w-[14px] h-[14px] rounded-full flex items-center justify-center" style="background: #080b12;">
-                  <div class="absolute inset-0 rounded-full p-[1px]" style="background: linear-gradient(135deg, #00d2ff, #7b2ff7); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude;" />
-                  <component :is="typeIcons[entry.type]" :size="8" class="text-accent relative z-10" />
-                </div>
+              <div class="absolute left-6 z-10" style="top: -20px;">
+                <div class="rounded-full" style="width: 8px; height: 8px; background: #1a1a1a; border: 1px solid rgba(255,255,255,0.15);" />
               </div>
 
               <TimelineEntry :entry="entry" />
@@ -144,27 +133,27 @@ function onPointerUp() {
     </section>
 
     <!-- Publications -->
-    <section id="publications" ref="pubSectionRef" class="relative z-10 py-20 px-4">
+    <section id="publications" ref="pubSectionRef" class="relative z-10 px-4" style="padding-top: clamp(80px, 10vw, 120px); padding-bottom: 80px;">
       <div class="max-w-6xl mx-auto">
-        <div class="mb-2">
-          <div class="section-header">
-            <BookOpen :size="22" class="text-accent" />
-            <WordReveal :text="t('publications.title')" />
-          </div>
-          <div class="section-underline ml-8" />
+        <div style="margin-bottom: 40px;">
+          <h2 style="font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 6vw, 5rem); color: #f0f0f0; line-height: 1; font-weight: 400;">
+            {{ t('publications.title') }}
+          </h2>
+          <p style="font-family: Inter, sans-serif; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; color: #888; margin-top: 4px;">
+            {{ t('publications.subtitle') }}
+          </p>
         </div>
-        <p class="text-text-secondary text-sm mb-10 ml-8">{{ t('publications.subtitle') }}</p>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-stretch">
+        <div>
           <div
             v-for="pub in publications"
             :key="pub.id"
             data-reveal-pub
-            class="transition-all duration-200 flex"
+            class="transition-all duration-200"
             :class="{ dimmed: isFiltering && !matchesFilter(pub) }"
             style="visibility: hidden;"
           >
-            <PublicationCard :pub="pub" class="flex-1" />
+            <PublicationCard :pub="pub" />
           </div>
         </div>
       </div>

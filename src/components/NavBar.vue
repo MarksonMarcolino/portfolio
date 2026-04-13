@@ -34,6 +34,11 @@ function scrollTo(href) {
 }
 
 function onScroll() {
+  const atBottom = (window.innerHeight + window.scrollY) >= (document.body.scrollHeight - 50)
+  if (atBottom) {
+    activeSection.value = '#contact'
+    return
+  }
   const sections = Object.values(anchors)
   for (let i = sections.length - 1; i >= 0; i--) {
     const el = document.querySelector(sections[i])
@@ -73,7 +78,7 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
 <template>
   <nav ref="navRef" class="fixed top-0 left-0 right-0 z-50 flex items-center" style="background: rgba(8, 11, 18, 0.8); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255,255,255,0.05); height: 56px;">
     <div class="max-w-6xl mx-auto px-4 w-full flex items-center justify-between">
-      <a href="#hero" @click.prevent="scrollTo('#hero')" class="font-mono font-bold text-lg gradient-text">M.</a>
+      <a href="#hero" @click.prevent="scrollTo('#hero')" class="font-mono font-bold text-lg" style="color: #f0f0f0;">M.</a>
 
       <div class="hidden md:flex items-center gap-6">
         <a
@@ -81,11 +86,13 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
           :key="key"
           :href="anchors[key]"
           @click.prevent="scrollTo(anchors[key])"
-          class="text-sm transition-colors relative pb-1"
-          :class="activeSection === anchors[key] ? 'gradient-text' : 'text-text-secondary hover:text-text-primary'"
+          class="text-sm relative pb-2"
+          :style="activeSection === anchors[key] ? 'color: #f0f0f0;' : 'color: #888; transition: color 0.2s ease;'"
+          @mouseenter="(e) => { if (activeSection !== anchors[key]) e.target.style.color = '#f0f0f0' }"
+          @mouseleave="(e) => { if (activeSection !== anchors[key]) e.target.style.color = '#888' }"
         >
           {{ t(`nav.${key}`) }}
-          <span v-if="activeSection === anchors[key]" class="absolute bottom-0 left-0 right-0 h-0.5 rounded" style="background: linear-gradient(135deg, #00d2ff, #7b2ff7);" />
+          <span v-if="activeSection === anchors[key]" class="absolute left-0 right-0 rounded-sm" style="bottom: -4px; height: 2px; background: #00d2ff;" />
         </a>
 
         <div class="relative ml-2">
@@ -138,8 +145,8 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
         :key="key"
         :href="anchors[key]"
         @click.prevent="scrollTo(anchors[key])"
-        class="block px-4 py-3 text-sm transition-colors"
-        :class="activeSection === anchors[key] ? 'gradient-text' : 'text-text-secondary hover:text-text-primary'"
+        class="block px-4 py-3 text-sm"
+        :style="activeSection === anchors[key] ? 'color: #f0f0f0;' : 'color: #888; transition: color 0.2s ease;'"
       >
         {{ t(`nav.${key}`) }}
       </a>

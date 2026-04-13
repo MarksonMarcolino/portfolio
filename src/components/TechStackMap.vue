@@ -3,58 +3,68 @@ import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useScrollReveal } from '../composables/useScrollReveal.js'
 import { stackCategories } from '../data/stack.js'
-import {
-  Cloud, Database, Terminal, Brain, BarChart3,
-  Server, Layout, Container, Cpu, BookOpen
-} from 'lucide-vue-next'
-import WordReveal from './WordReveal.vue'
+import { BookOpen } from 'lucide-vue-next'
 
 const { t } = useI18n()
-const icons = { Cloud, Database, Terminal, Brain, BarChart3, Server, Layout, Container, Cpu }
 const sectionRef = ref(null)
 
-useScrollReveal(sectionRef, '.card', { y: 25, stagger: 0.05 })
+useScrollReveal(sectionRef, '.stack-card', { y: 25, stagger: 0.05 })
 </script>
 
 <template>
-  <section id="stack" ref="sectionRef" class="relative z-10 py-20 px-4">
+  <section id="stack" ref="sectionRef" class="relative z-10 pt-10 pb-20 px-4">
     <div class="max-w-6xl mx-auto">
-      <div class="flex items-end justify-between mb-2">
+      <div class="flex items-end justify-between" style="margin-bottom: 40px;">
         <div>
-          <div class="section-header">
-            <Cpu :size="22" class="text-accent" />
-            <WordReveal :text="t('stack.title')" />
-          </div>
-          <div class="section-underline ml-8" />
+          <h2 style="font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 6vw, 5rem); color: #f0f0f0; line-height: 1; font-weight: 400;">
+            {{ t('stack.title') }}
+          </h2>
+          <p style="font-family: Inter, sans-serif; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; color: #888; margin-top: 4px;">
+            {{ t('stack.subtitle') }}
+          </p>
         </div>
-        <div class="hidden sm:flex items-center gap-4 text-[0.7rem] text-text-muted">
+        <div class="hidden sm:flex items-center gap-4" style="font-family: Inter, sans-serif; font-size: 0.7rem; color: #444;">
           <span class="flex items-center gap-1.5">
-            <span class="w-2 h-2 rounded-full bg-accent" />
+            <span class="w-2 h-2 rounded-full" style="background: #f0f0f0;" />
             {{ t('stack.production') }}
           </span>
           <span class="flex items-center gap-1.5">
-            <span class="w-2 h-2 rounded-full border border-text-muted" />
+            <span class="w-2 h-2 rounded-full" style="background: #444;" />
             {{ t('stack.knowledge') }}
           </span>
         </div>
       </div>
 
-      <p class="text-text-secondary text-sm mb-10 ml-8">{{ t('stack.subtitle') }}</p>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-        <div v-for="cat in stackCategories" :key="cat.category" class="card" style="visibility: hidden;">
-          <div class="flex items-center gap-2 mb-3">
-            <component :is="icons[cat.icon] || Cpu" :size="18" class="text-accent" />
-            <h3 class="font-mono text-[0.85rem] font-semibold uppercase tracking-wider gradient-text">
-              {{ t(`stack.categories.${cat.category}`) }}
-            </h3>
-          </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-4 gap-y-5 items-stretch">
+        <div
+          v-for="cat in stackCategories"
+          :key="cat.category"
+          class="stack-card rounded-xl p-5 transition-all duration-200 h-full"
+          style="background: #111; border: 1px solid rgba(255,255,255,0.08); visibility: hidden;"
+          @mouseenter="(e) => { e.currentTarget.style.background = '#1a1a1a'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.18)' }"
+          @mouseleave="(e) => { e.currentTarget.style.background = '#111'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)' }"
+        >
+          <h3 class="mb-3" style="font-family: Inter, sans-serif; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; color: #888;">
+            {{ t(`stack.categories.${cat.category}`) }}
+          </h3>
           <div class="flex flex-wrap gap-1.5">
             <template v-for="item in cat.items" :key="item.name">
-              <span v-if="item.tier === 'production'" class="pill-production">
+              <span
+                v-if="item.tier === 'production'"
+                class="inline-block rounded transition-colors duration-200 cursor-default"
+                style="background: rgba(240,240,240,0.06); border: 1px solid rgba(240,240,240,0.15); color: #f0f0f0; font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; padding: 3px 10px;"
+                @mouseenter="(e) => { e.target.style.borderColor = 'rgba(0,210,255,0.5)'; e.target.style.color = '#00d2ff' }"
+                @mouseleave="(e) => { e.target.style.borderColor = 'rgba(240,240,240,0.15)'; e.target.style.color = '#f0f0f0' }"
+              >
                 {{ item.name }}
               </span>
-              <span v-else class="pill-knowledge">
+              <span
+                v-else
+                class="inline-flex items-center gap-1 rounded transition-colors duration-200"
+                style="background: transparent; border: 1px solid rgba(255,255,255,0.06); color: #444; font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; padding: 3px 10px; cursor: default;"
+                @mouseenter="(e) => { e.currentTarget.style.color = '#666' }"
+                @mouseleave="(e) => { e.currentTarget.style.color = '#444' }"
+              >
                 <BookOpen :size="10" />
                 {{ item.name }}
               </span>

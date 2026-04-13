@@ -2,13 +2,18 @@
 import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useScrollReveal } from '../composables/useScrollReveal.js'
-import { User } from 'lucide-vue-next'
-import WordReveal from './WordReveal.vue'
+import { ExternalLink } from 'lucide-vue-next'
 
 const { t } = useI18n()
 const sectionRef = ref(null)
 
 useScrollReveal(sectionRef, '[data-reveal]', { y: 30, stagger: 0.12 })
+
+const projects = [
+  { name: 'Serena', descKey: 'serena', url: 'https://serena.ia.br/' },
+  { name: 'nanoncore', descKey: 'nanoncore', url: 'https://nanoncore.com/' },
+  { name: 'voz', descKey: 'voz', url: 'https://github.com/MarksonMarcolino/voz' },
+]
 
 const languages = [
   { flag: '\u{1F1E7}\u{1F1F7}', key: 'portuguese', levelKey: 'native' },
@@ -17,48 +22,104 @@ const languages = [
   { flag: '\u{1F1EB}\u{1F1F7}', key: 'french', levelKey: 'intermediate' },
 ]
 
+const education = [
+  { degreeKey: 'masters', school: 'UFSC', years: '2024–2025' },
+  { degreeKey: 'bachelors', school: 'UFSC', years: '2010–2015' },
+]
 </script>
 
 <template>
-  <section id="about" ref="sectionRef" class="relative z-10 py-20 px-4">
+  <section id="about" ref="sectionRef" class="relative z-10 px-4" style="padding-top: clamp(80px, 10vw, 120px); padding-bottom: 40px;">
     <div class="max-w-6xl mx-auto">
-      <div class="mb-2">
-        <div class="section-header">
-          <User :size="22" class="text-accent" />
-          <WordReveal :text="t('about.title')" />
-        </div>
-        <div class="section-underline ml-8" />
+      <!-- Title -->
+      <div style="margin-bottom: 40px;">
+        <h2 style="font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 6vw, 5rem); color: #f0f0f0; line-height: 1; font-weight: 400;">
+          {{ t('about.title') }}
+        </h2>
+        <p style="font-family: Inter, sans-serif; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; color: #888; margin-top: 4px;">
+          {{ t('about.subtitle') }}
+        </p>
       </div>
 
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 mt-10">
-        <div data-reveal style="visibility: hidden;">
-          <div class="flex justify-center lg:justify-start mb-6">
-            <div class="photo-circle w-[120px] h-[120px]" style="box-shadow: 0 0 30px rgba(0, 210, 255, 0.08);">
-              <img
-                src="/profile.jpg"
-                alt="Markson Rebelo Marcolino"
-                class="w-full h-full object-cover relative z-0"
-                style="object-position: 50% 25%;"
-              />
-            </div>
-          </div>
-          <p class="text-text-secondary leading-relaxed">{{ t('about.bio') }}</p>
+      <div class="flex flex-col lg:flex-row items-start" style="gap: 80px;">
+        <!-- Left column -->
+        <div data-reveal class="w-full lg:w-[40%] lg:shrink-0" style="visibility: hidden;">
+          <img
+            src="/profile-hero.jpg"
+            alt="Markson Rebelo Marcolino"
+            class="w-full object-cover object-top"
+            style="border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); aspect-ratio: 4/5;"
+          />
+          <p style="font-family: Inter, sans-serif; font-size: 1rem; color: #888; line-height: 1.8; margin-top: 28px;">
+            {{ t('about.bio') }}
+          </p>
         </div>
 
-        <div class="space-y-8">
-          <div data-reveal style="visibility: hidden;">
-            <h3 class="font-mono text-xs text-text-muted uppercase tracking-wider mb-3">{{ t('about.languages') }}</h3>
-            <div class="grid grid-cols-2 gap-2">
-              <div v-for="lang in languages" :key="lang.key" class="card-static !p-3 flex items-center gap-2">
-                <span class="text-lg">{{ lang.flag }}</span>
-                <div>
-                  <div class="text-sm text-text-primary">{{ t(`about.langList.${lang.key}`) }}</div>
-                  <div class="text-xs text-text-muted">{{ t(`about.levels.${lang.levelKey}`) }}</div>
+        <!-- Right column -->
+        <div data-reveal style="visibility: hidden;">
+          <!-- Currently building -->
+          <p style="font-family: Inter, sans-serif; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.12em; color: #444; margin-bottom: 16px;">
+            {{ t('about.currentlyBuilding') }}
+          </p>
+
+          <div>
+            <component
+              v-for="proj in projects"
+              :key="proj.name"
+              :is="proj.url ? 'a' : 'div'"
+              :href="proj.url"
+              :target="proj.url ? '_blank' : undefined"
+              rel="noopener"
+              class="flex items-center justify-between group transition-colors duration-200"
+              :class="proj.url ? 'cursor-pointer' : 'cursor-default'"
+              style="padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.06); text-decoration: none;"
+            >
+              <div class="flex flex-col">
+                <div class="flex items-center gap-2">
+                  <span class="inline-block w-1.5 h-1.5 rounded-full animate-pulse" style="background: #22c55e;" />
+                  <span style="font-family: Inter, sans-serif; font-size: 0.9rem; color: #f0f0f0;">{{ proj.name }}</span>
                 </div>
+                <span style="font-family: Inter, sans-serif; font-size: 0.8rem; color: #888; margin-left: 14px;">{{ t(`about.projects.${proj.descKey}`) }}</span>
               </div>
+              <ExternalLink v-if="proj.url" :size="14" class="shrink-0 transition-colors duration-200" style="color: #444;" />
+            </component>
+          </div>
+
+          <!-- Languages -->
+          <p style="font-family: Inter, sans-serif; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.12em; color: #444; margin-top: 40px; margin-bottom: 16px;">
+            {{ t('about.languages') }}
+          </p>
+
+          <div>
+            <div
+              v-for="lang in languages"
+              :key="lang.key"
+              class="flex items-center justify-between"
+              style="padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.06);"
+            >
+              <span class="flex items-center gap-2">
+                <span style="font-size: 1rem;">{{ lang.flag }}</span>
+                <span style="font-family: Inter, sans-serif; font-size: 0.9rem; color: #f0f0f0;">{{ t(`about.langList.${lang.key}`) }}</span>
+              </span>
+              <span style="font-family: Inter, sans-serif; font-size: 0.8rem; color: #888;">{{ t(`about.levels.${lang.levelKey}`) }}</span>
             </div>
           </div>
 
+          <!-- Education -->
+          <p style="font-family: Inter, sans-serif; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.12em; color: #444; margin-top: 40px; margin-bottom: 16px;">
+            {{ t('about.education') }}
+          </p>
+
+          <div>
+            <div
+              v-for="edu in education"
+              :key="edu.degreeKey"
+              style="padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.06);"
+            >
+              <div style="font-family: Inter, sans-serif; font-size: 0.9rem; color: #f0f0f0;">{{ t(`about.degrees.${edu.degreeKey}`) }}</div>
+              <div style="font-family: Inter, sans-serif; font-size: 0.8rem; color: #888;">{{ edu.school }}, {{ edu.years }}</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

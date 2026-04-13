@@ -23,7 +23,8 @@ export default {
     },
   },
   hero: {
-    tagline: `Ingeniero que construye cosas.\nInfra de telecom, SaaS de salud, IA de voz.\nFormación en ingeniería de datos, presente full-stack.`,
+    tagline: `Construyendo plataformas de datos escalables, IA de voz y productos full-stack. 15 años entregando sistemas que funcionan en producción.`,
+    available: 'Disponible para oportunidades',
     location: 'Madrid, España',
     viewWork: 'Ver Trabajos',
     stats: {
@@ -57,7 +58,7 @@ export default {
   },
   timeline: {
     title: 'Trayectoria',
-    subtitle: 'Trabajo, proyectos, formación y certificaciones',
+    subtitle: 'Trabajo, formación y certificaciones',
     filtering: 'Filtrando',
     types: {
       work: 'Trabajo',
@@ -153,17 +154,23 @@ export default {
         description: 'Capítulo de libro expandiendo enfoques de ML para análisis de datos educativos.',
       },
       'dgo-2025-1': {
-        title: 'Artículo de Conferencia — DGO 2025',
+        title: "Asegurando la Calidad de Datos en Bases Educativas Nacionales: Insights de la Base Centralizada de Datos de Estudiantes de Secundaria de Brasil",
         description: 'Calidad de datos y ML aplicados a bases de datos educativas nacionales para insights de políticas gubernamentales.',
       },
       'dgo-2025-2': {
-        title: 'Artículo de Conferencia — DGO 2025',
+        title: 'Aprovechando Algoritmos de Similitud de Cadenas para Validación de Datos Educativos: Un Enfoque Escalable para la Gobernanza Digital',
         description: 'Machine learning aplicado a bases de datos educativas nacionales, enfocado en la identificación temprana de estudiantes en riesgo.',
       },
     },
   },
   about: {
     title: 'Sobre mí',
+    subtitle: 'Un poco sobre mí',
+    education: 'Formación',
+    degrees: {
+      masters: 'Maestría en Tecnologías de la Información y Comunicación',
+      bachelors: 'Licenciatura en Tecnologías de la Información y Comunicación',
+    },
     bio: 'Ingeniero brasileño en Madrid. Construyendo en telecom, salud e IA de voz. 15 años entregando plataformas de datos, ahora entregando productos full-stack. Empecé en ingeniería de datos — pipelines, plataformas y equipos en educación, analytics y Web3. Todo es un problema de datos si hacés zoom out lo suficiente.',
     languages: 'Idiomas',
     currentlyBuilding: 'Construyendo actualmente',
@@ -185,8 +192,9 @@ export default {
     },
   },
   contact: {
-    title: 'Contacto',
-    subtitle: 'Construyamos algo juntos',
+    line1: 'TRABAJEMOS',
+    line2: 'JUNTOS',
+    subtitle: 'Abierto a roles full-time, consultoría y problemas interesantes.',
     footer: 'Hecho con Vue 3 + Tailwind CSS',
   },
   common: {

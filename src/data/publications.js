@@ -23,7 +23,7 @@ export const publications = [
   },
   {
     id: 'dgo-2025-1',
-    title: 'Conference Paper — DGO 2025',
+    title: "Ensuring Data Quality in National Educational Databases: Insights from Brazil's Centralized Database of High School Students' Data",
     venue: 'Conference on Digital Government Research, TU Delft',
     year: 2025,
     role: 'co-author',
@@ -34,7 +34,7 @@ export const publications = [
   },
   {
     id: 'dgo-2025-2',
-    title: 'Conference Paper — DGO 2025',
+    title: 'Leveraging String Similarity Algorithms for Educational Data Validation: A Scalable Approach for Digital Governance',
     venue: 'Conference on Digital Government Research, TU Delft',
     year: 2025,
     role: 'co-author',

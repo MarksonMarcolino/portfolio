@@ -4,11 +4,10 @@ import { useI18n } from 'vue-i18n'
 import { useScrollReveal } from '../composables/useScrollReveal.js'
 import { useFilters } from '../composables/useFilters.js'
 import { projects } from '../data/projects.js'
-import { Rocket, Globe, ExternalLink, ChevronDown, ChevronUp } from 'lucide-vue-next'
-import WordReveal from './WordReveal.vue'
+import { Globe, ExternalLink } from 'lucide-vue-next'
 
 const { t } = useI18n()
-const { activeFilter, activeFilterType, setFilter, isFiltering, matchesFilter } = useFilters()
+const { activeFilter, activeFilterType, setFilter, isFiltering } = useFilters()
 const sectionRef = ref(null)
 const expandedCards = ref(new Set())
 
@@ -17,27 +16,9 @@ const linkIcons = { Globe, ExternalLink }
 useScrollReveal(sectionRef, '.project-card', { y: 30, stagger: 0.08 })
 
 const statusConfig = {
-  live: {
-    label: 'Live',
-    bg: 'rgba(34,197,94,0.1)',
-    border: 'rgba(34,197,94,0.3)',
-    color: '#22c55e',
-    dot: true,
-  },
-  'open-source': {
-    label: 'Open Source',
-    bg: 'rgba(0,210,255,0.08)',
-    border: 'rgba(0,210,255,0.2)',
-    color: '#00d2ff',
-    dot: false,
-  },
-  wip: {
-    label: 'In Progress',
-    bg: 'rgba(245,158,11,0.08)',
-    border: 'rgba(245,158,11,0.2)',
-    color: '#f59e0b',
-    dot: false,
-  },
+  live: { label: 'Live', bg: 'rgba(34,197,94,0.08)', border: 'rgba(34,197,94,0.25)', color: '#22c55e', dot: true },
+  'open-source': { label: 'Open Source', bg: 'rgba(0,210,255,0.06)', border: 'rgba(0,210,255,0.2)', color: '#00d2ff', dot: false },
+  wip: { label: 'In Progress', bg: 'rgba(245,158,11,0.06)', border: 'rgba(245,158,11,0.2)', color: '#f59e0b', dot: false },
 }
 
 function toggleExpand(id) {
@@ -49,31 +30,28 @@ function toggleExpand(id) {
 
 function matchProject(project) {
   if (!activeFilter.value) return true
-  if (activeFilterType.value === 'stack') {
-    return project.stack && project.stack.includes(activeFilter.value)
-  }
-  if (activeFilterType.value === 'tag') {
-    return project.tags && project.tags.includes(activeFilter.value)
-  }
+  if (activeFilterType.value === 'stack') return project.stack?.includes(activeFilter.value)
+  if (activeFilterType.value === 'tag') return project.tags?.includes(activeFilter.value)
   return true
 }
 </script>
 
 <template>
-  <section id="projects" ref="sectionRef" class="relative z-10 py-20 px-4">
+  <section id="projects" ref="sectionRef" class="relative z-10 pb-20 px-4" style="padding-top: clamp(80px, 10vw, 120px);">
     <div class="max-w-6xl mx-auto">
-      <div class="mb-2">
-        <div class="section-header">
-          <Rocket :size="22" class="text-accent" />
-          <WordReveal :text="t('projects.title')" />
-        </div>
-        <div class="section-underline ml-8" />
+      <!-- Title -->
+      <div style="margin-bottom: 40px;">
+        <h2 style="font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 6vw, 5rem); color: #f0f0f0; line-height: 1; font-weight: 400;">
+          {{ t('projects.title') }}
+        </h2>
+        <p style="font-family: Inter, sans-serif; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; color: #888; margin-top: 4px;">
+          {{ t('projects.subtitle') }}
+        </p>
       </div>
-      <p class="text-text-secondary text-sm mb-10 ml-8">{{ t('projects.subtitle') }}</p>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-5 items-stretch">
         <div
-          v-for="(project, i) in projects"
+          v-for="project in projects"
           :key="project.id"
           class="project-card transition-all duration-300"
           :class="[
@@ -82,94 +60,111 @@ function matchProject(project) {
           ]"
           style="visibility: hidden;"
         >
-          <div class="card h-full flex flex-col">
+          <div
+            class="h-full flex flex-col rounded-xl p-5 transition-all duration-200"
+            style="background: #111; border: 1px solid rgba(255,255,255,0.08);"
+            @mouseenter="(e) => { e.currentTarget.style.background = '#1a1a1a'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.18)' }"
+            @mouseleave="(e) => { e.currentTarget.style.background = '#111'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)' }"
+          >
             <!-- Top row: status + year -->
             <div class="flex items-center justify-between mb-3">
               <span
-                class="inline-flex items-center gap-1.5 text-[0.68rem] font-mono px-2.5 py-1 rounded-full"
+                class="inline-flex items-center gap-1.5"
                 :style="{
                   background: statusConfig[project.status].bg,
                   border: `1px solid ${statusConfig[project.status].border}`,
                   color: statusConfig[project.status].color,
+                  fontFamily: 'Inter, sans-serif',
+                  fontSize: '0.65rem',
+                  borderRadius: '4px',
+                  padding: '3px 10px',
                 }"
               >
                 <span
                   v-if="statusConfig[project.status].dot"
-                  class="w-1.5 h-1.5 rounded-full animate-pulse"
+                  class="inline-block w-1.5 h-1.5 rounded-full animate-pulse"
                   :style="{ background: statusConfig[project.status].color }"
                 />
                 {{ statusConfig[project.status].label }}
               </span>
-              <span class="font-mono text-[0.68rem] text-text-muted">{{ project.year }}</span>
+              <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; color: #444;">{{ project.year }}</span>
             </div>
 
-            <!-- Featured label for Serena -->
+            <!-- Featured label -->
             <span
               v-if="project.id === 'serena'"
-              class="text-[0.6rem] uppercase tracking-[0.12em] mb-1 text-text-muted font-sans"
+              style="font-family: Inter, sans-serif; font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.12em; color: #444; display: block; margin-bottom: 4px;"
             >
               {{ t('projects.featured') }}
             </span>
 
             <!-- Name -->
-            <h3 class="font-mono text-base font-bold text-text-primary">
+            <h3 :style="{ fontFamily: '\'JetBrains Mono\', monospace', fontSize: project.id === 'serena' ? '1.4rem' : '1rem', fontWeight: 700, color: '#f0f0f0' }">
               {{ project.name }}
             </h3>
 
             <!-- Role -->
-            <p class="text-[0.8rem] mt-0.5 text-text-secondary">{{ project.role }}</p>
+            <p style="font-family: Inter, sans-serif; font-size: 0.8rem; color: #888; margin-top: 2px;">{{ project.role }}</p>
 
             <!-- Description -->
             <p
-              class="text-[0.85rem] mt-2.5 leading-relaxed text-text-secondary"
+              class="mt-2.5"
               :class="project.id === 'serena' || expandedCards.has(project.id) ? '' : 'line-clamp-3'"
+              style="font-family: Inter, sans-serif; font-size: 0.85rem; color: #888; line-height: 1.6;"
             >
               {{ t(`projects.entries.${project.id}.description`) }}
             </p>
             <button
               v-if="project.id !== 'serena' && project.description.length > 120"
               @click="toggleExpand(project.id)"
-              class="text-[0.7rem] text-text-muted hover:text-accent transition-colors mt-1 flex items-center gap-1 cursor-pointer"
+              class="read-more-btn"
             >
-              <component :is="expandedCards.has(project.id) ? ChevronUp : ChevronDown" :size="12" />
-              {{ expandedCards.has(project.id) ? t('projects.showLess') : t('projects.showMore') }}
+              {{ expandedCards.has(project.id) ? t('projects.showLess') : 'Read more' }}
             </button>
 
             <!-- Stack pills -->
             <div class="flex flex-wrap gap-1.5 mt-auto pt-3">
-              <button
+              <span
                 v-for="s in project.stack.slice(0, 5)"
                 :key="s"
+                class="inline-block rounded transition-colors duration-200 cursor-pointer"
+                style="background: rgba(240,240,240,0.06); border: 1px solid rgba(240,240,240,0.15); color: #f0f0f0; font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; padding: 3px 10px; border-radius: 4px;"
                 @click.stop="setFilter(s, 'stack')"
-                class="pill-stack-sm"
-                :class="{ active: activeFilter === s && activeFilterType === 'stack' }"
+                @mouseenter="(e) => { e.target.style.borderColor = 'rgba(0,210,255,0.5)'; e.target.style.color = '#00d2ff' }"
+                @mouseleave="(e) => { e.target.style.borderColor = 'rgba(240,240,240,0.15)'; e.target.style.color = '#f0f0f0' }"
               >
                 {{ s }}
-              </button>
-              <span v-if="project.stack.length > 5" class="text-[0.6rem] text-text-muted self-center">
-                +{{ project.stack.length - 5 }}
+              </span>
+              <span
+                v-if="project.stack.length > 5"
+                class="inline-block rounded"
+                style="border: 1px solid rgba(255,255,255,0.06); color: #444; font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; padding: 3px 10px; border-radius: 4px; cursor: default;"
+              >
+                +{{ project.stack.length - 5 }} more
               </span>
             </div>
 
             <!-- Footer: tags + link -->
-            <div class="flex items-end justify-between mt-3 gap-2">
+            <div class="flex items-end mt-3 gap-2" :class="project.link ? 'justify-between' : 'justify-start'">
               <div class="flex flex-wrap gap-1">
-                <button
+                <span
                   v-for="tg in project.tags"
                   :key="tg"
-                  @click.stop="setFilter(tg, 'tag')"
-                  class="pill-tag-sm"
-                  :class="{ active: activeFilter === tg && activeFilterType === 'tag' }"
+                  class="inline-block rounded"
+                  style="background: transparent; border: 1px solid rgba(255,255,255,0.08); color: #888; font-family: Inter, sans-serif; font-size: 0.65rem; padding: 2px 8px; border-radius: 4px;"
                 >
                   {{ tg }}
-                </button>
+                </span>
               </div>
               <a
                 v-if="project.link"
                 :href="project.link"
                 target="_blank"
                 rel="noopener"
-                class="flex items-center gap-1 text-accent text-xs shrink-0 hover:gap-2 transition-all cursor-pointer"
+                class="flex items-center gap-1 shrink-0 transition-all duration-200 cursor-pointer"
+                style="color: #00d2ff; font-size: 0.75rem;"
+                @mouseenter="(e) => e.currentTarget.style.gap = '6px'"
+                @mouseleave="(e) => e.currentTarget.style.gap = '4px'"
               >
                 {{ project.linkLabel }}
                 <component :is="linkIcons[project.linkIcon] || ExternalLink" :size="13" />
@@ -181,3 +176,21 @@ function matchProject(project) {
     </div>
   </section>
 </template>
+
+<style scoped>
+.read-more-btn {
+  background: none;
+  border: none;
+  color: #00d2ff;
+  font-family: Inter, sans-serif;
+  font-size: 0.8rem;
+  cursor: pointer;
+  padding: 0;
+  margin-top: 8px;
+  display: block;
+  transition: color 0.2s ease;
+}
+.read-more-btn:hover {
+  color: #33dcff;
+}
+</style>

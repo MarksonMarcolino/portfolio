@@ -93,11 +93,11 @@ export default {
         description: 'Soporte técnico gestionando actualizaciones de base de datos y endpoints de API para plataforma de e-commerce. Scripts de automatización en Python y SQL para mejora de eficiencia.',
       },
       'interlink-2018': {
-        title: 'Project Manager',
+        title: 'Gerente de Proyectos',
         description: 'Liderazgo de equipos de desarrollo de software remotos y presenciales. Gestión de backlog, sprints y colaboración de UX. Investigación tecnológica para soluciones innovadoras.',
       },
       'professor-2010': {
-        title: 'Profesor de Ciencias de la Computación',
+        title: 'Profesor de Informática y Desarrollo de Software',
         description: 'Enseñanza de POO, Sistemas Operativos, Arquitectura de Computadores y frameworks modernos de desarrollo. Elaboración de currículo cubriendo Agile, patrones de diseño y mejores prácticas de ingeniería de software.',
       },
       'serena-2026': {
@@ -209,15 +209,15 @@ export default {
     filename: 'Markson_Rebelo_Marcolino_CV_ES.pdf',
     title: 'Ingeniero de Datos',
     summary_label: 'Resumen',
-    summary: 'Ingeniero de Datos con mas de 15 anos de experiencia construyendo plataformas de datos escalables, pipelines y productos full-stack en telecomunicaciones, salud y educacion. Experto en Python, GCP, BigQuery, FastAPI e infraestructura de datos en la nube.',
+    summary: 'Ingeniero de Datos con más de 15 años de experiencia construyendo plataformas de datos escalables, pipelines y productos full-stack en telecomunicaciones, salud y educación. Experto en Python, GCP, BigQuery, FastAPI e infraestructura de datos en la nube.',
     experience: 'Experiencia',
-    education: 'Educacion',
+    education: 'Educación',
     publications: 'Publicaciones',
-    skills: 'Habilidades Tecnicas',
+    skills: 'Habilidades Técnicas',
     present: 'Presente',
     lead_author: 'Autor Principal',
     co_author: 'Coautor',
     in_press: 'En Prensa',
-    location: 'Madrid, Espana',
+    location: 'Madrid, España',
   },
 }

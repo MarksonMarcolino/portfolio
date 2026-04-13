@@ -1,0 +1,178 @@
+export default {
+  nav: {
+    home: 'Início',
+    stack: 'Tecnologias',
+    timeline: 'Trajetória',
+    publications: 'Publicações',
+    about: 'Sobre',
+    contact: 'Contato',
+  },
+  hero: {
+    tagline: `Engenheiro que constrói coisas.\nInfra de telecom, SaaS de saúde, IA de voz.\nFormação em engenharia de dados, presente full-stack.`,
+    location: 'Madrid, Espanha',
+    viewWork: 'Ver Trabalhos',
+    roles: {
+      dataEngineer: 'Engenheiro de Dados',
+      mlResearcher: 'Pesquisador de ML',
+      fullStackBuilder: 'Desenvolvedor Full-Stack',
+      openSourceAuthor: 'Autor Open Source',
+    },
+  },
+  stack: {
+    title: 'Tecnologias',
+    subtitle: 'Ferramentas e tecnologias que utilizo',
+    production: 'Produção',
+    knowledge: 'Conhecimento',
+    categories: {
+      'Cloud & Data Platforms': 'Cloud & Plataformas de Dados',
+      'Data Engineering': 'Engenharia de Dados',
+      'Programming & Databases': 'Programação & Bancos de Dados',
+      'AI & Machine Learning': 'IA & Machine Learning',
+      'Visualization & BI': 'Visualização & BI',
+      'Backend & APIs': 'Backend & APIs',
+      'Frontend': 'Frontend',
+      'DevOps & Tools': 'DevOps & Ferramentas',
+    },
+  },
+  timeline: {
+    title: 'Trajetória',
+    subtitle: 'Trabalho, projetos, formação e certificações',
+    filtering: 'Filtrando',
+    types: {
+      work: 'Trabalho',
+      project: 'Projeto',
+      education: 'Formação',
+      certification: 'Certificação',
+    },
+    entries: {
+      'accenture-2025': {
+        title: 'Engenheiro de Dados',
+        description: 'Projeto e suporte de plataformas de dados escaláveis em GCP para clientes corporativos. Pipelines CI/CD via Terraform e Azure DevOps para ativos BigQuery e Dataflow. Operacionalização de processos ELT garantindo qualidade, performance e conformidade de governança de dados.',
+      },
+      'nees-2024': {
+        title: 'Cientista de Dados',
+        description: 'Análise de 10M+ registros de alunos para padrões de retenção e insights de políticas públicas. Construção de dashboards geoespaciais abrangendo 5.000+ escolas brasileiras.',
+      },
+      'eattasty-2023': {
+        title: 'Cientista de Dados',
+        description: 'Analytics avançado em Dremio e MongoDB para decisões de marketing e operações. Dashboards de BI em Metabase, Apache Superset, Looker e Power BI. Automação de workflows de dados e integrações de marketing usando n8n.',
+      },
+      'seedify-2022': {
+        title: 'Gerente de Projetos',
+        description: 'Liderança de workflows Agile para desenvolvimento de produtos blockchain. Coordenação entre equipes internas e agências externas. Elaboração de user stories técnicas e documentação de negócios.',
+      },
+      'avature-2022': {
+        title: 'Consultor de Implementação',
+        description: 'Implantação completa de SaaS corporativo para clientes de RH. Levantamento de requisitos e entrega Agile/Waterfall.',
+      },
+      'farfetch-2021': {
+        title: 'Engenheiro de Suporte',
+        description: 'Suporte técnico gerenciando atualizações de banco de dados e endpoints de API para plataforma de e-commerce. Scripts de automação em Python e SQL para melhoria de eficiência.',
+      },
+      'interlink-2018': {
+        title: 'Gerente de Projetos',
+        description: 'Liderança de equipes de desenvolvimento de software remotas e presenciais. Gestão de backlog, sprints e colaboração de UX. Pesquisa tecnológica para soluções inovadoras.',
+      },
+      'professor-2010': {
+        title: 'Professor de Ciência da Computação',
+        description: 'Ensino de POO, Sistemas Operacionais, Arquitetura de Computadores e frameworks modernos de desenvolvimento. Elaboração de currículo cobrindo Agile, design patterns e melhores práticas de engenharia de software.',
+      },
+      'serena-2026': {
+        title: 'Serena',
+        description: 'Plataforma digital para coordenação de cuidados paliativos e hospice no Brasil, construída com sua irmã para a tese de residência em geriatria. Gerencia avaliações clínicas (ESAS-r, PPS, PAINAD), rastreamento de medicações, coordenação de equipe, portais familiares e decisões clínicas assistidas por IA. Conformidade LGPD e ANVISA.',
+      },
+      'nanoncore-2025': {
+        title: 'nanoncore',
+        description: 'Plataforma de gestão de telecom e ISP. Gerenciamento de fibra GPON, provisionamento de equipamentos, monitoramento de rede em tempo real via SNMP/SSH e dashboards de métricas.',
+      },
+      'voz-2026': {
+        title: 'voz',
+        description: 'IA conversacional de voz auto-hospedada para português brasileiro e espanhol rioplatense. Pipeline de LLM + TTS com streaming para que o usuário ouça o áudio antes do modelo terminar de pensar. Roda inteiramente em hardware local. Open source.',
+      },
+      'clustering-utils': {
+        title: 'clustering_utils',
+        description: 'Toolkit reutilizável de benchmark e visualização de clustering.',
+      },
+      'db-toolkit': {
+        title: 'db_toolkit',
+        description: 'Toolkit Python leve para PostgreSQL via SSH com execução SQL paralela e pool de conexões.',
+      },
+      'masters-2024': {
+        title: 'Mestrado em Tecnologias da Informação e Comunicação',
+        description: 'Dissertação: "Predição de Evasão Estudantil através de Otimização de Machine Learning: Insights de Dados de Registro do Moodle"',
+      },
+      'bachelors-2010': {
+        title: 'Bacharelado em Tecnologias da Informação e Comunicação',
+        description: '',
+      },
+      'gcp-cert-2025': {
+        title: 'Certificação Google Cloud Digital Leader',
+        description: '',
+      },
+      'hec-cert-2019': {
+        title: 'Criação e Desenvolvimento de uma Startup de Tecnologia',
+        description: '',
+      },
+    },
+  },
+  publications: {
+    title: 'Publicações',
+    subtitle: 'Artigos acadêmicos e pesquisa',
+    readPaper: 'Ler Artigo',
+    leadAuthor: 'Autor Principal',
+    coAuthor: 'Coautor',
+    inPress: 'No Prelo',
+    entries: {
+      'nature-2025': {
+        title: 'Predicting Student Dropout through Machine Learning Optimization: Insights from Moodle Registration Data',
+        description: 'Aplicação de técnicas avançadas de ML (Random Forest, XGBoost) para otimizar a predição de risco de evasão a partir de dados de registro do Moodle.',
+      },
+      'springer-2025': {
+        title: 'Capítulo de Livro Springer',
+        description: 'Capítulo de livro expandindo abordagens de ML para análise de dados educacionais.',
+      },
+      'dgo-2025-1': {
+        title: 'Artigo de Conferência — DGO 2025',
+        description: 'Qualidade de dados e ML aplicados a bases de dados educacionais nacionais para insights de políticas governamentais.',
+      },
+      'dgo-2025-2': {
+        title: 'Artigo de Conferência — DGO 2025',
+        description: 'Machine learning aplicado a bases de dados educacionais nacionais, focado na identificação precoce de alunos em risco.',
+      },
+    },
+  },
+  about: {
+    title: 'Sobre',
+    bio: 'Engenheiro brasileiro em Madrid. Construindo em telecom, saúde e IA de voz. 15 anos entregando plataformas de dados, agora entregando produtos full-stack. Comecei em engenharia de dados — pipelines, plataformas e equipes em educação, analytics e Web3. Tudo é um problema de dados se você der zoom out o suficiente.',
+    languages: 'Idiomas',
+    currentlyBuilding: 'Construindo atualmente',
+    langList: {
+      portuguese: 'Português',
+      spanish: 'Espanhol',
+      english: 'Inglês',
+      french: 'Francês',
+    },
+    levels: {
+      native: 'Nativo',
+      advanced: 'Avançado',
+      intermediate: 'Intermediário',
+    },
+    projects: {
+      serena: 'plataforma de cuidados paliativos',
+      nanoncore: 'gestão de telecom ISP',
+      voz: 'IA de voz para português brasileiro',
+    },
+  },
+  contact: {
+    title: 'Contato',
+    subtitle: 'Vamos construir algo juntos',
+    footer: 'Feito com Vue 3 + Tailwind CSS',
+  },
+  common: {
+    liveSite: 'Site',
+    viewBadge: 'Ver Badge',
+    viewCertificate: 'Ver Certificado',
+    present: 'Presente',
+    openSource: 'Open Source',
+  },
+}

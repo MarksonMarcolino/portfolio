@@ -1,0 +1,178 @@
+export default {
+  nav: {
+    home: 'Home',
+    stack: 'Stack',
+    timeline: 'Timeline',
+    publications: 'Publications',
+    about: 'About',
+    contact: 'Contact',
+  },
+  hero: {
+    tagline: `Engineer who builds things.\nTelecom infra, healthcare SaaS, voice AI.\nData engineering background, full-stack present.`,
+    location: 'Madrid, Spain',
+    viewWork: 'View Work',
+    roles: {
+      dataEngineer: 'Data Engineer',
+      mlResearcher: 'ML Researcher',
+      fullStackBuilder: 'Full-Stack Builder',
+      openSourceAuthor: 'Open Source Author',
+    },
+  },
+  stack: {
+    title: 'Tech Stack',
+    subtitle: 'Tools and technologies I work with',
+    production: 'Production',
+    knowledge: 'Working knowledge',
+    categories: {
+      'Cloud & Data Platforms': 'Cloud & Data Platforms',
+      'Data Engineering': 'Data Engineering',
+      'Programming & Databases': 'Programming & Databases',
+      'AI & Machine Learning': 'AI & Machine Learning',
+      'Visualization & BI': 'Visualization & BI',
+      'Backend & APIs': 'Backend & APIs',
+      'Frontend': 'Frontend',
+      'DevOps & Tools': 'DevOps & Tools',
+    },
+  },
+  timeline: {
+    title: 'Career Timeline',
+    subtitle: 'Work, projects, education, and certifications',
+    filtering: 'Filtering',
+    types: {
+      work: 'Work',
+      project: 'Project',
+      education: 'Education',
+      certification: 'Certification',
+    },
+    entries: {
+      'accenture-2025': {
+        title: 'Data Engineer',
+        description: 'Design and support scalable data platforms on GCP for enterprise clients. CI/CD pipelines via Terraform and Azure DevOps for BigQuery and Dataflow assets. Operationalize ELT processes ensuring data quality, performance, and governance compliance.',
+      },
+      'nees-2024': {
+        title: 'Data Scientist',
+        description: 'Analyzed 10M+ student records for retention patterns and public policy insights. Built geospatial dashboards across 5,000+ Brazilian schools.',
+      },
+      'eattasty-2023': {
+        title: 'Data Scientist',
+        description: 'Advanced analytics in Dremio and MongoDB for marketing and operations decisions. BI dashboards across Metabase, Apache Superset, Looker, and Power BI. Automated data workflows and marketing integrations using n8n.',
+      },
+      'seedify-2022': {
+        title: 'Project Manager',
+        description: 'Led Agile workflows for blockchain product development. Cross-team coordination between internal teams and external agencies. Authored technical user stories and business documentation.',
+      },
+      'avature-2022': {
+        title: 'Implementation Consultant',
+        description: 'End-to-end SaaS deployment for HR enterprise clients. Requirements gathering and Agile/Waterfall delivery.',
+      },
+      'farfetch-2021': {
+        title: 'Support Engineer',
+        description: 'Technical support managing database updates and API endpoints for e-commerce platform. Python and SQL automation scripts to improve efficiency.',
+      },
+      'interlink-2018': {
+        title: 'Project Manager',
+        description: 'Led remote and on-site software development teams. Managed backlog, sprints, and UX collaboration. Conducted technology research for innovative solutions.',
+      },
+      'professor-2010': {
+        title: 'Professor of Computer Science',
+        description: 'Taught OOP, Operating Systems, Computer Architecture, and modern development frameworks. Built curriculum covering Agile, design patterns, and software engineering best practices.',
+      },
+      'serena-2026': {
+        title: 'Serena',
+        description: 'Digital platform for hospice and palliative care coordination in Brazil, built with his sister for her geriatrics residency thesis. Handles clinical assessments (ESAS-r, PPS, PAINAD), medication tracking, team coordination, family portals, and AI-assisted clinical decisions. LGPD and ANVISA compliant. Interface in Portuguese.',
+      },
+      'nanoncore-2025': {
+        title: 'nanoncore',
+        description: 'Telecom and ISP management platform. GPON fiber management, equipment provisioning, real-time network monitoring via SNMP/SSH, and metrics dashboards.',
+      },
+      'voz-2026': {
+        title: 'voz',
+        description: 'Self-hosted voice conversational AI for Brazilian Portuguese and Rioplatense Spanish. Pipelined LLM + TTS streaming so the user hears audio before the model finishes thinking. Runs entirely on local hardware. Open source.',
+      },
+      'clustering-utils': {
+        title: 'clustering_utils',
+        description: 'Reusable clustering benchmark and visualization toolkit.',
+      },
+      'db-toolkit': {
+        title: 'db_toolkit',
+        description: 'Lightweight Python toolkit for PostgreSQL via SSH with parallel SQL execution and connection pooling.',
+      },
+      'masters-2024': {
+        title: "Master's in Information and Communication Technologies",
+        description: 'Thesis: "Predicting Student Dropout through Machine Learning Optimization: Insights from Moodle Data"',
+      },
+      'bachelors-2010': {
+        title: "Bachelor's in Information and Communication Technologies",
+        description: '',
+      },
+      'gcp-cert-2025': {
+        title: 'Google Cloud Digital Leader Certification',
+        description: '',
+      },
+      'hec-cert-2019': {
+        title: 'Creation and Development of a Technology Startup',
+        description: '',
+      },
+    },
+  },
+  publications: {
+    title: 'Publications',
+    subtitle: 'Academic papers and research',
+    readPaper: 'Read Paper',
+    leadAuthor: 'Lead Author',
+    coAuthor: 'Co-author',
+    inPress: 'In Press',
+    entries: {
+      'nature-2025': {
+        title: 'Predicting Student Dropout through Machine Learning Optimization: Insights from Moodle Registration Data',
+        description: 'Applied advanced ML techniques (Random Forest, XGBoost) to optimize dropout risk prediction from Moodle registration data.',
+      },
+      'springer-2025': {
+        title: 'Springer Book Chapter',
+        description: 'Book chapter expanding on ML approaches for educational data analysis.',
+      },
+      'dgo-2025-1': {
+        title: 'Conference Paper — DGO 2025',
+        description: 'Data quality and ML applied to national educational databases for government policy insights.',
+      },
+      'dgo-2025-2': {
+        title: 'Conference Paper — DGO 2025',
+        description: 'Machine learning applied to national educational databases, focused on early identification of at-risk students.',
+      },
+    },
+  },
+  about: {
+    title: 'About',
+    bio: 'Brazilian engineer based in Madrid. Building across telecom, healthcare, and voice AI. 15 years shipping data platforms, now shipping full-stack products. Started in data engineering — pipelines, platforms, and teams across education, analytics, and Web3. Everything is a data problem if you zoom out far enough.',
+    languages: 'Languages',
+    currentlyBuilding: 'Currently building',
+    langList: {
+      portuguese: 'Portuguese',
+      spanish: 'Spanish',
+      english: 'English',
+      french: 'French',
+    },
+    levels: {
+      native: 'Native',
+      advanced: 'Advanced',
+      intermediate: 'Intermediate',
+    },
+    projects: {
+      serena: 'hospice care platform',
+      nanoncore: 'telecom ISP management',
+      voz: 'voice AI for Brazilian Portuguese',
+    },
+  },
+  contact: {
+    title: 'Contact',
+    subtitle: "Let's build something together",
+    footer: 'Built with Vue 3 + Tailwind CSS',
+  },
+  common: {
+    liveSite: 'Live Site',
+    viewBadge: 'View Badge',
+    viewCertificate: 'View Certificate',
+    present: 'Present',
+    openSource: 'Open Source',
+  },
+}

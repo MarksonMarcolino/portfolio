@@ -1,0 +1,260 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html.lenis, html.lenis body {
+    height: auto;
+  }
+
+  ::selection {
+    background: rgba(0, 210, 255, 0.2);
+    color: #e8eaf0;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #1e2d45;
+    border-radius: 3px;
+  }
+}
+
+@layer components {
+  .gradient-text {
+    background: linear-gradient(135deg, #00d2ff, #7b2ff7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .card {
+    position: relative;
+    background: #0f1520;
+    border-radius: 16px;
+    padding: 24px;
+    isolation: isolate;
+    transition: all 0.2s ease;
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    padding: 1px;
+    background: linear-gradient(
+      135deg,
+      rgba(0, 210, 255, 0.4),
+      rgba(123, 47, 247, 0.2),
+      rgba(255, 255, 255, 0.05)
+    );
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  .card:hover::before {
+    background: linear-gradient(
+      135deg,
+      rgba(0, 210, 255, 0.7),
+      rgba(123, 47, 247, 0.5)
+    );
+  }
+
+  .card:hover {
+    background: #141d2e;
+    box-shadow:
+      0 0 30px rgba(0, 210, 255, 0.08),
+      0 8px 32px rgba(0, 0, 0, 0.4);
+    transform: translateY(-2px);
+  }
+
+  .card-static {
+    position: relative;
+    background: #0f1520;
+    border-radius: 16px;
+    padding: 24px;
+    isolation: isolate;
+  }
+
+  .card-static::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    padding: 1px;
+    background: linear-gradient(
+      135deg,
+      rgba(0, 210, 255, 0.4),
+      rgba(123, 47, 247, 0.2),
+      rgba(255, 255, 255, 0.05)
+    );
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  .pill-stack {
+    background: rgba(0, 210, 255, 0.08);
+    border: 1px solid rgba(0, 210, 255, 0.25);
+    color: #00d2ff;
+    border-radius: 6px;
+    font-size: 0.7rem;
+    font-family: 'JetBrains Mono', monospace;
+    padding: 2px 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .pill-stack:hover {
+    box-shadow: 0 0 10px rgba(0, 210, 255, 0.3);
+    transform: scale(1.02);
+  }
+
+  .pill-stack.active {
+    box-shadow: 0 0 10px rgba(0, 210, 255, 0.5);
+    background: rgba(0, 210, 255, 0.15);
+  }
+
+  .pill-tag {
+    background: rgba(245, 158, 11, 0.08);
+    border: 1px solid rgba(245, 158, 11, 0.25);
+    color: #f59e0b;
+    border-radius: 6px;
+    font-size: 0.7rem;
+    padding: 2px 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .pill-tag:hover {
+    box-shadow: 0 0 10px rgba(245, 158, 11, 0.3);
+    transform: scale(1.02);
+  }
+
+  .pill-tag.active {
+    box-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
+    background: rgba(245, 158, 11, 0.15);
+  }
+
+  .pill-production {
+    background: rgba(0, 210, 255, 0.08);
+    border: 1px solid rgba(0, 210, 255, 0.3);
+    color: #00d2ff;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    padding: 3px 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .pill-production:hover {
+    box-shadow: 0 0 10px rgba(0, 210, 255, 0.3);
+  }
+
+  .pill-production.active {
+    box-shadow: 0 0 10px rgba(0, 210, 255, 0.5);
+    background: rgba(0, 210, 255, 0.15);
+  }
+
+  .pill-knowledge {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #3d4f6b;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    padding: 3px 10px;
+    cursor: default;
+    transition: color 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .pill-knowledge:hover {
+    color: #7b8ba4;
+  }
+
+  .cursor-blink::after {
+    content: '|';
+    animation: blink 1s step-end infinite;
+    color: #00d2ff;
+    font-weight: 100;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  @keyframes bounce-down {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(8px); }
+  }
+
+  .bounce-down {
+    animation: bounce-down 2s ease-in-out infinite;
+  }
+
+  .filter-enter-active {
+    transition: all 0.3s ease;
+  }
+
+  .filter-leave-active {
+    transition: all 0.2s ease;
+  }
+
+  .filter-enter-from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  .filter-leave-to {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  .dimmed {
+    opacity: 0.15;
+    transform: scale(0.98);
+    filter: blur(0.5px);
+    transition: all 0.2s ease;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    font-size: 1.75rem;
+  }
+
+  .section-header .title {
+    background: linear-gradient(135deg, #00d2ff, #7b2ff7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .section-underline {
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(135deg, #00d2ff, #7b2ff7);
+    border-radius: 2px;
+    margin-top: 8px;
+  }
+}

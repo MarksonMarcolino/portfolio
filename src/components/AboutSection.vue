@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useScrollReveal } from '../composables/useScrollReveal.js'
-import { Globe, ExternalLink, User } from 'lucide-vue-next'
+import { User } from 'lucide-vue-next'
 import WordReveal from './WordReveal.vue'
 
 const { t } = useI18n()
@@ -17,13 +17,6 @@ const languages = [
   { flag: '\u{1F1EB}\u{1F1F7}', key: 'french', levelKey: 'intermediate' },
 ]
 
-const building = [
-  { name: 'Serena', descKey: 'serena', url: 'https://serena.ia.br/', icon: 'Globe' },
-  { name: 'nanoncore', descKey: 'nanoncore', url: 'https://nanoncore.com/', icon: 'Globe' },
-  { name: 'voz', descKey: 'voz', url: 'https://github.com/MarksonMarcolino/voz', icon: 'ExternalLink' },
-]
-
-const linkIcons = { Globe, ExternalLink }
 </script>
 
 <template>
@@ -56,26 +49,6 @@ const linkIcons = { Globe, ExternalLink }
             </div>
           </div>
 
-          <div data-reveal style="visibility: hidden;">
-            <h3 class="font-mono text-xs text-text-muted uppercase tracking-wider mb-3">{{ t('about.currentlyBuilding') }}</h3>
-            <div class="space-y-2">
-              <a
-                v-for="proj in building"
-                :key="proj.name"
-                :href="proj.url"
-                :target="proj.url ? '_blank' : undefined"
-                rel="noopener"
-                class="card-static !p-3 flex items-center justify-between transition-all hover:bg-surface-elevated"
-                :class="{ 'cursor-pointer': proj.url, 'cursor-default': !proj.url }"
-              >
-                <div>
-                  <div class="text-sm text-accent font-mono font-medium">{{ proj.name }}</div>
-                  <div class="text-xs text-text-muted">{{ t(`about.projects.${proj.descKey}`) }}</div>
-                </div>
-                <component v-if="proj.icon" :is="linkIcons[proj.icon]" :size="14" class="text-text-muted" />
-              </a>
-            </div>
-          </div>
         </div>
       </div>
     </div>

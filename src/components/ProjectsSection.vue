@@ -100,14 +100,13 @@ function matchProject(project) {
                 />
                 {{ statusConfig[project.status].label }}
               </span>
-              <span class="font-mono text-[0.68rem]" class="text-text-muted">{{ project.year }}</span>
+              <span class="font-mono text-[0.68rem] text-text-muted">{{ project.year }}</span>
             </div>
 
             <!-- Featured label for Serena -->
             <span
               v-if="project.id === 'serena'"
-              class="text-[0.6rem] uppercase tracking-[0.12em] mb-1"
-              style="color: #444; font-family: Inter, sans-serif;"
+              class="text-[0.6rem] uppercase tracking-[0.12em] mb-1 text-text-muted font-sans"
             >
               {{ t('projects.featured') }}
             </span>
@@ -118,13 +117,12 @@ function matchProject(project) {
             </h3>
 
             <!-- Role -->
-            <p class="text-[0.8rem] mt-0.5" class="text-text-secondary">{{ project.role }}</p>
+            <p class="text-[0.8rem] mt-0.5 text-text-secondary">{{ project.role }}</p>
 
             <!-- Description -->
             <p
-              class="text-[0.85rem] mt-2.5 leading-relaxed"
+              class="text-[0.85rem] mt-2.5 leading-relaxed text-text-secondary"
               :class="project.id === 'serena' || expandedCards.has(project.id) ? '' : 'line-clamp-3'"
-              class="text-text-secondary"
             >
               {{ t(`projects.entries.${project.id}.description`) }}
             </p>

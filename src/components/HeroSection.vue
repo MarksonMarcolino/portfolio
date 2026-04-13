@@ -151,6 +151,11 @@ onMounted(() => {
       { autoAlpha: 1, y: 0, duration: 0.4, ease: 'power2.out', stagger: 0.08 },
       '-=0.2')
 
+    .fromTo('.hero-photo',
+      { autoAlpha: 0, scale: 0.92 },
+      { autoAlpha: 1, scale: 1, duration: 1.0, ease: 'power3.out' },
+      '-=0.8')
+
   // Stats counter animation
   stats.forEach((stat) => {
     const el = statRefs.value[stat.key]
@@ -185,57 +190,75 @@ function scrollToWork() {
   <section id="hero" class="relative min-h-screen flex items-center justify-center pt-14">
     <canvas ref="canvas" class="absolute inset-0 z-0 pointer-events-none" />
 
-    <div class="relative z-10 max-w-2xl mx-auto px-4 text-center">
-      <h1 class="hero-name font-mono font-bold gradient-text mb-4 invisible" style="font-size: clamp(2rem, 5vw, 4rem);">
-        Markson Rebelo Marcolino
-      </h1>
+    <div class="relative z-10 max-w-5xl mx-auto px-4">
+      <div class="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
+        <!-- Text column -->
+        <div class="text-center lg:text-left lg:flex-1 order-2 lg:order-1">
+          <h1 class="hero-name font-mono font-bold gradient-text mb-4 invisible" style="font-size: clamp(2rem, 5vw, 3.5rem);">
+            Markson Rebelo Marcolino
+          </h1>
 
-      <div class="hero-typewriter font-mono text-xl md:text-2xl text-accent mb-6 h-8 invisible">
-        <span class="cursor-blink">{{ displayText }}</span>
-      </div>
-
-      <p class="hero-tagline text-text-secondary text-base leading-relaxed max-w-[480px] mx-auto mb-6 whitespace-pre-line invisible">{{ t('hero.tagline') }}</p>
-
-      <div class="hero-location inline-flex items-center gap-2 text-sm mb-8 px-4 py-1.5 rounded-full invisible" style="border: 1px solid rgba(0,210,255,0.3);">
-        <MapPin :size="14" class="text-accent" />
-        <span class="text-text-secondary">{{ t('hero.location') }}</span>
-      </div>
-
-      <div class="flex flex-wrap justify-center gap-3 mb-10">
-        <button
-          @click="scrollToWork"
-          class="hero-btn px-7 py-3 rounded-lg text-sm font-medium text-white transition-all hover:opacity-85 hover:scale-[1.02] cursor-pointer invisible"
-          style="background: linear-gradient(135deg, #00d2ff, #7b2ff7);"
-        >
-          {{ t('hero.viewWork') }}
-        </button>
-        <a
-          href="https://github.com/MarksonMarcolino"
-          target="_blank"
-          rel="noopener"
-          class="hero-btn relative inline-flex rounded-lg p-[2px] transition-all hover:scale-[1.02] cursor-pointer invisible"
-          style="background: linear-gradient(135deg, #00d2ff, #7b2ff7);"
-        >
-          <span class="flex items-center gap-2 bg-bg px-7 py-3 rounded-[6px] text-sm text-text-primary">
-            <Github :size="16" />
-            GitHub
-          </span>
-        </a>
-      </div>
-
-      <!-- Stats row -->
-      <div class="flex flex-wrap justify-center gap-8">
-        <div v-for="stat in stats" :key="stat.key" class="hero-stat text-center invisible">
-          <div class="flex items-center justify-center gap-1.5 mb-1">
-            <component :is="stat.icon" :size="16" class="text-accent" />
-            <span
-              :ref="el => { if (el) statRefs[stat.key] = el }"
-              class="font-mono text-2xl font-bold gradient-text"
-            >
-              0{{ stat.suffix }}
-            </span>
+          <div class="hero-typewriter font-mono text-xl md:text-2xl text-accent mb-6 h-8 invisible">
+            <span class="cursor-blink">{{ displayText }}</span>
           </div>
-          <div class="text-xs text-text-muted">{{ t(`hero.stats.${stat.key}`) }}</div>
+
+          <p class="hero-tagline text-text-secondary text-base leading-relaxed max-w-[480px] mx-auto lg:mx-0 mb-6 whitespace-pre-line invisible">{{ t('hero.tagline') }}</p>
+
+          <div class="hero-location inline-flex items-center gap-2 text-sm mb-8 px-4 py-1.5 rounded-full invisible" style="border: 1px solid rgba(0,210,255,0.3);">
+            <MapPin :size="14" class="text-accent" />
+            <span class="text-text-secondary">{{ t('hero.location') }}</span>
+          </div>
+
+          <div class="flex flex-wrap justify-center lg:justify-start gap-3 mb-10">
+            <button
+              @click="scrollToWork"
+              class="hero-btn px-7 py-3 rounded-lg text-sm font-medium text-white transition-all hover:opacity-85 hover:scale-[1.02] cursor-pointer invisible"
+              style="background: linear-gradient(135deg, #00d2ff, #7b2ff7);"
+            >
+              {{ t('hero.viewWork') }}
+            </button>
+            <a
+              href="https://github.com/MarksonMarcolino"
+              target="_blank"
+              rel="noopener"
+              class="hero-btn relative inline-flex rounded-lg p-[2px] transition-all hover:scale-[1.02] cursor-pointer invisible"
+              style="background: linear-gradient(135deg, #00d2ff, #7b2ff7);"
+            >
+              <span class="flex items-center gap-2 bg-bg px-7 py-3 rounded-[6px] text-sm text-text-primary">
+                <Github :size="16" />
+                GitHub
+              </span>
+            </a>
+          </div>
+
+          <!-- Stats row -->
+          <div class="flex flex-wrap justify-center lg:justify-start gap-8">
+            <div v-for="stat in stats" :key="stat.key" class="hero-stat text-center invisible">
+              <div class="flex items-center justify-center gap-1.5 mb-1">
+                <component :is="stat.icon" :size="16" class="text-accent" />
+                <span
+                  :ref="el => { if (el) statRefs[stat.key] = el }"
+                  class="font-mono text-2xl font-bold gradient-text"
+                >
+                  0{{ stat.suffix }}
+                </span>
+              </div>
+              <div class="text-xs text-text-muted">{{ t(`hero.stats.${stat.key}`) }}</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Photo column -->
+        <div class="order-1 lg:order-2 shrink-0">
+          <div class="hero-photo photo-circle w-40 h-40 lg:w-[280px] lg:h-[280px] invisible"
+               style="box-shadow: 0 0 60px rgba(0, 210, 255, 0.15);">
+            <img
+              src="/profile.jpg"
+              alt="Markson Rebelo Marcolino"
+              class="w-full h-full object-cover relative z-0"
+              style="object-position: 50% 25%;"
+            />
+          </div>
         </div>
       </div>
     </div>

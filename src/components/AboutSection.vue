@@ -32,6 +32,16 @@ const languages = [
 
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 mt-10">
         <div data-reveal style="visibility: hidden;">
+          <div class="flex justify-center lg:justify-start mb-6">
+            <div class="photo-circle w-[120px] h-[120px]" style="box-shadow: 0 0 30px rgba(0, 210, 255, 0.08);">
+              <img
+                src="/profile.jpg"
+                alt="Markson Rebelo Marcolino"
+                class="w-full h-full object-cover relative z-0"
+                style="object-position: 50% 25%;"
+              />
+            </div>
+          </div>
           <p class="text-text-secondary leading-relaxed">{{ t('about.bio') }}</p>
         </div>
 

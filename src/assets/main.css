@@ -288,6 +288,37 @@
     transition: all 0.3s ease;
   }
 
+  /* === PHOTO CIRCLE === */
+
+  .photo-circle {
+    position: relative;
+    border-radius: 50%;
+    overflow: hidden;
+    isolation: isolate;
+    transition: all 0.3s ease;
+  }
+
+  .photo-circle::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    padding: 3px;
+    background: linear-gradient(135deg, rgba(0, 210, 255, 0.6), rgba(123, 47, 247, 0.4));
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .photo-circle:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 80px rgba(0, 210, 255, 0.2) !important;
+  }
+
   /* === CURSOR GLOW === */
 
   .cursor-glow {

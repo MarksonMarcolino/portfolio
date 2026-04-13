@@ -113,7 +113,7 @@ function matchProject(project) {
             </span>
 
             <!-- Name -->
-            <h3 class="text-[1.1rem] font-bold text-text-primary" style="font-family: Inter, sans-serif;">
+            <h3 class="font-mono text-base font-bold text-text-primary">
               {{ project.name }}
             </h3>
 

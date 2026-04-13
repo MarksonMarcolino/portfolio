@@ -45,7 +45,7 @@ const education = [
         <!-- Left column -->
         <div data-reveal class="w-full lg:w-[40%] lg:shrink-0" style="visibility: hidden;">
           <img
-            src="/profile-hero.jpg"
+            src="/profile-about.jpg"
             alt="Markson Rebelo Marcolino"
             class="w-full object-cover object-top"
             style="border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); aspect-ratio: 4/5;"

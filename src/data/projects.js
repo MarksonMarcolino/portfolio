@@ -2,7 +2,7 @@ export const projects = [
   {
     id: 'serena',
     name: 'Serena',
-    role: 'Co-founder & Engineer',
+    role: 'Engineer',
     status: 'live',
     year: '2026 – Present',
     description: 'Digital platform for hospice and palliative care coordination in Brazil, built with his sister for her geriatrics residency thesis. Handles clinical assessments, medication tracking, team coordination, and AI-assisted clinical decisions. LGPD and ANVISA compliant.',
@@ -15,7 +15,7 @@ export const projects = [
   {
     id: 'nanoncore',
     name: 'nanoncore',
-    role: 'Founding Engineer',
+    role: 'Engineer',
     status: 'live',
     year: '2025 – Present',
     description: 'Telecom and ISP management platform. GPON fiber management, equipment provisioning, real-time network monitoring via SNMP/SSH, and metrics dashboards.',

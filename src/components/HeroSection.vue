@@ -15,7 +15,7 @@ const stats = [
   { key: 'experience', value: 15, suffix: '+' },
   { key: 'papers', value: 4, suffix: '' },
   { key: 'products', value: 3, suffix: '' },
-  { key: 'languages', value: 3, suffix: '' },
+  { key: 'languages', value: 4, suffix: '' },
 ]
 
 const statRefs = ref({})

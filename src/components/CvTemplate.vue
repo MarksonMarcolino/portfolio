@@ -106,7 +106,7 @@ function formatDate(d) {
       <h2 style="font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #888; margin: 0 0 12px;">
         {{ t('cv.education') }}
       </h2>
-      <div v-for="entry in educationEntries" :key="entry.id" style="margin-bottom: 10px;">
+      <div v-for="entry in educationEntries" :key="entry.id" style="margin-bottom: 10px; page-break-inside: avoid;">
         <div style="display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: baseline;">
           <span style="font-weight: 600; font-size: 12px; color: #1a1a1a;">
             {{ t(`timeline.entries.${entry.id}.title`) }}
@@ -129,7 +129,7 @@ function formatDate(d) {
       <h2 style="font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #888; margin: 0 0 12px;">
         {{ t('cv.publications') }}
       </h2>
-      <div v-for="pub in publications" :key="pub.id" style="margin-bottom: 10px;">
+      <div v-for="pub in publications" :key="pub.id" style="margin-bottom: 10px; page-break-inside: avoid;">
         <div style="font-weight: 600; font-size: 11px; color: #1a1a1a; line-height: 1.5;">
           {{ t(`publications.entries.${pub.id}.title`) }}
         </div>

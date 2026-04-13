@@ -1,0 +1,226 @@
+export default {
+  nav: {
+    home: 'Accueil',
+    stack: 'Technologies',
+    projects: 'Projets',
+    timeline: 'Parcours',
+    publications: 'Publications',
+    about: 'À propos',
+    contact: 'Contact',
+  },
+  projects: {
+    title: 'Projets',
+    subtitle: 'Ce que j\'ai construit',
+    featured: 'PROJET VEDETTE',
+    showMore: 'Lire plus',
+    showLess: 'Voir moins',
+    entries: {
+      serena: { description: 'Plateforme numérique de coordination des soins palliatifs et de l\'hospitalisation au Brésil, construite avec sa sœur pour sa thèse de résidence en gériatrie. Gère les évaluations cliniques, le suivi des médicaments, la coordination d\'équipe et les décisions cliniques assistées par IA. Conforme LGPD et ANVISA.' },
+      nanoncore: { description: 'Plateforme de gestion télécom et FAI. Gestion de la fibre GPON, provisionnement d\'équipements, surveillance réseau en temps réel via SNMP/SSH et tableaux de bord de métriques.' },
+      voz: { description: 'IA conversationnelle vocale auto-hébergée pour le portugais brésilien et l\'espagnol rioplatense. Pipeline LLM + TTS en streaming pour que l\'utilisateur entende l\'audio avant que le modèle ait fini de réfléchir. Fonctionne entièrement sur du matériel local.' },
+      clustering_utils: { description: 'Toolkit réutilisable de benchmark et de visualisation de clustering pour Python.' },
+      db_toolkit: { description: 'Toolkit Python léger pour PostgreSQL via SSH avec exécution SQL parallèle et pool de connexions.' },
+    },
+  },
+  hero: {
+    tagline: 'Construction de plateformes de données évolutives, IA vocale et produits full-stack. 15 ans de livraison de systèmes qui fonctionnent en production.',
+    available: 'Disponible pour des opportunités',
+    greeting: 'Bonjour, je suis Markson,',
+    line1: 'INGÉNIEUR',
+    line2: 'DE DONNÉES',
+    location: 'Madrid, Espagne',
+    viewWork: 'Voir mes travaux',
+    download_cv: 'Télécharger CV',
+    stats: {
+      experience: 'Ans d\'expérience',
+      papers: 'Articles publiés',
+      products: 'Produits actifs',
+      languages: 'Langues',
+    },
+    roles: {
+      dataEngineer: 'Ingénieur de Données',
+      mlResearcher: 'Chercheur en ML',
+      fullStackBuilder: 'Développeur Full-Stack',
+      openSourceAuthor: 'Auteur Open Source',
+    },
+  },
+  stack: {
+    title: 'Technologies',
+    subtitle: 'Outils et technologies que j\'utilise',
+    production: 'Production',
+    knowledge: 'Connaissances',
+    categories: {
+      'Cloud & Data Platforms': 'Cloud & Plateformes de Données',
+      'Data Engineering': 'Ingénierie des Données',
+      'Programming & Databases': 'Programmation & Bases de Données',
+      'AI & Machine Learning': 'IA & Machine Learning',
+      'Visualization & BI': 'Visualisation & BI',
+      'Backend & APIs': 'Backend & APIs',
+      'Frontend': 'Frontend',
+      'DevOps & Tools': 'DevOps & Outils',
+    },
+  },
+  timeline: {
+    title: 'Parcours Professionnel',
+    subtitle: 'Emplois, formation et certifications',
+    filtering: 'Filtrage',
+    types: {
+      work: 'Emploi',
+      project: 'Projet',
+      education: 'Formation',
+      certification: 'Certification',
+    },
+    entries: {
+      'accenture-2025': {
+        title: 'Ingénieur de Données',
+        description: 'Conception et support de plateformes de données évolutives sur GCP pour des clients entreprise. Pipelines CI/CD via Terraform et Azure DevOps pour les assets BigQuery et Dataflow. Opérationnalisation des processus ELT garantissant qualité, performance et conformité de gouvernance des données.',
+      },
+      'nees-2024': {
+        title: 'Data Scientist',
+        description: 'Analyse de plus de 10M d\'enregistrements d\'étudiants pour identifier les tendances de rétention et fournir des insights de politique publique. Construction de tableaux de bord géospatiaux couvrant plus de 5 000 écoles brésiliennes.',
+      },
+      'eattasty-2023': {
+        title: 'Data Scientist',
+        description: 'Analyses avancées dans Dremio et MongoDB pour les décisions marketing et opérationnelles. Tableaux de bord BI sur Metabase, Apache Superset, Looker et Power BI. Automatisation des workflows de données et intégrations marketing via n8n.',
+      },
+      'seedify-2022': {
+        title: 'Chef de Projet',
+        description: 'Direction des workflows Agile pour le développement de produits blockchain. Coordination inter-équipes entre équipes internes et agences externes. Rédaction de user stories techniques et documentation métier.',
+      },
+      'avature-2022': {
+        title: 'Consultant en Implémentation',
+        description: 'Déploiement complet de SaaS entreprise pour des clients RH. Recueil des besoins et livraison Agile/Waterfall.',
+      },
+      'farfetch-2021': {
+        title: 'Ingénieur Support',
+        description: 'Support technique gérant les mises à jour de bases de données et les endpoints API pour une plateforme e-commerce. Scripts d\'automatisation Python et SQL pour améliorer l\'efficacité.',
+      },
+      'interlink-2018': {
+        title: 'Chef de Projet',
+        description: 'Direction d\'équipes de développement logiciel à distance et sur site. Gestion du backlog, des sprints et collaboration UX. Recherche technologique pour des solutions innovantes.',
+      },
+      'professor-2010': {
+        title: 'Professeur d\'Informatique et Développement Logiciel',
+        description: 'Enseignement de la POO, des systèmes d\'exploitation, de l\'architecture des ordinateurs et des frameworks de développement modernes. Élaboration de programmes couvrant Agile, les design patterns et les meilleures pratiques de génie logiciel.',
+      },
+      'serena-2026': {
+        title: 'Serena',
+        description: 'Plateforme numérique de coordination des soins palliatifs et de l\'hospitalisation au Brésil, construite avec sa sœur pour sa thèse de résidence en gériatrie. Gère les évaluations cliniques (ESAS-r, PPS, PAINAD), le suivi des médicaments, la coordination d\'équipe, les portails familiaux et les décisions cliniques assistées par IA. Conforme LGPD et ANVISA.',
+      },
+      'nanoncore-2025': {
+        title: 'nanoncore',
+        description: 'Plateforme de gestion télécom et FAI. Gestion de la fibre GPON, provisionnement d\'équipements, surveillance réseau en temps réel via SNMP/SSH et tableaux de bord de métriques.',
+      },
+      'voz-2026': {
+        title: 'voz',
+        description: 'IA conversationnelle vocale auto-hébergée pour le portugais brésilien et l\'espagnol rioplatense. Pipeline LLM + TTS en streaming pour que l\'utilisateur entende l\'audio avant que le modèle ait fini de réfléchir. Fonctionne entièrement sur du matériel local. Open source.',
+      },
+      'clustering-utils': {
+        title: 'clustering_utils',
+        description: 'Toolkit réutilisable de benchmark et de visualisation de clustering.',
+      },
+      'db-toolkit': {
+        title: 'db_toolkit',
+        description: 'Toolkit Python léger pour PostgreSQL via SSH avec exécution SQL parallèle et pool de connexions.',
+      },
+      'masters-2024': {
+        title: 'Master en Technologies de l\'Information et de la Communication',
+        description: 'Thèse : "Prédiction du Décrochage Étudiant par Optimisation du Machine Learning : Insights à partir des Données d\'Inscription Moodle"',
+      },
+      'bachelors-2010': {
+        title: 'Licence en Technologies de l\'Information et de la Communication',
+        description: '',
+      },
+      'gcp-cert-2025': {
+        title: 'Certification Google Cloud Digital Leader',
+        description: '',
+      },
+      'hec-cert-2019': {
+        title: 'Création et Développement d\'une Startup Technologique',
+        description: '',
+      },
+    },
+  },
+  publications: {
+    title: 'Publications',
+    subtitle: 'Articles académiques et recherche',
+    readPaper: 'Lire l\'article',
+    leadAuthor: 'Auteur Principal',
+    coAuthor: 'Co-auteur',
+    inPress: 'Sous presse',
+    entries: {
+      'nature-2025': {
+        title: 'Predicting Student Dropout through Machine Learning Optimization: Insights from Moodle Registration Data',
+        description: 'Application de techniques avancées de ML (Random Forest, XGBoost) pour optimiser la prédiction du risque de décrochage à partir des données d\'inscription Moodle.',
+      },
+      'springer-2025': {
+        title: 'Chapitre de Livre Springer',
+        description: 'Chapitre de livre développant les approches ML pour l\'analyse de données éducatives.',
+      },
+      'dgo-2025-1': {
+        title: "Ensuring Data Quality in National Educational Databases: Insights from Brazil's Centralized Database of High School Students' Data",
+        description: 'Qualité des données et ML appliqués aux bases de données éducatives nationales pour des insights de politique gouvernementale.',
+      },
+      'dgo-2025-2': {
+        title: 'Leveraging String Similarity Algorithms for Educational Data Validation: A Scalable Approach for Digital Governance',
+        description: 'Machine learning appliqué aux bases de données éducatives nationales, axé sur l\'identification précoce des étudiants à risque.',
+      },
+    },
+  },
+  about: {
+    title: 'À propos',
+    subtitle: 'Un peu sur moi',
+    education: 'Formation',
+    degrees: {
+      masters: 'Master en Technologies de l\'Information et de la Communication',
+      bachelors: 'Licence en Technologies de l\'Information et de la Communication',
+    },
+    bio: 'Ingénieur brésilien basé à Madrid. Construction dans les domaines des télécoms, de la santé et de l\'IA vocale. 15 ans de livraison de plateformes de données, maintenant livraison de produits full-stack. J\'ai commencé en ingénierie des données — pipelines, plateformes et équipes dans l\'éducation, l\'analytique et le Web3. Tout est un problème de données si on prend assez de recul.',
+    languages: 'Langues',
+    currentlyBuilding: 'En cours de construction',
+    langList: {
+      portuguese: 'Portugais',
+      spanish: 'Espagnol',
+      english: 'Anglais',
+      french: 'Français',
+    },
+    levels: {
+      native: 'Natif',
+      advanced: 'Avancé',
+      intermediate: 'Intermédiaire',
+    },
+    projects: {
+      serena: 'plateforme de soins palliatifs',
+      nanoncore: 'gestion télécom FAI',
+      voz: 'IA vocale pour le portugais brésilien',
+    },
+  },
+  contact: {
+    line1: 'TRAVAILLONS',
+    line2: 'ENSEMBLE',
+    subtitle: 'Ouvert aux postes à temps plein, au conseil et aux problèmes intéressants.',
+    footer: 'Construit avec Vue 3 + Tailwind CSS',
+  },
+  common: {
+    liveSite: 'Site',
+    viewBadge: 'Voir le Badge',
+    viewCertificate: 'Voir le Certificat',
+    present: 'Présent',
+    openSource: 'Open Source',
+  },
+  cv: {
+    filename: 'Markson_Rebelo_Marcolino_CV_FR.pdf',
+    title: 'Ingénieur de Données',
+    summary_label: 'Résumé',
+    summary: 'Ingénieur de Données avec plus de 15 ans d\'expérience dans la conception et la construction de pipelines de données évolutifs, de workflows ELT/ETL et de plateformes de données cloud sur GCP (BigQuery, Dataflow, Cloud Composer). Compétent en Python, SQL, FastAPI, PostgreSQL et TimescaleDB. Expérimenté en CI/CD (Terraform, GitHub Actions, Docker) et en applications de machine learning utilisant scikit-learn, XGBoost et PyTorch. Chercheur publié en science des données éducatives et optimisation ML.',
+    experience: 'Expérience',
+    education: 'Formation',
+    publications: 'Publications',
+    skills: 'Compétences Techniques',
+    present: 'Présent',
+    lead_author: 'Auteur Principal',
+    co_author: 'Co-auteur',
+    in_press: 'Sous presse',
+    location: 'Madrid, Espagne',
+  },
+}

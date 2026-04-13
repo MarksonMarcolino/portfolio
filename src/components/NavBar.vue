@@ -15,6 +15,7 @@ const locales = [
   { code: 'en', label: 'EN' },
   { code: 'pt', label: 'PT' },
   { code: 'es', label: 'ES' },
+  { code: 'fr', label: 'FR' },
 ]
 
 const mobileOpen = ref(false)

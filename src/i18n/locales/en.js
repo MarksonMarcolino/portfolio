@@ -209,7 +209,7 @@ export default {
     filename: 'Markson_Rebelo_Marcolino_CV_EN.pdf',
     title: 'Data Engineer',
     summary_label: 'Summary',
-    summary: 'Data Engineer with 15+ years of experience building scalable data platforms, pipelines, and full-stack products across telecom, healthcare, and education. Expert in Python, GCP, BigQuery, FastAPI, and cloud-native data infrastructure.',
+    summary: 'Data Engineer with 15+ years of experience designing and building scalable data pipelines, ELT/ETL workflows, and cloud data platforms on GCP (BigQuery, Dataflow, Cloud Composer). Proficient in Python, SQL, FastAPI, PostgreSQL, and TimescaleDB. Experienced with CI/CD (Terraform, GitHub Actions, Docker) and machine learning applications using scikit-learn, XGBoost, and PyTorch. Published researcher in educational data science and ML optimization.',
     experience: 'Experience',
     education: 'Education',
     publications: 'Publications',

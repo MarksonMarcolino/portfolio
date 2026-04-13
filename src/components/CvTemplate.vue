@@ -80,11 +80,11 @@ function formatDate(d) {
         {{ t('cv.experience') }}
       </h2>
       <div v-for="entry in workEntries" :key="entry.id" style="margin-bottom: 14px;">
-        <div style="display: flex; justify-content: space-between; align-items: baseline;">
+        <div style="display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: baseline;">
           <span style="font-weight: 600; font-size: 13px; color: #1a1a1a;">
             {{ t(`timeline.entries.${entry.id}.title`) }}
           </span>
-          <span style="font-size: 10px; color: #888;">
+          <span style="font-size: 10px; color: #888; white-space: nowrap;">
             {{ formatDate(entry.dateStart) }} – {{ entry.dateEnd ? formatDate(entry.dateEnd) : t('cv.present') }}
           </span>
         </div>
@@ -95,10 +95,8 @@ function formatDate(d) {
         <div v-if="t(`timeline.entries.${entry.id}.description`)" style="color: #444; font-size: 11px; line-height: 1.6;">
           {{ t(`timeline.entries.${entry.id}.description`) }}
         </div>
-        <div v-if="entry.stack.length" style="margin-top: 5px; display: flex; flex-wrap: wrap; gap: 3px;">
-          <span v-for="tech in entry.stack.slice(0, 6)" :key="tech" style="background: #f3f4f6; padding: 1px 5px; border-radius: 3px; font-size: 9px; color: #555;">
-            {{ tech }}
-          </span>
+        <div v-if="entry.stack.length" style="color: #555; font-size: 10px; margin-top: 4px;">
+          {{ entry.stack.slice(0, 6).join(' · ') }}
         </div>
       </div>
     </section>
@@ -109,11 +107,11 @@ function formatDate(d) {
         {{ t('cv.education') }}
       </h2>
       <div v-for="entry in educationEntries" :key="entry.id" style="margin-bottom: 10px;">
-        <div style="display: flex; justify-content: space-between;">
+        <div style="display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: baseline;">
           <span style="font-weight: 600; font-size: 12px; color: #1a1a1a;">
             {{ t(`timeline.entries.${entry.id}.title`) }}
           </span>
-          <span style="font-size: 10px; color: #888;">
+          <span style="font-size: 10px; color: #888; white-space: nowrap;">
             {{ formatDate(entry.dateStart) }} – {{ formatDate(entry.dateEnd) }}
           </span>
         </div>
@@ -149,7 +147,7 @@ function formatDate(d) {
         {{ t('cv.skills') }}
       </h2>
       <div v-for="cat in productionStack" :key="cat.category" style="margin-bottom: 6px; font-size: 11px; line-height: 1.6;">
-        <span style="font-weight: 600; color: #333;">{{ cat.category }}:</span>
+        <span style="font-weight: 600; color: #333;">{{ cat.category }}:&nbsp;</span>
         <span style="color: #555;">
           {{ cat.items.filter(i => i.tier === 'production').map(i => i.name).join(', ') }}
         </span>

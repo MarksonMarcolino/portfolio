@@ -81,7 +81,7 @@ export default {
         description: 'Analytics avanzado en Dremio y MongoDB para decisiones de marketing y operaciones. Dashboards de BI en Metabase, Apache Superset, Looker y Power BI. Automatización de workflows de datos e integraciones de marketing usando n8n.',
       },
       'seedify-2022': {
-        title: 'Project Manager',
+        title: 'Gerente de Proyectos',
         description: 'Liderazgo de workflows Agile para desarrollo de productos blockchain. Coordinación entre equipos internos y agencias externas. Elaboración de user stories técnicas y documentación de negocio.',
       },
       'avature-2022': {

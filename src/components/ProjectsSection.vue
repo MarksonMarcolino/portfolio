@@ -100,7 +100,7 @@ function matchProject(project) {
                 />
                 {{ statusConfig[project.status].label }}
               </span>
-              <span class="font-mono text-[0.68rem]" style="color: #444;">{{ project.year }}</span>
+              <span class="font-mono text-[0.68rem]" class="text-text-muted">{{ project.year }}</span>
             </div>
 
             <!-- Featured label for Serena -->
@@ -118,13 +118,13 @@ function matchProject(project) {
             </h3>
 
             <!-- Role -->
-            <p class="text-[0.8rem] mt-0.5" style="color: #888;">{{ project.role }}</p>
+            <p class="text-[0.8rem] mt-0.5" class="text-text-secondary">{{ project.role }}</p>
 
             <!-- Description -->
             <p
               class="text-[0.85rem] mt-2.5 leading-relaxed"
               :class="project.id === 'serena' || expandedCards.has(project.id) ? '' : 'line-clamp-3'"
-              style="color: #888;"
+              class="text-text-secondary"
             >
               {{ t(`projects.entries.${project.id}.description`) }}
             </p>

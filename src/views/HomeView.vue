@@ -145,7 +145,7 @@ function onPointerUp() {
 
     <!-- Publications -->
     <section id="publications" ref="pubSectionRef" class="relative z-10 py-20 px-4">
-      <div class="max-w-5xl mx-auto">
+      <div class="max-w-6xl mx-auto">
         <div class="mb-2">
           <div class="section-header">
             <BookOpen :size="22" class="text-accent" />

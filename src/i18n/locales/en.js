@@ -14,6 +14,10 @@ export default {
     featured: 'FEATURED PROJECT',
     showMore: 'Show more',
     showLess: 'Show less',
+    roles: {
+      engineer: 'Engineer',
+      author: 'Author',
+    },
     entries: {
       serena: { description: 'Digital platform for hospice and palliative care coordination in Brazil, built with his sister for her geriatrics residency thesis. Handles clinical assessments, medication tracking, team coordination, and AI-assisted clinical decisions. LGPD and ANVISA compliant.' },
       nanoncore: { description: 'Telecom and ISP management platform. GPON fiber management, equipment provisioning, real-time network monitoring via SNMP/SSH, and metrics dashboards.' },

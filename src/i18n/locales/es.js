@@ -14,6 +14,10 @@ export default {
     featured: 'PROYECTO DESTACADO',
     showMore: 'Ver más',
     showLess: 'Ver menos',
+    roles: {
+      engineer: 'Ingeniero',
+      author: 'Autor',
+    },
     entries: {
       serena: { description: 'Plataforma digital para coordinación de cuidados paliativos y hospice en Brasil, construida con su hermana para la tesis de residencia en geriatría. Gestiona evaluaciones clínicas, seguimiento de medicación, coordinación de equipo y decisiones clínicas asistidas por IA. Conformidad LGPD y ANVISA.' },
       nanoncore: { description: 'Plataforma de gestión de telecom e ISP. Gestión de fibra GPON, aprovisionamiento de equipos, monitoreo de red en tiempo real vía SNMP/SSH y dashboards de métricas.' },

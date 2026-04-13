@@ -14,6 +14,10 @@ export default {
     featured: 'PROJET VEDETTE',
     showMore: 'Lire plus',
     showLess: 'Voir moins',
+    roles: {
+      engineer: 'Ingénieur',
+      author: 'Auteur',
+    },
     entries: {
       serena: { description: 'Plateforme numérique de coordination des soins palliatifs et de l\'hospitalisation au Brésil, construite avec sa sœur pour sa thèse de résidence en gériatrie. Gère les évaluations cliniques, le suivi des médicaments, la coordination d\'équipe et les décisions cliniques assistées par IA. Conforme LGPD et ANVISA.' },
       nanoncore: { description: 'Plateforme de gestion télécom et FAI. Gestion de la fibre GPON, provisionnement d\'équipements, surveillance réseau en temps réel via SNMP/SSH et tableaux de bord de métriques.' },

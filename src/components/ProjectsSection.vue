@@ -104,7 +104,7 @@ function matchProject(project) {
             </h3>
 
             <!-- Role -->
-            <p style="font-family: Inter, sans-serif; font-size: 0.8rem; color: #888; margin-top: 2px;">{{ project.role }}</p>
+            <p style="font-family: Inter, sans-serif; font-size: 0.8rem; color: #888; margin-top: 2px;">{{ t(`projects.roles.${project.role}`) }}</p>
 
             <!-- Description -->
             <p

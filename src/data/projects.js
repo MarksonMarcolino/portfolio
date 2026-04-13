@@ -2,7 +2,7 @@ export const projects = [
   {
     id: 'serena',
     name: 'Serena',
-    role: 'Engineer',
+    role: 'engineer',
     status: 'live',
     year: '2026 – Present',
     description: 'Digital platform for hospice and palliative care coordination in Brazil, built with his sister for her geriatrics residency thesis. Handles clinical assessments, medication tracking, team coordination, and AI-assisted clinical decisions. LGPD and ANVISA compliant.',
@@ -15,7 +15,7 @@ export const projects = [
   {
     id: 'nanoncore',
     name: 'nanoncore',
-    role: 'Engineer',
+    role: 'engineer',
     status: 'live',
     year: '2025 – Present',
     description: 'Telecom and ISP management platform. GPON fiber management, equipment provisioning, real-time network monitoring via SNMP/SSH, and metrics dashboards.',
@@ -28,7 +28,7 @@ export const projects = [
   {
     id: 'voz',
     name: 'voz',
-    role: 'Author',
+    role: 'author',
     status: 'open-source',
     year: '2026 – Present',
     description: 'Self-hosted voice conversational AI for Brazilian Portuguese and Rioplatense Spanish. Pipelined LLM + TTS streaming so the user hears audio before the model finishes thinking. Runs entirely on local hardware.',
@@ -41,7 +41,7 @@ export const projects = [
   {
     id: 'clustering_utils',
     name: 'clustering_utils',
-    role: 'Author',
+    role: 'author',
     status: 'open-source',
     year: '2025',
     description: 'Reusable clustering benchmark and visualization toolkit for Python.',
@@ -54,7 +54,7 @@ export const projects = [
   {
     id: 'db_toolkit',
     name: 'db_toolkit',
-    role: 'Author',
+    role: 'author',
     status: 'open-source',
     year: '2025',
     description: 'Lightweight Python toolkit for PostgreSQL via SSH with parallel SQL execution and connection pooling.',

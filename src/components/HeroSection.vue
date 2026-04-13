@@ -139,7 +139,7 @@ function scrollToWork() {
         <button
           @click="downloadCV"
           class="hero-btn flex items-center gap-2 cursor-pointer transition-all hover:border-white/50"
-          style="background: transparent; border: 1px solid rgba(255,255,255,0.2); color: #f0f0f0; border-radius: 4px; padding: 12px 28px; font-family: Inter, sans-serif; font-weight: 500; font-size: 0.875rem; opacity: 0;"
+          style="background: transparent; border: 1px solid rgba(255,255,255,0.2); color: #f0f0f0; border-radius: 4px; padding: 12px 28px; font-family: Inter, sans-serif; font-weight: 500; font-size: 0.875rem;"
         >
           <Download :size="16" />
           {{ t('hero.download_cv') }}

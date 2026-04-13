@@ -41,7 +41,7 @@ const education = [
         </p>
       </div>
 
-      <div class="flex flex-col lg:flex-row items-start" style="gap: 80px;">
+      <div class="flex flex-col lg:flex-row items-start" style="gap: clamp(40px, 8vw, 80px);">
         <!-- Left column -->
         <div data-reveal class="w-full lg:w-[40%] lg:shrink-0" style="visibility: hidden;">
           <img

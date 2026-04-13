@@ -139,14 +139,21 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
       </div>
     </div>
 
-    <div v-if="mobileOpen" class="absolute top-full left-0 right-0 md:hidden" style="background: rgba(8, 11, 18, 0.95); backdrop-filter: blur(16px); border-top: 1px solid rgba(255,255,255,0.05);">
+    <div
+      v-if="mobileOpen"
+      class="fixed inset-0 z-50 md:hidden flex flex-col items-center justify-center"
+      style="background: #0a0a0a; transition: transform 0.3s ease;"
+    >
+      <button @click="mobileOpen = false" class="absolute top-4 right-4 cursor-pointer" style="color: #888;">
+        <X :size="28" />
+      </button>
       <a
         v-for="key in navKeys"
         :key="key"
         :href="anchors[key]"
         @click.prevent="scrollTo(anchors[key])"
-        class="block px-4 py-3 text-sm"
-        :style="activeSection === anchors[key] ? 'color: #f0f0f0;' : 'color: #888; transition: color 0.2s ease;'"
+        class="block py-3"
+        :style="'font-family: Bebas Neue, sans-serif; font-size: 2rem; letter-spacing: 0.02em; ' + (activeSection === anchors[key] ? 'color: #00d2ff;' : 'color: #f0f0f0; transition: color 0.2s ease;')"
       >
         {{ t(`nav.${key}`) }}
       </a>

@@ -147,9 +147,9 @@ function scrollToWork() {
       </div>
 
       <!-- Stats -->
-      <div class="flex items-center gap-0" style="margin-top: 48px;">
+      <div class="hero-stats-row flex items-center gap-0" style="margin-top: 48px;">
         <template v-for="(stat, i) in stats" :key="stat.key">
-          <div v-if="i > 0" class="h-8 mx-4" style="width: 1px; background: rgba(255,255,255,0.08);"></div>
+          <div v-if="i > 0" class="stat-divider h-8 mx-4" style="width: 1px; background: rgba(255,255,255,0.08);"></div>
           <div class="hero-stat" style="opacity: 0;">
             <span
               :ref="el => { if (el) statRefs[stat.key] = el }"
@@ -189,7 +189,47 @@ function scrollToWork() {
   50% { opacity: 0.4; }
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 767px) {
+  #hero {
+    grid-template-columns: 1fr !important;
+    padding: 80px 20px 40px !important;
+    gap: 24px !important;
+    text-align: center;
+  }
+  #hero > div:last-child {
+    order: -1;
+  }
+  .hero-heading-line {
+    text-align: center;
+  }
+  .hero-tagline {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+  .hero-buttons > * {
+    width: 100%;
+    justify-content: center;
+  }
+  .hero-photo {
+    width: 160px !important;
+    height: 160px !important;
+    margin: 0 auto 24px;
+  }
+  .hero-stats-row {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    text-align: center;
+  }
+  .hero-stats-row .stat-divider {
+    display: none;
+  }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
   #hero {
     grid-template-columns: 1fr !important;
     padding: 100px 24px 60px !important;
@@ -213,9 +253,6 @@ function scrollToWork() {
     width: 220px !important;
     height: 220px !important;
     margin: 0 auto;
-  }
-  .flex.items-center.gap-0 {
-    justify-content: center;
   }
 }
 </style>

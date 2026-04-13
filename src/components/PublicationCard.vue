@@ -71,7 +71,7 @@ const { t } = useI18n()
       :href="pub.url"
       target="_blank"
       rel="noopener"
-      class="pub-link flex items-center gap-1.5 shrink-0 self-center cursor-pointer whitespace-nowrap"
+      class="pub-link flex items-center gap-1.5 shrink-0 self-start sm:self-center cursor-pointer whitespace-nowrap"
       style="color: #00d2ff; font-family: Inter, sans-serif; font-size: 0.85rem; text-decoration: none;"
     >
       {{ t('publications.readPaper') }}

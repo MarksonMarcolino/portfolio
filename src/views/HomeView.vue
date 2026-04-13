@@ -3,7 +3,7 @@ import { ref, onMounted, onUnmounted } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useScrollReveal } from '../composables/useScrollReveal.js'
 import gsap from 'gsap'
-import { X } from 'lucide-vue-next'
+import { X, ChevronRight } from 'lucide-vue-next'
 import HeroSection from '../components/HeroSection.vue'
 import TechStackMap from '../components/TechStackMap.vue'
 import ProjectsSection from '../components/ProjectsSection.vue'
@@ -116,9 +116,9 @@ function onPointerUp() {
             <div
               v-for="entry in filteredTimeline"
               :key="entry.id"
-              class="flex-shrink-0 relative transition-all duration-300"
+              class="flex-shrink-0 relative transition-all duration-300 timeline-card-wrapper"
               :class="{ dimmed: isFiltering && !matchesFilter(entry) }"
-              style="width: 280px; min-width: 280px; scroll-snap-align: start;"
+              style="scroll-snap-align: start;"
             >
               <!-- Dot on horizontal line -->
               <div class="absolute left-6 z-10" style="top: -20px;">
@@ -128,6 +128,10 @@ function onPointerUp() {
               <TimelineEntry :entry="entry" />
             </div>
           </div>
+        </div>
+        <!-- Mobile scroll hint -->
+        <div class="scroll-hint flex items-center justify-center gap-1 mt-3 md:hidden" style="color: #444; font-size: 0.75rem; font-family: Inter, sans-serif;">
+          Swipe <ChevronRight :size="14" />
         </div>
       </div>
     </section>

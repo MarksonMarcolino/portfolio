@@ -89,7 +89,7 @@ function formatDate(start, end) {
         class="inline-block"
         style="background: transparent; border: 1px solid rgba(255,255,255,0.08); color: #888; font-family: Inter, sans-serif; font-size: 0.65rem; padding: 2px 8px; border-radius: 4px;"
       >
-        {{ tg }}
+        {{ t(`tags.${tg}`, tg) }}
       </span>
     </div>
 

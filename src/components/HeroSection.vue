@@ -17,62 +17,68 @@ const stats = [
 ]
 
 const statRefs = ref({})
+const heroRef = ref(null)
+let gsapCtx
 
 onMounted(() => {
-  // GSAP entrance sequence
-  const tl = gsap.timeline({ delay: 0.3 })
+  gsapCtx = gsap.context(() => {
+    // Entrance sequence
+    const tl = gsap.timeline({ delay: 0.3 })
 
-  tl.fromTo('.hero-label',
-    { opacity: 0, y: -10 },
-    { opacity: 1, y: 0, duration: 0.4, ease: 'power2.out' })
+    tl.fromTo('.hero-label',
+      { opacity: 0, y: -10 },
+      { opacity: 1, y: 0, duration: 0.4, ease: 'power2.out' })
 
-    .fromTo('.hero-heading-line',
-      { opacity: 0, y: 50, skewY: 2 },
-      { opacity: 1, y: 0, skewY: 0, duration: 0.7, ease: 'power4.out', stagger: 0.1 },
-      '-=0.1')
+      .fromTo('.hero-heading-line',
+        { opacity: 0, y: 50, skewY: 2 },
+        { opacity: 1, y: 0, skewY: 0, duration: 0.7, ease: 'power4.out', stagger: 0.1 },
+        '-=0.1')
 
-    .fromTo('.hero-tagline',
-      { opacity: 0, y: 20 },
-      { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' },
-      '-=0.4')
+      .fromTo('.hero-tagline',
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' },
+        '-=0.4')
 
-    .fromTo('.hero-buttons',
-      { opacity: 0, y: 15 },
-      { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' },
-      '-=0.3')
+      .fromTo('.hero-buttons',
+        { opacity: 0, y: 15 },
+        { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' },
+        '-=0.3')
 
-    .fromTo('.hero-stat',
-      { opacity: 0, y: 20 },
-      { opacity: 1, y: 0, duration: 0.4, ease: 'power2.out', stagger: 0.08 },
-      '-=0.2')
+      .fromTo('.hero-stat',
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.4, ease: 'power2.out', stagger: 0.08 },
+        '-=0.2')
 
-    .fromTo('.hero-photo',
-      { opacity: 0, scale: 0.94 },
-      { opacity: 1, scale: 1, duration: 1.0, ease: 'power3.out' },
-      '-=0.8')
+      .fromTo('.hero-photo',
+        { opacity: 0, scale: 0.94 },
+        { opacity: 1, scale: 1, duration: 1.0, ease: 'power3.out' },
+        '-=0.8')
 
-  // Stats counter animation
-  stats.forEach((stat) => {
-    const el = statRefs.value[stat.key]
-    if (!el) return
-    ScrollTrigger.create({
-      trigger: el,
-      start: 'top 90%',
-      once: true,
-      onEnter: () => {
-        const obj = { val: 0 }
-        gsap.to(obj, {
-          val: stat.value,
-          duration: 1.5,
-          ease: 'power2.out',
-          onUpdate: () => {
-            el.textContent = Math.round(obj.val) + stat.suffix
-          },
-        })
-      },
+    // Stats counter animation
+    stats.forEach((stat) => {
+      const el = statRefs.value[stat.key]
+      if (!el) return
+      ScrollTrigger.create({
+        trigger: el,
+        start: 'top 90%',
+        once: true,
+        onEnter: () => {
+          const obj = { val: 0 }
+          gsap.to(obj, {
+            val: stat.value,
+            duration: 1.5,
+            ease: 'power2.out',
+            onUpdate: () => {
+              el.textContent = Math.round(obj.val) + stat.suffix
+            },
+          })
+        },
+      })
     })
-  })
+  }, heroRef.value)
 })
+
+onUnmounted(() => gsapCtx?.revert())
 
 function scrollToWork() {
   lenis.scrollTo('#stack')
@@ -80,7 +86,7 @@ function scrollToWork() {
 </script>
 
 <template>
-  <section id="hero" class="relative min-h-screen grid items-center" style="grid-template-columns: 55fr 45fr; padding: 0 clamp(24px, 6vw, 120px); gap: 48px; background: #0a0a0a;">
+  <section id="hero" ref="heroRef" class="relative min-h-screen grid items-center" style="grid-template-columns: 55fr 45fr; padding: 0 clamp(24px, 6vw, 120px); gap: 48px; background: #080b12;">
 
     <!-- Text column -->
     <div>

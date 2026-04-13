@@ -161,7 +161,7 @@ export const timeline = [
     stack: [],
     tags: ['Infrastructure', 'Data Engineering'],
     link: 'https://www.credly.com/badges/93f4ce76-0158-49e7-8f47-889c36b3aae5/public_url',
-    linkLabel: 'View Badge',
+    linkLabel: 'viewBadge',
     linkIcon: 'ExternalLink',
   },
   {
@@ -176,7 +176,7 @@ export const timeline = [
     stack: [],
     tags: ['Product'],
     link: 'https://coursera.org/share/960e82013e61f896ac0ee53aa2059028',
-    linkLabel: 'View Certificate',
+    linkLabel: 'viewCertificate',
     linkIcon: 'ExternalLink',
   },
 ]

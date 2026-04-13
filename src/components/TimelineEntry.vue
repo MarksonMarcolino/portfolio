@@ -105,7 +105,7 @@ function formatDate(start, end) {
       @mouseleave="(e) => e.currentTarget.style.color = '#00d2ff'"
     >
       <component :is="linkIcons[entry.linkIcon] || ExternalLink" :size="12" />
-      {{ entry.linkLabel }}
+      {{ t(`common.${entry.linkLabel}`) }}
     </a>
   </div>
 </template>

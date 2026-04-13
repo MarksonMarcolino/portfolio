@@ -27,13 +27,13 @@ function formatDate(start, end) {
 <template>
   <div
     class="flex flex-col rounded-xl p-5 transition-all duration-200 overflow-hidden"
-    style="background: #111; border: 1px solid rgba(255,255,255,0.08); height: 320px;"
+    style="background: #111; border: 1px solid rgba(255,255,255,0.08); min-height: 320px; height: auto;"
     @mouseenter="(e) => { e.currentTarget.style.background = '#1a1a1a'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.18)'; e.currentTarget.style.transform = 'translateY(-2px)' }"
     @mouseleave="(e) => { e.currentTarget.style.background = '#111'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)'; e.currentTarget.style.transform = 'translateY(0)' }"
   >
     <!-- Header -->
     <div class="flex items-start justify-between gap-2 mb-2">
-      <h3 class="min-w-0 truncate" style="font-family: Inter, sans-serif; font-size: 1rem; font-weight: 600; color: #f0f0f0;">
+      <h3 style="font-family: Inter, sans-serif; font-size: 0.95rem; font-weight: 600; color: #f0f0f0; line-height: 1.3; margin-bottom: 4px; white-space: normal; overflow: visible; display: block; width: 100%; word-break: break-word;">
         {{ t(`timeline.entries.${entry.id}.title`) }}
       </h3>
       <span

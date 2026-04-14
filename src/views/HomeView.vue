@@ -1,6 +1,7 @@
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { useMediaQuery } from '@vueuse/core'
 import { useScrollReveal } from '../composables/useScrollReveal.js'
 import gsap from 'gsap'
 import { X, ChevronRight } from 'lucide-vue-next'
@@ -21,7 +22,8 @@ const { activeFilter, activeFilterType, clearFilter, matchesFilter, isFiltering,
 const pubSectionRef = ref(null)
 useScrollReveal(pubSectionRef, '[data-reveal-pub]', { y: 20, stagger: 0.06 })
 
-// --- Horizontal timeline drag ---
+// --- Horizontal timeline drag (desktop only) ---
+const hasHover = useMediaQuery('(hover: hover)')
 const timelineTrack = ref(null)
 let isDragging = false
 let startX = 0
@@ -31,7 +33,7 @@ let lastTime = 0
 let velocity = 0
 
 function onPointerDown(e) {
-  if (!timelineTrack.value) return
+  if (!hasHover.value || !timelineTrack.value) return
   isDragging = true
   timelineTrack.value.style.cursor = 'grabbing'
   startX = e.clientX
@@ -100,12 +102,13 @@ function onPointerUp() {
       <div class="timeline-edge-fade" style="margin-top: 32px;">
         <div
           ref="timelineTrack"
-          class="timeline-track overflow-x-auto px-8 pb-6 cursor-grab"
+          class="timeline-track overflow-x-auto px-8 pb-6"
+          :class="hasHover ? 'cursor-grab' : ''"
           @pointerdown="onPointerDown"
           @pointermove="onPointerMove"
           @pointerup="onPointerUp"
           @pointerleave="onPointerUp"
-          style="scroll-snap-type: x proximity;"
+          style="scroll-snap-type: x proximity; touch-action: pan-x pan-y;"
         >
           <!-- Inner wrapper -->
           <div class="relative inline-flex gap-5 pt-8">

@@ -134,7 +134,7 @@ function scrollToWork() {
           style="background: transparent; border: 1px solid rgba(255,255,255,0.2); color: #f0f0f0; border-radius: 4px; padding: 12px 28px; font-family: Inter, sans-serif; font-weight: 500; font-size: 0.875rem; text-decoration: none;"
         >
           <Github :size="16" />
-          GitHub
+          {{ t('common.github') }}
         </a>
         <button
           @click="downloadCV"

@@ -213,6 +213,10 @@ export default {
     viewCertificate: 'View Certificate',
     present: 'Present',
     openSource: 'Open Source',
+    live: 'Live',
+    inProgress: 'In Progress',
+    github: 'GitHub',
+    swipe: 'Swipe',
   },
   tags: {
     'Data Engineering': 'Data Engineering',

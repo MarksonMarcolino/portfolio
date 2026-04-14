@@ -213,6 +213,10 @@ export default {
     viewCertificate: 'Voir le Certificat',
     present: 'Présent',
     openSource: 'Open Source',
+    live: 'Actif',
+    inProgress: 'En Cours',
+    github: 'GitHub',
+    swipe: 'Glisser',
   },
   tags: {
     'Data Engineering': 'Ingénierie des Données',

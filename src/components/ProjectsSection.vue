@@ -17,9 +17,9 @@ const linkIcons = { Globe, ExternalLink }
 useScrollReveal(sectionRef, '.project-card', { y: 30, stagger: 0.08 })
 
 const statusConfig = {
-  live: { label: 'Live', bg: 'rgba(34,197,94,0.08)', border: 'rgba(34,197,94,0.25)', color: '#22c55e', dot: true },
-  'open-source': { label: 'Open Source', bg: 'rgba(0,210,255,0.06)', border: 'rgba(0,210,255,0.2)', color: '#00d2ff', dot: false },
-  wip: { label: 'In Progress', bg: 'rgba(245,158,11,0.06)', border: 'rgba(245,158,11,0.2)', color: '#f59e0b', dot: false },
+  live: { labelKey: 'common.live', bg: 'rgba(34,197,94,0.08)', border: 'rgba(34,197,94,0.25)', color: '#22c55e', dot: true },
+  'open-source': { labelKey: 'common.openSource', bg: 'rgba(0,210,255,0.06)', border: 'rgba(0,210,255,0.2)', color: '#00d2ff', dot: false },
+  wip: { labelKey: 'common.inProgress', bg: 'rgba(245,158,11,0.06)', border: 'rgba(245,158,11,0.2)', color: '#f59e0b', dot: false },
 }
 
 function toggleExpand(id) {
@@ -93,7 +93,7 @@ function matchProject(project) {
                   class="inline-block w-1.5 h-1.5 rounded-full animate-pulse"
                   :style="{ background: statusConfig[project.status].color }"
                 />
-                {{ statusConfig[project.status].label }}
+                {{ t(statusConfig[project.status].labelKey) }}
               </span>
               <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; color: #444;">{{ project.year }}</span>
             </div>
@@ -177,7 +177,7 @@ function matchProject(project) {
                 @mouseenter="(e) => e.currentTarget.style.gap = '6px'"
                 @mouseleave="(e) => e.currentTarget.style.gap = '4px'"
               >
-                {{ project.linkLabel }}
+                {{ t(`common.${project.linkLabel}`) }}
                 <component :is="linkIcons[project.linkIcon] || ExternalLink" :size="13" />
               </a>
             </div>

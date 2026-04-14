@@ -9,7 +9,7 @@ export const projects = [
     stack: ['FastAPI', 'Vue 3', 'PostgreSQL', 'TimescaleDB', 'Oracle Cloud', 'Terraform', 'Docker', 'Claude API'],
     tags: ['Product', 'API Architecture', 'Infrastructure', 'Data Engineering', 'AI'],
     link: 'https://serena.ia.br/',
-    linkLabel: 'Live Site',
+    linkLabel: 'liveSite',
     linkIcon: 'Globe',
   },
   {
@@ -22,7 +22,7 @@ export const projects = [
     stack: ['Go', 'Vue 3', 'PostgreSQL', 'VictoriaMetrics', 'Docker', 'Railway'],
     tags: ['Infrastructure', 'API Architecture', 'Data Engineering', 'Product'],
     link: 'https://nanoncore.com/',
-    linkLabel: 'Live Site',
+    linkLabel: 'liveSite',
     linkIcon: 'Globe',
   },
   {
@@ -35,7 +35,7 @@ export const projects = [
     stack: ['Python', 'PyTorch', 'Ollama'],
     tags: ['AI', 'Open Source', 'Infrastructure'],
     link: 'https://github.com/MarksonMarcolino/voz',
-    linkLabel: 'GitHub',
+    linkLabel: 'github',
     linkIcon: 'ExternalLink',
   },
   {
@@ -48,7 +48,7 @@ export const projects = [
     stack: ['Python', 'Scikit-learn'],
     tags: ['ML Modeling', 'Open Source'],
     link: 'https://github.com/MarksonMarcolino/clustering_utils',
-    linkLabel: 'GitHub',
+    linkLabel: 'github',
     linkIcon: 'ExternalLink',
   },
   {
@@ -61,7 +61,7 @@ export const projects = [
     stack: ['Python', 'PostgreSQL', 'SQLAlchemy'],
     tags: ['Data Engineering', 'Open Source'],
     link: 'https://github.com/MarksonMarcolino/db_toolkit',
-    linkLabel: 'GitHub',
+    linkLabel: 'github',
     linkIcon: 'ExternalLink',
   },
 ]

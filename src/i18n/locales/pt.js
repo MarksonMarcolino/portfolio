@@ -212,7 +212,11 @@ export default {
     viewBadge: 'Ver Badge',
     viewCertificate: 'Ver Certificado',
     present: 'Presente',
-    openSource: 'Open Source',
+    openSource: 'Código Aberto',
+    live: 'Ativo',
+    inProgress: 'Em Andamento',
+    github: 'GitHub',
+    swipe: 'Deslize',
   },
   tags: {
     'Data Engineering': 'Engenharia de Dados',

@@ -130,7 +130,7 @@ function onPointerUp() {
         </div>
         <!-- Mobile scroll hint -->
         <div class="scroll-hint flex items-center justify-center gap-1 mt-3 md:hidden" style="color: #444; font-size: 0.75rem; font-family: Inter, sans-serif;">
-          Swipe <ChevronRight :size="14" />
+          {{ t('common.swipe') }} <ChevronRight :size="14" />
         </div>
       </div>
     </section>

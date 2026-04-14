@@ -59,7 +59,7 @@ function formatDate(d) {
         <span>markson.marcolino@gmail.com</span>
         <span>linkedin.com/in/marksonmarcolino</span>
         <span>github.com/MarksonMarcolino</span>
-        <span>marksonmarcolino.vercel.app</span>
+        <span>https://marksonmarcolino.vercel.app</span>
       </div>
     </div>
 

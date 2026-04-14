@@ -45,7 +45,7 @@ function formatDate(d) {
 </script>
 
 <template>
-  <div id="cv-template" style="position: absolute; left: -9999px; top: 0; width: 750px; font-family: Inter, sans-serif; font-size: 13px; color: #1a1a1a; background: #fff; padding: 48px; line-height: 1.6;">
+  <div id="cv-template" style="position: absolute; left: -9999px; top: 0; width: 680px; font-family: Inter, sans-serif; font-size: 13px; color: #1a1a1a; background: #fff; padding: 40px 44px; line-height: 1.6; box-sizing: border-box; word-wrap: break-word; overflow-wrap: break-word;">
 
     <!-- HEADER -->
     <div style="margin-bottom: 28px;">

@@ -127,7 +127,7 @@ function matchProject(project) {
               @click="toggleExpand(project.id)"
               class="read-more-btn"
             >
-              {{ expandedCards.has(project.id) ? t('projects.showLess') : 'Read more' }}
+              {{ expandedCards.has(project.id) ? t('projects.showLess') : t('projects.readMore') }}
             </button>
 
             <!-- Stack pills -->
@@ -151,7 +151,7 @@ function matchProject(project) {
                 @mouseenter="(e) => { e.target.style.color = '#00d2ff'; e.target.style.borderColor = 'rgba(0,210,255,0.3)' }"
                 @mouseleave="(e) => { e.target.style.color = '#444'; e.target.style.borderColor = 'rgba(255,255,255,0.06)' }"
               >
-                {{ expandedStacks.has(project.id) ? 'Show less' : `+${project.stack.length - 5} more` }}
+                {{ expandedStacks.has(project.id) ? t('projects.showLess') : t('projects.moreCount', { n: project.stack.length - 5 }) }}
               </button>
             </div>
 

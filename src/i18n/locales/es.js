@@ -14,6 +14,8 @@ export default {
     featured: 'PROYECTO DESTACADO',
     showMore: 'Ver más',
     showLess: 'Ver menos',
+    readMore: 'Leer más',
+    moreCount: '+{n} más',
     roles: {
       engineer: 'Ingeniero',
       author: 'Autor',

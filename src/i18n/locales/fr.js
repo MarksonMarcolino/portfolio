@@ -14,6 +14,8 @@ export default {
     featured: 'PROJET VEDETTE',
     showMore: 'Lire plus',
     showLess: 'Voir moins',
+    readMore: 'Lire plus',
+    moreCount: '+{n} de plus',
     roles: {
       engineer: 'Ingénieur',
       author: 'Auteur',

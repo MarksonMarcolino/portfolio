@@ -2,7 +2,7 @@
 
 Personal portfolio website. Data Engineer based in Madrid with 15+ years of experience spanning data platforms, academia, and full-stack product development.
 
-**Live:** [marksonmarcolino.com](https://marksonmarcolino.com) (or wherever you deploy it)
+**Live:** [marksonmarcolino.vercel.app](https://marksonmarcolino.vercel.app)
 
 ## Stack
 

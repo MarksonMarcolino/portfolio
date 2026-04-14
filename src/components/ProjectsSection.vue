@@ -10,6 +10,7 @@ const { t } = useI18n()
 const { activeFilter, activeFilterType, setFilter, isFiltering } = useFilters()
 const sectionRef = ref(null)
 const expandedCards = ref(new Set())
+const expandedStacks = ref(new Set())
 
 const linkIcons = { Globe, ExternalLink }
 
@@ -26,6 +27,13 @@ function toggleExpand(id) {
   if (next.has(id)) next.delete(id)
   else next.add(id)
   expandedCards.value = next
+}
+
+function toggleStack(id) {
+  const next = new Set(expandedStacks.value)
+  if (next.has(id)) next.delete(id)
+  else next.add(id)
+  expandedStacks.value = next
 }
 
 function matchProject(project) {
@@ -125,7 +133,7 @@ function matchProject(project) {
             <!-- Stack pills -->
             <div class="flex flex-wrap gap-1.5 mt-auto pt-3">
               <span
-                v-for="s in project.stack.slice(0, 5)"
+                v-for="s in (expandedStacks.has(project.id) ? project.stack : project.stack.slice(0, 5))"
                 :key="s"
                 class="inline-block rounded transition-colors duration-200 cursor-pointer"
                 style="background: rgba(240,240,240,0.06); border: 1px solid rgba(240,240,240,0.15); color: #f0f0f0; font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; padding: 3px 10px; border-radius: 4px;"
@@ -135,13 +143,16 @@ function matchProject(project) {
               >
                 {{ s }}
               </span>
-              <span
+              <button
                 v-if="project.stack.length > 5"
-                class="inline-block rounded"
-                style="border: 1px solid rgba(255,255,255,0.06); color: #444; font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; padding: 3px 10px; border-radius: 4px; cursor: default;"
+                @click.stop="toggleStack(project.id)"
+                class="inline-block rounded cursor-pointer transition-colors duration-200"
+                style="border: 1px solid rgba(255,255,255,0.06); color: #444; font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; padding: 3px 10px; border-radius: 4px; background: none;"
+                @mouseenter="(e) => { e.target.style.color = '#00d2ff'; e.target.style.borderColor = 'rgba(0,210,255,0.3)' }"
+                @mouseleave="(e) => { e.target.style.color = '#444'; e.target.style.borderColor = 'rgba(255,255,255,0.06)' }"
               >
-                +{{ project.stack.length - 5 }} more
-              </span>
+                {{ expandedStacks.has(project.id) ? 'Show less' : `+${project.stack.length - 5} more` }}
+              </button>
             </div>
 
             <!-- Footer: tags + link -->

@@ -101,7 +101,6 @@ function onPointerUp() {
         <div
           ref="timelineTrack"
           class="timeline-track overflow-x-auto px-8 pb-6 cursor-grab"
-          data-lenis-prevent
           @pointerdown="onPointerDown"
           @pointermove="onPointerMove"
           @pointerup="onPointerUp"

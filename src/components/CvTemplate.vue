@@ -53,13 +53,12 @@ function formatDate(d) {
         Markson Rebelo Marcolino
       </h1>
       <p style="color: #666; margin: 0 0 8px; font-size: 14px;">
-        {{ t('cv.title') }} · {{ t('cv.location') }}
+        {{ t('cv.title') }} · {{ t('cv.location') }} · <a href="https://marksonmarcolino.vercel.app" style="color: #666; text-decoration: none;">marksonmarcolino.vercel.app</a>
       </p>
-      <div style="font-size: 11px; color: #666; display: flex; gap: 20px; flex-wrap: wrap;">
-        <span>markson.marcolino@gmail.com</span>
-        <span>linkedin.com/in/marksonmarcolino</span>
-        <span>github.com/MarksonMarcolino</span>
-        <span>https://marksonmarcolino.vercel.app</span>
+      <div style="font-size: 11px; color: #666; display: flex; gap: 20px;">
+        <a href="mailto:markson.marcolino@gmail.com" style="color: #666; text-decoration: none;">markson.marcolino@gmail.com</a>
+        <a href="https://linkedin.com/in/marksonmarcolino" style="color: #666; text-decoration: none;">linkedin.com/in/marksonmarcolino</a>
+        <a href="https://github.com/MarksonMarcolino" style="color: #666; text-decoration: none;">github.com/MarksonMarcolino</a>
       </div>
     </div>
 

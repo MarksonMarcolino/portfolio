@@ -21,6 +21,7 @@ export function useCV() {
       margin: [10, 10, 10, 10],
       filename: t('cv.filename'),
       image: { type: 'jpeg', quality: 0.98 },
+      enableLinks: true,
       html2canvas: {
         scale: 2,
         useCORS: true,

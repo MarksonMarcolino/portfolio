@@ -12,7 +12,7 @@ const lenis = useLenis()
 const { downloadCV } = useCV()
 
 // Typewriter for cycling roles
-const roleKeys = ['dataEngineer', 'mlResearcher', 'fullStackBuilder', 'productBuilder', 'problemSolver', 'openSourceAuthor']
+const roleKeys = ['dataEngineer', 'mlResearcher', 'fullStackBuilder', 'problemSolver']
 const displayRole = ref('')
 const roleIndex = ref(0)
 const charIndex = ref(0)
@@ -135,7 +135,7 @@ function scrollToWork() {
   <section id="hero" ref="heroRef" class="relative min-h-screen grid items-center" style="grid-template-columns: 55fr 45fr; padding: 0 clamp(24px, 6vw, 120px); gap: 48px; background: #080b12;">
 
     <!-- Text column -->
-    <div>
+    <div style="min-width: 0;">
       <!-- Available label -->
       <div class="hero-label flex items-center gap-2 mb-6" style="opacity: 0;">
         <span class="inline-block w-1.5 h-1.5 rounded-full" style="background: #22c55e; animation: pulse 2s ease-in-out infinite;"></span>
@@ -147,11 +147,8 @@ function scrollToWork() {
         <div class="hero-heading-line" style="font-family: 'Bebas Neue', sans-serif; font-size: clamp(1rem, 2vw, 1.4rem); color: #666; font-weight: 400; letter-spacing: 0.02em; opacity: 0;">
           {{ t('hero.greeting') }}
         </div>
-        <div class="hero-heading-line" style="font-family: 'Bebas Neue', sans-serif; font-size: clamp(4rem, 10vw, 9rem); color: #f0f0f0; line-height: 0.92; letter-spacing: -0.01em; opacity: 0;">
-          {{ t('hero.rolePrefix') }}
-        </div>
-        <div class="hero-heading-line" style="font-family: 'Bebas Neue', sans-serif; font-size: clamp(4rem, 10vw, 9rem); color: #00d2ff; line-height: 0.92; letter-spacing: -0.01em; opacity: 0; height: 0.92em;">
-          <span class="cursor-blink">{{ displayRole || '\u00A0' }}</span>
+        <div class="hero-heading-line" style="font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 7vw, 7rem); color: #00d2ff; line-height: 1; letter-spacing: -0.01em; opacity: 0; height: 2em; overflow: hidden;">
+          <span class="cursor-blink" style="display: inline-block; vertical-align: top;">{{ displayRole || '\u00A0' }}</span>
         </div>
       </div>
 

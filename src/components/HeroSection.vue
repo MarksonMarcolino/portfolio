@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useLenis } from '../composables/useLenis.js'
 import gsap from 'gsap'
@@ -7,9 +7,49 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { ArrowRight, Github, Download } from 'lucide-vue-next'
 import { useCV } from '../composables/useCV.js'
 
-const { t } = useI18n()
+const { t, locale } = useI18n()
 const lenis = useLenis()
 const { downloadCV } = useCV()
+
+// Typewriter for cycling roles
+const roleKeys = ['dataEngineer', 'mlResearcher', 'fullStackBuilder', 'productBuilder', 'educator', 'problemSolver', 'openSourceAuthor']
+const displayRole = ref('')
+const roleIndex = ref(0)
+const charIndex = ref(0)
+const isDeleting = ref(false)
+let typeTimer = null
+
+function typeTick() {
+  const roles = roleKeys.map(k => t(`hero.roles.${k}`).toUpperCase())
+  const current = roles[roleIndex.value]
+  if (!isDeleting.value) {
+    displayRole.value = current.substring(0, charIndex.value + 1)
+    charIndex.value++
+    if (charIndex.value === current.length) {
+      typeTimer = setTimeout(() => { isDeleting.value = true; typeTick() }, 2200)
+      return
+    }
+    typeTimer = setTimeout(typeTick, 90)
+  } else {
+    displayRole.value = current.substring(0, charIndex.value - 1)
+    charIndex.value--
+    if (charIndex.value === 0) {
+      isDeleting.value = false
+      roleIndex.value = (roleIndex.value + 1) % roles.length
+      typeTimer = setTimeout(typeTick, 400)
+      return
+    }
+    typeTimer = setTimeout(typeTick, 45)
+  }
+}
+
+watch(locale, () => {
+  clearTimeout(typeTimer)
+  charIndex.value = 0
+  isDeleting.value = false
+  displayRole.value = ''
+  typeTick()
+})
 
 const stats = [
   { key: 'experience', value: 15, suffix: '+' },
@@ -23,6 +63,7 @@ const heroRef = ref(null)
 let gsapCtx
 
 onMounted(() => {
+  typeTick()
   gsapCtx = gsap.context(() => {
     // Entrance sequence
     const tl = gsap.timeline({ delay: 0.3 })
@@ -80,7 +121,10 @@ onMounted(() => {
   }, heroRef.value)
 })
 
-onUnmounted(() => gsapCtx?.revert())
+onUnmounted(() => {
+  gsapCtx?.revert()
+  clearTimeout(typeTimer)
+})
 
 function scrollToWork() {
   lenis.scrollTo('#stack')
@@ -104,10 +148,10 @@ function scrollToWork() {
           {{ t('hero.greeting') }}
         </div>
         <div class="hero-heading-line" style="font-family: 'Bebas Neue', sans-serif; font-size: clamp(4rem, 10vw, 9rem); color: #f0f0f0; line-height: 0.92; letter-spacing: -0.01em; opacity: 0;">
-          {{ t('hero.line1') }}
+          {{ t('hero.rolePrefix') }}
         </div>
-        <div class="hero-heading-line" style="font-family: 'Bebas Neue', sans-serif; font-size: clamp(4rem, 10vw, 9rem); color: #00d2ff; line-height: 0.92; letter-spacing: -0.01em; opacity: 0;">
-          {{ t('hero.line2') }}
+        <div class="hero-heading-line" style="font-family: 'Bebas Neue', sans-serif; font-size: clamp(4rem, 10vw, 9rem); color: #00d2ff; line-height: 0.92; letter-spacing: -0.01em; opacity: 0; min-height: 1em;">
+          <span class="cursor-blink">{{ displayRole }}</span>
         </div>
       </div>
 

@@ -43,11 +43,15 @@ export default {
       products: 'Produits actifs',
       languages: 'Langues',
     },
+    rolePrefix: 'JE SUIS UN',
     roles: {
       dataEngineer: 'Ingénieur de Données',
       mlResearcher: 'Chercheur en ML',
       fullStackBuilder: 'Développeur Full-Stack',
       openSourceAuthor: 'Auteur Open Source',
+      productBuilder: 'Constructeur de Produit',
+      educator: 'Éducateur',
+      problemSolver: 'Résolveur de Problèmes',
     },
   },
   stack: {
@@ -160,8 +164,8 @@ export default {
         description: 'Application de techniques avancées de ML (Random Forest, XGBoost) pour optimiser la prédiction du risque de décrochage à partir des données d\'inscription Moodle.',
       },
       'springer-2025': {
-        title: 'Chapitre de Livre Springer',
-        description: 'Chapitre de livre développant les approches ML pour l\'analyse de données éducatives.',
+        title: 'Comprendre les Facteurs Scolaires Liés à l\'Absentéisme des Étudiants dans les Écoles Publiques Brésiliennes : Insights pour les Politiques Éducatives par une Approche de Clustering',
+        description: 'Chapitre de livre appliquant des techniques de clustering pour identifier les facteurs scolaires qui entraînent l\'absentéisme des étudiants dans les écoles publiques brésiliennes, informant les politiques éducatives.',
       },
       'dgo-2025-1': {
         title: "Ensuring Data Quality in National Educational Databases: Insights from Brazil's Centralized Database of High School Students' Data",

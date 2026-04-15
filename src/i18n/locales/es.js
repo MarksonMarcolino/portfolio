@@ -43,11 +43,15 @@ export default {
       products: 'Productos Activos',
       languages: 'Idiomas',
     },
+    rolePrefix: 'SOY UN',
     roles: {
       dataEngineer: 'Ingeniero de Datos',
       mlResearcher: 'Investigador de ML',
       fullStackBuilder: 'Desarrollador Full-Stack',
       openSourceAuthor: 'Autor Open Source',
+      productBuilder: 'Constructor de Producto',
+      educator: 'Educador',
+      problemSolver: 'Solucionador de Problemas',
     },
   },
   stack: {
@@ -160,8 +164,8 @@ export default {
         description: 'Aplicación de técnicas avanzadas de ML (Random Forest, XGBoost) para optimizar la predicción de riesgo de deserción a partir de datos de registro de Moodle.',
       },
       'springer-2025': {
-        title: 'Capítulo de Libro Springer',
-        description: 'Capítulo de libro expandiendo enfoques de ML para análisis de datos educativos.',
+        title: 'Comprendiendo los Factores Escolares Relacionados con el Absentismo Estudiantil en Escuelas Públicas Brasileñas: Insights para Políticas Educativas a Través de un Enfoque de Clustering',
+        description: 'Capítulo de libro aplicando técnicas de clustering para identificar factores escolares que impulsan el absentismo estudiantil en escuelas públicas brasileñas, informando políticas educativas.',
       },
       'dgo-2025-1': {
         title: "Asegurando la Calidad de Datos en Bases Educativas Nacionales: Insights de la Base Centralizada de Datos de Estudiantes de Secundaria de Brasil",

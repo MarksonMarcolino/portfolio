@@ -12,7 +12,7 @@ const lenis = useLenis()
 const { downloadCV } = useCV()
 
 // Typewriter for cycling roles
-const roleKeys = ['dataEngineer', 'mlResearcher', 'fullStackBuilder', 'productBuilder', 'educator', 'problemSolver', 'openSourceAuthor']
+const roleKeys = ['dataEngineer', 'mlResearcher', 'fullStackBuilder', 'productBuilder', 'problemSolver', 'openSourceAuthor']
 const displayRole = ref('')
 const roleIndex = ref(0)
 const charIndex = ref(0)
@@ -150,8 +150,8 @@ function scrollToWork() {
         <div class="hero-heading-line" style="font-family: 'Bebas Neue', sans-serif; font-size: clamp(4rem, 10vw, 9rem); color: #f0f0f0; line-height: 0.92; letter-spacing: -0.01em; opacity: 0;">
           {{ t('hero.rolePrefix') }}
         </div>
-        <div class="hero-heading-line" style="font-family: 'Bebas Neue', sans-serif; font-size: clamp(4rem, 10vw, 9rem); color: #00d2ff; line-height: 0.92; letter-spacing: -0.01em; opacity: 0; min-height: 1em;">
-          <span class="cursor-blink">{{ displayRole }}</span>
+        <div class="hero-heading-line" style="font-family: 'Bebas Neue', sans-serif; font-size: clamp(4rem, 10vw, 9rem); color: #00d2ff; line-height: 0.92; letter-spacing: -0.01em; opacity: 0; height: 0.92em;">
+          <span class="cursor-blink">{{ displayRole || '\u00A0' }}</span>
         </div>
       </div>
 

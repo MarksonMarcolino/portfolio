@@ -27,7 +27,7 @@ function formatDate(start, end) {
 <template>
   <div
     class="card card-lift flex flex-col p-5 overflow-hidden"
-    style="min-height: 320px; height: auto;"
+    style="min-height: 320px; height: 100%;"
   >
     <!-- Header -->
     <div class="flex items-start justify-between gap-2 mb-2">

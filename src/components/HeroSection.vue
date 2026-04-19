@@ -143,14 +143,15 @@ function scrollToWork() {
       </div>
 
       <!-- Heading -->
-      <div class="hero-heading">
-        <div class="hero-heading-line" style="font-family: var(--font-display); font-size: clamp(1rem, 2vw, 1.4rem); color: var(--text-muted); font-weight: 400; letter-spacing: 0.02em; opacity: 0;">
+      <h1 class="hero-heading">
+        <span class="sr-only">Markson Rebelo Marcolino — Data Engineer, ML Researcher, and Full-Stack Builder based in Madrid</span>
+        <span aria-hidden="true" class="hero-heading-line" style="display: block; font-family: var(--font-display); font-size: clamp(1rem, 2vw, 1.4rem); color: var(--text-muted); font-weight: 400; letter-spacing: 0.02em; opacity: 0;">
           {{ t('hero.greeting') }}
-        </div>
-        <div class="hero-heading-line" style="font-family: var(--font-display); font-size: var(--display-xl); color: var(--accent); line-height: 1; letter-spacing: -0.01em; opacity: 0; height: 2em; overflow: hidden;">
+        </span>
+        <span aria-hidden="true" class="hero-heading-line" style="display: block; font-family: var(--font-display); font-size: var(--display-xl); color: var(--accent); line-height: 1; letter-spacing: -0.01em; opacity: 0; height: 2em; overflow: hidden; font-weight: 400;">
           <span class="cursor-blink" style="display: inline-block; vertical-align: top;">{{ displayRole || '\u00A0' }}</span>
-        </div>
-      </div>
+        </span>
+      </h1>
 
       <!-- Tagline -->
       <p class="hero-tagline" style="font-family: var(--font-sans); font-size: var(--text-lg); color: var(--text-secondary); line-height: 1.7; max-width: 440px; margin-top: 24px; opacity: 0;">

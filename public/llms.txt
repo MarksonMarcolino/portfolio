@@ -1,0 +1,57 @@
+# Markson Rebelo Marcolino
+
+> Brazilian engineer based in Madrid. 15 years in tech, now shipping data platforms, voice AI, and full-stack products. Published researcher in educational data science.
+
+## About
+
+- Data Engineer currently based in Madrid, Spain (originally from Brazil).
+- 15 years in tech spanning teaching computer science, project management, support engineering, data science, and data engineering.
+- Domain experience: telecom, healthcare, education, e-commerce, voice AI, blockchain.
+- 4 peer-reviewed academic publications including Nature Scientific Reports.
+- Speaks Portuguese (native), Spanish, English, and French.
+
+## Current work
+
+- [Serena](https://serena.ia.br/) — Clinical coordination platform for Brazilian hospice and palliative care teams. LGPD and ANVISA compliant. Live.
+- [nanoncore](https://nanoncore.com/) — Telecom and ISP management platform. GPON fiber management, real-time network monitoring, metrics dashboards. Live.
+- [voz](https://github.com/MarksonMarcolino/voz) — Self-hosted voice conversational AI for Brazilian Portuguese and Rioplatense Spanish. Open source.
+
+## Recent roles
+
+- Data Engineer at Accenture, Madrid (Sep 2025 – Jan 2026): scalable data platforms on GCP, CI/CD via Terraform and Azure DevOps, ELT operationalization.
+- Data Scientist at NEES, São Paulo (Aug 2024 – Jul 2025): analyzed 10M+ student records, built geospatial dashboards across 5,000+ Brazilian schools.
+- Data Scientist at Eattasty, Lisbon (Apr 2023 – Feb 2024): advanced analytics in Dremio/MongoDB, BI dashboards across Metabase/Superset/Looker/Power BI.
+
+## Stack
+
+- **Languages:** Python, Go, TypeScript, SQL, Bash
+- **Data:** BigQuery, PostgreSQL, TimescaleDB, MongoDB, Redis, VictoriaMetrics, Dremio
+- **Cloud:** GCP (BigQuery, Dataflow, Cloud Storage), AWS, Oracle Cloud
+- **AI/ML:** PyTorch, XGBoost, Random Forest, Scikit-learn, Claude API, Ollama
+- **Backend:** FastAPI, Go stdlib, SQLAlchemy
+- **Frontend:** Vue 3, Vite, Tailwind CSS
+- **DevOps:** Docker, Terraform, GitHub Actions, CI/CD pipelines
+
+## Publications
+
+- [Predicting Student Dropout through Machine Learning Optimization: Insights from Moodle Registration Data](https://www.nature.com/articles/s41598-025-93918-1) — Nature Scientific Reports, 2025 (Lead Author)
+- [Understanding School Factors Related to Student Absenteeism in Brazilian Public High Schools: Insights for Educational Policy Through a Clustering Approach](https://link.springer.com/chapter/10.1007/978-981-95-7580-0_14) — Springer, 2025 (Lead Author)
+- [Ensuring Data Quality in National Educational Databases: Insights from Brazil's Centralized Database of High School Students' Data](https://proceedings.open.tudelft.nl/DGO2025/article/view/943) — DGO 2025, TU Delft (Co-author)
+- [Leveraging String Similarity Algorithms for Educational Data Validation: A Scalable Approach for Digital Governance](https://proceedings.open.tudelft.nl/DGO2025/article/view/942) — DGO 2025, TU Delft (Co-author)
+
+## Education
+
+- Master's in Information and Communication Technologies, Universidade Federal de Santa Catarina (2024–2025). Thesis on ML-based student dropout prediction using Moodle data.
+- Bachelor's in Information and Communication Technologies, Universidade Federal de Santa Catarina (2010–2015).
+
+## Contact
+
+- Email: markson.marcolino@gmail.com
+- GitHub: https://github.com/MarksonMarcolino
+- LinkedIn: https://linkedin.com/in/marksonmarcolino
+- Portfolio: https://marksonmarcolino.vercel.app
+- Location: Madrid, Spain
+
+## Availability
+
+Open to full-time roles, consulting engagements, and interesting technical problems.

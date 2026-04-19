@@ -107,7 +107,7 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
               :key="l.code"
               @click="switchLocale(l.code)"
               class="block w-full px-4 py-2 text-xs font-mono text-left transition-colors cursor-pointer"
-              :class="locale === l.code ? 'text-accent bg-surface-elevated' : 'text-text-secondary hover:text-text-primary hover:bg-surface-elevated'"
+              :class="locale === l.code ? 'text-accent bg-bg-elevated' : 'text-text-secondary hover:text-text-primary hover:bg-bg-elevated'"
             >
               {{ l.label }}
             </button>
@@ -127,7 +127,7 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
               :key="l.code"
               @click="switchLocale(l.code)"
               class="block w-full px-4 py-2 text-xs font-mono text-left transition-colors cursor-pointer"
-              :class="locale === l.code ? 'text-accent bg-surface-elevated' : 'text-text-secondary hover:text-text-primary hover:bg-surface-elevated'"
+              :class="locale === l.code ? 'text-accent bg-bg-elevated' : 'text-text-secondary hover:text-text-primary hover:bg-bg-elevated'"
             >
               {{ l.label }}
             </button>

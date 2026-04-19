@@ -21,7 +21,7 @@ export default {
       author: 'Auteur',
     },
     entries: {
-      serena: { description: 'Plateforme numérique de coordination des soins palliatifs et de l\'hospitalisation au Brésil, construite avec sa sœur pour sa thèse de résidence en gériatrie. Gère les évaluations cliniques, le suivi des médicaments, la coordination d\'équipe et les décisions cliniques assistées par IA. Conforme LGPD et ANVISA.' },
+      serena: { description: 'Plateforme de coordination clinique pour les équipes brésiliennes de soins palliatifs, construite avec ma sœur pour sa thèse de résidence en gériatrie. Évaluations ESAS-r, PPS et PAINAD, suivi des médicaments, flux multi-équipes, portails familiaux et notes cliniques assistées par IA. Conforme LGPD et ANVISA. Interface en portugais.' },
       nanoncore: { description: 'Plateforme de gestion télécom et FAI. Gestion de la fibre GPON, provisionnement d\'équipements, surveillance réseau en temps réel via SNMP/SSH et tableaux de bord de métriques.' },
       voz: { description: 'IA conversationnelle vocale auto-hébergée pour le portugais brésilien et l\'espagnol rioplatense. Pipeline LLM + TTS en streaming pour que l\'utilisateur entende l\'audio avant que le modèle ait fini de réfléchir. Fonctionne entièrement sur du matériel local.' },
       clustering_utils: { description: 'Toolkit réutilisable de benchmark et de visualisation de clustering pour Python.' },
@@ -29,7 +29,7 @@ export default {
     },
   },
   hero: {
-    tagline: 'Construction de plateformes de données évolutives, IA vocale et produits full-stack. 15 ans de livraison de systèmes qui fonctionnent en production.',
+    tagline: 'Construction de plateformes de données évolutives, IA vocale et produits full-stack. 15 ans dans la tech, et aujourd\'hui je livre des systèmes de données en production.',
     available: 'Disponible pour des opportunités',
     greeting: 'Bonjour, je suis Markson,',
     line1: 'INGÉNIEUR',
@@ -41,7 +41,7 @@ export default {
       experience: 'Ans d\'expérience',
       papers: 'Articles publiés',
       products: 'Produits actifs',
-      languages: 'Langues',
+      languages: 'Langues Parlées',
     },
     rolePrefix: 'JE SUIS UN',
     roles: {
@@ -115,7 +115,7 @@ export default {
       },
       'serena-2026': {
         title: 'Serena',
-        description: 'Plateforme numérique de coordination des soins palliatifs et de l\'hospitalisation au Brésil, construite avec sa sœur pour sa thèse de résidence en gériatrie. Gère les évaluations cliniques (ESAS-r, PPS, PAINAD), le suivi des médicaments, la coordination d\'équipe, les portails familiaux et les décisions cliniques assistées par IA. Conforme LGPD et ANVISA.',
+        description: 'Plateforme numérique de coordination des soins palliatifs et de l\'hospitalisation au Brésil, construite avec ma sœur pour sa thèse de résidence en gériatrie. Gère les évaluations cliniques (ESAS-r, PPS, PAINAD), le suivi des médicaments, la coordination d\'équipe, les portails familiaux et les décisions cliniques assistées par IA. Conforme LGPD et ANVISA.',
       },
       'nanoncore-2025': {
         title: 'nanoncore',
@@ -164,16 +164,16 @@ export default {
         description: 'Application de techniques avancées de ML (Random Forest, XGBoost) pour optimiser la prédiction du risque de décrochage à partir des données d\'inscription Moodle.',
       },
       'springer-2025': {
-        title: 'Comprendre les Facteurs Scolaires Liés à l\'Absentéisme des Étudiants dans les Écoles Publiques Brésiliennes : Insights pour les Politiques Éducatives par une Approche de Clustering',
+        title: 'Understanding School Factors Related to Student Absenteeism in Brazilian Public High Schools: Insights for Educational Policy Through a Clustering Approach',
         description: 'Chapitre de livre appliquant des techniques de clustering pour identifier les facteurs scolaires qui entraînent l\'absentéisme des étudiants dans les écoles publiques brésiliennes, informant les politiques éducatives.',
       },
       'dgo-2025-1': {
         title: "Ensuring Data Quality in National Educational Databases: Insights from Brazil's Centralized Database of High School Students' Data",
-        description: 'Qualité des données et ML appliqués aux bases de données éducatives nationales pour des insights de politique gouvernementale.',
+        description: 'Frameworks de qualité des données pour les bases éducatives nationales, évaluant l\'exhaustivité, la cohérence et la précision à grande échelle pour informer les politiques publiques.',
       },
       'dgo-2025-2': {
         title: 'Leveraging String Similarity Algorithms for Educational Data Validation: A Scalable Approach for Digital Governance',
-        description: 'Machine learning appliqué aux bases de données éducatives nationales, axé sur l\'identification précoce des étudiants à risque.',
+        description: 'Algorithmes évolutifs de similarité de chaînes (Levenshtein, Jaro-Winkler) appliqués pour réconcilier les enregistrements entre bases éducatives nationales aux identifiants incohérents.',
       },
     },
   },
@@ -185,9 +185,9 @@ export default {
       masters: 'Master en Technologies de l\'Information et de la Communication',
       bachelors: 'Licence en Technologies de l\'Information et de la Communication',
     },
-    bio: 'Ingénieur brésilien basé à Madrid. Construction dans les domaines des télécoms, de la santé et de l\'IA vocale. 15 ans de livraison de plateformes de données, maintenant livraison de produits full-stack. J\'ai commencé en ingénierie des données — pipelines, plateformes et équipes dans l\'éducation, l\'analytique et le Web3. Tout est un problème de données si on prend assez de recul.',
+    bio: 'Je suis un ingénieur brésilien basé à Madrid. Je construis dans les domaines des télécoms, de la santé et de l\'IA vocale. 15 ans dans la tech — enseignement, gestion de projets, support technique, et aujourd\'hui je livre des plateformes de données et des produits full-stack dans l\'éducation, l\'analytique et le Web3.',
     languages: 'Langues',
-    currentlyBuilding: 'En cours de construction',
+    currentlyBuilding: 'Je construis actuellement',
     langList: {
       portuguese: 'Portugais',
       spanish: 'Espagnol',
@@ -209,7 +209,7 @@ export default {
     line1: 'TRAVAILLONS',
     line2: 'ENSEMBLE',
     subtitle: 'Ouvert aux postes à temps plein, au conseil et aux problèmes intéressants.',
-    footer: 'Construit avec Vue 3 + Tailwind CSS',
+    footer: '© 2026 Markson Marcolino · Construit avec Vue 3',
   },
   common: {
     liveSite: 'Site',
@@ -246,7 +246,7 @@ export default {
     filename: 'Markson_Rebelo_Marcolino_CV_FR.pdf',
     title: 'Ingénieur de Données',
     summary_label: 'Résumé',
-    summary: 'Ingénieur de Données avec plus de 15 ans d\'expérience dans la conception et la construction de pipelines de données évolutifs, de workflows ELT/ETL et de plateformes de données cloud sur GCP (BigQuery, Dataflow, Cloud Composer). Compétent en Python, SQL, FastAPI, PostgreSQL et TimescaleDB. Expérimenté en CI/CD (Terraform, GitHub Actions, Docker) et en applications de machine learning utilisant scikit-learn, XGBoost et PyTorch. Chercheur publié en science des données éducatives et optimisation ML.',
+    summary: 'Ingénieur de Données avec plus de 15 ans dans la tech, axé sur les pipelines de données évolutifs, les workflows ELT/ETL et les plateformes de données cloud sur GCP (BigQuery, Dataflow, Cloud Composer). Compétent en Python, SQL, FastAPI, PostgreSQL et TimescaleDB. Expérimenté en CI/CD (Terraform, GitHub Actions, Docker) et en applications de machine learning utilisant scikit-learn, XGBoost et PyTorch. Chercheur publié en science des données éducatives et optimisation ML.',
     experience: 'Expérience',
     education: 'Formation',
     publications: 'Publications',

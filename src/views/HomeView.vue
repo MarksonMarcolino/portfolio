@@ -13,6 +13,7 @@ import PublicationCard from '../components/PublicationCard.vue'
 import AboutSection from '../components/AboutSection.vue'
 import ContactSection from '../components/ContactSection.vue'
 import WordReveal from '../components/WordReveal.vue'
+import SectionHeader from '../components/SectionHeader.vue'
 import { useFilters } from '../composables/useFilters.js'
 import { publications } from '../data/publications.js'
 
@@ -70,21 +71,13 @@ function onPointerUp() {
 <template>
   <main>
     <HeroSection />
-    <TechStackMap />
     <ProjectsSection />
 
     <!-- Timeline (horizontal) -->
     <section id="timeline" class="relative z-10" style="padding-top: clamp(80px, 10vw, 120px); padding-bottom: 80px;">
       <div class="max-w-6xl mx-auto px-4">
         <div class="flex items-center justify-between">
-          <div>
-            <h2 style="font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 6vw, 5rem); color: #f0f0f0; line-height: 1; font-weight: 400;">
-              {{ t('timeline.title') }}
-            </h2>
-            <p style="font-family: Inter, sans-serif; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; color: #888; margin-top: 4px;">
-              {{ t('timeline.subtitle') }}
-            </p>
-          </div>
+          <SectionHeader :title="t('timeline.title')" :subtitle="t('timeline.subtitle')" />
 
           <button
             v-if="isFiltering"
@@ -138,17 +131,12 @@ function onPointerUp() {
       </div>
     </section>
 
+    <TechStackMap />
+
     <!-- Publications -->
     <section id="publications" ref="pubSectionRef" class="relative z-10 px-4" style="padding-top: clamp(80px, 10vw, 120px); padding-bottom: 80px;">
       <div class="max-w-6xl mx-auto">
-        <div style="margin-bottom: 40px;">
-          <h2 style="font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 6vw, 5rem); color: #f0f0f0; line-height: 1; font-weight: 400;">
-            {{ t('publications.title') }}
-          </h2>
-          <p style="font-family: Inter, sans-serif; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; color: #888; margin-top: 4px;">
-            {{ t('publications.subtitle') }}
-          </p>
-        </div>
+        <SectionHeader :title="t('publications.title')" :subtitle="t('publications.subtitle')" style="margin-bottom: 40px;" />
 
         <div>
           <div

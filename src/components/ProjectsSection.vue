@@ -5,6 +5,7 @@ import { useScrollReveal } from '../composables/useScrollReveal.js'
 import { useFilters } from '../composables/useFilters.js'
 import { projects } from '../data/projects.js'
 import { Globe, ExternalLink } from 'lucide-vue-next'
+import SectionHeader from './SectionHeader.vue'
 
 const { t } = useI18n()
 const { activeFilter, activeFilterType, setFilter, isFiltering } = useFilters()
@@ -48,14 +49,7 @@ function matchProject(project) {
   <section id="projects" ref="sectionRef" class="relative z-10 pb-20 px-4" style="padding-top: clamp(80px, 10vw, 120px);">
     <div class="max-w-6xl mx-auto">
       <!-- Title -->
-      <div style="margin-bottom: 40px;">
-        <h2 style="font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 6vw, 5rem); color: #f0f0f0; line-height: 1; font-weight: 400;">
-          {{ t('projects.title') }}
-        </h2>
-        <p style="font-family: Inter, sans-serif; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; color: #888; margin-top: 4px;">
-          {{ t('projects.subtitle') }}
-        </p>
-      </div>
+      <SectionHeader :title="t('projects.title')" :subtitle="t('projects.subtitle')" style="margin-bottom: 40px;" />
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-5 items-stretch">
         <div
@@ -74,6 +68,14 @@ function matchProject(project) {
             @mouseenter="(e) => { e.currentTarget.style.background = '#1a1a1a'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.18)' }"
             @mouseleave="(e) => { e.currentTarget.style.background = '#111'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)' }"
           >
+            <!-- Featured label (eyebrow, above status) -->
+            <span
+              v-if="project.id === 'serena'"
+              style="font-family: Inter, sans-serif; font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.12em; color: #666; display: block; margin-bottom: 8px;"
+            >
+              {{ t('projects.featured') }}
+            </span>
+
             <!-- Top row: status + year -->
             <div class="flex items-center justify-between mb-3">
               <span
@@ -90,21 +92,13 @@ function matchProject(project) {
               >
                 <span
                   v-if="statusConfig[project.status].dot"
-                  class="inline-block w-1.5 h-1.5 rounded-full animate-pulse"
+                  class="inline-block w-1.5 h-1.5 rounded-full"
                   :style="{ background: statusConfig[project.status].color }"
                 />
                 {{ t(statusConfig[project.status].labelKey) }}
               </span>
-              <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; color: #444;">{{ project.year }}</span>
+              <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; color: #444;">{{ project.current ? `${project.year} – ${t('common.present')}` : project.year }}</span>
             </div>
-
-            <!-- Featured label -->
-            <span
-              v-if="project.id === 'serena'"
-              style="font-family: Inter, sans-serif; font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.12em; color: #444; display: block; margin-bottom: 4px;"
-            >
-              {{ t('projects.featured') }}
-            </span>
 
             <!-- Name -->
             <h3 :style="{ fontFamily: '\'JetBrains Mono\', monospace', fontSize: project.id === 'serena' ? '1.4rem' : '1rem', fontWeight: 700, color: '#f0f0f0' }">

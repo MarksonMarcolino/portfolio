@@ -3,6 +3,7 @@ import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useScrollReveal } from '../composables/useScrollReveal.js'
 import { ExternalLink } from 'lucide-vue-next'
+import SectionHeader from './SectionHeader.vue'
 
 const { t } = useI18n()
 const sectionRef = ref(null)
@@ -32,14 +33,7 @@ const education = [
   <section id="about" ref="sectionRef" class="relative z-10 px-4" style="padding-top: clamp(80px, 10vw, 120px); padding-bottom: 40px;">
     <div class="max-w-6xl mx-auto">
       <!-- Title -->
-      <div style="margin-bottom: 40px;">
-        <h2 style="font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 6vw, 5rem); color: #f0f0f0; line-height: 1; font-weight: 400;">
-          {{ t('about.title') }}
-        </h2>
-        <p style="font-family: Inter, sans-serif; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; color: #888; margin-top: 4px;">
-          {{ t('about.subtitle') }}
-        </p>
-      </div>
+      <SectionHeader :title="t('about.title')" :subtitle="t('about.subtitle')" style="margin-bottom: 40px;" />
 
       <div class="flex flex-col lg:flex-row items-start" style="gap: clamp(40px, 8vw, 80px);">
         <!-- Left column -->
@@ -76,7 +70,7 @@ const education = [
             >
               <div class="flex flex-col">
                 <div class="flex items-center gap-2">
-                  <span class="inline-block w-1.5 h-1.5 rounded-full animate-pulse" style="background: #22c55e;" />
+                  <span class="inline-block w-1.5 h-1.5 rounded-full" style="background: #22c55e;" />
                   <span style="font-family: Inter, sans-serif; font-size: 0.9rem; color: #f0f0f0;">{{ proj.name }}</span>
                 </div>
                 <span style="font-family: Inter, sans-serif; font-size: 0.8rem; color: #888; margin-left: 14px;">{{ t(`about.projects.${proj.descKey}`) }}</span>

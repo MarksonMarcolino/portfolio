@@ -21,7 +21,7 @@ export default {
       author: 'Author',
     },
     entries: {
-      serena: { description: 'Digital platform for hospice and palliative care coordination in Brazil, built with his sister for her geriatrics residency thesis. Handles clinical assessments, medication tracking, team coordination, and AI-assisted clinical decisions. LGPD and ANVISA compliant.' },
+      serena: { description: 'Clinical coordination platform for Brazilian hospice and palliative care teams, built with my sister for her geriatrics residency thesis. ESAS-r, PPS, and PAINAD assessments, medication tracking, multi-team workflows, family portals, and AI-assisted clinical notes. LGPD and ANVISA compliant. Portuguese interface.' },
       nanoncore: { description: 'Telecom and ISP management platform. GPON fiber management, equipment provisioning, real-time network monitoring via SNMP/SSH, and metrics dashboards.' },
       voz: { description: 'Self-hosted voice conversational AI for Brazilian Portuguese and Rioplatense Spanish. Pipelined LLM + TTS streaming so the user hears audio before the model finishes thinking. Runs entirely on local hardware.' },
       clustering_utils: { description: 'Reusable clustering benchmark and visualization toolkit for Python.' },
@@ -29,7 +29,7 @@ export default {
     },
   },
   hero: {
-    tagline: `Building scalable data platforms, voice AI, and full-stack products. 15 years shipping systems that work in production.`,
+    tagline: `Building scalable data platforms, voice AI, and full-stack products. 15 years working in tech, now shipping data systems in production.`,
     available: 'Available for opportunities',
     greeting: "Hey, I'm Markson,",
     line1: 'A DATA',
@@ -41,7 +41,7 @@ export default {
       experience: 'Years Experience',
       papers: 'Papers Published',
       products: 'Live Products',
-      languages: 'Languages',
+      languages: 'Spoken Languages',
     },
     rolePrefix: "I'M A",
     roles: {
@@ -83,7 +83,7 @@ export default {
     entries: {
       'accenture-2025': {
         title: 'Data Engineer',
-        description: 'Design and support scalable data platforms on GCP for enterprise clients. CI/CD pipelines via Terraform and Azure DevOps for BigQuery and Dataflow assets. Operationalize ELT processes ensuring data quality, performance, and governance compliance.',
+        description: 'Designed and supported scalable data platforms on GCP for enterprise clients. CI/CD pipelines via Terraform and Azure DevOps for BigQuery and Dataflow assets. Operationalized ELT processes ensuring data quality, performance, and governance compliance.',
       },
       'nees-2024': {
         title: 'Data Scientist',
@@ -115,7 +115,7 @@ export default {
       },
       'serena-2026': {
         title: 'Serena',
-        description: 'Digital platform for hospice and palliative care coordination in Brazil, built with his sister for her geriatrics residency thesis. Handles clinical assessments (ESAS-r, PPS, PAINAD), medication tracking, team coordination, family portals, and AI-assisted clinical decisions. LGPD and ANVISA compliant. Interface in Portuguese.',
+        description: 'Digital platform for hospice and palliative care coordination in Brazil, built with my sister for her geriatrics residency thesis. Handles clinical assessments (ESAS-r, PPS, PAINAD), medication tracking, team coordination, family portals, and AI-assisted clinical decisions. LGPD and ANVISA compliant. Interface in Portuguese.',
       },
       'nanoncore-2025': {
         title: 'nanoncore',
@@ -169,11 +169,11 @@ export default {
       },
       'dgo-2025-1': {
         title: "Ensuring Data Quality in National Educational Databases: Insights from Brazil's Centralized Database of High School Students' Data",
-        description: 'Data quality and ML applied to national educational databases for government policy insights.',
+        description: 'Data quality frameworks for national educational databases, evaluating completeness, consistency, and accuracy at scale to inform government policy.',
       },
       'dgo-2025-2': {
         title: 'Leveraging String Similarity Algorithms for Educational Data Validation: A Scalable Approach for Digital Governance',
-        description: 'Machine learning applied to national educational databases, focused on early identification of at-risk students.',
+        description: 'Scalable string similarity algorithms (Levenshtein, Jaro-Winkler) applied to reconcile records across national educational databases with inconsistent identifiers.',
       },
     },
   },
@@ -185,7 +185,7 @@ export default {
       masters: "Master's in Information and Communication Technologies",
       bachelors: "Bachelor's in Information and Communication Technologies",
     },
-    bio: 'Brazilian engineer based in Madrid. Building across telecom, healthcare, and voice AI. 15 years shipping data platforms, now shipping full-stack products. Started in data engineering — pipelines, platforms, and teams across education, analytics, and Web3. Everything is a data problem if you zoom out far enough.',
+    bio: "I'm a Brazilian engineer based in Madrid. I build across telecom, healthcare, and voice AI. 15 years in tech — teaching, project management, support engineering, now shipping data platforms and full-stack products across education, analytics, and Web3.",
     languages: 'Languages',
     currentlyBuilding: 'Currently building',
     langList: {
@@ -209,7 +209,7 @@ export default {
     line1: "LET'S WORK",
     line2: 'TOGETHER',
     subtitle: 'Open to full-time roles, consulting, and interesting problems.',
-    footer: 'Built with Vue 3 + Tailwind CSS',
+    footer: '© 2026 Markson Marcolino · Built with Vue 3',
   },
   common: {
     liveSite: 'Live Site',
@@ -246,7 +246,7 @@ export default {
     filename: 'Markson_Rebelo_Marcolino_CV_EN.pdf',
     title: 'Data Engineer',
     summary_label: 'Summary',
-    summary: 'Data Engineer with 15+ years of experience designing and building scalable data pipelines, ELT/ETL workflows, and cloud data platforms on GCP (BigQuery, Dataflow, Cloud Composer). Proficient in Python, SQL, FastAPI, PostgreSQL, and TimescaleDB. Experienced with CI/CD (Terraform, GitHub Actions, Docker) and machine learning applications using scikit-learn, XGBoost, and PyTorch. Published researcher in educational data science and ML optimization.',
+    summary: 'Data Engineer with 15+ years in tech, focused on scalable data pipelines, ELT/ETL workflows, and cloud data platforms on GCP (BigQuery, Dataflow, Cloud Composer). Proficient in Python, SQL, FastAPI, PostgreSQL, and TimescaleDB. Experienced with CI/CD (Terraform, GitHub Actions, Docker) and machine learning applications using scikit-learn, XGBoost, and PyTorch. Published researcher in educational data science and ML optimization.',
     experience: 'Experience',
     education: 'Education',
     publications: 'Publications',

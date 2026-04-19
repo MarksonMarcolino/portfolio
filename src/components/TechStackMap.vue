@@ -4,6 +4,7 @@ import { useI18n } from 'vue-i18n'
 import { useScrollReveal } from '../composables/useScrollReveal.js'
 import { stackCategories } from '../data/stack.js'
 import { BookOpen } from 'lucide-vue-next'
+import SectionHeader from './SectionHeader.vue'
 
 const { t } = useI18n()
 const sectionRef = ref(null)
@@ -15,14 +16,7 @@ useScrollReveal(sectionRef, '.stack-card', { y: 25, stagger: 0.05 })
   <section id="stack" ref="sectionRef" class="relative z-10 pt-10 pb-20 px-4">
     <div class="max-w-6xl mx-auto">
       <div class="flex items-end justify-between" style="margin-bottom: 40px;">
-        <div>
-          <h2 style="font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 6vw, 5rem); color: #f0f0f0; line-height: 1; font-weight: 400;">
-            {{ t('stack.title') }}
-          </h2>
-          <p style="font-family: Inter, sans-serif; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; color: #888; margin-top: 4px;">
-            {{ t('stack.subtitle') }}
-          </p>
-        </div>
+        <SectionHeader :title="t('stack.title')" :subtitle="t('stack.subtitle')" />
         <div class="hidden sm:flex items-center gap-4" style="font-family: Inter, sans-serif; font-size: 0.7rem; color: #444;">
           <span class="flex items-center gap-1.5">
             <span class="w-2 h-2 rounded-full" style="background: #f0f0f0;" />

@@ -9,8 +9,8 @@ import { Menu, X, Globe } from 'lucide-vue-next'
 const { t, locale } = useI18n()
 const lenis = useLenis()
 
-const navKeys = ['home', 'stack', 'projects', 'timeline', 'publications', 'about', 'contact']
-const anchors = { home: '#hero', stack: '#stack', projects: '#projects', timeline: '#timeline', publications: '#publications', about: '#about', contact: '#contact' }
+const navKeys = ['home', 'projects', 'timeline', 'stack', 'publications', 'about', 'contact']
+const anchors = { home: '#hero', projects: '#projects', timeline: '#timeline', stack: '#stack', publications: '#publications', about: '#about', contact: '#contact' }
 const locales = [
   { code: 'en', label: 'EN' },
   { code: 'pt', label: 'PT' },

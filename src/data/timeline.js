@@ -7,7 +7,7 @@ export const timeline = [
     location: 'Madrid',
     dateStart: '2025-09',
     dateEnd: '2026-01',
-    description: 'Design and support scalable data platforms on GCP for enterprise clients. CI/CD pipelines via Terraform and GitHub Actions for BigQuery and Dataflow assets. Operationalize ELT processes ensuring data quality, performance, and governance compliance.',
+    description: 'Designed and supported scalable data platforms on GCP for enterprise clients. CI/CD pipelines via Terraform and Azure DevOps for BigQuery and Dataflow assets. Operationalized ELT processes ensuring data quality, performance, and governance compliance.',
     stack: ['GCP', 'BigQuery', 'Dataflow', 'Terraform', 'Azure DevOps', 'Python'],
     tags: ['Data Engineering', 'Pipeline Design', 'Infrastructure', 'CI/CD'],
     link: null,

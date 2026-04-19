@@ -8,7 +8,6 @@ export const publications = [
     description: 'Applied advanced ML techniques (Random Forest, XGBoost) to optimize dropout risk prediction from Moodle registration data.',
     tags: ['ML Modeling', 'Education', 'Dropout Prediction'],
     url: 'https://www.nature.com/articles/s41598-025-93918-1',
-    inPress: false,
   },
   {
     id: 'springer-2025',
@@ -19,7 +18,6 @@ export const publications = [
     description: 'Book chapter applying clustering techniques to identify school-level factors driving student absenteeism in Brazilian public high schools, informing educational policy.',
     tags: ['ML Modeling', 'Education', 'Education Policy', 'Research'],
     url: 'https://link.springer.com/chapter/10.1007/978-981-95-7580-0_14',
-    inPress: false,
   },
   {
     id: 'dgo-2025-1',
@@ -27,10 +25,9 @@ export const publications = [
     venue: 'Conference on Digital Government Research, TU Delft',
     year: 2025,
     role: 'co-author',
-    description: 'Data quality and ML applied to national educational databases for government policy insights.',
+    description: 'Data quality frameworks for national educational databases, evaluating completeness, consistency, and accuracy at scale to inform government policy.',
     tags: ['Data Quality', 'ML', 'Education Policy'],
     url: 'https://proceedings.open.tudelft.nl/DGO2025/article/view/943',
-    inPress: false,
   },
   {
     id: 'dgo-2025-2',
@@ -38,9 +35,8 @@ export const publications = [
     venue: 'Conference on Digital Government Research, TU Delft',
     year: 2025,
     role: 'co-author',
-    description: 'Machine learning applied to national educational databases, focused on early identification of at-risk students.',
+    description: 'Scalable string similarity algorithms (Levenshtein, Jaro-Winkler) applied to reconcile records across national educational databases with inconsistent identifiers.',
     tags: ['Data Quality', 'ML', 'Education Policy'],
     url: 'https://proceedings.open.tudelft.nl/DGO2025/article/view/942',
-    inPress: false,
   },
 ]

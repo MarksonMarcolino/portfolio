@@ -12,7 +12,7 @@ const lenis = useLenis()
 const { downloadCV } = useCV()
 
 // Typewriter for cycling roles
-const roleKeys = ['dataEngineer', 'mlResearcher', 'fullStackBuilder', 'problemSolver']
+const roleKeys = ['dataEngineer', 'mlResearcher', 'fullStackBuilder']
 const displayRole = ref('')
 const roleIndex = ref(0)
 const charIndex = ref(0)
@@ -127,7 +127,7 @@ onUnmounted(() => {
 })
 
 function scrollToWork() {
-  lenis.scrollTo('#stack')
+  lenis.scrollTo('#projects')
 }
 </script>
 

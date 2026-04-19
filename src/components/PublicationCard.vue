@@ -1,6 +1,6 @@
 <script setup>
 import { useI18n } from 'vue-i18n'
-import { Clock, ArrowRight } from 'lucide-vue-next'
+import { ArrowRight } from 'lucide-vue-next'
 
 defineProps({ pub: Object })
 const { t } = useI18n()
@@ -28,14 +28,6 @@ const { t } = useI18n()
           {{ t('publications.coAuthor') }}
         </span>
 
-        <span
-          v-if="pub.inPress"
-          class="inline-flex items-center gap-1"
-          style="background: transparent; border: 1px solid rgba(0,210,255,0.3); color: #00d2ff; font-family: Inter, sans-serif; font-size: 0.65rem; border-radius: 4px; padding: 3px 10px;"
-        >
-          <Clock :size="11" />
-          {{ t('publications.inPress') }}
-        </span>
       </div>
 
       <!-- Title -->

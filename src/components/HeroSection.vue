@@ -132,28 +132,28 @@ function scrollToWork() {
 </script>
 
 <template>
-  <section id="hero" ref="heroRef" class="relative min-h-screen grid items-center" style="grid-template-columns: 55fr 45fr; padding: 0 clamp(24px, 6vw, 120px); gap: 48px; background: #080b12;">
+  <section id="hero" ref="heroRef" class="relative min-h-screen grid items-center" style="grid-template-columns: 55fr 45fr; padding: 0 clamp(24px, 6vw, 120px); gap: 48px; background: var(--bg-0);">
 
     <!-- Text column -->
     <div style="min-width: 0;">
       <!-- Available label -->
       <div class="hero-label flex items-center gap-2 mb-6" style="opacity: 0;">
         <span class="inline-block w-1.5 h-1.5 rounded-full" style="background: #22c55e; animation: pulse 2s ease-in-out infinite;"></span>
-        <span style="font-family: Inter, sans-serif; font-size: 0.75rem; color: #888;">{{ t('hero.available') }}</span>
+        <span style="font-family: var(--font-sans); font-size: var(--text-xs); color: var(--text-secondary);">{{ t('hero.available') }}</span>
       </div>
 
       <!-- Heading -->
       <div class="hero-heading">
-        <div class="hero-heading-line" style="font-family: 'Bebas Neue', sans-serif; font-size: clamp(1rem, 2vw, 1.4rem); color: #666; font-weight: 400; letter-spacing: 0.02em; opacity: 0;">
+        <div class="hero-heading-line" style="font-family: var(--font-display); font-size: clamp(1rem, 2vw, 1.4rem); color: var(--text-muted); font-weight: 400; letter-spacing: 0.02em; opacity: 0;">
           {{ t('hero.greeting') }}
         </div>
-        <div class="hero-heading-line" style="font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 7vw, 7rem); color: #00d2ff; line-height: 1; letter-spacing: -0.01em; opacity: 0; height: 2em; overflow: hidden;">
+        <div class="hero-heading-line" style="font-family: var(--font-display); font-size: var(--display-xl); color: var(--accent); line-height: 1; letter-spacing: -0.01em; opacity: 0; height: 2em; overflow: hidden;">
           <span class="cursor-blink" style="display: inline-block; vertical-align: top;">{{ displayRole || '\u00A0' }}</span>
         </div>
       </div>
 
       <!-- Tagline -->
-      <p class="hero-tagline" style="font-family: Inter, sans-serif; font-size: 1rem; color: #888; line-height: 1.7; max-width: 440px; margin-top: 24px; opacity: 0;">
+      <p class="hero-tagline" style="font-family: var(--font-sans); font-size: var(--text-lg); color: var(--text-secondary); line-height: 1.7; max-width: 440px; margin-top: 24px; opacity: 0;">
         {{ t('hero.tagline') }}
       </p>
 
@@ -162,7 +162,7 @@ function scrollToWork() {
         <button
           @click="scrollToWork"
           class="flex items-center gap-2 cursor-pointer transition-all hover:scale-[1.02]"
-          style="background: #f0f0f0; color: #0a0a0a; border: none; border-radius: 4px; padding: 12px 28px; font-family: Inter, sans-serif; font-weight: 500; font-size: 0.875rem;"
+          style="background: #f0f0f0; color: #0a0a0a; border: none; border-radius: 4px; padding: 12px 28px; font-family: var(--font-sans); font-weight: 500; font-size: var(--text-sm);"
         >
           {{ t('hero.viewWork') }}
           <ArrowRight :size="16" />
@@ -172,7 +172,7 @@ function scrollToWork() {
           target="_blank"
           rel="noopener"
           class="flex items-center gap-2 cursor-pointer transition-all hover:border-white/50"
-          style="background: transparent; border: 1px solid rgba(255,255,255,0.2); color: #f0f0f0; border-radius: 4px; padding: 12px 28px; font-family: Inter, sans-serif; font-weight: 500; font-size: 0.875rem; text-decoration: none;"
+          style="background: transparent; border: 1px solid rgba(255,255,255,0.2); color: var(--text-primary); border-radius: 4px; padding: 12px 28px; font-family: var(--font-sans); font-weight: 500; font-size: var(--text-sm); text-decoration: none;"
         >
           <Github :size="16" />
           {{ t('common.github') }}
@@ -180,7 +180,7 @@ function scrollToWork() {
         <button
           @click="downloadCV"
           class="hero-btn flex items-center gap-2 cursor-pointer transition-all hover:border-white/50"
-          style="background: transparent; border: 1px solid rgba(255,255,255,0.2); color: #f0f0f0; border-radius: 4px; padding: 12px 28px; font-family: Inter, sans-serif; font-weight: 500; font-size: 0.875rem;"
+          style="background: transparent; border: 1px solid rgba(255,255,255,0.2); color: var(--text-primary); border-radius: 4px; padding: 12px 28px; font-family: var(--font-sans); font-weight: 500; font-size: var(--text-sm);"
         >
           <Download :size="16" />
           {{ t('hero.download_cv') }}
@@ -194,11 +194,11 @@ function scrollToWork() {
           <div class="hero-stat" style="opacity: 0;">
             <span
               :ref="el => { if (el) statRefs[stat.key] = el }"
-              style="font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem, 4vw, 3rem); color: #f0f0f0; display: block;"
+              style="font-family: var(--font-display); font-size: var(--display-md); color: var(--text-primary); display: block;"
             >
               0{{ stat.suffix }}
             </span>
-            <span style="font-family: Inter, sans-serif; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: #888;">
+            <span style="font-family: var(--font-sans); font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-secondary);">
               {{ t(`hero.stats.${stat.key}`) }}
             </span>
           </div>

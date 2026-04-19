@@ -83,7 +83,7 @@ function onPointerUp() {
             v-if="isFiltering"
             @click="clearFilter"
             class="flex items-center gap-1.5 cursor-pointer transition-all hover:scale-[1.02]"
-            style="font-size: 0.75rem; color: #f0f0f0; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); border-radius: 4px; padding: 4px 12px;"
+            style="font-size: var(--text-xs); color: var(--text-primary); background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); border-radius: 4px; padding: 4px 12px;"
           >
             {{ t('timeline.filtering') }}: {{ activeFilter }}
             <X :size="12" />
@@ -117,7 +117,7 @@ function onPointerUp() {
             >
               <!-- Dot on horizontal line -->
               <div class="absolute left-6 z-10" style="top: -20px;">
-                <div class="rounded-full" style="width: 8px; height: 8px; background: #1a1a1a; border: 1px solid rgba(255,255,255,0.15);" />
+                <div class="rounded-full" style="width: 8px; height: 8px; background: var(--bg-2); border: 1px solid rgba(255,255,255,0.15);" />
               </div>
 
               <TimelineEntry :entry="entry" />
@@ -125,7 +125,7 @@ function onPointerUp() {
           </div>
         </div>
         <!-- Mobile scroll hint -->
-        <div class="scroll-hint flex items-center justify-center gap-1 mt-3 md:hidden" style="color: #444; font-size: 0.75rem; font-family: Inter, sans-serif;">
+        <div class="scroll-hint flex items-center justify-center gap-1 mt-3 md:hidden" style="color: var(--text-faint); font-size: var(--text-xs); font-family: var(--font-sans);">
           {{ t('common.swipe') }} <ChevronRight :size="14" />
         </div>
       </div>

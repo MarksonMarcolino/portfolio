@@ -17,7 +17,7 @@ useScrollReveal(sectionRef, '.stack-card', { y: 25, stagger: 0.05 })
     <div class="max-w-6xl mx-auto">
       <div class="flex items-end justify-between" style="margin-bottom: 40px;">
         <SectionHeader :title="t('stack.title')" :subtitle="t('stack.subtitle')" />
-        <div class="hidden sm:flex items-center gap-4" style="font-family: Inter, sans-serif; font-size: 0.7rem; color: #444;">
+        <div class="hidden sm:flex items-center gap-4" style="font-family: var(--font-sans); font-size: var(--text-xs); color: var(--text-faint);">
           <span class="flex items-center gap-1.5">
             <span class="w-2 h-2 rounded-full" style="background: #f0f0f0;" />
             {{ t('stack.production') }}
@@ -34,11 +34,11 @@ useScrollReveal(sectionRef, '.stack-card', { y: 25, stagger: 0.05 })
           v-for="cat in stackCategories"
           :key="cat.category"
           class="stack-card rounded-xl p-5 transition-all duration-200 h-full"
-          style="background: #111; border: 1px solid rgba(255,255,255,0.08); visibility: hidden;"
-          @mouseenter="(e) => { e.currentTarget.style.background = '#1a1a1a'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.18)' }"
-          @mouseleave="(e) => { e.currentTarget.style.background = '#111'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)' }"
+          style="background: var(--bg-1); border: 1px solid rgba(255,255,255,0.08); visibility: hidden;"
+          @mouseenter="(e) => { e.currentTarget.style.background = 'var(--bg-2)'; e.currentTarget.style.borderColor = 'var(--border-strong)' }"
+          @mouseleave="(e) => { e.currentTarget.style.background = 'var(--bg-1)'; e.currentTarget.style.borderColor = 'var(--border-default)' }"
         >
-          <h3 class="mb-3" style="font-family: Inter, sans-serif; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; color: #888;">
+          <h3 class="mb-3" style="font-family: var(--font-sans); font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-secondary);">
             {{ t(`stack.categories.${cat.category}`) }}
           </h3>
           <div class="flex flex-wrap gap-1.5">
@@ -46,7 +46,7 @@ useScrollReveal(sectionRef, '.stack-card', { y: 25, stagger: 0.05 })
               <span
                 v-if="item.tier === 'production'"
                 class="inline-block rounded transition-colors duration-200 cursor-default"
-                style="background: rgba(240,240,240,0.06); border: 1px solid rgba(240,240,240,0.15); color: #f0f0f0; font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; padding: 3px 10px;"
+                style="background: rgba(240,240,240,0.06); border: 1px solid rgba(240,240,240,0.15); color: var(--text-primary); font-family: var(--font-mono); font-size: var(--text-xs); padding: 3px 10px;"
                 @mouseenter="(e) => { e.target.style.borderColor = 'rgba(0,210,255,0.5)'; e.target.style.color = '#00d2ff' }"
                 @mouseleave="(e) => { e.target.style.borderColor = 'rgba(240,240,240,0.15)'; e.target.style.color = '#f0f0f0' }"
               >
@@ -55,7 +55,7 @@ useScrollReveal(sectionRef, '.stack-card', { y: 25, stagger: 0.05 })
               <span
                 v-else
                 class="inline-flex items-center gap-1 rounded transition-colors duration-200"
-                style="background: transparent; border: 1px solid rgba(255,255,255,0.06); color: #444; font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; padding: 3px 10px; cursor: default;"
+                style="background: transparent; border: 1px solid rgba(255,255,255,0.06); color: var(--text-faint); font-family: var(--font-mono); font-size: var(--text-xs); padding: 3px 10px; cursor: default;"
                 @mouseenter="(e) => { e.currentTarget.style.color = '#666' }"
                 @mouseleave="(e) => { e.currentTarget.style.color = '#444' }"
               >

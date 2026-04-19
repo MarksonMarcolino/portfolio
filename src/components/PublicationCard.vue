@@ -17,13 +17,13 @@ const { t } = useI18n()
       <div class="flex flex-wrap items-center gap-2 mb-2">
         <span
           v-if="pub.role === 'lead'"
-          style="background: #f0f0f0; color: #0a0a0a; font-family: Inter, sans-serif; font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.08em; border-radius: 4px; padding: 2px 8px;"
+          style="background: var(--text-primary); color: var(--bg-0); font-family: var(--font-sans); font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.08em; border-radius: 4px; padding: 2px 8px;"
         >
           {{ t('publications.leadAuthor') }}
         </span>
         <span
           v-else
-          style="background: transparent; border: 1px solid rgba(255,255,255,0.15); color: #888; font-family: Inter, sans-serif; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.08em; border-radius: 4px; padding: 3px 10px;"
+          style="background: transparent; border: 1px solid rgba(255,255,255,0.15); color: var(--text-secondary); font-family: var(--font-sans); font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.08em; border-radius: 4px; padding: 3px 10px;"
         >
           {{ t('publications.coAuthor') }}
         </span>
@@ -31,17 +31,17 @@ const { t } = useI18n()
       </div>
 
       <!-- Title -->
-      <h3 style="font-family: Inter, sans-serif; font-size: 1rem; font-weight: 600; color: #f0f0f0; margin-bottom: 4px;">
+      <h3 style="font-family: var(--font-sans); font-size: var(--text-lg); font-weight: 600; color: var(--text-primary); margin-bottom: 4px;">
         {{ t(`publications.entries.${pub.id}.title`) }}
       </h3>
 
       <!-- Venue + year -->
-      <p style="font-family: Inter, sans-serif; font-size: 0.75rem; color: #666; margin-bottom: 8px;">
+      <p style="font-family: var(--font-sans); font-size: var(--text-xs); color: var(--text-muted); margin-bottom: 8px;">
         {{ pub.venue }} &middot; {{ pub.year }}
       </p>
 
       <!-- Description -->
-      <p style="font-family: Inter, sans-serif; font-size: 0.85rem; color: #888; line-height: 1.6; margin-bottom: 10px;">
+      <p style="font-family: var(--font-sans); font-size: var(--text-sm); color: var(--text-secondary); line-height: 1.6; margin-bottom: 10px;">
         {{ t(`publications.entries.${pub.id}.description`) }}
       </p>
 
@@ -51,7 +51,7 @@ const { t } = useI18n()
           v-for="tag in pub.tags"
           :key="tag"
           class="inline-block"
-          style="background: transparent; border: 1px solid rgba(255,255,255,0.08); color: #888; font-family: Inter, sans-serif; font-size: 0.65rem; padding: 2px 8px; border-radius: 4px;"
+          style="background: transparent; border: 1px solid rgba(255,255,255,0.08); color: var(--text-secondary); font-family: var(--font-sans); font-size: var(--text-xs); padding: 2px 8px; border-radius: 4px;"
         >
           {{ t(`tags.${tag}`, tag) }}
         </span>
@@ -64,7 +64,7 @@ const { t } = useI18n()
       target="_blank"
       rel="noopener"
       class="pub-link flex items-center gap-1.5 shrink-0 self-start sm:self-center cursor-pointer whitespace-nowrap"
-      style="color: #00d2ff; font-family: Inter, sans-serif; font-size: 0.85rem; text-decoration: none;"
+      style="color: var(--accent); font-family: var(--font-sans); font-size: var(--text-sm); text-decoration: none;"
     >
       {{ t('publications.readPaper') }}
       <ArrowRight :size="14" class="pub-arrow" />

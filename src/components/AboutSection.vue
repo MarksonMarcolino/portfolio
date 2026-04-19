@@ -44,7 +44,7 @@ const education = [
             class="w-full object-cover object-top"
             style="border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); aspect-ratio: 4/5;"
           />
-          <p style="font-family: Inter, sans-serif; font-size: 1rem; color: #888; line-height: 1.8; margin-top: 28px;">
+          <p style="font-family: var(--font-sans); font-size: var(--text-lg); color: var(--text-secondary); line-height: 1.8; margin-top: 28px;">
             {{ t('about.bio') }}
           </p>
         </div>
@@ -52,7 +52,7 @@ const education = [
         <!-- Right column -->
         <div data-reveal style="visibility: hidden;">
           <!-- Currently building -->
-          <p style="font-family: Inter, sans-serif; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.12em; color: #444; margin-bottom: 16px;">
+          <p style="font-family: var(--font-sans); font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-faint); margin-bottom: 16px;">
             {{ t('about.currentlyBuilding') }}
           </p>
 
@@ -71,16 +71,16 @@ const education = [
               <div class="flex flex-col">
                 <div class="flex items-center gap-2">
                   <span class="inline-block w-1.5 h-1.5 rounded-full" style="background: #22c55e;" />
-                  <span style="font-family: Inter, sans-serif; font-size: 0.9rem; color: #f0f0f0;">{{ proj.name }}</span>
+                  <span style="font-family: var(--font-sans); font-size: var(--text-base); color: var(--text-primary);">{{ proj.name }}</span>
                 </div>
-                <span style="font-family: Inter, sans-serif; font-size: 0.8rem; color: #888; margin-left: 14px;">{{ t(`about.projects.${proj.descKey}`) }}</span>
+                <span style="font-family: var(--font-sans); font-size: var(--text-sm); color: var(--text-secondary); margin-left: 14px;">{{ t(`about.projects.${proj.descKey}`) }}</span>
               </div>
-              <ExternalLink v-if="proj.url" :size="14" class="shrink-0 transition-colors duration-200" style="color: #444;" />
+              <ExternalLink v-if="proj.url" :size="14" class="shrink-0 transition-colors duration-200" style="color: var(--text-faint);" />
             </component>
           </div>
 
           <!-- Languages -->
-          <p style="font-family: Inter, sans-serif; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.12em; color: #444; margin-top: 40px; margin-bottom: 16px;">
+          <p style="font-family: var(--font-sans); font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-faint); margin-top: 40px; margin-bottom: 16px;">
             {{ t('about.languages') }}
           </p>
 
@@ -92,15 +92,15 @@ const education = [
               style="padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.06);"
             >
               <span class="flex items-center gap-2">
-                <span style="font-size: 1rem;">{{ lang.flag }}</span>
-                <span style="font-family: Inter, sans-serif; font-size: 0.9rem; color: #f0f0f0;">{{ t(`about.langList.${lang.key}`) }}</span>
+                <span style="font-size: var(--text-lg);">{{ lang.flag }}</span>
+                <span style="font-family: var(--font-sans); font-size: var(--text-base); color: var(--text-primary);">{{ t(`about.langList.${lang.key}`) }}</span>
               </span>
-              <span style="font-family: Inter, sans-serif; font-size: 0.8rem; color: #888;">{{ t(`about.levels.${lang.levelKey}`) }}</span>
+              <span style="font-family: var(--font-sans); font-size: var(--text-sm); color: var(--text-secondary);">{{ t(`about.levels.${lang.levelKey}`) }}</span>
             </div>
           </div>
 
           <!-- Education -->
-          <p style="font-family: Inter, sans-serif; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.12em; color: #444; margin-top: 40px; margin-bottom: 16px;">
+          <p style="font-family: var(--font-sans); font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-faint); margin-top: 40px; margin-bottom: 16px;">
             {{ t('about.education') }}
           </p>
 
@@ -110,8 +110,8 @@ const education = [
               :key="edu.degreeKey"
               style="padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.06);"
             >
-              <div style="font-family: Inter, sans-serif; font-size: 0.9rem; color: #f0f0f0;">{{ t(`about.degrees.${edu.degreeKey}`) }}</div>
-              <div style="font-family: Inter, sans-serif; font-size: 0.8rem; color: #888;">{{ edu.school }}, {{ edu.years }}</div>
+              <div style="font-family: var(--font-sans); font-size: var(--text-base); color: var(--text-primary);">{{ t(`about.degrees.${edu.degreeKey}`) }}</div>
+              <div style="font-family: var(--font-sans); font-size: var(--text-sm); color: var(--text-secondary);">{{ edu.school }}, {{ edu.years }}</div>
             </div>
           </div>
         </div>

@@ -14,19 +14,19 @@ defineProps({
 
 <style scoped>
 .section-title {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(2.5rem, 6vw, 5rem);
-  color: #f0f0f0;
-  line-height: 1;
+  font-family: var(--font-display);
+  font-size: var(--display-lg);
+  color: var(--text-primary);
+  line-height: var(--leading-tight);
   font-weight: 400;
 }
 
 .section-subtitle {
-  font-family: Inter, sans-serif;
-  font-size: 0.7rem;
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
   text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: #888;
+  letter-spacing: var(--tracking-eyebrow);
+  color: var(--text-secondary);
   margin-top: 4px;
 }
 </style>

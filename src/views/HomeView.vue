@@ -4,7 +4,7 @@ import { useI18n } from 'vue-i18n'
 import { useMediaQuery } from '@vueuse/core'
 import { useScrollReveal } from '../composables/useScrollReveal.js'
 import gsap from 'gsap'
-import { X, ChevronRight } from 'lucide-vue-next'
+import { X, ChevronRight, ChevronLeft } from 'lucide-vue-next'
 import HeroSection from '../components/HeroSection.vue'
 import TechStackMap from '../components/TechStackMap.vue'
 import ProjectsSection from '../components/ProjectsSection.vue'
@@ -124,9 +124,12 @@ function onPointerUp() {
             </div>
           </div>
         </div>
-        <!-- Mobile scroll hint -->
-        <div class="scroll-hint flex items-center justify-center gap-1 mt-3 md:hidden" style="color: var(--text-faint); font-size: var(--text-xs); font-family: var(--font-sans);">
-          {{ t('common.swipe') }} <ChevronRight :size="14" />
+        <!-- Scroll hint -->
+        <div class="scroll-hint flex items-center justify-center gap-1 mt-3" style="color: var(--text-faint); font-size: var(--text-xs); font-family: var(--font-sans);">
+          <ChevronLeft :size="14" />
+          <span class="md:hidden">{{ t('common.swipe') }}</span>
+          <span class="hidden md:inline">{{ t('common.dragToScroll') }}</span>
+          <ChevronRight :size="14" />
         </div>
       </div>
     </section>

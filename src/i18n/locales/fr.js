@@ -221,6 +221,7 @@ export default {
     inProgress: 'En Cours',
     github: 'GitHub',
     swipe: 'Glisser',
+    dragToScroll: 'Glissez ou faites défiler',
   },
   tags: {
     'Data Engineering': 'Ingénierie des Données',

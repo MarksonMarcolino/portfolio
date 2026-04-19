@@ -221,6 +221,7 @@ export default {
     inProgress: 'In Progress',
     github: 'GitHub',
     swipe: 'Swipe',
+    dragToScroll: 'Drag or scroll',
   },
   tags: {
     'Data Engineering': 'Data Engineering',

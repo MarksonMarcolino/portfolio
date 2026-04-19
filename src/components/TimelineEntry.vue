@@ -26,10 +26,8 @@ function formatDate(start, end) {
 
 <template>
   <div
-    class="flex flex-col rounded-xl p-5 transition-all duration-200 overflow-hidden"
-    style="background: var(--bg-1); border: 1px solid var(--border-default); min-height: 320px; height: auto;"
-    @mouseenter="(e) => { e.currentTarget.style.background = 'var(--bg-2)'; e.currentTarget.style.borderColor = 'var(--border-strong)'; e.currentTarget.style.transform = 'translateY(-2px)' }"
-    @mouseleave="(e) => { e.currentTarget.style.background = 'var(--bg-1)'; e.currentTarget.style.borderColor = 'var(--border-default)'; e.currentTarget.style.transform = 'translateY(0)' }"
+    class="card card-lift flex flex-col p-5 overflow-hidden"
+    style="min-height: 320px; height: auto;"
   >
     <!-- Header -->
     <div class="flex items-start justify-between gap-2 mb-2">

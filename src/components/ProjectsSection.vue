@@ -63,10 +63,8 @@ function matchProject(project) {
           style="visibility: hidden;"
         >
           <div
-            class="h-full flex flex-col rounded-xl p-5 transition-all duration-200"
-            style="background: var(--bg-1); border: 1px solid var(--border-default);"
-            @mouseenter="(e) => { e.currentTarget.style.background = 'var(--bg-2)'; e.currentTarget.style.borderColor = 'var(--border-strong)' }"
-            @mouseleave="(e) => { e.currentTarget.style.background = 'var(--bg-1)'; e.currentTarget.style.borderColor = 'var(--border-default)' }"
+            class="card h-full flex flex-col p-5"
+            :class="project.id === 'serena' ? 'card-featured' : ''"
           >
             <!-- Featured label (eyebrow, above status) -->
             <span

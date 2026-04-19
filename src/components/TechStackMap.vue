@@ -33,10 +33,8 @@ useScrollReveal(sectionRef, '.stack-card', { y: 25, stagger: 0.05 })
         <div
           v-for="cat in stackCategories"
           :key="cat.category"
-          class="stack-card rounded-xl p-5 transition-all duration-200 h-full"
-          style="background: var(--bg-1); border: 1px solid rgba(255,255,255,0.08); visibility: hidden;"
-          @mouseenter="(e) => { e.currentTarget.style.background = 'var(--bg-2)'; e.currentTarget.style.borderColor = 'var(--border-strong)' }"
-          @mouseleave="(e) => { e.currentTarget.style.background = 'var(--bg-1)'; e.currentTarget.style.borderColor = 'var(--border-default)' }"
+          class="stack-card card p-5 h-full"
+          style="visibility: hidden;"
         >
           <h3 class="mb-3" style="font-family: var(--font-sans); font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-secondary);">
             {{ t(`stack.categories.${cat.category}`) }}

@@ -1,11 +1,11 @@
 export const publications = [
   {
     id: 'nature-2025',
-    title: 'Predicting Student Dropout through Machine Learning Optimization: Insights from Moodle Registration Data',
+    title: 'Student dropout prediction through machine learning optimization: insights from moodle log data',
     venue: 'Nature Scientific Reports',
     year: 2025,
     role: 'lead',
-    description: 'Applied advanced ML techniques (Random Forest, XGBoost) to optimize dropout risk prediction from Moodle registration data.',
+    description: 'Applied advanced ML techniques (Random Forest, XGBoost) to optimize dropout risk prediction from Moodle log data.',
     tags: ['ML Modeling', 'Education', 'Dropout Prediction'],
     url: 'https://www.nature.com/articles/s41598-025-93918-1',
   },

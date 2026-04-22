@@ -160,8 +160,8 @@ export default {
     inPress: 'No Prelo',
     entries: {
       'nature-2025': {
-        title: 'Predicting Student Dropout through Machine Learning Optimization: Insights from Moodle Registration Data',
-        description: 'Aplicação de técnicas avançadas de ML (Random Forest, XGBoost) para otimizar a predição de risco de evasão a partir de dados de registro do Moodle.',
+        title: 'Student dropout prediction through machine learning optimization: insights from moodle log data',
+        description: 'Aplicação de técnicas avançadas de ML (Random Forest, XGBoost) para otimizar a predição de risco de evasão a partir de dados de log do Moodle.',
       },
       'springer-2025': {
         title: 'Understanding School Factors Related to Student Absenteeism in Brazilian Public High Schools: Insights for Educational Policy Through a Clustering Approach',

@@ -34,7 +34,7 @@
 
 ## Publications
 
-- [Predicting Student Dropout through Machine Learning Optimization: Insights from Moodle Registration Data](https://www.nature.com/articles/s41598-025-93918-1) — Nature Scientific Reports, 2025 (Lead Author)
+- [Student dropout prediction through machine learning optimization: insights from moodle log data](https://www.nature.com/articles/s41598-025-93918-1) — Nature Scientific Reports, 2025 (Lead Author)
 - [Understanding School Factors Related to Student Absenteeism in Brazilian Public High Schools: Insights for Educational Policy Through a Clustering Approach](https://link.springer.com/chapter/10.1007/978-981-95-7580-0_14) — Springer, 2025 (Lead Author)
 - [Ensuring Data Quality in National Educational Databases: Insights from Brazil's Centralized Database of High School Students' Data](https://proceedings.open.tudelft.nl/DGO2025/article/view/943) — DGO 2025, TU Delft (Co-author)
 - [Leveraging String Similarity Algorithms for Educational Data Validation: A Scalable Approach for Digital Governance](https://proceedings.open.tudelft.nl/DGO2025/article/view/942) — DGO 2025, TU Delft (Co-author)

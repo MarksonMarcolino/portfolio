@@ -244,11 +244,26 @@ export default {
     'ML': 'ML',
   },
   cv: {
-    filename: 'Markson_Rebelo_Marcolino_CV_PT.pdf',
-    title: 'Engenheiro de Dados',
+    filename: 'Markson_Rebelo_Marcolino_DS_CV_PT.pdf',
+    title: 'Cientista de Dados',
     summary_label: 'Resumo',
-    summary: 'Engenheiro de Dados com mais de 15 anos em tech, focado em pipelines de dados escaláveis, workflows ELT/ETL e plataformas de dados em nuvem em GCP (BigQuery, Dataflow, Cloud Composer). Proficiente em Python, SQL, FastAPI, PostgreSQL e TimescaleDB. Experiência em CI/CD (Terraform, GitHub Actions, Docker) e aplicações de machine learning usando scikit-learn, XGBoost e PyTorch. Pesquisador publicado em ciência de dados educacional e otimização de ML.',
+    summary: 'Cientista de Dados com mais de 15 anos em tecnologia, combinando pesquisa aplicada em ML com engenharia de produção. Autor principal em Nature Scientific Reports sobre otimização de ML para predição de evasão estudantil. Dois anos analisando 10M+ registros de estudantes e construindo dashboards geoespaciais em mais de 5.000 escolas. Confortável em todo o ciclo de ML aplicado — feature engineering, seleção de modelos (scikit-learn, XGBoost, PyTorch), validação e colocar modelos em produtos reais. Atualmente construindo produtos independentes em saúde, IA de voz e telecom.',
     experience: 'Experiência',
+    projects: 'Projetos Selecionados',
+    projects_entries: {
+      serena: {
+        headline: 'Plataforma de cuidados paliativos',
+        description: 'Plataforma clínica co-construída com suporte à decisão assistido por IA via Claude API. Séries temporais em TimescaleDB para sinais vitais e medicação, avaliações estruturadas e resumo de contexto do paciente com LLM. Conforme com LGPD/ANVISA; em uso clínico.',
+      },
+      voz: {
+        headline: 'IA de voz multilíngue LLM auto-hospedada',
+        description: 'IA conversacional de voz open source para português brasileiro e espanhol rioplatense. Inferência LLM em pipeline (Ollama) com TTS em streaming — o áudio começa antes da geração terminar. 100% local, privacy-first, sem dependência de nuvem.',
+      },
+      nanoncore: {
+        headline: 'Plataforma de analytics para telecom/ISP',
+        description: 'Telemetria de rede em tempo real sobre VictoriaMetrics ingerindo métricas SNMP/SSH de ISPs de fibra óptica, com dashboards operacionais e alertas. Backend em Go, frontend em Vue 3.',
+      },
+    },
     education: 'Educação',
     publications: 'Publicações',
     skills: 'Habilidades Técnicas',

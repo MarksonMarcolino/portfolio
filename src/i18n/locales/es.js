@@ -244,11 +244,26 @@ export default {
     'ML': 'ML',
   },
   cv: {
-    filename: 'Markson_Rebelo_Marcolino_CV_ES.pdf',
-    title: 'Ingeniero de Datos',
+    filename: 'Markson_Rebelo_Marcolino_DS_CV_ES.pdf',
+    title: 'Científico de Datos',
     summary_label: 'Resumen',
-    summary: 'Ingeniero de Datos con más de 15 años en tech, enfocado en pipelines de datos escalables, workflows ELT/ETL y plataformas de datos en la nube en GCP (BigQuery, Dataflow, Cloud Composer). Competente en Python, SQL, FastAPI, PostgreSQL y TimescaleDB. Experiencia en CI/CD (Terraform, GitHub Actions, Docker) y aplicaciones de machine learning usando scikit-learn, XGBoost y PyTorch. Investigador publicado en ciencia de datos educativa y optimización de ML.',
+    summary: 'Científico de Datos con más de 15 años en tech, combinando investigación aplicada en ML con ingeniería de producción. Autor principal en Nature Scientific Reports sobre optimización de ML para predecir deserción estudiantil. Dos años analizando 10M+ registros de estudiantes y construyendo dashboards geoespaciales en más de 5.000 escuelas. Cómodo en todo el ciclo aplicado de ML — feature engineering, selección de modelos (scikit-learn, XGBoost, PyTorch), integración LLM (Claude API, Ollama), validación y llevar modelos a productos reales. Actualmente construyendo productos independientes en salud, IA de voz y telecom.',
     experience: 'Experiencia',
+    projects: 'Proyectos Destacados',
+    projects_entries: {
+      serena: {
+        headline: 'Plataforma de cuidados paliativos',
+        description: 'Plataforma clínica co-construida con soporte de decisión asistido por IA vía Claude API. Series temporales en TimescaleDB para signos vitales y medicación, evaluaciones clínicas estructuradas y herramientas de coordinación de equipo. Conforme con LGPD/ANVISA; en uso clínico.',
+      },
+      voz: {
+        headline: 'IA de voz multilingüe LLM auto-alojada',
+        description: 'IA conversacional de voz open source para portugués brasileño y español rioplatense. Inferencia LLM en pipeline (Ollama) con TTS en streaming — el audio empieza antes de que termine la generación. 100% local, privacy-first, sin dependencias en la nube.',
+      },
+      nanoncore: {
+        headline: 'Plataforma de analítica para telecom/ISP',
+        description: 'Telemetría de red en tiempo real sobre VictoriaMetrics ingiriendo métricas SNMP/SSH de ISPs de fibra óptica, con dashboards operativos y alertas. Backend en Go, frontend en Vue 3.',
+      },
+    },
     education: 'Educación',
     publications: 'Publicaciones',
     skills: 'Habilidades Técnicas',

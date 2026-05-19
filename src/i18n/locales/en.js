@@ -244,11 +244,26 @@ export default {
     'ML': 'ML',
   },
   cv: {
-    filename: 'Markson_Rebelo_Marcolino_CV_EN.pdf',
-    title: 'Data Engineer',
+    filename: 'Markson_Rebelo_Marcolino_DS_CV_EN.pdf',
+    title: 'Data Scientist',
     summary_label: 'Summary',
-    summary: 'Data Engineer with 15+ years in tech, focused on scalable data pipelines, ELT/ETL workflows, and cloud data platforms on GCP (BigQuery, Dataflow, Cloud Composer). Proficient in Python, SQL, FastAPI, PostgreSQL, and TimescaleDB. Experienced with CI/CD (Terraform, GitHub Actions, Docker) and machine learning applications using scikit-learn, XGBoost, and PyTorch. Published researcher in educational data science and ML optimization.',
+    summary: 'Data Scientist with 15+ years in tech, blending applied ML research with production engineering. First-author paper in Nature Scientific Reports on ML-optimized student dropout prediction. Two years analyzing 10M+ student records and shipping geospatial dashboards across 5,000+ schools. Comfortable across the full applied-ML loop — feature engineering, model selection (scikit-learn, XGBoost, PyTorch), LLM integration (Claude API, Ollama), validation, and shipping models into products people use. Currently building independent products in healthcare, voice AI, and telecom.',
     experience: 'Experience',
+    projects: 'Selected Projects',
+    projects_entries: {
+      serena: {
+        headline: 'Hospice & palliative care platform',
+        description: 'Co-built clinical platform with AI-assisted decision support via Claude API. TimescaleDB time-series for vitals and medication tracking, structured clinical assessments, and team coordination tooling. LGPD/ANVISA compliant; in clinical use.',
+      },
+      voz: {
+        headline: 'Self-hosted multilingual LLM voice AI',
+        description: 'Open-source conversational voice AI for Brazilian Portuguese and Rioplatense Spanish. Pipelined LLM inference (Ollama) with streaming TTS — audio starts before generation finishes. Fully local, privacy-first, no cloud dependency.',
+      },
+      nanoncore: {
+        headline: 'Telecom & ISP analytics platform',
+        description: 'Real-time network telemetry on VictoriaMetrics ingesting SNMP/SSH metrics across fiber-optic ISPs, paired with operational dashboards and alerting. Go backend, Vue 3 frontend.',
+      },
+    },
     education: 'Education',
     publications: 'Publications',
     skills: 'Technical Skills',

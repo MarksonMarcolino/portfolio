@@ -4,3 +4,5 @@ dist
 *.local
 .gstack/
 CLAUDE.md
+candidate_profile.md
+applications_log.md

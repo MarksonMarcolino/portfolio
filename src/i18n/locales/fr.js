@@ -247,13 +247,13 @@ export default {
     filename: 'Markson_Rebelo_Marcolino_DS_CV_FR.pdf',
     title: 'Data Scientist',
     summary_label: 'Résumé',
-    summary: 'Data Scientist avec plus de 15 ans dans la tech, combinant recherche en ML appliqué et ingénierie de production. Auteur principal dans Nature Scientific Reports sur l\'optimisation ML pour la prédiction du décrochage étudiant. Deux ans à analyser 10M+ d\'enregistrements d\'étudiants et à construire des dashboards géospatiaux pour plus de 5 000 écoles. À l\'aise sur tout le cycle ML appliqué — feature engineering, sélection de modèles (scikit-learn, XGBoost, PyTorch), validation, et mise en production de modèles. Actuellement développant des produits indépendants en santé, IA vocale et télécoms.',
+    summary: 'Data Scientist avec plus de 15 ans dans la tech, combinant recherche en ML appliqué et ingénierie de production. Auteur principal dans Nature Scientific Reports sur l\'optimisation ML pour la prédiction du décrochage étudiant. Deux ans à analyser 10M+ d\'enregistrements d\'étudiants et à construire des dashboards géospatiaux pour plus de 5 000 écoles. À l\'aise sur tout le cycle ML appliqué — feature engineering, sélection de modèles (scikit-learn, XGBoost, PyTorch), intégration LLM (Claude API, Ollama), validation, et mise en production de modèles. Actuellement développant des produits indépendants en santé, IA vocale et télécoms.',
     experience: 'Expérience',
     projects: 'Projets Sélectionnés',
     projects_entries: {
       serena: {
         headline: 'Plateforme de soins palliatifs',
-        description: 'Plateforme clinique co-construite avec aide à la décision assistée par IA via Claude API. Séries temporelles sur TimescaleDB pour signes vitaux et médicaments, évaluations structurées et résumé du contexte patient via LLM. Conforme LGPD/ANVISA ; en usage clinique.',
+        description: 'Plateforme clinique co-construite avec aide à la décision assistée par IA via Claude API. Séries temporelles sur TimescaleDB pour signes vitaux et médicaments, évaluations cliniques structurées et outils de coordination d\'équipe. Conforme LGPD/ANVISA ; en usage clinique.',
       },
       voz: {
         headline: 'IA vocale multilingue LLM auto-hébergée',

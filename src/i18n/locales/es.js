@@ -247,13 +247,13 @@ export default {
     filename: 'Markson_Rebelo_Marcolino_DS_CV_ES.pdf',
     title: 'Científico de Datos',
     summary_label: 'Resumen',
-    summary: 'Científico de Datos con más de 15 años en tech, combinando investigación aplicada en ML con ingeniería de producción. Autor principal en Nature Scientific Reports sobre optimización de ML para predecir deserción estudiantil. Dos años analizando 10M+ registros de estudiantes y construyendo dashboards geoespaciales en más de 5.000 escuelas. Cómodo en todo el ciclo aplicado de ML — feature engineering, selección de modelos (scikit-learn, XGBoost, PyTorch), validación y llevar modelos a productos reales. Actualmente construyendo productos independientes en salud, IA de voz y telecom.',
+    summary: 'Científico de Datos con más de 15 años en tech, combinando investigación aplicada en ML con ingeniería de producción. Autor principal en Nature Scientific Reports sobre optimización de ML para predecir deserción estudiantil. Dos años analizando 10M+ registros de estudiantes y construyendo dashboards geoespaciales en más de 5.000 escuelas. Cómodo en todo el ciclo aplicado de ML — feature engineering, selección de modelos (scikit-learn, XGBoost, PyTorch), integración LLM (Claude API, Ollama), validación y llevar modelos a productos reales. Actualmente construyendo productos independientes en salud, IA de voz y telecom.',
     experience: 'Experiencia',
     projects: 'Proyectos Destacados',
     projects_entries: {
       serena: {
         headline: 'Plataforma de cuidados paliativos',
-        description: 'Plataforma clínica co-construida con soporte de decisión asistido por IA vía Claude API. Series temporales en TimescaleDB para signos vitales y medicación, evaluaciones estructuradas y resumen de contexto del paciente con LLM. Conforme con LGPD/ANVISA; en uso clínico.',
+        description: 'Plataforma clínica co-construida con soporte de decisión asistido por IA vía Claude API. Series temporales en TimescaleDB para signos vitales y medicación, evaluaciones clínicas estructuradas y herramientas de coordinación de equipo. Conforme con LGPD/ANVISA; en uso clínico.',
       },
       voz: {
         headline: 'IA de voz multilingüe LLM auto-alojada',

@@ -247,13 +247,13 @@ export default {
     filename: 'Markson_Rebelo_Marcolino_DS_CV_EN.pdf',
     title: 'Data Scientist',
     summary_label: 'Summary',
-    summary: 'Data Scientist with 15+ years in tech, blending applied ML research with production engineering. First-author paper in Nature Scientific Reports on ML-optimized student dropout prediction. Two years analyzing 10M+ student records and shipping geospatial dashboards across 5,000+ schools. Comfortable across the full applied-ML loop — feature engineering, model selection (scikit-learn, XGBoost, PyTorch), validation, and shipping models into products people use. Currently building independent products in healthcare, voice AI, and telecom.',
+    summary: 'Data Scientist with 15+ years in tech, blending applied ML research with production engineering. First-author paper in Nature Scientific Reports on ML-optimized student dropout prediction. Two years analyzing 10M+ student records and shipping geospatial dashboards across 5,000+ schools. Comfortable across the full applied-ML loop — feature engineering, model selection (scikit-learn, XGBoost, PyTorch), LLM integration (Claude API, Ollama), validation, and shipping models into products people use. Currently building independent products in healthcare, voice AI, and telecom.',
     experience: 'Experience',
     projects: 'Selected Projects',
     projects_entries: {
       serena: {
         headline: 'Hospice & palliative care platform',
-        description: 'Co-built clinical platform with AI-assisted decision support via Claude API. TimescaleDB time-series for vitals and medication tracking, structured assessments, and LLM-driven summarization of patient context. LGPD/ANVISA compliant; in clinical use.',
+        description: 'Co-built clinical platform with AI-assisted decision support via Claude API. TimescaleDB time-series for vitals and medication tracking, structured clinical assessments, and team coordination tooling. LGPD/ANVISA compliant; in clinical use.',
       },
       voz: {
         headline: 'Self-hosted multilingual LLM voice AI',

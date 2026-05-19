@@ -2,6 +2,7 @@
 import { ref, onMounted, onUnmounted } from 'vue'
 import { useMediaQuery } from '@vueuse/core'
 import gsap from 'gsap'
+import { Analytics } from '@vercel/analytics/vue'
 import NavBar from './components/NavBar.vue'
 import CvTemplate from './components/CvTemplate.vue'
 
@@ -34,4 +35,5 @@ onUnmounted(() => {
   <NavBar />
   <router-view />
   <CvTemplate />
+  <Analytics />
 </template>

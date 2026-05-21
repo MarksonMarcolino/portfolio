@@ -1,11 +1,12 @@
 <script setup>
 import { useI18n } from 'vue-i18n'
-import { Mail, Github, Linkedin, ArrowRight } from 'lucide-vue-next'
+import { Mail, Phone, Github, Linkedin, ArrowRight } from 'lucide-vue-next'
 
 const { t } = useI18n()
 
 const contacts = [
   { label: 'EMAIL', href: 'mailto:markson.marcolino@gmail.com', display: 'markson.marcolino@gmail.com', icon: Mail },
+  { label: 'PHONE', href: 'tel:+34665248229', display: '+34 665 248 229', icon: Phone },
   { label: 'GITHUB', href: 'https://github.com/MarksonMarcolino', display: 'github.com/MarksonMarcolino', icon: Github },
   { label: 'LINKEDIN', href: 'https://linkedin.com/in/marksonmarcolino', display: 'linkedin.com/in/marksonmarcolino', icon: Linkedin },
 ]

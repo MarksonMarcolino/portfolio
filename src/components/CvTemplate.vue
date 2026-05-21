@@ -3,29 +3,9 @@ import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { timeline } from '../data/timeline.js'
 import { publications } from '../data/publications.js'
-import { projects } from '../data/projects.js'
 import { stackCategories } from '../data/stack.js'
 
 const { t } = useI18n()
-
-const cvProjectIds = ['serena', 'voz', 'nanoncore']
-const cvProjects = computed(() =>
-  cvProjectIds
-    .map(id => projects.find(p => p.id === id))
-    .filter(Boolean)
-)
-
-// DS-focused category order: lead with AI/ML, then quant programming/data, then viz/BI.
-const dsCategoryOrder = [
-  'AI & Machine Learning',
-  'Programming & Databases',
-  'Visualization & BI',
-  'Cloud & Data Platforms',
-  'Data Engineering',
-  'Backend & APIs',
-  'DevOps & Tools',
-  'Frontend',
-]
 
 const parseDate = (d) => {
   if (!d || d === 'Present') return '9999-12'
@@ -48,16 +28,11 @@ const educationEntries = computed(() =>
     .sort((a, b) => parseDate(b.dateStart).localeCompare(parseDate(a.dateStart)))
 )
 
-const productionStack = computed(() => {
-  const filtered = stackCategories.filter(cat =>
+const productionStack = computed(() =>
+  stackCategories.filter(cat =>
     cat.items.some(i => i.tier === 'production')
   )
-  return [...filtered].sort((a, b) => {
-    const ai = dsCategoryOrder.indexOf(a.category)
-    const bi = dsCategoryOrder.indexOf(b.category)
-    return (ai === -1 ? 99 : ai) - (bi === -1 ? 99 : bi)
-  })
-})
+)
 
 function formatDate(d) {
   if (!d) return ''
@@ -80,8 +55,9 @@ function formatDate(d) {
       <p style="color: #666; margin: 0 0 8px; font-size: 14px;">
         {{ t('cv.title') }} · {{ t('cv.location') }} · <a href="https://marksonmarcolino.vercel.app" style="color: #666; text-decoration: none;">marksonmarcolino.vercel.app</a>
       </p>
-      <div style="font-size: 11px; color: #666; display: flex; gap: 20px;">
+      <div style="font-size: 11px; color: #666; display: grid; grid-template-columns: auto auto; column-gap: 24px; row-gap: 4px; justify-content: start;">
         <a href="mailto:markson.marcolino@gmail.com" style="color: #666; text-decoration: none;">markson.marcolino@gmail.com</a>
+        <a href="tel:+34665248229" style="color: #666; text-decoration: none;">+34 665 248 229</a>
         <a href="https://linkedin.com/in/marksonmarcolino" style="color: #666; text-decoration: none;">linkedin.com/in/marksonmarcolino</a>
         <a href="https://github.com/MarksonMarcolino" style="color: #666; text-decoration: none;">github.com/MarksonMarcolino</a>
       </div>
@@ -122,30 +98,6 @@ function formatDate(d) {
         </div>
         <div v-if="entry.stack.length" style="color: #555; font-size: 10px; margin-top: 4px;">
           {{ entry.stack.slice(0, 6).join(' · ') }}
-        </div>
-      </div>
-    </section>
-
-    <!-- SELECTED PROJECTS -->
-    <section style="margin-bottom: 24px;">
-      <h2 style="font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #888; margin: 0 0 12px;">
-        {{ t('cv.projects') }}
-      </h2>
-      <div v-for="proj in cvProjects" :key="proj.id" style="margin-bottom: 12px; page-break-inside: avoid;">
-        <div style="display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: baseline;">
-          <span style="font-weight: 600; font-size: 12px; color: #1a1a1a;">
-            {{ proj.name }}
-            <span style="color: #666; font-weight: 400;">— {{ t(`cv.projects_entries.${proj.id}.headline`) }}</span>
-          </span>
-          <span style="font-size: 10px; color: #888; white-space: nowrap;">
-            <a v-if="proj.link" :href="proj.link" style="color: #888; text-decoration: none;">{{ proj.link.replace(/^https?:\/\//, '') }}</a>
-          </span>
-        </div>
-        <div style="color: #444; font-size: 11px; line-height: 1.6; margin-top: 2px;">
-          {{ t(`cv.projects_entries.${proj.id}.description`) }}
-        </div>
-        <div v-if="proj.stack.length" style="color: #555; font-size: 10px; margin-top: 3px;">
-          {{ proj.stack.slice(0, 6).join(' · ') }}
         </div>
       </div>
     </section>
@@ -195,7 +147,7 @@ function formatDate(d) {
       <h2 style="font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #888; margin: 0 0 12px;">
         {{ t('cv.skills') }}
       </h2>
-      <div v-for="cat in productionStack" :key="cat.category" style="margin-bottom: 6px; font-size: 11px; line-height: 1.6;">
+      <div v-for="cat in productionStack" :key="cat.category" style="margin-bottom: 6px; font-size: 11px; line-height: 1.6; page-break-inside: avoid;">
         <span style="font-weight: 600; color: #333;">{{ cat.category }}:&nbsp;</span>
         <span style="color: #555;">
           {{ cat.items.filter(i => i.tier === 'production').map(i => i.name).join(', ') }}

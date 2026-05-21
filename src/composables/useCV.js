@@ -16,6 +16,12 @@ export function useCV() {
     clone.style.cssText = 'width: 680px; font-family: Inter, sans-serif; font-size: 13px; color: #1a1a1a; background: #fff; padding: 40px 44px; line-height: 1.6; position: static; box-sizing: border-box; word-wrap: break-word; overflow-wrap: break-word;'
     wrapper.appendChild(clone)
     document.body.appendChild(wrapper)
+    // Strip the last child's bottom margin to prevent a phantom trailing page from rounding overflow.
+    const lastSection = clone.lastElementChild
+    if (lastSection) {
+      const lastRow = lastSection.lastElementChild
+      if (lastRow) lastRow.style.marginBottom = '0'
+    }
 
     const options = {
       margin: [10, 10, 10, 10],
@@ -33,6 +39,7 @@ export function useCV() {
         format: 'a4',
         orientation: 'portrait',
       },
+      pagebreak: { mode: ['css', 'legacy'] },
     }
 
     await html2pdf().set(options).from(clone).save()

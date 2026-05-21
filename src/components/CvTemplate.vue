@@ -80,8 +80,9 @@ function formatDate(d) {
       <p style="color: #666; margin: 0 0 8px; font-size: 14px;">
         {{ t('cv.title') }} · {{ t('cv.location') }} · <a href="https://marksonmarcolino.vercel.app" style="color: #666; text-decoration: none;">marksonmarcolino.vercel.app</a>
       </p>
-      <div style="font-size: 11px; color: #666; display: flex; gap: 20px;">
+      <div style="font-size: 11px; color: #666; display: grid; grid-template-columns: auto auto; column-gap: 24px; row-gap: 4px; justify-content: start;">
         <a href="mailto:markson.marcolino@gmail.com" style="color: #666; text-decoration: none;">markson.marcolino@gmail.com</a>
+        <a href="tel:+34665248229" style="color: #666; text-decoration: none;">+34 665 248 229</a>
         <a href="https://linkedin.com/in/marksonmarcolino" style="color: #666; text-decoration: none;">linkedin.com/in/marksonmarcolino</a>
         <a href="https://github.com/MarksonMarcolino" style="color: #666; text-decoration: none;">github.com/MarksonMarcolino</a>
       </div>
@@ -195,7 +196,7 @@ function formatDate(d) {
       <h2 style="font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #888; margin: 0 0 12px;">
         {{ t('cv.skills') }}
       </h2>
-      <div v-for="cat in productionStack" :key="cat.category" style="margin-bottom: 6px; font-size: 11px; line-height: 1.6;">
+      <div v-for="cat in productionStack" :key="cat.category" style="margin-bottom: 6px; font-size: 11px; line-height: 1.6; page-break-inside: avoid;">
         <span style="font-weight: 600; color: #333;">{{ cat.category }}:&nbsp;</span>
         <span style="color: #555;">
           {{ cat.items.filter(i => i.tier === 'production').map(i => i.name).join(', ') }}

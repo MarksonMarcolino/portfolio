@@ -165,7 +165,7 @@ export default {
       },
       'springer-2025': {
         title: 'Understanding School Factors Related to Student Absenteeism in Brazilian Public High Schools: Insights for Educational Policy Through a Clustering Approach',
-        description: 'Book chapter applying clustering techniques to identify school-level factors driving student absenteeism in Brazilian public high schools, informing educational policy.',
+        description: 'Conference paper applying clustering techniques to identify school-level factors driving student absenteeism in Brazilian public high schools, informing educational policy.',
       },
       'dgo-2025-1': {
         title: "Ensuring Data Quality in National Educational Databases: Insights from Brazil's Centralized Database of High School Students' Data",

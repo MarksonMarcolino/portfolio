@@ -38,7 +38,7 @@ export default {
     download_cv: 'Descargar CV',
     stats: {
       experience: 'Años de Experiencia',
-      papers: 'Artículos Publicados',
+      papers: 'Publicaciones',
       products: 'Productos Activos',
       languages: 'Idiomas Hablados',
     },

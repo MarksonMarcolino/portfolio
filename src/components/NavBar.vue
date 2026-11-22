@@ -29,7 +29,7 @@ const navRef = ref(null)
 
 function switchLocale(code) {
   locale.value = code
-  localStorage.setItem('locale', code)
+  try { localStorage.setItem('locale', code) } catch {}
   langOpen.value = false
 }
 

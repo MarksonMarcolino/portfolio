@@ -11,18 +11,19 @@ function loadCvFont() {
     link.rel = 'stylesheet'
     link.href = INTER_HREF
     link.onload = resolve
-    link.onerror = () => {
-      link.remove()
-      cvFontReady = undefined
-      reject(new Error('Inter stylesheet failed to load'))
-    }
+    link.onerror = () => reject(new Error('Inter stylesheet failed to load'))
     document.head.appendChild(link)
   })
     .then(() => Promise.all(['400 13px Inter', '600 13px Inter', '700 26px Inter'].map((f) => document.fonts.load(f))))
     .then((faces) => {
-      if (faces.some((f) => f.length === 0)) console.warn('CV: Inter unavailable, PDF uses the fallback font')
+      if (faces.some((f) => f.length === 0)) throw new Error('Inter unavailable')
     })
-  return cvFontReady.catch((e) => console.warn(`CV: ${e.message}, PDF uses the fallback font`))
+    .catch((e) => {
+      document.getElementById('cv-font')?.remove()
+      cvFontReady = undefined
+      console.warn(`CV: ${e.message}, PDF uses the fallback font`)
+    })
+  return cvFontReady
 }
 
 export function useCV() {

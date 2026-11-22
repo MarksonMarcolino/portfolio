@@ -6,6 +6,7 @@ export default {
     timeline: "Work and study",
     sections: "Sections",
     closeMenu: "Close menu",
+    openMenu: "Open menu",
     publications: 'Publications',
     about: 'About',
     contact: 'Contact',

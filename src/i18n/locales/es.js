@@ -6,6 +6,7 @@ export default {
     timeline: "Trabajo y estudios",
     sections: "Secciones",
     closeMenu: "Cerrar menú",
+    openMenu: "Abrir menú",
     publications: 'Publicaciones',
     about: 'Sobre mí',
     contact: 'Contacto',

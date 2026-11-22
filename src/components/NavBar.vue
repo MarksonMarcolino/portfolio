@@ -145,9 +145,9 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
           <Sun v-if="theme === 'dark'" :size="18" />
           <Moon v-else :size="18" />
         </button>
-        <button @click="mobileOpen = !mobileOpen" class="text-text-secondary hover:text-accent transition-colors">
-          <X v-if="mobileOpen" :size="22" />
-          <Menu v-else :size="22" />
+        <button @click="mobileOpen = !mobileOpen" class="text-text-secondary hover:text-accent transition-colors" :aria-label="t('nav.openMenu')" :aria-expanded="mobileOpen">
+          <X v-if="mobileOpen" :size="22" aria-hidden="true" />
+          <Menu v-else :size="22" aria-hidden="true" />
         </button>
       </div>
     </div>

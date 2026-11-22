@@ -23,7 +23,6 @@ const rest = computed(() =>
 
 function formatDate(d) {
   if (!d) return ''
-  if (d === 'Present') return t('common.present')
   const [y, m] = d.split('-')
   if (!m) return y
   return new Intl.DateTimeFormat(locale.value, { month: 'short', year: 'numeric' }).format(new Date(Number(y), Number(m) - 1, 1))

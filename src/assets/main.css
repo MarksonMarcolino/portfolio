@@ -46,13 +46,6 @@
 }
 
 @layer components {
-  .gradient-text {
-    background: linear-gradient(135deg, var(--accent), var(--research));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
   /* === CARDS === */
 
   .card {
@@ -67,182 +60,8 @@
     border-color: var(--border-strong);
   }
 
-  .card-lift:hover {
-    transform: translateY(-2px);
-  }
-
   .card-featured {
     border-left: 3px solid var(--accent);
-  }
-
-  /* === PILLS === */
-
-  .pill-stack {
-    background: color-mix(in srgb, var(--accent) 8%, transparent);
-    border: 1px solid color-mix(in srgb, var(--accent) 25%, transparent);
-    color: var(--accent);
-    border-radius: 6px;
-    font-size: 0.7rem;
-    font-family: var(--font-mono);
-    padding: 2px 8px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-  }
-
-  .pill-stack:hover {
-    box-shadow: 0 0 10px color-mix(in srgb, var(--accent) 30%, transparent);
-    transform: translateY(-1px) scale(1.02);
-  }
-
-  .pill-stack.active {
-    box-shadow: 0 0 10px color-mix(in srgb, var(--accent) 50%, transparent);
-    background: color-mix(in srgb, var(--accent) 15%, transparent);
-  }
-
-  .pill-tag {
-    background: color-mix(in srgb, var(--status-progress) 8%, transparent);
-    border: 1px solid color-mix(in srgb, var(--status-progress) 25%, transparent);
-    color: var(--status-progress);
-    border-radius: 6px;
-    font-size: 0.7rem;
-    padding: 2px 8px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-  }
-
-  .pill-tag:hover {
-    box-shadow: 0 0 10px color-mix(in srgb, var(--status-progress) 30%, transparent);
-    transform: translateY(-1px) scale(1.02);
-  }
-
-  .pill-tag.active {
-    box-shadow: 0 0 10px color-mix(in srgb, var(--status-progress) 50%, transparent);
-    background: color-mix(in srgb, var(--status-progress) 15%, transparent);
-  }
-
-  .pill-production {
-    background: color-mix(in srgb, var(--accent) 8%, transparent);
-    border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
-    color: var(--accent);
-    border-radius: 6px;
-    font-size: 0.75rem;
-    padding: 3px 10px;
-    cursor: default;
-    transition: all 0.15s ease;
-  }
-
-  .pill-production:hover {
-    transform: translateY(-1px);
-  }
-
-  .pill-knowledge {
-    background: var(--bg-2);
-    border: 1px solid var(--border-default);
-    color: var(--text-muted);
-    border-radius: 6px;
-    font-size: 0.75rem;
-    padding: 3px 10px;
-    cursor: default;
-    transition: color 0.2s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-  }
-
-  .pill-knowledge:hover {
-    color: var(--text-primary);
-  }
-
-  .pill-stack-sm {
-    background: color-mix(in srgb, var(--accent) 8%, transparent);
-    border: 1px solid color-mix(in srgb, var(--accent) 25%, transparent);
-    color: var(--accent);
-    border-radius: 6px;
-    font-size: 0.6rem;
-    font-family: var(--font-mono);
-    padding: 1px 6px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-  }
-
-  .pill-stack-sm:hover {
-    box-shadow: 0 0 10px color-mix(in srgb, var(--accent) 30%, transparent);
-    transform: translateY(-1px) scale(1.02);
-  }
-
-  .pill-stack-sm.active {
-    box-shadow: 0 0 10px color-mix(in srgb, var(--accent) 50%, transparent);
-    background: color-mix(in srgb, var(--accent) 15%, transparent);
-  }
-
-  .pill-tag-sm {
-    background: color-mix(in srgb, var(--status-progress) 8%, transparent);
-    border: 1px solid color-mix(in srgb, var(--status-progress) 25%, transparent);
-    color: var(--status-progress);
-    border-radius: 6px;
-    font-size: 0.6rem;
-    padding: 1px 6px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-  }
-
-  .pill-tag-sm:hover {
-    box-shadow: 0 0 10px color-mix(in srgb, var(--status-progress) 30%, transparent);
-    transform: translateY(-1px) scale(1.02);
-  }
-
-  .pill-tag-sm.active {
-    box-shadow: 0 0 10px color-mix(in srgb, var(--status-progress) 50%, transparent);
-    background: color-mix(in srgb, var(--status-progress) 15%, transparent);
-  }
-
-  /* === SECTION HEADERS === */
-
-  .section-header {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-family: var(--font-mono);
-    font-weight: 700;
-    font-size: 1.75rem;
-  }
-
-  .section-header .title {
-    background: linear-gradient(135deg, var(--accent), var(--research));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .section-underline {
-    width: 60px;
-    height: 2px;
-    background: linear-gradient(135deg, var(--accent), var(--research));
-    border-radius: 2px;
-    margin-top: 8px;
-  }
-
-  /* === ANIMATIONS === */
-
-  .cursor-blink::after {
-    content: '|';
-    animation: blink 1s step-end infinite;
-    color: var(--accent);
-    font-weight: 100;
-  }
-
-  @keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
-  }
-
-  @keyframes bounce-down {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(8px); }
-  }
-
-  .bounce-down {
-    animation: bounce-down 2s ease-in-out infinite;
   }
 
   /* === FILTER STATES === */
@@ -254,76 +73,10 @@
     transition: all 0.3s ease;
   }
 
-  /* === PHOTO CIRCLE === */
-
-  .photo-circle {
-    position: relative;
-    border-radius: 50%;
-    overflow: hidden;
-    isolation: isolate;
-    transition: all 0.3s ease;
-  }
-
-  .photo-circle::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: 50%;
-    padding: 3px;
-    background: linear-gradient(135deg, var(--accent), var(--research));
-    -webkit-mask:
-      linear-gradient(white 0 0) content-box,
-      linear-gradient(white 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    pointer-events: none;
-    z-index: 1;
-  }
-
-  .photo-circle:hover {
-    transform: scale(1.03);
-    box-shadow: 0 0 80px color-mix(in srgb, var(--accent) 20%, transparent) !important;
-  }
-
-  /* === HORIZONTAL TIMELINE === */
-
-  .timeline-track {
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    user-select: none;
-  }
-
-  .timeline-track::-webkit-scrollbar {
-    display: none;
-  }
-
-  .timeline-edge-fade {
-    position: relative;
-  }
-
-  .timeline-edge-fade::before,
-  .timeline-edge-fade::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 60px;
-    z-index: 10;
-    pointer-events: none;
-  }
-
-  .timeline-edge-fade {
-    overflow: hidden;
-  }
-
-  .timeline-edge-fade::before {
-    left: 0;
-    background: linear-gradient(to right, var(--bg-0), transparent);
-  }
-
-  .timeline-edge-fade::after {
-    right: 0;
-    background: linear-gradient(to left, var(--bg-0), transparent);
+  .dimmed:focus-within {
+    opacity: 1;
+    filter: none;
+    transform: none;
   }
 
   /* === CONTACT ARROWS === */
@@ -337,39 +90,11 @@
   }
 }
 
-/* === TIMELINE CARD DEFAULT === */
-.timeline-card-wrapper {
-  width: 280px;
-  min-width: 280px;
-}
-
 /* === MOBILE RESPONSIVE (< 768px) === */
 @media (max-width: 767px) {
   /* Global section padding */
   section {
     padding-left: 20px !important;
     padding-right: 20px !important;
-  }
-
-  /* Timeline track */
-  .timeline-track {
-    padding-left: 20px !important;
-    padding-right: 20px !important;
-  }
-
-  /* Timeline card width */
-  .timeline-card-wrapper {
-    width: 260px;
-    min-width: 260px;
-  }
-
-  /* Publication rows stack */
-  .pub-row {
-    flex-direction: column !important;
-    gap: 12px !important;
-  }
-  .pub-row .pub-link {
-    align-self: flex-start;
-    margin-top: 8px;
   }
 }

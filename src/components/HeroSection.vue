@@ -14,10 +14,10 @@ const { downloadCV } = useCV()
 
     <div class="name-row">
       <h1 class="name">Markson Rebelo Marcolino</h1>
-      <img class="portrait" src="/profile-hero.jpg" alt="Markson Rebelo Marcolino" />
+      <img class="portrait" src="/profile-hero.jpg" alt="" />
     </div>
 
-    <ul class="roles">
+    <ul class="roles" role="list">
       <li class="role engineering">
         <span class="role-dot" aria-hidden="true" />
         <span><strong>{{ t('hero.roleEngineering.title') }}</strong> {{ t('hero.roleEngineering.place') }}</span>
@@ -50,9 +50,9 @@ const { downloadCV } = useCV()
 
 <style scoped>
 .hero {
-  max-width: 1320px;
+  max-width: 1184px;
   margin: 0 auto;
-  padding: clamp(96px, 12vw, 140px) clamp(20px, 6vw, 120px) clamp(48px, 6vw, 80px);
+  padding: clamp(96px, 12vw, 140px) 16px clamp(48px, 6vw, 80px);
   background: var(--bg-0);
 }
 

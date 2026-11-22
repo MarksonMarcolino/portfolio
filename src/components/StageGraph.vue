@@ -9,7 +9,7 @@ const { t } = useI18n()
   <figure class="graph">
     <p class="graph-title">{{ t('graph.title') }}</p>
     <!-- Nodes sit where each kind of work happened; no edge or element may join one node's organisation to another's. -->
-    <ol class="graph-nodes">
+    <ol class="graph-nodes" role="list">
       <li
         v-for="(s, i) in stages"
         :key="s.id"
@@ -17,12 +17,12 @@ const { t } = useI18n()
         :class="s.side"
         :style="{ '--i': i }"
       >
-        <span class="node-tag">{{ s.n }} · {{ t(`stages.${s.id}.label`) }}</span>
-        <span class="node-line">{{ t(`stages.${s.id}.line`) }}</span>
+        <span class="node-tag">{{ s.n }} · {{ t(`stages.${s.id}.label`) }}<span class="sr-only"> ({{ t(`graph.legend.${s.side}`) }})</span></span>
+        <span class="node-line">{{ t(`stages.${s.id}.line`) }}<span class="sr-only">. </span></span>
         <span class="node-where">{{ t(`stages.${s.id}.where`) }}</span>
       </li>
     </ol>
-    <ul class="legend">
+    <ul class="legend" role="list">
       <li class="legend-item engineering"><span class="legend-dot" aria-hidden="true" />{{ t('graph.legend.engineering') }}</li>
       <li class="legend-item research"><span class="legend-dot" aria-hidden="true" />{{ t('graph.legend.research') }}</li>
     </ul>
@@ -168,16 +168,16 @@ const { t } = useI18n()
   .node:not(:last-child)::after {
     top: auto;
     right: auto;
-    bottom: -26px;
+    bottom: -22px;
     left: 24px;
     width: 2px;
-    height: 24px;
+    height: 20px;
   }
 
   .node:not(:last-child)::before {
     top: auto;
     right: auto;
-    bottom: -33px;
+    bottom: -29px;
     left: 24px;
     margin: 0 0 0 -4px;
     border-left: 5px solid transparent;

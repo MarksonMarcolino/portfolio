@@ -12,39 +12,39 @@ const { downloadCV } = useCV()
   <section id="hero" class="hero">
     <div class="top">
       <figure class="frame">
-        <img src="/profile-hero.jpg" alt="" />
+        <img src="/profile-hero.jpg" alt="" width="800" height="800" fetchpriority="high" />
       </figure>
       <div class="text">
-    <p class="eyebrow">{{ t('hero.location') }} · {{ t('hero.years') }} · {{ t('hero.languagesCount') }}</p>
+        <p class="eyebrow">{{ t('hero.location') }} · {{ t('hero.years') }} · {{ t('hero.languagesCount') }}</p>
 
-    <h1 class="name">Markson Rebelo Marcolino</h1>
+        <h1 class="name">Markson Rebelo Marcolino</h1>
 
-    <ul class="roles" role="list">
-      <li class="role engineering">
-        <span class="role-dot" aria-hidden="true" />
-        <span><strong>{{ t('hero.roleEngineering.title') }}</strong> {{ t('hero.roleEngineering.place') }}</span>
-      </li>
-      <li class="role research">
-        <span class="role-dot" aria-hidden="true" />
-        <span><strong>{{ t('hero.roleResearch.title') }}</strong> {{ t('hero.roleResearch.place') }}</span>
-      </li>
-    </ul>
+        <ul class="roles" role="list">
+          <li class="role engineering">
+            <span class="role-dot" aria-hidden="true" />
+            <span><strong>{{ t('hero.roleEngineering.title') }}</strong> {{ t('hero.roleEngineering.place') }}</span>
+          </li>
+          <li class="role research">
+            <span class="role-dot" aria-hidden="true" />
+            <span><strong>{{ t('hero.roleResearch.title') }}</strong> {{ t('hero.roleResearch.place') }}</span>
+          </li>
+        </ul>
 
-    <p class="lede">{{ t('hero.lede') }}</p>
+        <p class="lede">{{ t('hero.lede') }}</p>
 
-    <div class="ctas">
-      <button type="button" class="cta primary" @click="downloadCV">
-        <Download :size="16" aria-hidden="true" />
-        {{ t('hero.download_cv') }}
-      </button>
-      <a class="cta" href="https://github.com/MarksonMarcolino" target="_blank" rel="noopener">
-        <Github :size="16" aria-hidden="true" />
-        {{ t('common.github') }}
-      </a>
-      <a class="cta" href="https://orcid.org/0009-0006-2494-1595" target="_blank" rel="noopener">
-        {{ t('common.orcid') }}
-      </a>
-    </div>
+        <div class="ctas">
+          <button type="button" class="cta primary" @click="downloadCV">
+            <Download :size="16" aria-hidden="true" />
+            {{ t('hero.download_cv') }}
+          </button>
+          <a class="cta" href="https://github.com/MarksonMarcolino" target="_blank" rel="noopener">
+            <Github :size="16" aria-hidden="true" />
+            {{ t('common.github') }}
+          </a>
+          <a class="cta" href="https://orcid.org/0009-0006-2494-1595" target="_blank" rel="noopener">
+            {{ t('common.orcid') }}
+          </a>
+        </div>
       </div>
     </div>
 
@@ -73,6 +73,7 @@ const { downloadCV } = useCV()
   grid-template-columns: clamp(280px, 30vw, 360px) minmax(0, 1fr);
   gap: clamp(32px, 5vw, 64px);
   align-items: center;
+  margin-bottom: 56px;
 }
 
 .text {
@@ -165,7 +166,7 @@ const { downloadCV } = useCV()
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  margin: 32px 0 56px;
+  margin: 32px 0 0;
 }
 
 .cta {
@@ -212,7 +213,7 @@ const { downloadCV } = useCV()
 
   .frame {
     aspect-ratio: 4 / 3;
-    max-width: 560px;
+    max-width: 400px;
   }
 }
 

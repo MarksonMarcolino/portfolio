@@ -18,7 +18,7 @@ const linkIcons = { Globe, ExternalLink }
 useScrollReveal(sectionRef, '.project-card', { y: 30, stagger: 0.08 })
 
 const statusConfig = {
-  live: { labelKey: 'common.live', bg: 'color-mix(in srgb, var(--status-live) 10%, transparent)', border: 'color-mix(in srgb, var(--status-live) 30%, transparent)', color: 'var(--status-live)', dot: true },
+  live: { labelKey: 'common.live', bg: 'color-mix(in srgb, var(--status-live) 10%, var(--bg-1))', border: 'color-mix(in srgb, var(--status-live) 30%, transparent)', color: 'var(--status-live)', dot: true },
   'open-source': { labelKey: 'common.openSource', bg: 'transparent', border: 'var(--border-default)', color: 'var(--accent)', dot: false },
   wip: { labelKey: 'common.inProgress', bg: 'transparent', border: 'var(--border-default)', color: 'var(--text-secondary)', dot: true, dotColor: 'var(--status-progress)' },
 }
@@ -124,14 +124,15 @@ function matchProject(project) {
 
             <!-- Stack pills -->
             <div class="flex flex-wrap gap-1.5 mt-auto pt-3">
-              <span
+              <button
+                type="button"
                 v-for="s in (expandedStacks.has(project.id) ? project.stack : project.stack.slice(0, 5))"
                 :key="s"
                 class="stack-pill inline-block rounded transition-colors duration-200 cursor-pointer"
                 @click.stop="setFilter(s, 'stack')"
               >
                 {{ s }}
-              </span>
+              </button>
               <button
                 v-if="project.stack.length > 5"
                 @click.stop="toggleStack(project.id)"
@@ -195,6 +196,7 @@ function matchProject(project) {
   font-family: var(--font-mono);
   font-size: var(--text-xs);
   padding: 3px 10px;
+  cursor: pointer;
 }
 .stack-pill:hover {
   border-color: var(--accent);

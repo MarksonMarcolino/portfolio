@@ -42,7 +42,7 @@ const groups = computed(() => {
             {{ t('stack.production') }}
           </span>
           <span class="flex items-center gap-1.5">
-            <span class="w-2 h-2 rounded-full" style="background: var(--border-strong);" />
+            <BookOpen :size="10" />
             {{ t('stack.knowledge') }}
           </span>
         </div>

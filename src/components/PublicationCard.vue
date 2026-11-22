@@ -9,7 +9,7 @@ const doi = computed(() => props.pub.url.replace('https://doi.org/', ''))
 </script>
 
 <template>
-  <div class="pub-row" style="padding: 20px 0; border-bottom: 1px solid var(--border-subtle);">
+  <div class="pub-entry" style="padding: 20px 0; border-bottom: 1px solid var(--border-subtle);">
     <div class="pub-year" style="font-family: var(--font-mono); font-size: var(--text-sm); color: var(--text-muted);">
       {{ pub.year }}
     </div>
@@ -63,7 +63,7 @@ const doi = computed(() => props.pub.url.replace('https://doi.org/', ''))
 </template>
 
 <style scoped>
-.pub-row {
+.pub-entry {
   display: grid;
   grid-template-columns: 64px minmax(0, 1fr) 210px;
   gap: 24px;
@@ -87,7 +87,7 @@ const doi = computed(() => props.pub.url.replace('https://doi.org/', ''))
   color: var(--text-primary);
 }
 @media (max-width: 899px) {
-  .pub-row {
+  .pub-entry {
     grid-template-columns: minmax(0, 1fr);
     gap: 12px;
   }

@@ -3,7 +3,8 @@ export default {
     home: 'Home',
     stack: 'Stack',
     projects: 'Projects',
-    timeline: 'Timeline',
+    timeline: "Work and study",
+    sections: "Sections",
     publications: 'Publications',
     about: 'About',
     contact: 'Contact',
@@ -30,6 +31,17 @@ export default {
   },
   hero: {
     tagline: "Data Engineer at Universidad Francisco de Vitoria {'|'} PhD student in Data Science at Universidad Complutense de Madrid",
+    years: "15+ years in tech",
+    languagesCount: "4 languages",
+    lede: "I'm a data engineer and a PhD student in Data Science, working on the same problem from both sides: building the data platforms universities run on, and researching how to use that data to help students finish their degrees.",
+    roleEngineering: {
+      title: "Data Engineer",
+      place: "at Universidad Francisco de Vitoria",
+    },
+    roleResearch: {
+      title: "PhD student in Data Science",
+      place: "at Universidad Complutense de Madrid",
+    },
     greeting: "Hey, I'm Markson,",
     line1: 'A DATA',
     line2: 'ENGINEER',
@@ -56,6 +68,9 @@ export default {
   stack: {
     title: 'Tech Stack',
     subtitle: 'Tools and technologies I work with',
+    groups: {
+      platform: "Platform and products",
+    },
     production: 'Production',
     knowledge: 'Working knowledge',
     categories: {
@@ -70,8 +85,10 @@ export default {
     },
   },
   timeline: {
-    title: 'Career Timeline',
+    title: "Work and study",
     subtitle: 'Work, education, and certifications',
+    fullDescription: "Full description",
+    tools: "Tools",
     filtering: 'Filtering',
     types: {
       work: 'Work',
@@ -83,6 +100,7 @@ export default {
       'ufv-2026': {
         title: 'Data Engineer',
         description: "Builds and operates the university's data platform on AWS, from source ingestion to a governed silver layer, in dev and production. Brought three sources into the lakehouse: the Oracle academic ERP (UXXI), Canvas LMS through Canvas Data 2 (95 tables, including high-volume web logs) and the events platform's PostgreSQL, with all ingestion running on Airbyte managed as config-as-code. Built bronze-to-silver pipelines on AWS Glue and Apache Iceberg with incremental MERGE, deduplication and delete handling, schema-drift detection, Great Expectations data-quality checks and alerting on failure. Manages the infrastructure with Terraform: S3 medallion layers, Glue Data Catalog, Lake Formation permissions, least-privilege IAM, Secrets Manager and CloudWatch/SNS alerts, with releases promoted from dev to prod through GitHub Actions with OIDC. Writes the ADRs and runbooks and keeps the team wiki as the source of truth for what runs in production, data dictionaries included. Built a multi-agent engineering workflow with Claude Code (explore, plan, implement, review): every push gets a cross-model review, review recall is measured against GitHub Copilot, and pushes and infrastructure applies stay human-gated.",
+        summary: "Builds and operates the university's data platform on AWS, from source ingestion to a governed silver layer, in dev and production.",
       },
       'phd-2026': {
         title: 'PhD student in Data Science (Programa de Doctorado en Análisis de Datos / Data Science)',
@@ -197,7 +215,7 @@ export default {
       masters: "Master's in Information and Communication Technologies",
       bachelors: "Bachelor's in Information and Communication Technologies",
     },
-    bio: "I'm a data engineer and a PhD student in Data Science, working on the same problem from both sides: building the data platforms universities run on, and researching how to use that data to help students finish their degrees. At Universidad Francisco de Vitoria I build and operate the university's AWS data platform. At the Universidad Complutense de Madrid my doctoral research moves dropout work from prediction to decision, using causal inference and optimization to allocate support fairly and effectively. Before that, my master's research at UFSC on machine learning and educational data mining led to a first-author paper in Scientific Reports.",
+    bio: "At Universidad Francisco de Vitoria I build and operate the university's AWS data platform. At the Universidad Complutense de Madrid my doctoral research moves dropout work from prediction to decision, using causal inference and optimization to allocate support fairly and effectively. Before that, my master's research at UFSC on machine learning and educational data mining led to a first-author paper in Scientific Reports.",
     languages: 'Languages',
     currentlyBuilding: 'Currently building',
     langList: {
@@ -224,6 +242,7 @@ export default {
     footer: '© 2026 Markson Marcolino · Built with Vue 3',
   },
   common: {
+    orcid: "ORCID",
     liveSite: 'Live Site',
     viewBadge: 'View Badge',
     viewCertificate: 'View Certificate',
@@ -234,6 +253,44 @@ export default {
     github: 'GitHub',
     swipe: 'Swipe',
     dragToScroll: 'Drag or scroll',
+  },
+  theme: {
+    toLight: "Switch to light theme",
+    toDark: "Switch to dark theme",
+  },
+  lanes: {
+    engineering: "Engineering",
+    research: "Research and teaching",
+  },
+  graph: {
+    title: "From source to decision",
+    legend: {
+      engineering: "Engineering",
+      research: "Research",
+    },
+    caption: "Where each stage of the work has happened. It is a map of the work, not a flow of data between these organizations.",
+  },
+  stages: {
+    ingest: {
+      label: "Ingest",
+      line: "Bring the sources into one platform",
+      where: "Universidad Francisco de Vitoria: academic ERP, Canvas LMS, PostgreSQL",
+    },
+    refine: {
+      label: "Refine",
+      line: "Bronze to silver, with data-quality checks",
+      where: "Universidad Francisco de Vitoria · Accenture",
+    },
+    predict: {
+      label: "Analyze and predict",
+      line: "Patterns behind dropout and absenteeism, and who is at risk",
+      where: "Master's at UFSC: dropout prediction from Moodle logs · NEES: retention patterns in 10M+ student records",
+    },
+    decide: {
+      label: "Decide",
+      line: "Which support helps which students, under budget and fairness constraints",
+      where: "PhD research at Universidad Complutense de Madrid: causal inference and optimization",
+    },
   },
   tags: {
     'Data Engineering': 'Data Engineering',

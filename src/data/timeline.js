@@ -1,6 +1,7 @@
 export const timeline = [
   {
     id: 'ufv-2026',
+    lane: 'engineering',
     type: 'work',
     title: 'Data Engineer',
     org: 'Universidad Francisco de Vitoria',
@@ -8,7 +9,7 @@ export const timeline = [
     dateStart: '2026-09',
     dateEnd: 'Present',
     description: "Builds and operates the university's data platform on AWS, from source ingestion to a governed silver layer, in dev and production. Brought three sources into the lakehouse: the Oracle academic ERP (UXXI), Canvas LMS through Canvas Data 2 (95 tables, including high-volume web logs) and the events platform's PostgreSQL, with all ingestion running on Airbyte managed as config-as-code. Built bronze-to-silver pipelines on AWS Glue and Apache Iceberg with incremental MERGE, deduplication and delete handling, schema-drift detection, Great Expectations data-quality checks and alerting on failure. Manages the infrastructure with Terraform: S3 medallion layers, Glue Data Catalog, Lake Formation permissions, least-privilege IAM, Secrets Manager and CloudWatch/SNS alerts, with releases promoted from dev to prod through GitHub Actions with OIDC. Writes the ADRs and runbooks and keeps the team wiki as the source of truth for what runs in production, data dictionaries included. Built a multi-agent engineering workflow with Claude Code (explore, plan, implement, review): every push gets a cross-model review, review recall is measured against GitHub Copilot, and pushes and infrastructure applies stay human-gated.",
-    stack: ['AWS', 'S3', 'Glue', 'Iceberg', 'Lake Formation', 'IAM', 'Secrets Manager', 'CloudWatch', 'SNS', 'Terraform', 'Airbyte', 'Python', 'SQL', 'Great Expectations', 'GitHub Actions', 'Claude Code'],
+    stack: ['AWS', 'S3', 'AWS Glue', 'Apache Iceberg', 'Lake Formation', 'IAM', 'Secrets Manager', 'CloudWatch', 'SNS', 'Terraform', 'Airbyte', 'Python', 'SQL', 'Great Expectations', 'GitHub Actions', 'Claude Code'],
     tags: ['Data Engineering', 'Pipeline Design', 'Infrastructure', 'CI/CD'],
     link: null,
     linkLabel: null,
@@ -16,6 +17,7 @@ export const timeline = [
   },
   {
     id: 'phd-2026',
+    lane: 'research',
     type: 'education',
     title: 'PhD student in Data Science (Programa de Doctorado en Análisis de Datos / Data Science)',
     org: 'Universidad Complutense de Madrid',
@@ -31,6 +33,7 @@ export const timeline = [
   },
   {
     id: 'accenture-2025',
+    lane: 'engineering',
     type: 'work',
     title: 'Data Engineer',
     org: 'Accenture',
@@ -46,6 +49,7 @@ export const timeline = [
   },
   {
     id: 'nees-2024',
+    lane: 'research',
     type: 'work',
     title: 'Data Scientist',
     org: 'NEES',
@@ -61,6 +65,7 @@ export const timeline = [
   },
   {
     id: 'eattasty-2023',
+    lane: 'engineering',
     type: 'work',
     title: 'Data Scientist',
     org: 'Eattasty',
@@ -76,6 +81,7 @@ export const timeline = [
   },
   {
     id: 'seedify-2022',
+    lane: 'engineering',
     type: 'work',
     title: 'Project Manager',
     org: 'Seedify',
@@ -91,6 +97,7 @@ export const timeline = [
   },
   {
     id: 'avature-2022',
+    lane: 'engineering',
     type: 'work',
     title: 'Implementation Consultant',
     org: 'Avature',
@@ -106,6 +113,7 @@ export const timeline = [
   },
   {
     id: 'farfetch-2021',
+    lane: 'engineering',
     type: 'work',
     title: 'Support Engineer',
     org: 'Farfetch',
@@ -121,6 +129,7 @@ export const timeline = [
   },
   {
     id: 'interlink-2018',
+    lane: 'engineering',
     type: 'work',
     title: 'Project Manager',
     org: 'Interlink',
@@ -136,6 +145,7 @@ export const timeline = [
   },
   {
     id: 'professor-2010',
+    lane: 'research',
     type: 'work',
     title: 'Professor of Computer Science',
     org: 'SATC & CEDUP',
@@ -151,6 +161,7 @@ export const timeline = [
   },
   {
     id: 'masters-2024',
+    lane: 'research',
     type: 'education',
     title: "Master's in Information and Communication Technologies",
     org: 'Universidade Federal de Santa Catarina',
@@ -166,6 +177,7 @@ export const timeline = [
   },
   {
     id: 'bachelors-2010',
+    lane: 'research',
     type: 'education',
     title: "Bachelor's in Information and Communication Technologies",
     org: 'Universidade Federal de Santa Catarina',
@@ -181,6 +193,7 @@ export const timeline = [
   },
   {
     id: 'gcp-cert-2025',
+    lane: 'engineering',
     type: 'certification',
     title: 'Google Cloud Certified: Cloud Digital Leader',
     org: 'Google',
@@ -196,6 +209,7 @@ export const timeline = [
   },
   {
     id: 'hec-cert-2019',
+    lane: 'engineering',
     type: 'certification',
     title: 'Creation and Development of a Technology Startup',
     org: 'HEC Paris',

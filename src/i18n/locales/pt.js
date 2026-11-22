@@ -3,7 +3,8 @@ export default {
     home: 'Início',
     stack: 'Tecnologias',
     projects: 'Projetos',
-    timeline: 'Trajetória',
+    timeline: "Trabalho e estudos",
+    sections: "Seções",
     publications: 'Publicações',
     about: 'Sobre',
     contact: 'Contato',
@@ -30,6 +31,17 @@ export default {
   },
   hero: {
     tagline: "Engenheiro de Dados na Universidad Francisco de Vitoria {'|'} Doutorando em Ciência de Dados na Universidad Complutense de Madrid",
+    years: "mais de 15 anos em tecnologia",
+    languagesCount: "4 idiomas",
+    lede: "Sou engenheiro de dados e doutorando em Ciência de Dados, trabalhando no mesmo problema pelos dois lados: construir as plataformas de dados em que as universidades funcionam e pesquisar como usar esses dados para ajudar estudantes a concluir seus cursos.",
+    roleEngineering: {
+      title: "Engenheiro de Dados",
+      place: "na Universidad Francisco de Vitoria",
+    },
+    roleResearch: {
+      title: "Doutorando em Ciência de Dados",
+      place: "na Universidad Complutense de Madrid",
+    },
     greeting: 'Oi, eu sou o Markson,',
     line1: 'ENGENHEIRO',
     line2: 'DE DADOS',
@@ -56,6 +68,9 @@ export default {
   stack: {
     title: 'Tecnologias',
     subtitle: 'Ferramentas e tecnologias que utilizo',
+    groups: {
+      platform: "Plataforma e produtos",
+    },
     production: 'Produção',
     knowledge: 'Conhecimento',
     categories: {
@@ -70,8 +85,10 @@ export default {
     },
   },
   timeline: {
-    title: 'Trajetória',
+    title: "Trabalho e estudos",
     subtitle: 'Trabalho, formação e certificações',
+    fullDescription: "Descrição completa",
+    tools: "Ferramentas",
     filtering: 'Filtrando',
     types: {
       work: 'Trabalho',
@@ -83,6 +100,7 @@ export default {
       'ufv-2026': {
         title: 'Engenheiro de Dados',
         description: 'Construção e operação da plataforma de dados da universidade na AWS, da ingestão das fontes a uma camada silver governada, em dev e produção. Integração de três fontes ao lakehouse: o ERP acadêmico Oracle (UXXI), o Canvas LMS via Canvas Data 2 (95 tabelas, incluindo logs web de alto volume) e o PostgreSQL da plataforma de eventos, com toda a ingestão rodando no Airbyte, gerenciado como config-as-code. Construção de pipelines bronze para silver no AWS Glue e Apache Iceberg com MERGE incremental, deduplicação e tratamento de deleções, detecção de schema drift, verificações de qualidade de dados com Great Expectations e alertas em caso de falha. Gestão da infraestrutura com Terraform: camadas medallion no S3, Glue Data Catalog, permissões no Lake Formation, IAM de privilégio mínimo, Secrets Manager e alertas CloudWatch/SNS, com releases promovidos de dev para prod via GitHub Actions com OIDC. Escrita de ADRs e runbooks e manutenção do wiki da equipe como fonte de verdade sobre o que roda em produção, incluindo dicionários de dados. Construção de um fluxo de engenharia multiagente com Claude Code (explorar, planejar, implementar, revisar): todo push recebe uma revisão cruzada entre modelos, o recall das revisões é medido contra o GitHub Copilot, e pushes e implantações de infraestrutura continuam sob aprovação humana.',
+        summary: "Construção e operação da plataforma de dados da universidade na AWS, da ingestão das fontes a uma camada silver governada, em dev e produção.",
       },
       'phd-2026': {
         title: 'Doutorando em Ciência de Dados (Programa de Doctorado en Análisis de Datos / Data Science)',
@@ -197,7 +215,7 @@ export default {
       masters: 'Mestrado em Tecnologias da Informação e Comunicação',
       bachelors: 'Bacharelado em Tecnologias da Informação e Comunicação',
     },
-    bio: 'Sou engenheiro de dados e doutorando em Ciência de Dados, trabalhando no mesmo problema pelos dois lados: construir as plataformas de dados em que as universidades funcionam e pesquisar como usar esses dados para ajudar estudantes a concluir seus cursos. Na Universidad Francisco de Vitoria, construo e opero a plataforma de dados da universidade na AWS. Na Universidad Complutense de Madrid, minha pesquisa de doutorado leva o trabalho sobre evasão da predição para a decisão, usando inferência causal e otimização para alocar apoio de forma justa e eficaz. Antes disso, minha pesquisa de mestrado na UFSC sobre machine learning e mineração de dados educacionais resultou em um artigo como primeiro autor na Scientific Reports.',
+    bio: "Na Universidad Francisco de Vitoria, construo e opero a plataforma de dados da universidade na AWS. Na Universidad Complutense de Madrid, minha pesquisa de doutorado leva o trabalho sobre evasão da predição para a decisão, usando inferência causal e otimização para alocar apoio de forma justa e eficaz. Antes disso, minha pesquisa de mestrado na UFSC sobre machine learning e mineração de dados educacionais resultou em um artigo como primeiro autor na Scientific Reports.",
     languages: 'Idiomas',
     currentlyBuilding: 'Construindo atualmente',
     langList: {
@@ -224,6 +242,7 @@ export default {
     footer: '© 2026 Markson Marcolino · Feito com Vue 3',
   },
   common: {
+    orcid: "ORCID",
     liveSite: 'Site',
     viewBadge: 'Ver Badge',
     viewCertificate: 'Ver Certificado',
@@ -234,6 +253,44 @@ export default {
     github: 'GitHub',
     swipe: 'Deslize',
     dragToScroll: 'Arraste ou role',
+  },
+  theme: {
+    toLight: "Mudar para o tema claro",
+    toDark: "Mudar para o tema escuro",
+  },
+  lanes: {
+    engineering: "Engenharia",
+    research: "Pesquisa e ensino",
+  },
+  graph: {
+    title: "Da fonte à decisão",
+    legend: {
+      engineering: "Engenharia",
+      research: "Pesquisa",
+    },
+    caption: "Onde cada etapa do trabalho aconteceu. É um mapa do trabalho, não um fluxo de dados entre essas organizações.",
+  },
+  stages: {
+    ingest: {
+      label: "Ingestão",
+      line: "Reunir as fontes em uma única plataforma",
+      where: "Universidad Francisco de Vitoria: ERP acadêmico, Canvas LMS, PostgreSQL",
+    },
+    refine: {
+      label: "Refinamento",
+      line: "De bronze para silver, com verificações de qualidade de dados",
+      where: "Universidad Francisco de Vitoria · Accenture",
+    },
+    predict: {
+      label: "Análise e predição",
+      line: "Padrões por trás da evasão e do absenteísmo, e quem está em risco",
+      where: "Mestrado na UFSC: predição de evasão a partir de logs do Moodle · NEES: padrões de retenção em mais de 10 milhões de registros de alunos",
+    },
+    decide: {
+      label: "Decisão",
+      line: "Qual apoio ajuda quais estudantes, com restrições de orçamento e equidade",
+      where: "Pesquisa de doutorado na Universidad Complutense de Madrid: inferência causal e otimização",
+    },
   },
   tags: {
     'Data Engineering': 'Engenharia de Dados',

@@ -2,7 +2,6 @@
 import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useScrollReveal } from '../composables/useScrollReveal.js'
-import { X } from 'lucide-vue-next'
 import HeroSection from '../components/HeroSection.vue'
 import TechStackMap from '../components/TechStackMap.vue'
 import ProjectsSection from '../components/ProjectsSection.vue'
@@ -11,11 +10,12 @@ import AboutSection from '../components/AboutSection.vue'
 import ContactSection from '../components/ContactSection.vue'
 import TimelineLanes from '../components/TimelineLanes.vue'
 import SectionHeader from '../components/SectionHeader.vue'
+import FilterChip from '../components/FilterChip.vue'
 import { useFilters } from '../composables/useFilters.js'
 import { publications } from '../data/publications.js'
 
 const { t } = useI18n()
-const { activeFilter, clearFilter, matchesFilter, isFiltering, filteredTimeline } = useFilters()
+const { matchesFilter, isFiltering, filteredTimeline } = useFilters()
 
 const pubSectionRef = ref(null)
 useScrollReveal(pubSectionRef, '[data-reveal-pub]', { y: 20, stagger: 0.06 })
@@ -27,23 +27,14 @@ useScrollReveal(pubSectionRef, '[data-reveal-pub]', { y: 20, stagger: 0.06 })
 
     <!-- Timeline -->
     <section id="timeline" class="relative z-10" style="padding-top: clamp(80px, 10vw, 120px); padding-bottom: 80px;">
-      <div class="max-w-6xl mx-auto px-4">
-        <div class="flex items-center justify-between">
+      <div class="max-w-[1184px] mx-auto px-4">
+        <div class="flex items-center justify-between gap-3 flex-wrap">
           <SectionHeader :title="t('timeline.title')" :subtitle="t('timeline.subtitle')" />
-
-          <button
-            v-if="isFiltering"
-            @click="clearFilter"
-            class="flex items-center gap-1.5 cursor-pointer transition-all hover:scale-[1.02]"
-            style="font-size: var(--text-xs); color: var(--text-primary); background: var(--bg-2); border: 1px solid var(--border-default); border-radius: 4px; padding: 4px 12px;"
-          >
-            {{ t('timeline.filtering') }}: {{ activeFilter }}
-            <X :size="12" />
-          </button>
+          <FilterChip section="timeline" />
         </div>
       </div>
 
-      <div class="max-w-6xl mx-auto px-4" style="margin-top: 32px;">
+      <div class="max-w-[1184px] mx-auto px-4" style="margin-top: 32px;">
         <TimelineLanes :entries="filteredTimeline" />
       </div>
     </section>

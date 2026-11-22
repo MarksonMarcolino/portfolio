@@ -7,7 +7,7 @@ defineProps({
 
 <template>
   <div>
-    <h2 class="section-title">{{ title }}</h2>
+    <h2 class="section-title" tabindex="-1">{{ title }}</h2>
     <p v-if="subtitle" class="section-subtitle">{{ subtitle }}</p>
   </div>
 </template>

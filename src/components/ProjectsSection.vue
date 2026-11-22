@@ -6,6 +6,7 @@ import { useFilters } from '../composables/useFilters.js'
 import { projects } from '../data/projects.js'
 import { Globe, ExternalLink } from 'lucide-vue-next'
 import SectionHeader from './SectionHeader.vue'
+import FilterChip from './FilterChip.vue'
 
 const { t } = useI18n()
 const { activeFilter, activeFilterType, setFilter, isFiltering } = useFilters()
@@ -49,7 +50,10 @@ function matchProject(project) {
   <section id="projects" ref="sectionRef" class="relative z-10 pb-20 px-4" style="padding-top: clamp(80px, 10vw, 120px);">
     <div class="max-w-6xl mx-auto">
       <!-- Title -->
-      <SectionHeader :title="t('projects.title')" :subtitle="t('projects.subtitle')" style="margin-bottom: 40px;" />
+      <div class="flex items-center justify-between gap-3 flex-wrap" style="margin-bottom: 40px;">
+        <SectionHeader :title="t('projects.title')" :subtitle="t('projects.subtitle')" />
+        <FilterChip section="projects" />
+      </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-5 items-stretch">
         <div
@@ -128,6 +132,7 @@ function matchProject(project) {
                 type="button"
                 v-for="s in (expandedStacks.has(project.id) ? project.stack : project.stack.slice(0, 5))"
                 :key="s"
+                :aria-pressed="activeFilterType === 'stack' && activeFilter === s"
                 class="stack-pill inline-block rounded transition-colors duration-200 cursor-pointer"
                 @click.stop="setFilter(s, 'stack')"
               >
@@ -196,7 +201,6 @@ function matchProject(project) {
   font-family: var(--font-mono);
   font-size: var(--text-xs);
   padding: 3px 10px;
-  cursor: pointer;
 }
 .stack-pill:hover {
   border-color: var(--accent);

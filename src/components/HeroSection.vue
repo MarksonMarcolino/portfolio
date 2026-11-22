@@ -10,12 +10,14 @@ const { downloadCV } = useCV()
 
 <template>
   <section id="hero" class="hero">
+    <div class="top">
+      <figure class="frame">
+        <img src="/profile-hero.jpg" alt="" />
+      </figure>
+      <div class="text">
     <p class="eyebrow">{{ t('hero.location') }} · {{ t('hero.years') }} · {{ t('hero.languagesCount') }}</p>
 
-    <div class="name-row">
-      <h1 class="name">Markson Rebelo Marcolino</h1>
-      <img class="portrait" src="/profile-hero.jpg" alt="" />
-    </div>
+    <h1 class="name">Markson Rebelo Marcolino</h1>
 
     <ul class="roles" role="list">
       <li class="role engineering">
@@ -43,6 +45,8 @@ const { downloadCV } = useCV()
         {{ t('common.orcid') }}
       </a>
     </div>
+      </div>
+    </div>
 
     <StageGraph />
   </section>
@@ -64,11 +68,44 @@ const { downloadCV } = useCV()
   color: var(--text-muted);
 }
 
-.name-row {
-  display: flex;
-  flex-wrap: wrap;
+.top {
+  display: grid;
+  grid-template-columns: clamp(280px, 30vw, 360px) minmax(0, 1fr);
+  gap: clamp(32px, 5vw, 64px);
   align-items: center;
-  gap: 20px 32px;
+}
+
+.text {
+  min-width: 0;
+}
+
+/* Echoes a stage node: the graph's edge border and a top bar split between the two role colours. */
+.frame {
+  position: relative;
+  margin: 0;
+  padding-top: 4px;
+  aspect-ratio: 1 / 1;
+  border: 1.5px solid var(--edge);
+  border-top: 0;
+  background: var(--bg-1);
+}
+
+.frame::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -1.5px;
+  right: -1.5px;
+  height: 4px;
+  background: linear-gradient(to right, var(--bronze) 0 50%, var(--research) 50% 100%);
+}
+
+.frame img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 35% 70%;
 }
 
 .name {
@@ -80,15 +117,6 @@ const { downloadCV } = useCV()
   letter-spacing: -0.025em;
   color: var(--text-primary);
   overflow-wrap: anywhere;
-}
-
-.portrait {
-  width: clamp(72px, 12vw, 144px);
-  height: clamp(72px, 12vw, 144px);
-  border-radius: 50%;
-  border: 1px solid var(--border-strong);
-  object-fit: cover;
-  object-position: top;
 }
 
 .roles {
@@ -174,6 +202,18 @@ const { downloadCV } = useCV()
   background: var(--accent);
   border-color: var(--accent);
   color: var(--bg-0);
+}
+
+@media (max-width: 899px) {
+  .top {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .frame {
+    aspect-ratio: 4 / 3;
+    max-width: 560px;
+  }
 }
 
 @media (max-width: 479px) {

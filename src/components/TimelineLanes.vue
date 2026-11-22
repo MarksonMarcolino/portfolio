@@ -26,23 +26,21 @@ const lanes = ['engineering', 'research']
     </div>
 
     <div v-for="row in rows" :key="row.year" class="lane-row">
-      <template v-for="lane in lanes" :key="lane">
-        <div v-if="lane === 'research'" class="lane-axis">
-          <span class="lane-year">{{ row.year }}</span>
-          <span class="lane-line" />
+      <div class="lane-axis">
+        <span class="lane-year">{{ row.year }}</span>
+        <span class="lane-line" />
+      </div>
+      <div v-for="lane in lanes" :key="lane" class="lane-cell" :class="`lane-${lane}`">
+        <div
+          v-for="entry in row[lane]"
+          :key="entry.id"
+          class="transition-all duration-300 motion-reduce:transition-none"
+          :class="{ dimmed: isFiltering && !matchesFilter(entry) }"
+        >
+          <TimelineEntry :entry="entry" />
         </div>
-        <div class="lane-cell" :class="`lane-${lane}`">
-          <div
-            v-for="entry in row[lane]"
-            :key="entry.id"
-            class="transition-all duration-300"
-            :class="{ dimmed: isFiltering && !matchesFilter(entry) }"
-          >
-            <TimelineEntry :entry="entry" />
-          </div>
-          <div v-if="!row[lane].length" class="lane-empty" aria-hidden="true" />
-        </div>
-      </template>
+        <div v-if="!row[lane].length" class="lane-empty" aria-hidden="true" />
+      </div>
     </div>
   </div>
 </template>
@@ -91,10 +89,12 @@ const lanes = ['engineering', 'research']
 
 .lane-engineering {
   grid-column: 1;
+  grid-row: 1;
 }
 
 .lane-research {
   grid-column: 3;
+  grid-row: 1;
 }
 
 .lane-axis {
@@ -118,6 +118,12 @@ const lanes = ['engineering', 'research']
   width: 2px;
   background: var(--edge);
   opacity: 0.45;
+}
+
+.lane-cell > .dimmed:focus-within {
+  opacity: 1;
+  filter: none;
+  transform: none;
 }
 
 .lane-empty {

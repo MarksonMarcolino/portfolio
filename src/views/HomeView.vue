@@ -15,7 +15,7 @@ import { useFilters } from '../composables/useFilters.js'
 import { publications } from '../data/publications.js'
 
 const { t } = useI18n()
-const { activeFilter, activeFilterType, clearFilter, matchesFilter, isFiltering, filteredTimeline } = useFilters()
+const { activeFilter, clearFilter, matchesFilter, isFiltering, filteredTimeline } = useFilters()
 
 const pubSectionRef = ref(null)
 useScrollReveal(pubSectionRef, '[data-reveal-pub]', { y: 20, stagger: 0.06 })

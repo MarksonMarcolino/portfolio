@@ -15,7 +15,11 @@ const summary = computed(() => {
   const key = `timeline.entries.${props.entry.id}.summary`
   return te(key) ? t(key) : ''
 })
-const rest = computed(() => description.value.slice(summary.value.length).trim())
+const rest = computed(() =>
+  description.value.startsWith(summary.value)
+    ? description.value.slice(summary.value.length).trim()
+    : description.value,
+)
 
 function formatDate(d) {
   if (!d) return ''
@@ -24,11 +28,6 @@ function formatDate(d) {
   if (!m) return y
   return new Intl.DateTimeFormat(locale.value, { month: 'short', year: 'numeric' }).format(new Date(Number(y), Number(m) - 1, 1))
 }
-
-const dateRange = computed(() => {
-  const { dateStart, dateEnd } = props.entry
-  return dateEnd ? `${formatDate(dateStart)} – ${formatDate(dateEnd)}` : formatDate(dateStart)
-})
 
 function isActiveStack(s) {
   return activeFilterType.value === 'stack' && activeFilter.value === s
@@ -41,6 +40,7 @@ function isActiveStack(s) {
     :style="{ borderLeft: `4px solid var(${entry.lane === 'research' ? '--research' : '--accent'})` }"
   >
     <p class="entry-lane">{{ t(`lanes.${entry.lane}`) }}</p>
+    <p v-if="entry.type === 'certification'" class="entry-kind">{{ t('timeline.types.certification') }}</p>
     <h3 class="entry-title">{{ t(`timeline.entries.${entry.id}.title`) }}</h3>
 
     <div class="entry-meta">
@@ -54,7 +54,8 @@ function isActiveStack(s) {
         <time :datetime="entry.dateStart">{{ formatDate(entry.dateStart) }}</time>
         <template v-if="entry.dateEnd">
           –
-          <time :datetime="entry.dateEnd === 'Present' ? undefined : entry.dateEnd">{{ formatDate(entry.dateEnd) }}</time>
+          <time v-if="entry.dateEnd !== 'Present'" :datetime="entry.dateEnd">{{ formatDate(entry.dateEnd) }}</time>
+          <span v-else>{{ t('common.present') }}</span>
         </template>
       </span>
     </div>
@@ -78,6 +79,9 @@ function isActiveStack(s) {
           </template>
         </p>
       </template>
+      <div v-if="entry.tags?.length" class="flex flex-wrap gap-1.5 mt-3">
+        <span v-for="tg in entry.tags" :key="tg" class="entry-tag">{{ t(`tags.${tg}`, tg) }}</span>
+      </div>
     </details>
 
     <p v-if="!summary && entry.stack?.length" class="entry-tools">
@@ -89,7 +93,7 @@ function isActiveStack(s) {
       </template>
     </p>
 
-    <div v-if="entry.tags?.length" class="flex flex-wrap gap-1.5 mt-3">
+    <div v-if="!summary && entry.tags?.length" class="flex flex-wrap gap-1.5 mt-3">
       <span v-for="tg in entry.tags" :key="tg" class="entry-tag">{{ t(`tags.${tg}`, tg) }}</span>
     </div>
 
@@ -111,6 +115,15 @@ function isActiveStack(s) {
   padding: 20px;
   min-width: 0;
   overflow-wrap: anywhere;
+}
+
+.entry-kind {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
 }
 
 .entry-lane {

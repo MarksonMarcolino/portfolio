@@ -4,20 +4,21 @@
 
 ## About
 
-- Data Engineer currently based in Madrid, Spain (originally from Brazil).
+- Data Engineer at Universidad Francisco de Vitoria and PhD student in Data Science at Universidad Complutense de Madrid, based in Madrid, Spain (originally from Brazil).
 - 15 years in tech spanning teaching computer science, project management, support engineering, data science, and data engineering.
 - Domain experience: telecom, healthcare, education, e-commerce, voice AI, blockchain.
-- 4 peer-reviewed academic publications including Nature Scientific Reports.
+- 5 academic publications including Scientific Reports.
 - Speaks Portuguese (native), Spanish, English, and French.
 
 ## Current work
 
-- [Serena](https://serena.ia.br/) — Clinical coordination platform for Brazilian hospice and palliative care teams. LGPD and ANVISA compliant. Live.
-- [nanoncore](https://nanoncore.com/) — Telecom and ISP management platform. GPON fiber management, real-time network monitoring, metrics dashboards. Live.
-- [voz](https://github.com/MarksonMarcolino/voz) — Self-hosted voice conversational AI for Brazilian Portuguese and Rioplatense Spanish. Open source.
+- [Serena](https://serena.ia.br/): Clinical coordination platform for Brazilian hospice and palliative care teams. LGPD and ANVISA compliant. Live.
+- [nanoncore](https://nanoncore.com/): Telecom and ISP management platform. GPON fiber management, real-time network monitoring, metrics dashboards. Live.
+- [voz](https://github.com/MarksonMarcolino/voz): Self-hosted voice conversational AI for Brazilian Portuguese and Rioplatense Spanish. Open source.
 
 ## Recent roles
 
+- Data Engineer at Universidad Francisco de Vitoria, Madrid (Sep 2026 to present): builds and operates the university's data platform on AWS (Glue, Iceberg, Terraform, Airbyte), from source ingestion to a governed silver layer.
 - Data Engineer at Accenture, Madrid (Sep 2025 – Jan 2026): scalable data platforms on GCP, CI/CD via Terraform and Azure DevOps, ELT operationalization.
 - Data Scientist at NEES, São Paulo (Aug 2024 – Jul 2025): analyzed 10M+ student records, built geospatial dashboards across 5,000+ Brazilian schools.
 - Data Scientist at Eattasty, Lisbon (Apr 2023 – Feb 2024): advanced analytics in Dremio/MongoDB, BI dashboards across Metabase/Superset/Looker/Power BI.
@@ -34,21 +35,24 @@
 
 ## Publications
 
-- [Student dropout prediction through machine learning optimization: insights from moodle log data](https://www.nature.com/articles/s41598-025-93918-1) — Nature Scientific Reports, 2025 (Lead Author)
-- [Understanding School Factors Related to Student Absenteeism in Brazilian Public High Schools: Insights for Educational Policy Through a Clustering Approach](https://link.springer.com/chapter/10.1007/978-981-95-7580-0_14) — LACLO 2025, Springer LNET (Lead Author)
-- [Ensuring Data Quality in National Educational Databases: Insights from Brazil's Centralized Database of High School Students' Data](https://proceedings.open.tudelft.nl/DGO2025/article/view/943) — DGO 2025, PUCRS, Porto Alegre (Co-author)
-- [Leveraging String Similarity Algorithms for Educational Data Validation: A Scalable Approach for Digital Governance](https://proceedings.open.tudelft.nl/DGO2025/article/view/942) — DGO 2025, PUCRS, Porto Alegre (Co-author)
+- [Student dropout prediction through machine learning optimization: insights from moodle log data](https://doi.org/10.1038/s41598-025-93918-1): Scientific Reports, 2025 (Lead Author)
+- [Understanding School Factors Related to Student Absenteeism in Brazilian Public High Schools: Insights for Educational Policy Through a Clustering Approach](https://doi.org/10.1007/978-981-95-7580-0_14): LACLO 2025, Springer LNET, 2026 (Lead Author)
+- [Ensuring Data Quality in National Educational Databases: Insights from Brazil's Centralized Database of High School Students' Data](https://doi.org/10.59490/dgo.2025.943): DGO 2025, PUCRS, Porto Alegre (Co-author)
+- [Leveraging String Similarity Algorithms for Educational Data Validation: A Scalable Approach for Digital Governance](https://doi.org/10.59490/dgo.2025.942): DGO 2025, PUCRS, Porto Alegre (Co-author)
+- [A internalização do conhecimento em energia solar fotovoltaica por meio da gamificação de Ambientes Virtuais de Ensino e de Aprendizagem](https://doi.org/10.5151/9788580393613-05): EAD, PBL e o Desafio da Educação em Rede (Blucher), 2018 (Co-author)
 
 ## Education
 
+- PhD student in Data Science (Programa de Doctorado en Análisis de Datos / Data Science), Universidad Complutense de Madrid (2026 to present). Research on university student dropout, from prediction to decision, combining causal inference with optimization.
 - Master's in Information and Communication Technologies, Universidade Federal de Santa Catarina (2024–2025). Thesis on ML-based student dropout prediction using Moodle data.
-- Bachelor's in Information and Communication Technologies, Universidade Federal de Santa Catarina (2010–2015).
+- Bachelor's in Information and Communication Technologies, Universidade Federal de Santa Catarina (2010–2016).
 
 ## Contact
 
 - Email: markson.marcolino@gmail.com
 - GitHub: https://github.com/MarksonMarcolino
 - LinkedIn: https://linkedin.com/in/marksonmarcolino
+- ORCID: https://orcid.org/0009-0006-2494-1595
 - Portfolio: https://marksonmarcolino.vercel.app
 - Location: Madrid, Spain
 

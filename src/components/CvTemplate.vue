@@ -60,6 +60,7 @@ function formatDate(d) {
         <a href="tel:+34665248229" style="color: #666; text-decoration: none;">+34 665 248 229</a>
         <a href="https://linkedin.com/in/marksonmarcolino" style="color: #666; text-decoration: none;">linkedin.com/in/marksonmarcolino</a>
         <a href="https://github.com/MarksonMarcolino" style="color: #666; text-decoration: none;">github.com/MarksonMarcolino</a>
+        <a href="https://orcid.org/0009-0006-2494-1595" style="color: #666; text-decoration: none;">orcid.org/0009-0006-2494-1595</a>
       </div>
     </div>
 

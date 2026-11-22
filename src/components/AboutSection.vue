@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useScrollReveal } from '../composables/useScrollReveal.js'
 import { ExternalLink } from 'lucide-vue-next'
@@ -23,10 +23,11 @@ const languages = [
   { flag: '\u{1F1EB}\u{1F1F7}', key: 'french', levelKey: 'intermediate' },
 ]
 
-const education = [
+const education = computed(() => [
+  { degreeKey: 'phd', school: 'UCM', years: `2026–${t('common.present')}` },
   { degreeKey: 'masters', school: 'UFSC', years: '2024–2025' },
-  { degreeKey: 'bachelors', school: 'UFSC', years: '2010–2015' },
-]
+  { degreeKey: 'bachelors', school: 'UFSC', years: '2010–2016' },
+])
 </script>
 
 <template>

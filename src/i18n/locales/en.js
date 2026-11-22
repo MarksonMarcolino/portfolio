@@ -29,8 +29,7 @@ export default {
     },
   },
   hero: {
-    tagline: `Building scalable data platforms, voice AI, and full-stack products. 15 years working in tech, now shipping data systems in production.`,
-    available: 'Available for opportunities',
+    tagline: 'Data Engineer at Universidad Francisco de Vitoria | PhD student in Data Science at Universidad Complutense de Madrid',
     greeting: "Hey, I'm Markson,",
     line1: 'A DATA',
     line2: 'ENGINEER',
@@ -81,6 +80,14 @@ export default {
       certification: 'Certification',
     },
     entries: {
+      'ufv-2026': {
+        title: 'Data Engineer',
+        description: "Builds and operates the university's data platform on AWS, from source ingestion to a governed silver layer, in dev and production. Brought three sources into the lakehouse: the Oracle academic ERP (UXXI), Canvas LMS through Canvas Data 2 (95 tables, including high-volume web logs) and the events platform's PostgreSQL, with all ingestion running on Airbyte managed as config-as-code. Built bronze-to-silver pipelines on AWS Glue and Apache Iceberg with incremental MERGE, deduplication and delete handling, schema-drift detection, Great Expectations data-quality checks and alerting on failure. Manages the infrastructure with Terraform: S3 medallion layers, Glue Data Catalog, Lake Formation permissions, least-privilege IAM, Secrets Manager and CloudWatch/SNS alerts, with releases promoted from dev to prod through GitHub Actions with OIDC. Writes the ADRs and runbooks and keeps the team wiki as the source of truth for what runs in production, data dictionaries included. Built a multi-agent engineering workflow with Claude Code (explore, plan, implement, review): every push gets a cross-model review, review recall is measured against GitHub Copilot, and pushes and infrastructure applies stay human-gated.",
+      },
+      'phd-2026': {
+        title: 'PhD student in Data Science (Programa de Doctorado en Análisis de Datos / Data Science)',
+        description: 'Facultad de Estudios Estadísticos. Tutor: Dr. Adolfo Hernández Estrada. Research on university student dropout, moving early-warning systems from prediction to decision: estimating which support interventions actually help which students (heterogeneous effects, not only risk), and allocating limited institutional resources such as tutoring under budget and fairness constraints, combining causal inference with optimization.',
+      },
       'accenture-2025': {
         title: 'Data Engineer',
         description: 'Designed and supported scalable data platforms on GCP for enterprise clients. CI/CD pipelines via Terraform and Azure DevOps for BigQuery and Dataflow assets. Operationalized ELT processes ensuring data quality, performance, and governance compliance.',
@@ -142,8 +149,8 @@ export default {
         description: '',
       },
       'gcp-cert-2025': {
-        title: 'Google Cloud Digital Leader Certification',
-        description: '',
+        title: 'Google Cloud Certified: Cloud Digital Leader',
+        description: 'Valid until October 2028.',
       },
       'hec-cert-2019': {
         title: 'Creation and Development of a Technology Startup',
@@ -175,6 +182,10 @@ export default {
         title: 'Leveraging String Similarity Algorithms for Educational Data Validation: A Scalable Approach for Digital Governance',
         description: 'Scalable string similarity algorithms (Levenshtein, Jaro-Winkler) applied to reconcile records across national educational databases with inconsistent identifiers.',
       },
+      'blucher-2018': {
+        title: 'A internalização do conhecimento em energia solar fotovoltaica por meio da gamificação de Ambientes Virtuais de Ensino e de Aprendizagem',
+        description: 'Book chapter on gamifying virtual learning environments to teach photovoltaic solar energy.',
+      },
     },
   },
   about: {
@@ -182,10 +193,11 @@ export default {
     subtitle: 'A bit about me',
     education: 'Education',
     degrees: {
+      phd: 'PhD student in Data Science',
       masters: "Master's in Information and Communication Technologies",
       bachelors: "Bachelor's in Information and Communication Technologies",
     },
-    bio: "I'm a Brazilian engineer based in Madrid. I build across telecom, healthcare, and voice AI. 15 years in tech — teaching, project management, support engineering, now shipping data platforms and full-stack products across education, analytics, and Web3.",
+    bio: "I'm a data engineer and a PhD student in Data Science, working on the same problem from both sides: building the data platforms universities run on, and researching how to use that data to help students finish their degrees. At Universidad Francisco de Vitoria I build and operate the university's AWS data platform. At the Universidad Complutense de Madrid my doctoral research moves dropout work from prediction to decision, using causal inference and optimization to allocate support fairly and effectively. Before that, my master's research at UFSC on machine learning and educational data mining led to a first-author paper in Scientific Reports.",
     languages: 'Languages',
     currentlyBuilding: 'Currently building',
     langList: {
@@ -247,7 +259,7 @@ export default {
     filename: 'Markson_Rebelo_Marcolino_CV_EN.pdf',
     title: 'Data Engineer',
     summary_label: 'Summary',
-    summary: 'Data Engineer with 15+ years in tech, focused on scalable data pipelines, ELT/ETL workflows, and cloud data platforms on GCP (BigQuery, Dataflow, Cloud Composer). Proficient in Python, SQL, FastAPI, PostgreSQL, and TimescaleDB. Experienced with CI/CD (Terraform, GitHub Actions, Docker) and machine learning applications using scikit-learn, XGBoost, and PyTorch. Published researcher in educational data science and ML optimization.',
+    summary: 'Data Engineer at Universidad Francisco de Vitoria, building an AWS data platform (Glue, Iceberg, Terraform, Airbyte), and PhD student in Data Science at Universidad Complutense de Madrid. 15+ years in tech, with earlier work on GCP data platforms (BigQuery, Dataflow). Proficient in Python, SQL, Terraform and GitHub Actions, plus machine learning applications using scikit-learn, XGBoost, and PyTorch. Published researcher in educational data science and ML optimization.',
     experience: 'Experience',
     education: 'Education',
     publications: 'Publications',

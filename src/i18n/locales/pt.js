@@ -29,8 +29,7 @@ export default {
     },
   },
   hero: {
-    tagline: `Construindo plataformas de dados escaláveis, IA de voz e produtos full-stack. 15 anos trabalhando em tech, agora entregando sistemas de dados em produção.`,
-    available: 'Disponível para oportunidades',
+    tagline: 'Engenheiro de Dados na Universidad Francisco de Vitoria | Doutorando em Ciência de Dados na Universidad Complutense de Madrid',
     greeting: 'Oi, eu sou o Markson,',
     line1: 'ENGENHEIRO',
     line2: 'DE DADOS',
@@ -81,6 +80,14 @@ export default {
       certification: 'Certificação',
     },
     entries: {
+      'ufv-2026': {
+        title: 'Engenheiro de Dados',
+        description: 'Construção e operação da plataforma de dados da universidade na AWS, da ingestão das fontes a uma camada silver governada, em dev e produção. Integração de três fontes ao lakehouse: o ERP acadêmico Oracle (UXXI), o Canvas LMS via Canvas Data 2 (95 tabelas, incluindo logs web de alto volume) e o PostgreSQL da plataforma de eventos, com toda a ingestão rodando no Airbyte, gerenciado como config-as-code. Construção de pipelines bronze para silver no AWS Glue e Apache Iceberg com MERGE incremental, deduplicação e tratamento de deleções, detecção de schema drift, verificações de qualidade de dados com Great Expectations e alertas em caso de falha. Gestão da infraestrutura com Terraform: camadas medallion no S3, Glue Data Catalog, permissões no Lake Formation, IAM de privilégio mínimo, Secrets Manager e alertas CloudWatch/SNS, com releases promovidos de dev para prod via GitHub Actions com OIDC. Escrita de ADRs e runbooks e manutenção do wiki da equipe como fonte de verdade sobre o que roda em produção, incluindo dicionários de dados. Construção de um fluxo de engenharia multiagente com Claude Code (explorar, planejar, implementar, revisar): todo push recebe uma revisão cruzada entre modelos, o recall das revisões é medido contra o GitHub Copilot, e pushes e aplicações de infraestrutura continuam sob aprovação humana.',
+      },
+      'phd-2026': {
+        title: 'Doutorando em Ciência de Dados (Programa de Doctorado en Análisis de Datos / Data Science)',
+        description: 'Facultad de Estudios Estadísticos. Orientador: Dr. Adolfo Hernández Estrada. Pesquisa sobre evasão universitária, levando os sistemas de alerta precoce da predição para a decisão: estimar quais intervenções de apoio realmente ajudam quais estudantes (efeitos heterogêneos, não apenas risco) e alocar recursos institucionais limitados, como tutoria, sob restrições de orçamento e equidade, combinando inferência causal com otimização.',
+      },
       'accenture-2025': {
         title: 'Engenheiro de Dados',
         description: 'Projeto e suporte de plataformas de dados escaláveis em GCP para clientes corporativos. Pipelines CI/CD via Terraform e Azure DevOps para ativos BigQuery e Dataflow. Operacionalização de processos ELT garantindo qualidade, performance e conformidade de governança de dados.',
@@ -142,8 +149,8 @@ export default {
         description: '',
       },
       'gcp-cert-2025': {
-        title: 'Certificação Google Cloud Digital Leader',
-        description: '',
+        title: 'Google Cloud Certified: Cloud Digital Leader',
+        description: 'Válida até outubro de 2028.',
       },
       'hec-cert-2019': {
         title: 'Criação e Desenvolvimento de uma Startup de Tecnologia',
@@ -175,6 +182,10 @@ export default {
         title: 'Leveraging String Similarity Algorithms for Educational Data Validation: A Scalable Approach for Digital Governance',
         description: 'Algoritmos escaláveis de similaridade de strings (Levenshtein, Jaro-Winkler) aplicados para reconciliar registros entre bases educacionais nacionais com identificadores inconsistentes.',
       },
+      'blucher-2018': {
+        title: 'A internalização do conhecimento em energia solar fotovoltaica por meio da gamificação de Ambientes Virtuais de Ensino e de Aprendizagem',
+        description: 'Capítulo de livro sobre a gamificação de ambientes virtuais de aprendizagem para ensinar energia solar fotovoltaica.',
+      },
     },
   },
   about: {
@@ -182,10 +193,11 @@ export default {
     subtitle: 'Um pouco sobre mim',
     education: 'Formação',
     degrees: {
+      phd: 'Doutorando em Ciência de Dados',
       masters: 'Mestrado em Tecnologias da Informação e Comunicação',
       bachelors: 'Bacharelado em Tecnologias da Informação e Comunicação',
     },
-    bio: 'Sou um engenheiro brasileiro em Madrid. Construo em telecom, saúde e IA de voz. 15 anos em tech — lecionando, gerenciamento de projetos, suporte técnico, agora entregando plataformas de dados e produtos full-stack em educação, analytics e Web3.',
+    bio: 'Sou engenheiro de dados e doutorando em Ciência de Dados, trabalhando no mesmo problema pelos dois lados: construir as plataformas de dados em que as universidades funcionam e pesquisar como usar esses dados para ajudar estudantes a concluir seus cursos. Na Universidad Francisco de Vitoria, construo e opero a plataforma de dados da universidade na AWS. Na Universidad Complutense de Madrid, minha pesquisa de doutorado leva o trabalho sobre evasão da predição para a decisão, usando inferência causal e otimização para alocar apoio de forma justa e eficaz. Antes disso, minha pesquisa de mestrado na UFSC sobre machine learning e mineração de dados educacionais resultou em um artigo como primeiro autor na Scientific Reports.',
     languages: 'Idiomas',
     currentlyBuilding: 'Construindo atualmente',
     langList: {
@@ -247,7 +259,7 @@ export default {
     filename: 'Markson_Rebelo_Marcolino_CV_PT.pdf',
     title: 'Engenheiro de Dados',
     summary_label: 'Resumo',
-    summary: 'Engenheiro de Dados com mais de 15 anos em tech, focado em pipelines de dados escaláveis, workflows ELT/ETL e plataformas de dados em nuvem em GCP (BigQuery, Dataflow, Cloud Composer). Proficiente em Python, SQL, FastAPI, PostgreSQL e TimescaleDB. Experiência em CI/CD (Terraform, GitHub Actions, Docker) e aplicações de machine learning usando scikit-learn, XGBoost e PyTorch. Pesquisador publicado em ciência de dados educacional e otimização de ML.',
+    summary: 'Engenheiro de Dados na Universidad Francisco de Vitoria, construindo uma plataforma de dados na AWS (Glue, Iceberg, Terraform, Airbyte), e doutorando em Ciência de Dados na Universidad Complutense de Madrid. Mais de 15 anos em tech, com experiência anterior em plataformas de dados em GCP (BigQuery, Dataflow). Proficiente em Python, SQL, Terraform e GitHub Actions, além de aplicações de machine learning com scikit-learn, XGBoost e PyTorch. Pesquisador publicado em ciência de dados educacional e otimização de ML.',
     experience: 'Experiência',
     education: 'Educação',
     publications: 'Publicações',

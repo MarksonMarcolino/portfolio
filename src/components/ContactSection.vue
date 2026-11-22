@@ -1,6 +1,6 @@
 <script setup>
 import { useI18n } from 'vue-i18n'
-import { Mail, Phone, Github, Linkedin, ArrowRight } from 'lucide-vue-next'
+import { Mail, Phone, Github, Linkedin, ExternalLink, ArrowRight } from 'lucide-vue-next'
 
 const { t } = useI18n()
 
@@ -9,6 +9,7 @@ const contacts = [
   { label: 'PHONE', href: 'tel:+34665248229', display: '+34 665 248 229', icon: Phone },
   { label: 'GITHUB', href: 'https://github.com/MarksonMarcolino', display: 'github.com/MarksonMarcolino', icon: Github },
   { label: 'LINKEDIN', href: 'https://linkedin.com/in/marksonmarcolino', display: 'linkedin.com/in/marksonmarcolino', icon: Linkedin },
+  { label: 'ORCID', href: 'https://orcid.org/0009-0006-2494-1595', display: 'orcid.org/0009-0006-2494-1595', icon: ExternalLink },
 ]
 </script>
 

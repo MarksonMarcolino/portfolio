@@ -53,7 +53,7 @@ watch(locale, () => {
 
 const stats = [
   { key: 'experience', value: 15, suffix: '+' },
-  { key: 'papers', value: 4, suffix: '' },
+  { key: 'papers', value: 5, suffix: '' },
   { key: 'products', value: 3, suffix: '' },
   { key: 'languages', value: 4, suffix: '' },
 ]
@@ -68,14 +68,9 @@ onMounted(() => {
     // Entrance sequence
     const tl = gsap.timeline({ delay: 0.3 })
 
-    tl.fromTo('.hero-label',
-      { opacity: 0, y: -10 },
-      { opacity: 1, y: 0, duration: 0.4, ease: 'power2.out' })
-
-      .fromTo('.hero-heading-line',
-        { opacity: 0, y: 50, skewY: 2 },
-        { opacity: 1, y: 0, skewY: 0, duration: 0.7, ease: 'power4.out', stagger: 0.1 },
-        '-=0.1')
+    tl.fromTo('.hero-heading-line',
+      { opacity: 0, y: 50, skewY: 2 },
+      { opacity: 1, y: 0, skewY: 0, duration: 0.7, ease: 'power4.out', stagger: 0.1 })
 
       .fromTo('.hero-tagline',
         { opacity: 0, y: 20 },
@@ -136,15 +131,9 @@ function scrollToWork() {
 
     <!-- Text column -->
     <div style="min-width: 0;">
-      <!-- Available label -->
-      <div class="hero-label flex items-center gap-2 mb-6" style="opacity: 0;">
-        <span class="inline-block w-1.5 h-1.5 rounded-full" style="background: #22c55e; animation: pulse 2s ease-in-out infinite;"></span>
-        <span style="font-family: var(--font-sans); font-size: var(--text-xs); color: var(--text-secondary);">{{ t('hero.available') }}</span>
-      </div>
-
       <!-- Heading -->
       <h1 class="hero-heading">
-        <span class="sr-only">Markson Rebelo Marcolino — Data Engineer, ML Researcher, and Full-Stack Builder based in Madrid</span>
+        <span class="sr-only">Markson Rebelo Marcolino. Data Engineer, ML Researcher, and Full-Stack Builder based in Madrid</span>
         <span aria-hidden="true" class="hero-heading-line" style="display: block; font-family: var(--font-display); font-size: clamp(1rem, 2vw, 1.4rem); color: var(--text-muted); font-weight: 400; letter-spacing: 0.02em; opacity: 0;">
           {{ t('hero.greeting') }}
         </span>

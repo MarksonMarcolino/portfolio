@@ -4,13 +4,17 @@ import { useI18n } from 'vue-i18n'
 import { useLenis } from '../composables/useLenis.js'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { Menu, X, Globe } from 'lucide-vue-next'
+import { usePreferredReducedMotion } from '@vueuse/core'
+import { Menu, X, Globe, Sun, Moon } from 'lucide-vue-next'
+import { useTheme } from '../composables/useTheme.js'
 
 const { t, locale } = useI18n()
 const lenis = useLenis()
+const { theme, toggle: toggleTheme } = useTheme()
+const reducedMotion = usePreferredReducedMotion()
 
-const navKeys = ['home', 'projects', 'timeline', 'stack', 'publications', 'about', 'contact']
-const anchors = { home: '#hero', projects: '#projects', timeline: '#timeline', stack: '#stack', publications: '#publications', about: '#about', contact: '#contact' }
+const navKeys = ['home', 'timeline', 'publications', 'projects', 'stack', 'about', 'contact']
+const anchors = { home: '#hero', timeline: '#timeline', publications: '#publications', projects: '#projects', stack: '#stack', about: '#about', contact: '#contact' }
 const locales = [
   { code: 'en', label: 'EN' },
   { code: 'pt', label: 'PT' },
@@ -53,6 +57,8 @@ function onScroll() {
 onMounted(() => {
   window.addEventListener('scroll', onScroll, { passive: true })
 
+  if (reducedMotion.value === 'reduce') return
+
   gsap.from(navRef.value, {
     y: -60,
     autoAlpha: 0,
@@ -77,9 +83,9 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
 </script>
 
 <template>
-  <nav ref="navRef" class="fixed top-0 left-0 right-0 z-50 flex items-center" style="background: rgba(8, 11, 18, 0.8); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255,255,255,0.05); height: 56px;">
+  <nav ref="navRef" class="fixed top-0 left-0 right-0 z-50 flex items-center" style="background: color-mix(in srgb, var(--bg-0) 85%, transparent); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border-subtle); height: 56px;">
     <div class="max-w-6xl mx-auto px-4 w-full flex items-center justify-between">
-      <a href="#hero" @click.prevent="scrollTo('#hero')" class="font-mono font-bold text-lg" style="color: #f0f0f0;">M.</a>
+      <a href="#hero" @click.prevent="scrollTo('#hero')" class="font-mono font-bold text-lg" style="color: var(--text-primary);">M.</a>
 
       <div class="hidden md:flex items-center gap-6">
         <a
@@ -87,13 +93,11 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
           :key="key"
           :href="anchors[key]"
           @click.prevent="scrollTo(anchors[key])"
-          class="text-sm relative pb-2"
-          :style="activeSection === anchors[key] ? 'color: #f0f0f0;' : 'color: #888; transition: color 0.2s ease;'"
-          @mouseenter="(e) => { if (activeSection !== anchors[key]) e.target.style.color = '#f0f0f0' }"
-          @mouseleave="(e) => { if (activeSection !== anchors[key]) e.target.style.color = '#888' }"
+          class="text-sm relative pb-2 transition-colors"
+          :class="activeSection === anchors[key] ? 'text-text-primary' : 'text-text-secondary hover:text-text-primary'"
         >
           {{ t(`nav.${key}`) }}
-          <span v-if="activeSection === anchors[key]" class="absolute left-0 right-0 rounded-sm" style="bottom: -4px; height: 2px; background: #00d2ff;" />
+          <span v-if="activeSection === anchors[key]" class="absolute left-0 right-0 rounded-sm" style="bottom: -4px; height: 2px; background: var(--accent);" />
         </a>
 
         <div class="relative ml-2">
@@ -101,7 +105,7 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
             <Globe :size="14" />
             <span class="font-mono text-xs">{{ locale.toUpperCase() }}</span>
           </button>
-          <div v-if="langOpen" class="absolute right-0 top-8 rounded-lg overflow-hidden" style="background: #0f1520; border: 1px solid rgba(255,255,255,0.06);">
+          <div v-if="langOpen" class="absolute right-0 top-8 rounded-lg overflow-hidden" style="background: var(--bg-1); border: 1px solid var(--border-default);">
             <button
               v-for="l in locales"
               :key="l.code"
@@ -113,6 +117,10 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
             </button>
           </div>
         </div>
+        <button @click="toggleTheme" class="flex items-center justify-center w-11 h-11 text-text-secondary hover:text-accent transition-colors cursor-pointer" :aria-label="theme === 'dark' ? t('theme.toLight') : t('theme.toDark')">
+          <Sun v-if="theme === 'dark'" :size="18" />
+          <Moon v-else :size="18" />
+        </button>
       </div>
 
       <div class="flex items-center gap-3 md:hidden">
@@ -121,7 +129,7 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
             <Globe :size="14" />
             <span class="font-mono text-xs">{{ locale.toUpperCase() }}</span>
           </button>
-          <div v-if="langOpen" class="absolute right-0 top-8 rounded-lg overflow-hidden z-50" style="background: #0f1520; border: 1px solid rgba(255,255,255,0.06);">
+          <div v-if="langOpen" class="absolute right-0 top-8 rounded-lg overflow-hidden z-50" style="background: var(--bg-1); border: 1px solid var(--border-default);">
             <button
               v-for="l in locales"
               :key="l.code"
@@ -133,6 +141,10 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
             </button>
           </div>
         </div>
+        <button @click="toggleTheme" class="flex items-center justify-center w-11 h-11 text-text-secondary hover:text-accent transition-colors cursor-pointer" :aria-label="theme === 'dark' ? t('theme.toLight') : t('theme.toDark')">
+          <Sun v-if="theme === 'dark'" :size="18" />
+          <Moon v-else :size="18" />
+        </button>
         <button @click="mobileOpen = !mobileOpen" class="text-text-secondary hover:text-accent transition-colors">
           <X v-if="mobileOpen" :size="22" />
           <Menu v-else :size="22" />
@@ -147,9 +159,9 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
     <div
       v-if="mobileOpen"
       class="fixed inset-0 md:hidden flex flex-col items-center justify-center"
-      style="background: #0a0a0a; z-index: 9999;"
+      style="background: var(--bg-0); z-index: 9999;"
     >
-      <button @click="mobileOpen = false" class="absolute top-5 right-5 cursor-pointer" style="color: #888;">
+      <button @click="mobileOpen = false" class="absolute top-5 right-5 cursor-pointer" style="color: var(--text-secondary);">
         <X :size="28" />
       </button>
       <!-- Language switcher in overlay -->
@@ -159,7 +171,7 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
           :key="l.code"
           @click="switchLocale(l.code)"
           class="font-mono text-xs cursor-pointer transition-colors"
-          :style="locale === l.code ? 'color: #00d2ff;' : 'color: #666;'"
+          :style="locale === l.code ? 'color: var(--accent);' : 'color: var(--text-secondary);'"
         >
           {{ l.label }}
         </button>
@@ -170,7 +182,7 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
         :href="anchors[key]"
         @click.prevent="scrollTo(anchors[key])"
         class="block py-3"
-        :style="'font-family: Bebas Neue, sans-serif; font-size: 2rem; letter-spacing: 0.02em; text-decoration: none; ' + (activeSection === anchors[key] ? 'color: #00d2ff;' : 'color: #f0f0f0;')"
+        :style="'font-family: var(--font-display); font-weight: 600; font-size: 2rem; letter-spacing: 0.02em; text-decoration: none; ' + (activeSection === anchors[key] ? 'color: var(--accent);' : 'color: var(--text-primary);')"
       >
         {{ t(`nav.${key}`) }}
       </a>

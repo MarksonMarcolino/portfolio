@@ -18,14 +18,13 @@ defineProps({
   font-size: var(--display-lg);
   color: var(--text-primary);
   line-height: var(--leading-tight);
-  font-weight: 400;
+  font-weight: 600;
+  letter-spacing: -0.02em;
 }
 
 .section-subtitle {
-  font-family: var(--font-sans);
-  font-size: var(--text-xs);
-  text-transform: uppercase;
-  letter-spacing: var(--tracking-eyebrow);
+  font-family: var(--font-mono);
+  font-size: 12px;
   color: var(--text-secondary);
   margin-top: 4px;
 }

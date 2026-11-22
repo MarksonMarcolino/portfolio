@@ -1,9 +1,27 @@
 import { useI18n } from 'vue-i18n'
 
+const INTER_HREF = 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap'
+
+async function loadCvFont() {
+  if (!document.getElementById('cv-font')) {
+    const link = document.createElement('link')
+    link.id = 'cv-font'
+    link.rel = 'stylesheet'
+    link.href = INTER_HREF
+    await new Promise((resolve) => {
+      link.onload = resolve
+      link.onerror = resolve
+      document.head.appendChild(link)
+    })
+  }
+  await Promise.all(['400 13px Inter', '600 13px Inter', '700 26px Inter'].map((f) => document.fonts.load(f)))
+}
+
 export function useCV() {
   const { t } = useI18n()
 
   async function downloadCV() {
+    await loadCvFont()
     const html2pdf = (await import('html2pdf.js')).default
     const source = document.getElementById('cv-template')
     if (!source) return

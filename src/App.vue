@@ -15,6 +15,6 @@ useTheme()
 <template>
   <NavBar />
   <router-view />
-  <CvTemplate />
+  <CvTemplate inert />
   <Analytics />
 </template>

@@ -43,7 +43,7 @@ const education = computed(() => [
             src="/profile-about.jpg"
             alt="Markson Rebelo Marcolino"
             class="w-full object-cover object-top"
-            style="border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); aspect-ratio: 4/5;"
+            style="border-radius: 12px; border: 1px solid var(--border-subtle); aspect-ratio: 4/5;"
           />
           <p style="font-family: var(--font-sans); font-size: var(--text-lg); color: var(--text-secondary); line-height: 1.8; margin-top: 28px;">
             {{ t('about.bio') }}
@@ -67,11 +67,11 @@ const education = computed(() => [
               rel="noopener"
               class="flex items-center justify-between group transition-colors duration-200"
               :class="proj.url ? 'cursor-pointer' : 'cursor-default'"
-              style="padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.06); text-decoration: none;"
+              style="padding: 14px 0; border-bottom: 1px solid var(--border-subtle); text-decoration: none;"
             >
               <div class="flex flex-col">
                 <div class="flex items-center gap-2">
-                  <span class="inline-block w-1.5 h-1.5 rounded-full" style="background: #22c55e;" />
+                  <span class="inline-block w-1.5 h-1.5 rounded-full" style="background: var(--status-live);" />
                   <span style="font-family: var(--font-sans); font-size: var(--text-base); color: var(--text-primary);">{{ proj.name }}</span>
                 </div>
                 <span style="font-family: var(--font-sans); font-size: var(--text-sm); color: var(--text-secondary); margin-left: 14px;">{{ t(`about.projects.${proj.descKey}`) }}</span>
@@ -90,7 +90,7 @@ const education = computed(() => [
               v-for="lang in languages"
               :key="lang.key"
               class="flex items-center justify-between"
-              style="padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.06);"
+              style="padding: 12px 0; border-bottom: 1px solid var(--border-subtle);"
             >
               <span class="flex items-center gap-2">
                 <span style="font-size: var(--text-lg);">{{ lang.flag }}</span>
@@ -109,7 +109,7 @@ const education = computed(() => [
             <div
               v-for="edu in education"
               :key="edu.degreeKey"
-              style="padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.06);"
+              style="padding: 12px 0; border-bottom: 1px solid var(--border-subtle);"
             >
               <div style="font-family: var(--font-sans); font-size: var(--text-base); color: var(--text-primary);">{{ t(`about.degrees.${edu.degreeKey}`) }}</div>
               <div style="font-family: var(--font-sans); font-size: var(--text-sm); color: var(--text-secondary);">{{ edu.school }}, {{ edu.years }}</div>

@@ -18,7 +18,7 @@ const linkIcons = { Globe, ExternalLink }
 useScrollReveal(sectionRef, '.project-card', { y: 30, stagger: 0.08 })
 
 const statusConfig = {
-  live: { labelKey: 'common.live', bg: 'rgba(34,197,94,0.08)', border: 'rgba(34,197,94,0.25)', color: 'var(--status-live)', dot: true },
+  live: { labelKey: 'common.live', bg: 'color-mix(in srgb, var(--status-live) 10%, var(--bg-1))', border: 'color-mix(in srgb, var(--status-live) 30%, transparent)', color: 'var(--status-live)', dot: true },
   'open-source': { labelKey: 'common.openSource', bg: 'transparent', border: 'var(--border-default)', color: 'var(--accent)', dot: false },
   wip: { labelKey: 'common.inProgress', bg: 'transparent', border: 'var(--border-default)', color: 'var(--text-secondary)', dot: true, dotColor: 'var(--status-progress)' },
 }
@@ -82,7 +82,7 @@ function matchProject(project) {
                   background: statusConfig[project.status].bg,
                   border: `1px solid ${statusConfig[project.status].border}`,
                   color: statusConfig[project.status].color,
-                  fontFamily: 'Inter, sans-serif',
+                  fontFamily: 'var(--font-sans)',
                   fontSize: '0.65rem',
                   borderRadius: '4px',
                   padding: '3px 10px',
@@ -124,24 +124,19 @@ function matchProject(project) {
 
             <!-- Stack pills -->
             <div class="flex flex-wrap gap-1.5 mt-auto pt-3">
-              <span
+              <button
+                type="button"
                 v-for="s in (expandedStacks.has(project.id) ? project.stack : project.stack.slice(0, 5))"
                 :key="s"
-                class="inline-block rounded transition-colors duration-200 cursor-pointer"
-                style="background: rgba(240,240,240,0.06); border: 1px solid rgba(240,240,240,0.15); color: var(--text-primary); font-family: var(--font-mono); font-size: var(--text-xs); padding: 3px 10px; border-radius: 4px;"
+                class="stack-pill inline-block rounded transition-colors duration-200 cursor-pointer"
                 @click.stop="setFilter(s, 'stack')"
-                @mouseenter="(e) => { e.target.style.borderColor = 'rgba(0,210,255,0.5)'; e.target.style.color = '#00d2ff' }"
-                @mouseleave="(e) => { e.target.style.borderColor = 'rgba(240,240,240,0.15)'; e.target.style.color = '#f0f0f0' }"
               >
                 {{ s }}
-              </span>
+              </button>
               <button
                 v-if="project.stack.length > 5"
                 @click.stop="toggleStack(project.id)"
-                class="inline-block rounded cursor-pointer transition-colors duration-200"
-                style="border: 1px solid rgba(255,255,255,0.06); color: var(--text-faint); font-family: var(--font-mono); font-size: var(--text-xs); padding: 3px 10px; border-radius: 4px; background: none;"
-                @mouseenter="(e) => { e.target.style.color = '#00d2ff'; e.target.style.borderColor = 'rgba(0,210,255,0.3)' }"
-                @mouseleave="(e) => { e.target.style.color = '#444'; e.target.style.borderColor = 'rgba(255,255,255,0.06)' }"
+                class="more-pill inline-block rounded cursor-pointer transition-colors duration-200"
               >
                 {{ expandedStacks.has(project.id) ? t('projects.showLess') : t('projects.moreCount', { n: project.stack.length - 5 }) }}
               </button>
@@ -154,7 +149,7 @@ function matchProject(project) {
                   v-for="tg in project.tags"
                   :key="tg"
                   class="inline-block rounded"
-                  style="background: transparent; border: 1px solid rgba(255,255,255,0.08); color: var(--text-secondary); font-family: var(--font-sans); font-size: var(--text-xs); padding: 2px 8px; border-radius: 4px;"
+                  style="background: transparent; border: 1px solid var(--border-subtle); color: var(--text-secondary); font-family: var(--font-sans); font-size: var(--text-xs); padding: 2px 8px; border-radius: 4px;"
                 >
                   {{ t(`tags.${tg}`, tg) }}
                 </span>
@@ -164,10 +159,8 @@ function matchProject(project) {
                 :href="project.link"
                 target="_blank"
                 rel="noopener"
-                class="flex items-center gap-1 shrink-0 transition-all duration-200 cursor-pointer"
+                class="project-link flex items-center gap-1 shrink-0 transition-all duration-200 cursor-pointer hover:gap-1.5"
                 style="color: var(--accent); font-size: var(--text-xs);"
-                @mouseenter="(e) => e.currentTarget.style.gap = '6px'"
-                @mouseleave="(e) => e.currentTarget.style.gap = '4px'"
               >
                 {{ t(`common.${project.linkLabel}`) }}
                 <component :is="linkIcons[project.linkIcon] || ExternalLink" :size="13" />
@@ -194,6 +187,31 @@ function matchProject(project) {
   transition: color 0.2s ease;
 }
 .read-more-btn:hover {
-  color: #33dcff;
+  color: var(--text-primary);
+}
+.stack-pill {
+  background: var(--bg-2);
+  border: 1px solid var(--border-default);
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  padding: 3px 10px;
+  cursor: pointer;
+}
+.stack-pill:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.more-pill {
+  background: none;
+  border: 1px solid var(--border-subtle);
+  color: var(--text-faint);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  padding: 3px 10px;
+}
+.more-pill:hover {
+  border-color: var(--accent);
+  color: var(--accent);
 }
 </style>

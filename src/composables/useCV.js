@@ -1,9 +1,36 @@
 import { useI18n } from 'vue-i18n'
 
+const INTER_HREF = 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap'
+
+let cvFontReady
+
+function loadCvFont() {
+  cvFontReady ??= new Promise((resolve, reject) => {
+    const link = document.createElement('link')
+    link.id = 'cv-font'
+    link.rel = 'stylesheet'
+    link.href = INTER_HREF
+    link.onload = resolve
+    link.onerror = () => reject(new Error('Inter stylesheet failed to load'))
+    document.head.appendChild(link)
+  })
+    .then(() => Promise.all(['400 13px Inter', '600 13px Inter', '700 26px Inter'].map((f) => document.fonts.load(f))))
+    .then((faces) => {
+      if (faces.some((f) => f.length === 0)) throw new Error('Inter unavailable')
+    })
+    .catch((e) => {
+      document.getElementById('cv-font')?.remove()
+      cvFontReady = undefined
+      console.warn(`CV: ${e.message}, PDF uses the fallback font`)
+    })
+  return cvFontReady
+}
+
 export function useCV() {
   const { t } = useI18n()
 
   async function downloadCV() {
+    await loadCvFont()
     const html2pdf = (await import('html2pdf.js')).default
     const source = document.getElementById('cv-template')
     if (!source) return

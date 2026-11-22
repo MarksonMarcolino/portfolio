@@ -1,37 +1,18 @@
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
-import { useMediaQuery } from '@vueuse/core'
-import gsap from 'gsap'
+import { watch } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { Analytics } from '@vercel/analytics/vue'
 import NavBar from './components/NavBar.vue'
 import CvTemplate from './components/CvTemplate.vue'
+import { useTheme } from './composables/useTheme.js'
 
-const cursorGlow = ref(null)
-const hasHover = useMediaQuery('(hover: hover)')
+const { locale } = useI18n()
+watch(locale, (l) => { document.documentElement.lang = l }, { immediate: true })
 
-function onMouseMove(e) {
-  if (cursorGlow.value) {
-    gsap.to(cursorGlow.value, {
-      x: e.clientX,
-      y: e.clientY,
-      duration: 0.8,
-      ease: 'power3.out',
-    })
-  }
-}
-
-onMounted(() => {
-  if (!hasHover.value) return
-  window.addEventListener('mousemove', onMouseMove)
-})
-
-onUnmounted(() => {
-  window.removeEventListener('mousemove', onMouseMove)
-})
+useTheme()
 </script>
 
 <template>
-  <div class="cursor-glow" v-if="hasHover" ref="cursorGlow" />
   <NavBar />
   <router-view />
   <CvTemplate />

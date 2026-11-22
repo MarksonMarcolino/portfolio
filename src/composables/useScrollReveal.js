@@ -15,6 +15,10 @@ export function useScrollReveal(containerRef, selector, options = {}) {
 
   onMounted(() => {
     ctx = gsap.context(() => {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        gsap.set(selector, { autoAlpha: 1 })
+        return
+      }
       gsap.fromTo(
         selector,
         { autoAlpha: 0, y },

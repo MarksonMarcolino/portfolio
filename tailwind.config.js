@@ -19,9 +19,9 @@ export default {
         'status-progress': 'var(--status-progress)',
       },
       fontFamily: {
-        display: ['Bebas Neue', 'sans-serif'],
-        mono: ['"JetBrains Mono"', 'monospace'],
-        sans: ['Inter', 'sans-serif'],
+        display: ['"Instrument Sans"', 'system-ui', 'sans-serif'],
+        mono: ['"Martian Mono"', 'ui-monospace', 'monospace'],
+        sans: ['"Instrument Sans"', 'system-ui', 'sans-serif'],
       },
       fontSize: {
         xs: 'var(--text-xs)',

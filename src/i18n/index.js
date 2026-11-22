@@ -6,9 +6,8 @@ import fr from './locales/fr.js'
 
 const supported = ['en', 'pt', 'es', 'fr']
 
-const savedLocale = typeof localStorage !== 'undefined'
-  ? localStorage.getItem('locale')
-  : null
+let savedLocale = null
+try { savedLocale = localStorage.getItem('locale') } catch {}
 
 function detectLocale() {
   if (savedLocale && supported.includes(savedLocale)) return savedLocale

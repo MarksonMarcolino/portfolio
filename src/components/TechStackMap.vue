@@ -1,15 +1,34 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useScrollReveal } from '../composables/useScrollReveal.js'
 import { stackCategories } from '../data/stack.js'
+import { stages } from '../data/stages.js'
 import { BookOpen } from 'lucide-vue-next'
 import SectionHeader from './SectionHeader.vue'
+import StageTag from './StageTag.vue'
 
 const { t } = useI18n()
 const sectionRef = ref(null)
 
 useScrollReveal(sectionRef, '.stack-card', { y: 25, stagger: 0.05 })
+
+const groups = computed(() => {
+  const all = stackCategories.flatMap((c) => c.items)
+  const order = [...stages.map((s) => s.id), null]
+  return order
+    .map((stage) => {
+      const items = all.filter((i) => (i.stage ?? null) === stage)
+      return {
+        stage,
+        items: [
+          ...items.filter((i) => i.tier === 'production'),
+          ...items.filter((i) => i.tier !== 'production'),
+        ],
+      }
+    })
+    .filter((g) => g.items.length)
+})
 </script>
 
 <template>
@@ -19,43 +38,38 @@ useScrollReveal(sectionRef, '.stack-card', { y: 25, stagger: 0.05 })
         <SectionHeader :title="t('stack.title')" :subtitle="t('stack.subtitle')" />
         <div class="hidden sm:flex items-center gap-4" style="font-family: var(--font-sans); font-size: var(--text-xs); color: var(--text-faint);">
           <span class="flex items-center gap-1.5">
-            <span class="w-2 h-2 rounded-full" style="background: #f0f0f0;" />
+            <span class="w-2 h-2 rounded-full" style="background: var(--text-primary);" />
             {{ t('stack.production') }}
           </span>
           <span class="flex items-center gap-1.5">
-            <span class="w-2 h-2 rounded-full" style="background: #444;" />
+            <span class="w-2 h-2 rounded-full" style="background: var(--border-strong);" />
             {{ t('stack.knowledge') }}
           </span>
         </div>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-4 gap-y-5 items-stretch">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-5 items-stretch">
         <div
-          v-for="cat in stackCategories"
-          :key="cat.category"
+          v-for="g in groups"
+          :key="g.stage ?? 'platform'"
           class="stack-card card p-5 h-full"
           style="visibility: hidden;"
         >
-          <h3 class="mb-3" style="font-family: var(--font-sans); font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-secondary);">
-            {{ t(`stack.categories.${cat.category}`) }}
+          <h3 class="mb-3">
+            <StageTag v-if="g.stage" :stage="g.stage" />
+            <span v-else class="platform-heading">{{ t('stack.groups.platform') }}</span>
           </h3>
           <div class="flex flex-wrap gap-1.5">
-            <template v-for="item in cat.items" :key="item.name">
+            <template v-for="item in g.items" :key="item.name">
               <span
                 v-if="item.tier === 'production'"
-                class="inline-block rounded transition-colors duration-200 cursor-default"
-                style="background: rgba(240,240,240,0.06); border: 1px solid rgba(240,240,240,0.15); color: var(--text-primary); font-family: var(--font-mono); font-size: var(--text-xs); padding: 3px 10px;"
-                @mouseenter="(e) => { e.target.style.borderColor = 'rgba(0,210,255,0.5)'; e.target.style.color = '#00d2ff' }"
-                @mouseleave="(e) => { e.target.style.borderColor = 'rgba(240,240,240,0.15)'; e.target.style.color = '#f0f0f0' }"
+                class="chip chip-production inline-block rounded transition-colors duration-200 cursor-default"
               >
                 {{ item.name }}
               </span>
               <span
                 v-else
-                class="inline-flex items-center gap-1 rounded transition-colors duration-200"
-                style="background: transparent; border: 1px solid rgba(255,255,255,0.06); color: var(--text-faint); font-family: var(--font-mono); font-size: var(--text-xs); padding: 3px 10px; cursor: default;"
-                @mouseenter="(e) => { e.currentTarget.style.color = '#666' }"
-                @mouseleave="(e) => { e.currentTarget.style.color = '#444' }"
+                class="chip chip-knowledge inline-flex items-center gap-1 rounded transition-colors duration-200"
               >
                 <BookOpen :size="10" />
                 {{ item.name }}
@@ -67,3 +81,35 @@ useScrollReveal(sectionRef, '.stack-card', { y: 25, stagger: 0.05 })
     </div>
   </section>
 </template>
+
+<style scoped>
+.platform-heading {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+.chip {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  padding: 3px 10px;
+  cursor: default;
+}
+.chip-production {
+  background: var(--bg-2);
+  border: 1px solid var(--border-default);
+  color: var(--text-primary);
+}
+.chip-production:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.chip-knowledge {
+  background: transparent;
+  border: 1px solid var(--border-subtle);
+  color: var(--text-faint);
+}
+.chip-knowledge:hover {
+  color: var(--text-primary);
+}
+</style>

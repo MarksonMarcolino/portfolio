@@ -36,12 +36,12 @@ const contacts = [
           target="_blank"
           rel="noopener"
           class="contact-row flex items-center justify-between cursor-pointer transition-all duration-200 group"
-          :style="{ padding: '20px 0', borderBottom: '1px solid rgba(255,255,255,0.06)', borderTop: i === 0 ? '1px solid rgba(255,255,255,0.06)' : 'none', textDecoration: 'none' }"
+          :style="{ padding: '20px 0', borderBottom: '1px solid var(--border-subtle)', borderTop: i === 0 ? '1px solid var(--border-subtle)' : 'none', textDecoration: 'none' }"
         >
-          <div class="flex items-center" style="gap: 16px;">
+          <div class="flex items-center min-w-0" style="gap: 16px; flex-wrap: wrap; row-gap: 4px;">
             <component :is="c.icon" :size="20" class="shrink-0 transition-colors duration-200" style="color: var(--text-secondary);" />
             <span class="transition-colors duration-200" style="font-family: var(--font-sans); font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-secondary);">{{ c.label }}</span>
-            <span class="transition-colors duration-200" style="font-family: var(--font-sans); font-size: var(--text-lg); color: var(--text-primary);">{{ c.display }}</span>
+            <span class="transition-colors duration-200 min-w-0" style="font-family: var(--font-display); font-weight: 600; font-size: var(--text-lg); color: var(--text-primary); overflow-wrap: anywhere;">{{ c.display }}</span>
           </div>
           <ArrowRight :size="16" class="contact-arrow shrink-0 transition-all duration-200" style="color: var(--text-faint);" />
         </a>

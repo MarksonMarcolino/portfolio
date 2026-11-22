@@ -5,6 +5,7 @@ export default {
     projects: 'Projects',
     timeline: "Work and study",
     sections: "Sections",
+    closeMenu: "Close menu",
     publications: 'Publications',
     about: 'About',
     contact: 'Contact',
@@ -101,7 +102,7 @@ export default {
       },
       'interlink-2018': {
         title: 'Project Manager',
-        description: 'Led remote and on-site software development teams. Managed backlog, sprints, and UX collaboration. Conducted technology research for innovative solutions.',
+        description: 'Led remote and on-site software development teams. Managed backlog, sprints, and UX collaboration.',
       },
       'professor-2010': {
         title: 'Professor of Computer Science',

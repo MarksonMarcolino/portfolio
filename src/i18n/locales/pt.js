@@ -5,6 +5,7 @@ export default {
     projects: 'Projetos',
     timeline: "Trabalho e estudos",
     sections: "Seções",
+    closeMenu: "Fechar menu",
     publications: 'Publicações',
     about: 'Sobre',
     contact: 'Contato',
@@ -101,7 +102,7 @@ export default {
       },
       'interlink-2018': {
         title: 'Gerente de Projetos',
-        description: 'Liderança de equipes de desenvolvimento de software remotas e presenciais. Gestão de backlog, sprints e colaboração de UX. Pesquisa tecnológica para soluções inovadoras.',
+        description: 'Liderança de equipes de desenvolvimento de software remotas e presenciais. Gestão de backlog, sprints e colaboração de UX.',
       },
       'professor-2010': {
         title: 'Professor de Informática e Desenvolvimento de Software',

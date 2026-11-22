@@ -16,7 +16,7 @@ export function useScrollReveal(containerRef, selector, options = {}) {
   onMounted(() => {
     ctx = gsap.context(() => {
       if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        gsap.set(selector, { autoAlpha: 1 })
+        gsap.set(selector, { autoAlpha: 1, clearProps: 'opacity' })
         return
       }
       gsap.fromTo(
@@ -28,6 +28,7 @@ export function useScrollReveal(containerRef, selector, options = {}) {
           duration,
           ease,
           stagger,
+          clearProps: 'opacity,transform,translate,rotate,scale',
           scrollTrigger: {
             trigger: containerRef.value,
             start,

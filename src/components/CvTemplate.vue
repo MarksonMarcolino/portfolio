@@ -5,7 +5,7 @@ import { timeline } from '../data/timeline.js'
 import { publications } from '../data/publications.js'
 import { stackCategories } from '../data/stack.js'
 
-const { t } = useI18n()
+const { t, locale } = useI18n()
 
 const parseDate = (d) => {
   if (!d || d === 'Present') return '9999-12'
@@ -39,8 +39,7 @@ function formatDate(d) {
   if (d === 'Present') return t('cv.present')
   const [y, m] = d.split('-')
   if (!m) return y
-  const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
-  return `${months[parseInt(m) - 1]} ${y}`
+  return new Intl.DateTimeFormat(locale.value, { month: 'short', year: 'numeric' }).format(new Date(Number(y), Number(m) - 1, 1))
 }
 </script>
 

@@ -161,8 +161,8 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
       class="fixed inset-0 md:hidden flex flex-col items-center justify-center"
       style="background: var(--bg-0); z-index: 9999;"
     >
-      <button @click="mobileOpen = false" class="absolute top-5 right-5 cursor-pointer" style="color: var(--text-secondary);">
-        <X :size="28" />
+      <button @click="mobileOpen = false" class="absolute top-5 right-5 cursor-pointer" style="color: var(--text-secondary);" :aria-label="t('nav.closeMenu')">
+        <X :size="28" aria-hidden="true" />
       </button>
       <!-- Language switcher in overlay -->
       <div class="absolute top-5 left-5 flex gap-2">

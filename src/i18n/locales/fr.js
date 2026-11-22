@@ -5,6 +5,7 @@ export default {
     projects: 'Projets',
     timeline: "Travail et études",
     sections: "Sections",
+    closeMenu: "Fermer le menu",
     publications: 'Publications',
     about: 'À propos',
     contact: 'Contact',
@@ -101,7 +102,7 @@ export default {
       },
       'interlink-2018': {
         title: 'Chef de Projet',
-        description: 'Direction d\'équipes de développement logiciel à distance et sur site. Gestion du backlog, des sprints et collaboration UX. Recherche technologique pour des solutions innovantes.',
+        description: 'Direction d\'équipes de développement logiciel à distance et sur site. Gestion du backlog, des sprints et collaboration UX.',
       },
       'professor-2010': {
         title: 'Professeur d\'Informatique et Développement Logiciel',

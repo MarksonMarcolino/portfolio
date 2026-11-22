@@ -136,7 +136,7 @@ export const timeline = [
     location: 'Rosario',
     dateStart: '2018-10',
     dateEnd: '2021-07',
-    description: 'Led remote and on-site software development teams. Managed backlog, sprints, and UX collaboration. Conducted technology research for innovative solutions.',
+    description: 'Led remote and on-site software development teams. Managed backlog, sprints, and UX collaboration.',
     stack: ['Scrum', 'Kanban', 'Agile'],
     tags: ['Project Management', 'Team Lead', 'Product'],
     link: null,

@@ -29,7 +29,7 @@ export default {
     },
   },
   hero: {
-    tagline: 'Engenheiro de Dados na Universidad Francisco de Vitoria | Doutorando em Ciência de Dados na Universidad Complutense de Madrid',
+    tagline: "Engenheiro de Dados na Universidad Francisco de Vitoria {'|'} Doutorando em Ciência de Dados na Universidad Complutense de Madrid",
     greeting: 'Oi, eu sou o Markson,',
     line1: 'ENGENHEIRO',
     line2: 'DE DADOS',
@@ -82,11 +82,11 @@ export default {
     entries: {
       'ufv-2026': {
         title: 'Engenheiro de Dados',
-        description: 'Construção e operação da plataforma de dados da universidade na AWS, da ingestão das fontes a uma camada silver governada, em dev e produção. Integração de três fontes ao lakehouse: o ERP acadêmico Oracle (UXXI), o Canvas LMS via Canvas Data 2 (95 tabelas, incluindo logs web de alto volume) e o PostgreSQL da plataforma de eventos, com toda a ingestão rodando no Airbyte, gerenciado como config-as-code. Construção de pipelines bronze para silver no AWS Glue e Apache Iceberg com MERGE incremental, deduplicação e tratamento de deleções, detecção de schema drift, verificações de qualidade de dados com Great Expectations e alertas em caso de falha. Gestão da infraestrutura com Terraform: camadas medallion no S3, Glue Data Catalog, permissões no Lake Formation, IAM de privilégio mínimo, Secrets Manager e alertas CloudWatch/SNS, com releases promovidos de dev para prod via GitHub Actions com OIDC. Escrita de ADRs e runbooks e manutenção do wiki da equipe como fonte de verdade sobre o que roda em produção, incluindo dicionários de dados. Construção de um fluxo de engenharia multiagente com Claude Code (explorar, planejar, implementar, revisar): todo push recebe uma revisão cruzada entre modelos, o recall das revisões é medido contra o GitHub Copilot, e pushes e aplicações de infraestrutura continuam sob aprovação humana.',
+        description: 'Construção e operação da plataforma de dados da universidade na AWS, da ingestão das fontes a uma camada silver governada, em dev e produção. Integração de três fontes ao lakehouse: o ERP acadêmico Oracle (UXXI), o Canvas LMS via Canvas Data 2 (95 tabelas, incluindo logs web de alto volume) e o PostgreSQL da plataforma de eventos, com toda a ingestão rodando no Airbyte, gerenciado como config-as-code. Construção de pipelines bronze para silver no AWS Glue e Apache Iceberg com MERGE incremental, deduplicação e tratamento de deleções, detecção de schema drift, verificações de qualidade de dados com Great Expectations e alertas em caso de falha. Gestão da infraestrutura com Terraform: camadas medallion no S3, Glue Data Catalog, permissões no Lake Formation, IAM de privilégio mínimo, Secrets Manager e alertas CloudWatch/SNS, com releases promovidos de dev para prod via GitHub Actions com OIDC. Escrita de ADRs e runbooks e manutenção do wiki da equipe como fonte de verdade sobre o que roda em produção, incluindo dicionários de dados. Construção de um fluxo de engenharia multiagente com Claude Code (explorar, planejar, implementar, revisar): todo push recebe uma revisão cruzada entre modelos, o recall das revisões é medido contra o GitHub Copilot, e pushes e implantações de infraestrutura continuam sob aprovação humana.',
       },
       'phd-2026': {
         title: 'Doutorando em Ciência de Dados (Programa de Doctorado en Análisis de Datos / Data Science)',
-        description: 'Facultad de Estudios Estadísticos. Orientador: Dr. Adolfo Hernández Estrada. Pesquisa sobre evasão universitária, levando os sistemas de alerta precoce da predição para a decisão: estimar quais intervenções de apoio realmente ajudam quais estudantes (efeitos heterogêneos, não apenas risco) e alocar recursos institucionais limitados, como tutoria, sob restrições de orçamento e equidade, combinando inferência causal com otimização.',
+        description: 'Pesquisa sobre evasão universitária, levando os sistemas de alerta precoce da predição para a decisão: estimar quais intervenções de apoio realmente ajudam quais estudantes (efeitos heterogêneos, não apenas risco) e alocar recursos institucionais limitados, como tutoria, sob restrições de orçamento e equidade, combinando inferência causal com otimização. Facultad de Estudios Estadísticos. Tutor: Dr. Adolfo Hernández Estrada.',
       },
       'accenture-2025': {
         title: 'Engenheiro de Dados',

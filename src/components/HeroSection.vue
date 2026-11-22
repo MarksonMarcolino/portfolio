@@ -215,11 +215,6 @@ function scrollToWork() {
 </template>
 
 <style scoped>
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.4; }
-}
-
 @media (max-width: 767px) {
   #hero {
     grid-template-columns: 1fr !important;

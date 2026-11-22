@@ -29,7 +29,7 @@ export default {
     },
   },
   hero: {
-    tagline: 'Data Engineer at Universidad Francisco de Vitoria | PhD student in Data Science at Universidad Complutense de Madrid',
+    tagline: "Data Engineer at Universidad Francisco de Vitoria {'|'} PhD student in Data Science at Universidad Complutense de Madrid",
     greeting: "Hey, I'm Markson,",
     line1: 'A DATA',
     line2: 'ENGINEER',
@@ -86,7 +86,7 @@ export default {
       },
       'phd-2026': {
         title: 'PhD student in Data Science (Programa de Doctorado en Análisis de Datos / Data Science)',
-        description: 'Facultad de Estudios Estadísticos. Tutor: Dr. Adolfo Hernández Estrada. Research on university student dropout, moving early-warning systems from prediction to decision: estimating which support interventions actually help which students (heterogeneous effects, not only risk), and allocating limited institutional resources such as tutoring under budget and fairness constraints, combining causal inference with optimization.',
+        description: 'Research on university student dropout, moving early-warning systems from prediction to decision: estimating which support interventions actually help which students (heterogeneous effects, not only risk), and allocating limited institutional resources such as tutoring under budget and fairness constraints, combining causal inference with optimization. Facultad de Estudios Estadísticos. Tutor: Dr. Adolfo Hernández Estrada.',
       },
       'accenture-2025': {
         title: 'Data Engineer',

@@ -22,7 +22,7 @@ export const timeline = [
     location: 'Madrid',
     dateStart: '2026-10',
     dateEnd: 'Present',
-    description: 'Facultad de Estudios Estadísticos. Tutor: Dr. Adolfo Hernández Estrada. Research on university student dropout, moving early-warning systems from prediction to decision: estimating which support interventions actually help which students (heterogeneous effects, not only risk), and allocating limited institutional resources such as tutoring under budget and fairness constraints, combining causal inference with optimization.',
+    description: 'Research on university student dropout, moving early-warning systems from prediction to decision: estimating which support interventions actually help which students (heterogeneous effects, not only risk), and allocating limited institutional resources such as tutoring under budget and fairness constraints, combining causal inference with optimization. Facultad de Estudios Estadísticos. Tutor: Dr. Adolfo Hernández Estrada.',
     stack: [],
     tags: ['Research', 'Education'],
     link: null,

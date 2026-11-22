@@ -15,7 +15,7 @@ const contacts = [
 
 <template>
   <section id="contact" class="relative z-10 px-4" style="padding-top: clamp(80px, 10vw, 120px); padding-bottom: 0;">
-    <div class="max-w-4xl mx-auto">
+    <div class="max-w-6xl mx-auto">
       <!-- Title -->
       <div class="text-center" style="margin-bottom: 48px;">
         <div style="font-family: var(--font-display); font-size: var(--display-xl); line-height: 0.92; font-weight: 400;">

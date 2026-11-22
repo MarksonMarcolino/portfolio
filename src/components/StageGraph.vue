@@ -105,6 +105,10 @@ const { t } = useI18n()
   color: var(--bronze);
 }
 
+.node-tag .sr-only {
+  text-transform: none;
+}
+
 .node.research .node-tag {
   color: var(--research);
 }

@@ -84,7 +84,7 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
 
 <template>
   <nav ref="navRef" class="fixed top-0 left-0 right-0 z-50 flex items-center" style="background: color-mix(in srgb, var(--bg-0) 85%, transparent); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border-subtle); height: 56px;">
-    <div class="max-w-6xl mx-auto px-4 w-full flex items-center justify-between">
+    <div class="max-w-[1184px] mx-auto px-4 w-full flex items-center justify-between">
       <a href="#hero" @click.prevent="scrollTo('#hero')" class="font-mono font-bold text-lg" style="color: var(--text-primary);">M.</a>
 
       <div class="hidden md:flex items-center gap-6">

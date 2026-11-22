@@ -1,6 +1,7 @@
 export const publications = [
   {
     id: 'nature-2025',
+    stage: 'predict',
     title: 'Student dropout prediction through machine learning optimization: insights from moodle log data',
     venue: 'Scientific Reports',
     year: 2025,
@@ -11,6 +12,7 @@ export const publications = [
   },
   {
     id: 'springer-2025',
+    stage: 'predict',
     title: 'Understanding School Factors Related to Student Absenteeism in Brazilian Public High Schools: Insights for Educational Policy Through a Clustering Approach',
     venue: 'LACLO 2025 (Springer LNET)',
     year: 2026,
@@ -21,6 +23,7 @@ export const publications = [
   },
   {
     id: 'dgo-2025-1',
+    stage: 'refine',
     title: "Ensuring Data Quality in National Educational Databases: Insights from Brazil's Centralized Database of High School Students' Data",
     venue: 'Conference on Digital Government Research, PUCRS, Porto Alegre',
     year: 2025,
@@ -31,6 +34,7 @@ export const publications = [
   },
   {
     id: 'dgo-2025-2',
+    stage: 'refine',
     title: 'Leveraging String Similarity Algorithms for Educational Data Validation: A Scalable Approach for Digital Governance',
     venue: 'Conference on Digital Government Research, PUCRS, Porto Alegre',
     year: 2025,
@@ -41,6 +45,7 @@ export const publications = [
   },
   {
     id: 'blucher-2018',
+    stage: null,
     title: 'A internalização do conhecimento em energia solar fotovoltaica por meio da gamificação de Ambientes Virtuais de Ensino e de Aprendizagem',
     venue: 'EAD, PBL e o Desafio da Educação em Rede (Blucher)',
     year: 2018,

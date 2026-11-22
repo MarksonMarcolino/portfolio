@@ -3,7 +3,8 @@ export default {
     home: 'Accueil',
     stack: 'Technologies',
     projects: 'Projets',
-    timeline: 'Parcours',
+    timeline: "Travail et études",
+    sections: "Sections",
     publications: 'Publications',
     about: 'À propos',
     contact: 'Contact',
@@ -30,6 +31,17 @@ export default {
   },
   hero: {
     tagline: "Ingénieur de Données à l'Universidad Francisco de Vitoria {'|'} Doctorant en science des données à l'Universidad Complutense de Madrid",
+    years: "plus de 15 ans dans la tech",
+    languagesCount: "4 langues",
+    lede: "Je suis ingénieur de données et doctorant en science des données, et je travaille sur le même problème des deux côtés : construire les plateformes de données sur lesquelles tournent les universités, et rechercher comment utiliser ces données pour aider les étudiants à terminer leurs études.",
+    roleEngineering: {
+      title: "Ingénieur de Données",
+      place: "à l'Universidad Francisco de Vitoria",
+    },
+    roleResearch: {
+      title: "Doctorant en science des données",
+      place: "à l'Universidad Complutense de Madrid",
+    },
     greeting: 'Bonjour, je suis Markson,',
     line1: 'INGÉNIEUR',
     line2: 'DE DONNÉES',
@@ -56,6 +68,9 @@ export default {
   stack: {
     title: 'Technologies',
     subtitle: 'Outils et technologies que j\'utilise',
+    groups: {
+      platform: "Plateforme et produits",
+    },
     production: 'Production',
     knowledge: 'Connaissances',
     categories: {
@@ -70,8 +85,10 @@ export default {
     },
   },
   timeline: {
-    title: 'Parcours Professionnel',
+    title: "Travail et études",
     subtitle: 'Emplois, formation et certifications',
+    fullDescription: "Description complète",
+    tools: "Outils",
     filtering: 'Filtrage',
     types: {
       work: 'Emploi',
@@ -83,6 +100,7 @@ export default {
       'ufv-2026': {
         title: 'Ingénieur de Données',
         description: "Construction et exploitation de la plateforme de données de l'université sur AWS, de l'ingestion des sources à une couche silver gouvernée, en dev et en production. Intégration de trois sources au lakehouse : l'ERP académique Oracle (UXXI), Canvas LMS via Canvas Data 2 (95 tables, dont des logs web à fort volume) et le PostgreSQL de la plateforme d'événements, avec toute l'ingestion sur Airbyte, géré en config-as-code. Construction de pipelines bronze vers silver sur AWS Glue et Apache Iceberg avec MERGE incrémental, déduplication et gestion des suppressions, détection de schema drift, contrôles de qualité des données avec Great Expectations et alertes en cas d'échec. Gestion de l'infrastructure avec Terraform : couches medallion sur S3, Glue Data Catalog, permissions Lake Formation, IAM à privilèges minimaux, Secrets Manager et alertes CloudWatch/SNS, avec des releases promues de dev à prod via GitHub Actions avec OIDC. Rédaction des ADR et des runbooks, et tenue du wiki de l'équipe comme source de vérité de ce qui tourne en production, dictionnaires de données inclus. Construction d'un workflow d'ingénierie multi-agents avec Claude Code (explorer, planifier, implémenter, relire) : chaque push reçoit une revue croisée entre modèles, le rappel des revues est mesuré face à GitHub Copilot, et les pushs et les déploiements d'infrastructure restent soumis à validation humaine.",
+        summary: "Construction et exploitation de la plateforme de données de l'université sur AWS, de l'ingestion des sources à une couche silver gouvernée, en dev et en production.",
       },
       'phd-2026': {
         title: 'Doctorant en science des données (Programa de Doctorado en Análisis de Datos / Data Science)',
@@ -142,7 +160,7 @@ export default {
       },
       'masters-2024': {
         title: 'Master en Technologies de l\'Information et de la Communication',
-        description: 'Thèse : "Prédiction du Décrochage Étudiant par Optimisation du Machine Learning : Insights à partir des Données d\'Inscription Moodle"',
+        description: 'Mémoire : "Prédiction du Décrochage Étudiant par Optimisation du Machine Learning : Insights à partir des Données de Log Moodle"',
       },
       'bachelors-2010': {
         title: 'Licence en Technologies de l\'Information et de la Communication',
@@ -197,7 +215,7 @@ export default {
       masters: 'Master en Technologies de l\'Information et de la Communication',
       bachelors: 'Licence en Technologies de l\'Information et de la Communication',
     },
-    bio: "Je suis ingénieur de données et doctorant en science des données, et je travaille sur le même problème des deux côtés : construire les plateformes de données sur lesquelles tournent les universités, et rechercher comment utiliser ces données pour aider les étudiants à terminer leurs études. À l'Universidad Francisco de Vitoria, je construis et j'exploite la plateforme de données AWS de l'université. À l'Universidad Complutense de Madrid, ma recherche doctorale fait passer le travail sur le décrochage de la prédiction à la décision, en utilisant l'inférence causale et l'optimisation pour allouer le soutien de façon équitable et efficace. Auparavant, ma recherche de master à l'UFSC sur le machine learning et la fouille de données éducatives a donné lieu à un article en tant que premier auteur dans Scientific Reports.",
+    bio: "À l'Universidad Francisco de Vitoria, je construis et j'exploite la plateforme de données AWS de l'université. À l'Universidad Complutense de Madrid, ma recherche doctorale fait passer le travail sur le décrochage de la prédiction à la décision, en utilisant l'inférence causale et l'optimisation pour allouer le soutien de façon équitable et efficace. Auparavant, ma recherche de master à l'UFSC sur le machine learning et la fouille de données éducatives a donné lieu à un article en tant que premier auteur dans Scientific Reports.",
     languages: 'Langues',
     currentlyBuilding: 'Je construis actuellement',
     langList: {
@@ -224,6 +242,7 @@ export default {
     footer: '© 2026 Markson Marcolino · Construit avec Vue 3',
   },
   common: {
+    orcid: "ORCID",
     liveSite: 'Site',
     viewBadge: 'Voir le Badge',
     viewCertificate: 'Voir le Certificat',
@@ -234,6 +253,44 @@ export default {
     github: 'GitHub',
     swipe: 'Glisser',
     dragToScroll: 'Glissez ou faites défiler',
+  },
+  theme: {
+    toLight: "Passer au thème clair",
+    toDark: "Passer au thème sombre",
+  },
+  lanes: {
+    engineering: "Ingénierie",
+    research: "Recherche et enseignement",
+  },
+  graph: {
+    title: "De la source à la décision",
+    legend: {
+      engineering: "Ingénierie",
+      research: "Recherche",
+    },
+    caption: "Où chaque étape du travail a eu lieu. C'est une carte du travail, pas un flux de données entre ces organisations.",
+  },
+  stages: {
+    ingest: {
+      label: "Ingestion",
+      line: "Réunir les sources dans une seule plateforme",
+      where: "Universidad Francisco de Vitoria : ERP académique, Canvas LMS, PostgreSQL",
+    },
+    refine: {
+      label: "Raffinement",
+      line: "De bronze vers silver, avec des contrôles de qualité des données",
+      where: "Universidad Francisco de Vitoria · Accenture",
+    },
+    predict: {
+      label: "Analyse et prédiction",
+      line: "Les tendances derrière le décrochage et l'absentéisme, et qui est à risque",
+      where: "Master à l'UFSC : prédiction du décrochage à partir des logs Moodle · NEES : tendances de rétention dans plus de 10 millions de dossiers d'étudiants",
+    },
+    decide: {
+      label: "Décision",
+      line: "Quel soutien aide quels étudiants, sous contraintes de budget et d'équité",
+      where: "Recherche doctorale à l'Universidad Complutense de Madrid : inférence causale et optimisation",
+    },
   },
   tags: {
     'Data Engineering': 'Ingénierie des Données',

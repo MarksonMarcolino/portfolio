@@ -1,6 +1,7 @@
 export const timeline = [
   {
     id: 'ufv-2026',
+    lane: 'engineering',
     type: 'work',
     title: 'Data Engineer',
     org: 'Universidad Francisco de Vitoria',
@@ -16,6 +17,7 @@ export const timeline = [
   },
   {
     id: 'phd-2026',
+    lane: 'research',
     type: 'education',
     title: 'PhD student in Data Science (Programa de Doctorado en Análisis de Datos / Data Science)',
     org: 'Universidad Complutense de Madrid',
@@ -31,6 +33,7 @@ export const timeline = [
   },
   {
     id: 'accenture-2025',
+    lane: 'engineering',
     type: 'work',
     title: 'Data Engineer',
     org: 'Accenture',
@@ -46,6 +49,7 @@ export const timeline = [
   },
   {
     id: 'nees-2024',
+    lane: 'research',
     type: 'work',
     title: 'Data Scientist',
     org: 'NEES',
@@ -61,6 +65,7 @@ export const timeline = [
   },
   {
     id: 'eattasty-2023',
+    lane: 'engineering',
     type: 'work',
     title: 'Data Scientist',
     org: 'Eattasty',
@@ -76,6 +81,7 @@ export const timeline = [
   },
   {
     id: 'seedify-2022',
+    lane: 'engineering',
     type: 'work',
     title: 'Project Manager',
     org: 'Seedify',
@@ -91,6 +97,7 @@ export const timeline = [
   },
   {
     id: 'avature-2022',
+    lane: 'engineering',
     type: 'work',
     title: 'Implementation Consultant',
     org: 'Avature',
@@ -106,6 +113,7 @@ export const timeline = [
   },
   {
     id: 'farfetch-2021',
+    lane: 'engineering',
     type: 'work',
     title: 'Support Engineer',
     org: 'Farfetch',
@@ -121,6 +129,7 @@ export const timeline = [
   },
   {
     id: 'interlink-2018',
+    lane: 'engineering',
     type: 'work',
     title: 'Project Manager',
     org: 'Interlink',
@@ -136,6 +145,7 @@ export const timeline = [
   },
   {
     id: 'professor-2010',
+    lane: 'research',
     type: 'work',
     title: 'Professor of Computer Science',
     org: 'SATC & CEDUP',
@@ -151,6 +161,7 @@ export const timeline = [
   },
   {
     id: 'masters-2024',
+    lane: 'research',
     type: 'education',
     title: "Master's in Information and Communication Technologies",
     org: 'Universidade Federal de Santa Catarina',
@@ -166,6 +177,7 @@ export const timeline = [
   },
   {
     id: 'bachelors-2010',
+    lane: 'research',
     type: 'education',
     title: "Bachelor's in Information and Communication Technologies",
     org: 'Universidade Federal de Santa Catarina',
@@ -181,6 +193,7 @@ export const timeline = [
   },
   {
     id: 'gcp-cert-2025',
+    lane: 'engineering',
     type: 'certification',
     title: 'Google Cloud Certified: Cloud Digital Leader',
     org: 'Google',
@@ -196,6 +209,7 @@ export const timeline = [
   },
   {
     id: 'hec-cert-2019',
+    lane: 'engineering',
     type: 'certification',
     title: 'Creation and Development of a Technology Startup',
     org: 'HEC Paris',

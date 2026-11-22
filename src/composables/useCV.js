@@ -2,19 +2,27 @@ import { useI18n } from 'vue-i18n'
 
 const INTER_HREF = 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap'
 
-async function loadCvFont() {
-  if (!document.getElementById('cv-font')) {
+let cvFontReady
+
+function loadCvFont() {
+  cvFontReady ??= new Promise((resolve, reject) => {
     const link = document.createElement('link')
     link.id = 'cv-font'
     link.rel = 'stylesheet'
     link.href = INTER_HREF
-    await new Promise((resolve) => {
-      link.onload = resolve
-      link.onerror = resolve
-      document.head.appendChild(link)
+    link.onload = resolve
+    link.onerror = () => {
+      link.remove()
+      cvFontReady = undefined
+      reject(new Error('Inter stylesheet failed to load'))
+    }
+    document.head.appendChild(link)
+  })
+    .then(() => Promise.all(['400 13px Inter', '600 13px Inter', '700 26px Inter'].map((f) => document.fonts.load(f))))
+    .then((faces) => {
+      if (faces.some((f) => f.length === 0)) console.warn('CV: Inter unavailable, PDF uses the fallback font')
     })
-  }
-  await Promise.all(['400 13px Inter', '600 13px Inter', '700 26px Inter'].map((f) => document.fonts.load(f)))
+  return cvFontReady.catch((e) => console.warn(`CV: ${e.message}, PDF uses the fallback font`))
 }
 
 export function useCV() {

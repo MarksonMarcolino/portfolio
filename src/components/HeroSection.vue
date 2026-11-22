@@ -1,284 +1,184 @@
 <script setup>
-import { ref, onMounted, onUnmounted, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { useLenis } from '../composables/useLenis.js'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { ArrowRight, Github, Download } from 'lucide-vue-next'
+import { Github, Download } from 'lucide-vue-next'
 import { useCV } from '../composables/useCV.js'
+import StageGraph from './StageGraph.vue'
 
-const { t, locale } = useI18n()
-const lenis = useLenis()
+const { t } = useI18n()
 const { downloadCV } = useCV()
-
-// Typewriter for cycling roles
-const roleKeys = ['dataEngineer', 'mlResearcher', 'fullStackBuilder']
-const displayRole = ref('')
-const roleIndex = ref(0)
-const charIndex = ref(0)
-const isDeleting = ref(false)
-let typeTimer = null
-
-function typeTick() {
-  const roles = roleKeys.map(k => t(`hero.roles.${k}`).toUpperCase())
-  const current = roles[roleIndex.value]
-  if (!isDeleting.value) {
-    displayRole.value = current.substring(0, charIndex.value + 1)
-    charIndex.value++
-    if (charIndex.value === current.length) {
-      typeTimer = setTimeout(() => { isDeleting.value = true; typeTick() }, 2200)
-      return
-    }
-    typeTimer = setTimeout(typeTick, 90)
-  } else {
-    displayRole.value = current.substring(0, charIndex.value - 1)
-    charIndex.value--
-    if (charIndex.value === 0) {
-      isDeleting.value = false
-      roleIndex.value = (roleIndex.value + 1) % roles.length
-      typeTimer = setTimeout(typeTick, 400)
-      return
-    }
-    typeTimer = setTimeout(typeTick, 45)
-  }
-}
-
-watch(locale, () => {
-  clearTimeout(typeTimer)
-  charIndex.value = 0
-  isDeleting.value = false
-  displayRole.value = ''
-  typeTick()
-})
-
-const stats = [
-  { key: 'experience', value: 15, suffix: '+' },
-  { key: 'papers', value: 5, suffix: '' },
-  { key: 'products', value: 3, suffix: '' },
-  { key: 'languages', value: 4, suffix: '' },
-]
-
-const statRefs = ref({})
-const heroRef = ref(null)
-let gsapCtx
-
-onMounted(() => {
-  typeTick()
-  gsapCtx = gsap.context(() => {
-    // Entrance sequence
-    const tl = gsap.timeline({ delay: 0.3 })
-
-    tl.fromTo('.hero-heading-line',
-      { opacity: 0, y: 50, skewY: 2 },
-      { opacity: 1, y: 0, skewY: 0, duration: 0.7, ease: 'power4.out', stagger: 0.1 })
-
-      .fromTo('.hero-tagline',
-        { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' },
-        '-=0.4')
-
-      .fromTo('.hero-buttons',
-        { opacity: 0, y: 15 },
-        { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' },
-        '-=0.3')
-
-      .fromTo('.hero-stat',
-        { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 0.4, ease: 'power2.out', stagger: 0.08 },
-        '-=0.2')
-
-      .fromTo('.hero-photo',
-        { opacity: 0, scale: 0.94 },
-        { opacity: 1, scale: 1, duration: 1.0, ease: 'power3.out' },
-        '-=0.8')
-
-    // Stats counter animation
-    stats.forEach((stat) => {
-      const el = statRefs.value[stat.key]
-      if (!el) return
-      ScrollTrigger.create({
-        trigger: el,
-        start: 'top 90%',
-        once: true,
-        onEnter: () => {
-          const obj = { val: 0 }
-          gsap.to(obj, {
-            val: stat.value,
-            duration: 1.5,
-            ease: 'power2.out',
-            onUpdate: () => {
-              el.textContent = Math.round(obj.val) + stat.suffix
-            },
-          })
-        },
-      })
-    })
-  }, heroRef.value)
-})
-
-onUnmounted(() => {
-  gsapCtx?.revert()
-  clearTimeout(typeTimer)
-})
-
-function scrollToWork() {
-  lenis.scrollTo('#projects')
-}
 </script>
 
 <template>
-  <section id="hero" ref="heroRef" class="relative min-h-screen grid items-center" style="grid-template-columns: 55fr 45fr; padding: 0 clamp(24px, 6vw, 120px); gap: 48px; background: var(--bg-0);">
+  <section id="hero" class="hero">
+    <p class="eyebrow">{{ t('hero.location') }} · {{ t('hero.years') }} · {{ t('hero.languagesCount') }}</p>
 
-    <!-- Text column -->
-    <div style="min-width: 0;">
-      <!-- Heading -->
-      <h1 class="hero-heading">
-        <span class="sr-only">Markson Rebelo Marcolino. Data Engineer, ML Researcher, and Full-Stack Builder based in Madrid</span>
-        <span aria-hidden="true" class="hero-heading-line" style="display: block; font-family: var(--font-display); font-size: clamp(1rem, 2vw, 1.4rem); color: var(--text-muted); font-weight: 400; letter-spacing: 0.02em; opacity: 0;">
-          {{ t('hero.greeting') }}
-        </span>
-        <span aria-hidden="true" class="hero-heading-line" style="display: block; font-family: var(--font-display); font-size: var(--display-xl); color: var(--accent); line-height: 1; letter-spacing: -0.01em; opacity: 0; height: 2em; overflow: hidden; font-weight: 400;">
-          <span class="cursor-blink" style="display: inline-block; vertical-align: top;">{{ displayRole || '\u00A0' }}</span>
-        </span>
-      </h1>
-
-      <!-- Tagline -->
-      <p class="hero-tagline" style="font-family: var(--font-sans); font-size: var(--text-lg); color: var(--text-secondary); line-height: 1.7; max-width: 440px; margin-top: 24px; opacity: 0;">
-        {{ t('hero.tagline') }}
-      </p>
-
-      <!-- Buttons -->
-      <div class="hero-buttons flex flex-wrap gap-3" style="margin-top: 32px; opacity: 0;">
-        <button
-          @click="scrollToWork"
-          class="flex items-center gap-2 cursor-pointer transition-all hover:scale-[1.02]"
-          style="background: #f0f0f0; color: #0a0a0a; border: none; border-radius: 4px; padding: 12px 28px; font-family: var(--font-sans); font-weight: 500; font-size: var(--text-sm);"
-        >
-          {{ t('hero.viewWork') }}
-          <ArrowRight :size="16" />
-        </button>
-        <a
-          href="https://github.com/MarksonMarcolino"
-          target="_blank"
-          rel="noopener"
-          class="flex items-center gap-2 cursor-pointer transition-all hover:border-white/50"
-          style="background: transparent; border: 1px solid rgba(255,255,255,0.2); color: var(--text-primary); border-radius: 4px; padding: 12px 28px; font-family: var(--font-sans); font-weight: 500; font-size: var(--text-sm); text-decoration: none;"
-        >
-          <Github :size="16" />
-          {{ t('common.github') }}
-        </a>
-        <button
-          @click="downloadCV"
-          class="hero-btn flex items-center gap-2 cursor-pointer transition-all hover:border-white/50"
-          style="background: transparent; border: 1px solid rgba(255,255,255,0.2); color: var(--text-primary); border-radius: 4px; padding: 12px 28px; font-family: var(--font-sans); font-weight: 500; font-size: var(--text-sm);"
-        >
-          <Download :size="16" />
-          {{ t('hero.download_cv') }}
-        </button>
-      </div>
-
-      <!-- Stats -->
-      <div class="hero-stats-row flex items-center gap-0" style="margin-top: 48px;">
-        <template v-for="(stat, i) in stats" :key="stat.key">
-          <div v-if="i > 0" class="stat-divider h-8 mx-4" style="width: 1px; background: rgba(255,255,255,0.08);"></div>
-          <div class="hero-stat" style="opacity: 0;">
-            <span
-              :ref="el => { if (el) statRefs[stat.key] = el }"
-              style="font-family: var(--font-display); font-size: var(--display-md); color: var(--text-primary); display: block;"
-            >
-              0{{ stat.suffix }}
-            </span>
-            <span style="font-family: var(--font-sans); font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-secondary);">
-              {{ t(`hero.stats.${stat.key}`) }}
-            </span>
-          </div>
-        </template>
-      </div>
+    <div class="name-row">
+      <h1 class="name">Markson Rebelo Marcolino</h1>
+      <img class="portrait" src="/profile-hero.jpg" alt="Markson Rebelo Marcolino" />
     </div>
 
-    <!-- Photo column: self-center aligns to the grid row, not viewport -->
-    <div class="flex items-center justify-center self-center">
-      <div class="hero-photo relative" style="width: clamp(300px, 38vw, 520px); height: clamp(300px, 38vw, 520px); opacity: 0;">
-        <!-- Subtle glow behind -->
-        <div class="absolute inset-0 rounded-full" style="background: radial-gradient(circle, rgba(0,210,255,0.05) 0%, transparent 70%); transform: scale(1.2);"></div>
-        <!-- Photo -->
-        <div class="w-full h-full rounded-full overflow-hidden" style="border: 1px solid rgba(255,255,255,0.1);">
-          <img
-            src="/profile-hero.jpg"
-            alt="Markson Rebelo Marcolino"
-            class="w-full h-full object-cover object-top"
-          />
-        </div>
-      </div>
+    <ul class="roles">
+      <li class="role engineering">
+        <span class="role-dot" aria-hidden="true" />
+        <span><strong>{{ t('hero.roleEngineering.title') }}</strong> {{ t('hero.roleEngineering.place') }}</span>
+      </li>
+      <li class="role research">
+        <span class="role-dot" aria-hidden="true" />
+        <span><strong>{{ t('hero.roleResearch.title') }}</strong> {{ t('hero.roleResearch.place') }}</span>
+      </li>
+    </ul>
+
+    <p class="lede">{{ t('hero.lede') }}</p>
+
+    <div class="ctas">
+      <button type="button" class="cta primary" @click="downloadCV">
+        <Download :size="16" aria-hidden="true" />
+        {{ t('hero.download_cv') }}
+      </button>
+      <a class="cta" href="https://github.com/MarksonMarcolino" target="_blank" rel="noopener">
+        <Github :size="16" aria-hidden="true" />
+        {{ t('common.github') }}
+      </a>
+      <a class="cta" href="https://orcid.org/0009-0006-2494-1595" target="_blank" rel="noopener">
+        {{ t('common.orcid') }}
+      </a>
     </div>
+
+    <StageGraph />
   </section>
 </template>
 
 <style scoped>
-@media (max-width: 767px) {
-  #hero {
-    grid-template-columns: 1fr !important;
-    padding: 80px 20px 40px !important;
-    gap: 24px !important;
-    text-align: center;
-  }
-  #hero > div:last-child {
-    order: -1;
-  }
-  .hero-heading-line {
-    text-align: center;
-  }
-  .hero-tagline {
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .hero-buttons {
-    flex-direction: column;
-    width: 100%;
-  }
-  .hero-buttons > * {
-    width: 100%;
-    justify-content: center;
-  }
-  .hero-photo {
-    width: 160px !important;
-    height: 160px !important;
-    margin: 0 auto 24px;
-  }
-  .hero-stats-row {
-    display: grid !important;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    text-align: center;
-  }
-  .hero-stats-row .stat-divider {
-    display: none;
-  }
+.hero {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: clamp(96px, 12vw, 140px) clamp(20px, 6vw, 120px) clamp(48px, 6vw, 80px);
+  background: var(--bg-0);
 }
-@media (min-width: 768px) and (max-width: 1023px) {
-  #hero {
-    grid-template-columns: 1fr !important;
-    padding: 100px 24px 60px !important;
-    gap: 32px !important;
-    text-align: center;
-  }
-  #hero > div:last-child {
-    order: -1;
-  }
-  .hero-heading-line {
-    text-align: center;
-  }
-  .hero-tagline {
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .hero-buttons {
-    justify-content: center;
-  }
-  .hero-photo {
-    width: 220px !important;
-    height: 220px !important;
-    margin: 0 auto;
+
+.eyebrow {
+  margin: 0 0 20px;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-eyebrow);
+  color: var(--text-muted);
+}
+
+.name-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px 32px;
+}
+
+.name {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--display-xl);
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  color: var(--text-primary);
+  overflow-wrap: anywhere;
+}
+
+.portrait {
+  width: clamp(72px, 12vw, 144px);
+  height: clamp(72px, 12vw, 144px);
+  border-radius: 50%;
+  border: 1px solid var(--border-strong);
+  object-fit: cover;
+  object-position: top;
+}
+
+.roles {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 28px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.role {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-size: var(--text-lg);
+  color: var(--text-secondary);
+}
+
+.role strong {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.role-dot {
+  flex-shrink: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--bronze);
+}
+
+.role.research .role-dot {
+  background: var(--research);
+}
+
+.lede {
+  max-width: 62ch;
+  margin: 24px 0 0;
+  font-size: var(--text-lg);
+  line-height: var(--leading-relaxed);
+  color: var(--text-muted);
+}
+
+.ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 32px 0 56px;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 44px;
+  padding: 0 24px;
+  background: transparent;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text-primary);
+  text-decoration: none;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s, background-color 0.2s;
+}
+
+.cta:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.cta.primary {
+  background: var(--text-primary);
+  border-color: var(--text-primary);
+  color: var(--bg-0);
+}
+
+.cta.primary:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--bg-0);
+}
+
+@media (max-width: 479px) {
+  .ctas {
+    flex-direction: column;
   }
 }
 </style>
